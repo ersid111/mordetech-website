@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "mordetech-solutions",
+  "builds": [
+    { "src": "**/*.html", "use": "@vercel/static" },
+    { "src": "**/*.css", "use": "@vercel/static" },
+    { "src": "**/*.js", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/services", "dest": "/pages/services.html" },
+    { "src": "/solutions", "dest": "/pages/solutions.html" },
+    { "src": "/sustainability", "dest": "/pages/sustainability.html" },
+    { "src": "/news", "dest": "/pages/news.html" },
+    { "src": "/careers", "dest": "/pages/careers.html" },
+    { "src": "/about", "dest": "/pages/about.html" },
+    { "src": "/contact", "dest": "/pages/contact.html" }
+  ]
+}
