@@ -17,7 +17,7 @@
   --text: #e8f4ff;
   --text2: #a0bdd0;
   --muted: #4a6a8a;
-  --font-display: 'Syne', sans-serif;
+  --font-display:  'DM Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --radius: 20px;
@@ -71,7 +71,7 @@ section { position:relative; z-index:1; }
 .section-tag { font-family:var(--font-mono); font-size:.68rem; color:var(--cyan); letter-spacing:.2em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:16px; }
 .section-tag::before { content:''; width:24px; height:1px; background:var(--cyan); flex-shrink:0; }
 h1,h2,h3 { font-family:var(--font-display); }
-h2 { font-size:clamp(2rem,4vw,3rem); font-weight:800; line-height:1.1; letter-spacing:-.03em; }
+h2 { font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.1; letter-spacing:-.02em; }
 
 /* PAGE HERO */
 .page-hero { padding:160px 0 80px; }
