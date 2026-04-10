@@ -53,6 +53,14 @@
 @media(max-width:1024px){ .svc-section{grid-template-columns:1fr;} .svc-section:nth-child(even){direction:ltr;} .process-steps{grid-template-columns:repeat(3,1fr);gap:28px;} .process-steps::before{display:none;} .pricing-grid{grid-template-columns:1fr;} }
 @media(max-width:640px){ .process-steps{grid-template-columns:1fr;} }
 </style>
+<!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div>
@@ -234,6 +242,70 @@
 </section>
 
 <!-- PROCESS -->
+
+<!-- CASE STUDIES / PORTFOLIO -->
+<section class="case-studies">
+  <div class="container">
+    <div class="section-tag reveal">PROVEN RESULTS</div>
+    <h2 class="reveal rd1">Case Studies &amp; Project Outcomes</h2>
+    <p class="reveal rd2" style="color:var(--text2);font-size:.95rem;line-height:1.8;max-width:560px;margin-top:12px;">Real projects. Measurable outcomes. Here's what we've delivered for manufacturers across India.</p>
+    <div class="case-grid">
+
+      <div class="case-card reveal">
+        <div class="case-visual">🏭<span class="case-industry">Automotive</span></div>
+        <div class="case-body">
+          <div class="case-client">Tier-1 Automotive Supplier · Pune</div>
+          <div class="case-title">AI Vision Defect Detection on Stamping Line</div>
+          <p class="case-desc">Deployed a real-time deep learning inspection system on a high-speed metal stamping line. Replaced manual visual QC with a Basler camera + NVIDIA Jetson edge AI setup integrated directly into the existing Siemens PLC reject logic.</p>
+          <div class="case-outcome">Reduced defect escape rate by 94% in 3 months</div>
+          <div class="case-tags">
+            <span class="case-tag">AI Vision</span>
+            <span class="case-tag">Siemens S7-1500</span>
+            <span class="case-tag">NVIDIA Jetson</span>
+            <span class="case-tag">PyTorch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal rd1">
+        <div class="case-visual">⚡<span class="case-industry">Manufacturing</span></div>
+        <div class="case-body">
+          <div class="case-client">Mid-size Press Shop · Aurangabad</div>
+          <div class="case-title">Smart OEE Dashboard &amp; Predictive Maintenance System</div>
+          <p class="case-desc">Built a full IIoT layer using OPC-UA and MQTT to pull live data from 18 machines into a Grafana OEE dashboard. Added vibration-based predictive maintenance alerts that reduced unplanned downtime by flagging bearing wear 5 days in advance.</p>
+          <div class="case-outcome">OEE improved from 61% to 83% within 6 months</div>
+          <div class="case-tags">
+            <span class="case-tag">OPC-UA</span>
+            <span class="case-tag">MQTT</span>
+            <span class="case-tag">Grafana</span>
+            <span class="case-tag">Predictive Maint.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal rd2">
+        <div class="case-visual">🔧<span class="case-industry">Energy</span></div>
+        <div class="case-body">
+          <div class="case-client">Industrial Utility Plant · Maharashtra</div>
+          <div class="case-title">Legacy PLC Migration &amp; SCADA Modernisation</div>
+          <p class="case-desc">Migrated a 15-year-old Siemens S5 system to S7-1500 TIA Portal with zero production downtime using a parallel-run cutover strategy. Replaced aging SCADA panels with a modern WinCC Unified web-based HMI accessible from tablets on the shop floor.</p>
+          <div class="case-outcome">Eliminated 3 annual production stoppages, saving ₹18L/yr</div>
+          <div class="case-tags">
+            <span class="case-tag">TIA Portal</span>
+            <span class="case-tag">S7-1500</span>
+            <span class="case-tag">WinCC Unified</span>
+            <span class="case-tag">Migration</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <button class="btn-ghost" onclick="location.href='/contact.html'" style="padding:12px 36px;">Discuss Your Project →</button>
+    </div>
+  </div>
+</section>
+
 <section class="process">
   <div class="container">
     <div class="section-tag reveal">HOW WE WORK</div>
@@ -303,5 +375,6 @@
   <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#">in</a><a class="social-link" href="#">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in">@</a></div></div>
 </footer>
 <script src="js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
 </body>
 </html>

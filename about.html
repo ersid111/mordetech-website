@@ -70,6 +70,14 @@
 @media(max-width:1024px){ .founder-inner{grid-template-columns:1fr;} .vm-grid{grid-template-columns:1fr;} .timeline::before{left:24px;} .tl-item{grid-template-columns:48px 1fr;} .tl-item:nth-child(odd) .tl-content,.tl-item:nth-child(even) .tl-content{grid-column:2;text-align:left;padding-left:20px;padding-right:0;} .tl-item:nth-child(odd) .tl-dot-wrap,.tl-item:nth-child(even) .tl-dot-wrap{grid-column:1;} .tl-item .tl-empty{display:none;} .values-grid{grid-template-columns:repeat(2,1fr);} .team-grid{grid-template-columns:1fr 1fr;} }
 @media(max-width:640px){ .values-grid{grid-template-columns:1fr;} .team-grid{grid-template-columns:1fr;} }
 </style>
+<!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div>
@@ -273,5 +281,6 @@
   <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#">in</a><a class="social-link" href="#">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in">@</a></div></div>
 </footer>
 <script src="/js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
 </body>
 </html>

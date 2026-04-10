@@ -29,6 +29,14 @@
 @media(max-width:1024px){.ind-grid{grid-template-columns:1fr;}.results-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:640px){.results-grid{grid-template-columns:1fr;}}
 </style>
+<!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div><div id="progress"></div><canvas id="bg-canvas"></canvas>
@@ -89,4 +97,5 @@
 </footer>
 <script src="js/global.js"></script>
 <script>setTimeout(animateCounters,600);</script>
+<script src="js/wa-analytics.js"></script>
 </body></html>

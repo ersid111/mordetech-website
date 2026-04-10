@@ -55,6 +55,14 @@
 @media(max-width:1024px){ .contact-grid{grid-template-columns:1fr;} .faq-grid{grid-template-columns:1fr;} }
 @media(max-width:640px){ .form-grid{grid-template-columns:1fr;} }
 </style>
+<!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <div id="cursor"></div><div id="cursor-ring"></div>
@@ -146,7 +154,7 @@
           </div>
         </div>
         <button class="submit-btn" onclick="submitForm()">🚀 Send Message to MordeTech</button>
-        <p class="form-note">We typically respond within 4 business hours · sales@mordetech-solutions.in</p>
+        <p class="form-note">Secure form powered by Formspree · We respond within 4 business hours · sales@mordetech-solutions.in</p>
       </div>
       <div id="successMsg" class="success-msg contact-form-wrap">
         <div class="check">✅</div>
@@ -246,16 +254,59 @@
 </footer>
 <script src="js/global.js"></script>
 <script>
-function submitForm() {
-  const name = document.getElementById('fname').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone').value;
-  const msg = document.getElementById('message').value;
-  if (!name || !email || !phone || !msg) { alert('Please fill in all required fields.'); return; }
-  document.getElementById('formWrap').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
+async function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const msg = document.getElementById('message').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const service = document.getElementById('service').value;
+  const budget = document.getElementById('budget').value;
+
+  if (!name || !email || !phone || !msg) {
+    alert('Please fill in all required fields (Name, Email, Phone, Message).');
+    return;
+  }
+
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = '⏳ Sending...';
+  btn.disabled = true;
+
+  // ── Formspree: Sign up free at formspree.io and replace YOUR_FORM_ID below ──
+  const FORMSPREE_ID = 'YOUR_FORM_ID'; // e.g. 'xpwzgkqb'
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name, email, phone, company, service, budget, message: msg,
+        _subject: 'New Enquiry from MordeTech Website — ' + (service || 'General'),
+        _replyto: email
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      // GA4 event tracking
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', { event_category: 'Contact', event_label: service || 'General' });
+      }
+    } else {
+      const data = await res.json();
+      alert('Submission error: ' + (data.error || 'Please try again or email us directly.'));
+      btn.textContent = '🚀 Send Message to MordeTech';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Network error. Please email us directly at sales@mordetech-solutions.in');
+    btn.textContent = '🚀 Send Message to MordeTech';
+    btn.disabled = false;
+  }
 }
 function toggleFaq(el) { el.classList.toggle('open'); }
 </script>
+<script src="js/wa-analytics.js"></script>
 </body>
 </html>
