@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MordeTech Solutions — Engineering Intelligent Automation</title>
+<meta name="description" content="MordeTech Solutions — Siemens PLC Automation, AI Machine Vision, Smart Factory & IIoT Systems. Founded by Siddheshwar Morde.">
+<link rel="stylesheet" href="css/global.css">
+<style>
+/* HOME SPECIFIC */
+#home { min-height:100vh; display:flex; align-items:center; padding:140px 60px 80px; }
+.hero-inner { max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.hero-pill { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border:1px solid var(--border); border-radius:100px; background:rgba(0,212,255,.05); font-family:var(--font-mono); font-size:.68rem; color:var(--cyan); letter-spacing:.15em; margin-bottom:24px; }
+.hero-pill::before { content:'●'; animation:blink 1.4s infinite; font-size:.5rem; }
+@keyframes blink { 50%{opacity:0} }
+.hero-title { font-family:var(--font-display); font-size:clamp(3rem,5.5vw,5rem); font-weight:800; line-height:1.0; letter-spacing:-.04em; margin-bottom:8px; }
+.hero-title .g { background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200%; animation:gradShift 4s ease-in-out infinite; }
+@keyframes gradShift { 0%,100%{background-position:0%} 50%{background-position:100%} }
+.hero-sub { font-size:1.05rem; color:var(--text2); margin:22px 0 38px; line-height:1.7; max-width:480px; }
+.hero-cta { display:flex; gap:12px; flex-wrap:wrap; }
+.btn-xl { padding:14px 32px; font-size:.9rem; border-radius:10px; }
+.hero-stats { display:flex; gap:40px; margin-top:56px; flex-wrap:wrap; }
+.stat-item .num { font-family:var(--font-display); font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+.stat-item .lbl { font-size:.72rem; color:var(--muted); margin-top:4px; letter-spacing:.04em; }
+/* Orb */
+.hero-visual { display:flex; align-items:center; justify-content:center; }
+.orb-wrap { position:relative; width:380px; height:380px; }
+.ring { position:absolute; border-radius:50%; border:1px solid; top:50%; left:50%; transform:translate(-50%,-50%); }
+.ring:nth-child(1) { width:380px;height:380px; border-color:rgba(0,212,255,.07); animation:spin 22s linear infinite; }
+.ring:nth-child(2) { width:280px;height:280px; border-color:rgba(0,102,255,.12); animation:spin 16s linear infinite reverse; }
+.ring:nth-child(3) { width:180px;height:180px; border-color:rgba(123,47,255,.2); animation:spin 10s linear infinite; }
+.orb-core { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100px; height:100px; border-radius:50%; background:radial-gradient(circle,rgba(0,212,255,.3),rgba(0,102,255,.15) 50%,transparent 70%); box-shadow:0 0 50px rgba(0,212,255,.3),0 0 100px rgba(0,102,255,.15); animation:breathe 3s ease-in-out infinite; display:flex; align-items:center; justify-content:center; font-size:2.2rem; }
+@keyframes spin { to{transform:translate(-50%,-50%) rotate(360deg)} }
+@keyframes breathe { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.08)} }
+.orb-dot { position:absolute; border-radius:50%; top:50%; left:50%; }
+.orb-dot:nth-child(4) { width:8px;height:8px; background:var(--cyan); box-shadow:0 0 8px var(--cyan); animation:orbit1 5s linear infinite; }
+.orb-dot:nth-child(5) { width:6px;height:6px; background:var(--purple); box-shadow:0 0 8px var(--purple); animation:orbit2 7s linear infinite; }
+.orb-dot:nth-child(6) { width:5px;height:5px; background:var(--blue); box-shadow:0 0 6px var(--blue); animation:orbit3 9s linear infinite; }
+@keyframes orbit1 { 0%{transform:translate(-50%,-50%) rotate(0deg) translateX(140px) rotate(0deg)} 100%{transform:translate(-50%,-50%) rotate(360deg) translateX(140px) rotate(-360deg)} }
+@keyframes orbit2 { 0%{transform:translate(-50%,-50%) rotate(120deg) translateX(190px) rotate(-120deg)} 100%{transform:translate(-50%,-50%) rotate(480deg) translateX(190px) rotate(-480deg)} }
+@keyframes orbit3 { 0%{transform:translate(-50%,-50%) rotate(240deg) translateX(90px) rotate(-240deg)} 100%{transform:translate(-50%,-50%) rotate(600deg) translateX(90px) rotate(-600deg)} }
+.f-cards { position:absolute; inset:0; pointer-events:none; }
+.fc { position:absolute; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:10px 14px; backdrop-filter:blur(10px); font-size:.68rem; font-family:var(--font-mono); color:var(--muted); white-space:nowrap; animation:float 4s ease-in-out infinite; }
+.fc .v { color:var(--cyan); font-weight:500; }
+.fc:nth-child(1){top:8%;right:-5%;animation-delay:0s;}
+.fc:nth-child(2){bottom:12%;left:-12%;animation-delay:1.2s;}
+.fc:nth-child(3){top:55%;right:-8%;animation-delay:2.2s;}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+/* SERVICES PREVIEW */
+#services { padding:110px 0; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:56px; }
+.svc-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; position:relative; overflow:hidden; transition:transform .4s,border-color .4s,box-shadow .4s; }
+.svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:0; transition:opacity .4s; }
+.svc-card::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%,rgba(0,212,255,.05),transparent 60%); opacity:0; transition:opacity .4s; }
+.svc-card:hover { transform:translateY(-8px); border-color:rgba(0,212,255,.3); box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 40px rgba(0,212,255,.07); }
+.svc-card:hover::before,.svc-card:hover::after { opacity:1; }
+.svc-icon { width:50px; height:50px; border-radius:12px; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.08)); border:1px solid rgba(0,212,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:18px; transition:transform .3s,box-shadow .3s; }
+.svc-card:hover .svc-icon { transform:scale(1.1); box-shadow:0 0 20px var(--glow-cyan); }
+.svc-card h3 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:10px; }
+.svc-card p { font-size:.82rem; color:var(--muted); line-height:1.75; }
+.svc-tag { display:inline-block; margin-top:18px; font-family:var(--font-mono); font-size:.6rem; color:var(--cyan); letter-spacing:.1em; text-transform:uppercase; padding:3px 9px; border:1px solid rgba(0,212,255,.2); border-radius:4px; }
+/* SOLUTIONS */
+#solutions { padding:110px 0; }
+.sol-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:56px; }
+.sol-card { border-radius:var(--radius); padding:44px 36px; position:relative; overflow:hidden; transition:transform .4s; cursor:default; }
+.sol-card:hover { transform:scale(1.02); }
+.sol-card:nth-child(1) { background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(0,212,255,.04)); border:1px solid rgba(0,102,255,.2); }
+.sol-card:nth-child(2) { background:linear-gradient(135deg,rgba(123,47,255,.15),rgba(0,212,255,.04)); border:1px solid rgba(123,47,255,.2); }
+.sol-card:nth-child(3) { background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(0,102,255,.04)); border:1px solid rgba(0,212,255,.15); }
+.sol-card:nth-child(4) { background:linear-gradient(135deg,rgba(18,28,58,.9),rgba(8,16,36,.95)); border:1px solid rgba(255,255,255,.06); }
+.sol-icon { font-size:2.4rem; margin-bottom:18px; }
+.sol-card h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:12px; }
+.sol-card p { font-size:.83rem; color:var(--muted); line-height:1.8; }
+.sol-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.sol-tag { font-family:var(--font-mono); font-size:.62rem; color:var(--muted); padding:4px 10px; border:1px solid var(--border); border-radius:4px; }
+/* WHY US */
+#why { padding:110px 0; }
+.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:56px; }
+.why-card { padding:32px 24px; text-align:center; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); transition:transform .3s,border-color .3s; }
+.why-card:hover { transform:translateY(-6px); border-color:rgba(0,212,255,.3); }
+.why-num { font-family:var(--font-display); font-size:3rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.why-card h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin:8px 0 6px; }
+.why-card p { font-size:.8rem; color:var(--muted); line-height:1.7; }
+/* CTA BAND */
+.cta-band { margin:60px 0; background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.12)); border:1px solid rgba(0,102,255,.2); border-radius:var(--radius); padding:60px 80px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.cta-band h2 { font-family:var(--font-display); font-size:2rem; font-weight:800; max-width:480px; }
+.cta-band h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.cta-btns { display:flex; gap:12px; flex-shrink:0; }
+@media(max-width:1024px){ .hero-inner{grid-template-columns:1fr;} .hero-visual{display:none;} .services-grid{grid-template-columns:repeat(2,1fr);} .sol-grid{grid-template-columns:1fr;} .why-grid{grid-template-columns:repeat(2,1fr);} .cta-band{padding:40px 32px;} #home{padding:140px 24px 60px;} }
+@media(max-width:640px){ .services-grid,.why-grid{grid-template-columns:1fr;} .cta-band{flex-direction:column;text-align:center;} }
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="pages/services.html" onclick="closeMobile()">Services</a>
+  <a href="pages/solutions.html" onclick="closeMobile()">Solutions</a>
+  <a href="pages/sustainability.html" onclick="closeMobile()">Sustainability</a>
+  <a href="pages/news.html" onclick="closeMobile()">News</a>
+  <a href="pages/careers.html" onclick="closeMobile()">Careers</a>
+  <a href="pages/about.html" onclick="closeMobile()">About</a>
+  <a href="pages/contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Morde<em>Tech</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/services.html">Services</a></li>
+    <li><a href="pages/solutions.html">Solutions</a></li>
+    <li><a href="pages/sustainability.html">Sustainability</a></li>
+    <li><a href="pages/news.html">News</a></li>
+    <li><a href="pages/careers.html">Careers</a></li>
+    <li><a href="pages/about.html">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">🌐 EN</option><option value="de">🇩🇪 DE</option><option value="mr">🇮🇳 MR</option></select>
+    <button class="btn-ghost" onclick="location.href='pages/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='pages/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HOME HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill">INDUSTRY 4.0 SOLUTIONS</div>
+      <h1 class="hero-title">Engineering<br><span class="g" id="typeTarget">Intelligent Automation</span></h1>
+      <p class="hero-sub">Where <strong>PLC meets AI.</strong> MordeTech Solutions delivers world-class Siemens automation, machine vision, and smart factory systems for the next era of manufacturing.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-xl" onclick="location.href='pages/services.html'">🚀 Explore Services</button>
+        <button class="btn-ghost btn-xl" onclick="location.href='pages/contact.html'">Get a Quote →</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num" data-target="150" data-suffix="+">0+</div><div class="lbl">Projects Delivered</div></div>
+        <div class="stat-item"><div class="num" data-target="80" data-suffix="+">0+</div><div class="lbl">Global Clients</div></div>
+        <div class="stat-item"><div class="num" data-target="12" data-suffix=" Yrs">0 Yrs</div><div class="lbl">Experience</div></div>
+        <div class="stat-item"><div class="num" data-target="99" data-suffix="%">0%</div><div class="lbl">Uptime SLA</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb-wrap">
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        <div class="orb-core">⚡</div>
+        <div class="orb-dot"></div><div class="orb-dot"></div><div class="orb-dot"></div>
+        <div class="f-cards">
+          <div class="fc">OPC UA → <span class="v">LIVE</span></div>
+          <div class="fc">AI Defect Rate: <span class="v">0.02%</span></div>
+          <div class="fc">OEE: <span class="v">94.7%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag reveal">WHAT WE DO</div>
+    <h2 class="reveal rd1">Products &amp; Services</h2>
+    <div class="services-grid">
+      <div class="svc-card reveal"><div class="svc-icon">🔧</div><h3>PLC Programming</h3><p>Expert Siemens TIA Portal development — S7-1200, S7-1500. Ladder, FBD, SCL with full documentation.</p><div class="svc-tag">Siemens TIA Portal</div></div>
+      <div class="svc-card reveal rd1"><div class="svc-icon">🖥️</div><h3>SCADA / HMI Development</h3><p>Modern SCADA interfaces with WinCC, Ignition and custom web-based HMI for real-time visualization.</p><div class="svc-tag">WinCC · Ignition</div></div>
+      <div class="svc-card reveal rd2"><div class="svc-icon">🤖</div><h3>AI-Based Defect Detection</h3><p>Deep learning models for real-time quality inspection at line speed. 99.8%+ accuracy with sub-ms inference.</p><div class="svc-tag">Computer Vision · PyTorch</div></div>
+      <div class="svc-card reveal"><div class="svc-icon">👁️</div><h3>Vision Inspection Systems</h3><p>Industrial camera integration, image pipelines, and automated rejection for zero-defect manufacturing.</p><div class="svc-tag">Cognex · Basler · OpenCV</div></div>
+      <div class="svc-card reveal rd1"><div class="svc-icon">📊</div><h3>Industrial Dashboards</h3><p>Real-time OEE dashboards, production analytics and KPI monitoring with Grafana and custom React UIs.</p><div class="svc-tag">Grafana · React · FastAPI</div></div>
+      <div class="svc-card reveal rd2"><div class="svc-icon">🌐</div><h3>IIoT Integration</h3><p>End-to-end IIoT with MQTT, OPC UA, edge computing on Raspberry Pi and cloud connectivity.</p><div class="svc-tag">OPC UA · MQTT · Edge AI</div></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <button class="btn-ghost" onclick="location.href='pages/services.html'" style="padding:12px 36px;">View All Services →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS PREVIEW -->
+<section id="solutions">
+  <div class="container">
+    <div class="section-tag reveal">INDUSTRIES WE SERVE</div>
+    <h2 class="reveal rd1">Solutions &amp; Business Areas</h2>
+    <div class="sol-grid">
+      <div class="sol-card reveal"><div class="sol-icon">🚗</div><h3>Automotive Industry</h3><p>Precision automation for body-in-white, powertrain assembly, and end-of-line testing with AI vision.</p><div class="sol-tags"><span class="sol-tag">Robot Integration</span><span class="sol-tag">Weld Inspection</span><span class="sol-tag">EoL Testing</span></div></div>
+      <div class="sol-card reveal rd1"><div class="sol-icon">🏭</div><h3>Manufacturing</h3><p>Complete factory automation with OEE optimization, predictive maintenance, and full MES integration.</p><div class="sol-tags"><span class="sol-tag">OEE Analytics</span><span class="sol-tag">Predictive Maint.</span><span class="sol-tag">MES</span></div></div>
+      <div class="sol-card reveal"><div class="sol-icon">⚡</div><h3>Energy &amp; Utilities</h3><p>Smart grid monitoring, substation automation and energy management for optimal carbon-footprint reduction.</p><div class="sol-tags"><span class="sol-tag">Smart Grid</span><span class="sol-tag">Energy Mgmt</span><span class="sol-tag">SCADA</span></div></div>
+      <div class="sol-card reveal rd1"><div class="sol-icon">🧠</div><h3>Smart Factories</h3><p>Industry 4.0 transformation with digital twins, AI process optimization, and full vertical cloud integration.</p><div class="sol-tags"><span class="sol-tag">Digital Twin</span><span class="sol-tag">AI Optimization</span><span class="sol-tag">Cloud</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MORDETECH -->
+<section id="why">
+  <div class="container">
+    <div class="section-tag reveal">WHY CHOOSE US</div>
+    <h2 class="reveal rd1">Built Different. Proven in the Field.</h2>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-num" data-target="150" data-suffix="+">0+</div><h4>Projects Delivered</h4><p>From small retrofits to greenfield smart factories across 3 continents.</p></div>
+      <div class="why-card reveal rd1"><div class="why-num" data-target="12" data-suffix=" Yrs">0 Yrs</div><h4>Deep Expertise</h4><p>Siemens-certified engineers with hands-on TIA Portal and OPC UA mastery.</p></div>
+      <div class="why-card reveal rd2"><div class="why-num" data-target="48" data-suffix="hr">0hr</div><h4>Response Time</h4><p>Emergency support with 48-hour on-site SLA for critical production systems.</p></div>
+      <div class="why-card reveal rd3"><div class="why-num" data-target="99" data-suffix="%">0%</div><h4>Uptime SLA</h4><p>Mission-critical systems with redundant architecture and 24/7 monitoring.</p></div>
+    </div>
+    <!-- CTA BAND -->
+    <div class="cta-band reveal" style="margin-top:60px;">
+      <h2>Ready to <span>transform your factory</span> with intelligent automation?</h2>
+      <div class="cta-btns">
+        <button class="btn-primary btn-xl" onclick="location.href='pages/contact.html'"><span>🚀 Get Started</span></button>
+        <button class="btn-ghost btn-xl" onclick="location.href='pages/about.html'">Our Story</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">Morde<em>Tech</em></a>
+      <p>Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="pages/services.html">PLC Programming</a></li><li><a href="pages/services.html">SCADA / HMI</a></li><li><a href="pages/services.html">AI Vision</a></li><li><a href="pages/services.html">IIoT Integration</a></li><li><a href="pages/services.html">Dashboards</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="pages/about.html">About Us</a></li><li><a href="pages/careers.html">Careers</a></li><li><a href="pages/news.html">News</a></li><li><a href="pages/sustainability.html">Sustainability</a></li><li><a href="pages/contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li><li><a href="#">Hinjewadi, Pune, India</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Siddheshwar Morde. All rights reserved.</p>
+    <div class="social-links">
+      <a class="social-link" href="#" title="LinkedIn">in</a>
+      <a class="social-link" href="#" title="Twitter">𝕏</a>
+      <a class="social-link" href="mailto:sales@mordetech-solutions.in" title="Email">@</a>
+    </div>
+  </div>
+</footer>
+<script src="js/global.js"></script>
+<script>
+// Typewriter
+const words = ['Intelligent Automation','Smart Factories','AI-Driven Quality','Industry 4.0'];
+let wi=0,ci=0,del=false;
+const el = document.getElementById('typeTarget');
+function type(){
+  const w=words[wi];
+  if(!del){el.textContent=w.slice(0,ci+1);ci++;if(ci===w.length){del=true;setTimeout(type,2200);return;}}
+  else{el.textContent=w.slice(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}
+  setTimeout(type,del?55:100);
+}
+setTimeout(type,1000);
+// Stats animate on load
+setTimeout(animateCounters, 400);
+</script>
+</body>
+</html>
