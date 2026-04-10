@@ -12,7 +12,8 @@
 .founder-inner { display:grid; grid-template-columns:1fr 1.6fr; gap:80px; align-items:center; }
 .founder-card { border-radius:var(--radius); padding:48px 40px; background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(123,47,255,.08)); border:1px solid rgba(0,102,255,.25); text-align:center; position:relative; overflow:hidden; }
 .founder-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent); }
-.founder-avatar { width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:3rem; margin:0 auto 20px; box-shadow:0 0 40px var(--glow-cyan); }
+.founder-avatar { width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--purple)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; box-shadow:0 0 40px var(--glow-cyan); overflow:hidden; }
+.founder-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
 .founder-name { font-family:var(--font-display); font-size:1.5rem; font-weight:800; margin-bottom:6px; }
 .founder-title { font-family:var(--font-mono); font-size:.7rem; color:var(--cyan); letter-spacing:.15em; text-transform:uppercase; margin-bottom:20px; }
 .founder-bio { font-size:.85rem; color:var(--text2); line-height:1.8; text-align:left; }
@@ -60,7 +61,8 @@
 .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
 .team-card { border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); overflow:hidden; transition:transform .3s,border-color .3s; text-align:center; }
 .team-card:hover { transform:translateY(-6px); border-color:rgba(0,212,255,.3); }
-.team-avatar { height:140px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1)); }
+.team-avatar { height:140px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1)); overflow:hidden; }
+.team-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
 .team-body { padding:24px; }
 .team-body h4 { font-family:var(--font-display); font-size:1rem; font-weight:800; margin-bottom:4px; }
 .team-role { font-family:var(--font-mono); font-size:.65rem; color:var(--cyan); letter-spacing:.1em; margin-bottom:10px; }
@@ -110,7 +112,7 @@
   <div class="container">
     <div class="founder-inner">
       <div class="founder-card reveal">
-        <div class="founder-avatar">👨‍💻</div>
+        <div class="founder-avatar"><img src="../images/founder.png" alt="Founder Siddheshwar Morde"></div>
         <div class="founder-name">Siddheshwar Morde</div>
         <div class="founder-title">Founder &amp; Director</div>
         <div class="founder-bio">An automation engineer with over 12 years of hands-on experience in Siemens PLC systems, machine vision, and IIoT architectures. Passionate about bringing AI to the factory floor.</div>
@@ -231,7 +233,7 @@
     <h2 class="reveal rd1">Meet the Team</h2>
     <div class="team-grid">
       <div class="team-card reveal">
-        <div class="team-avatar">👨‍💻</div>
+        <div class="team-avatar"><img src="../images/team-siddheshwar.png" alt="Siddheshwar Morde"></div>
         <div class="team-body">
           <h4>Siddheshwar Morde</h4>
           <div class="team-role">FOUNDER &amp; DIRECTOR</div>
@@ -239,19 +241,19 @@
         </div>
       </div>
       <div class="team-card reveal rd1">
-        <div class="team-avatar">👩‍🔬</div>
+        <div class="team-avatar"><img src="../images/team-priyanka.png" alt="Priyanka Morde"></div>
         <div class="team-body">
-          <h4>Head of AI &amp; Vision</h4>
-          <div class="team-role">AI / ML LEAD</div>
-          <p>PhD in Computer Vision. Leads development of deep learning models for industrial inspection systems.</p>
+          <h4>Priyanka Morde</h4>
+          <div class="team-role">PHARMA SOLUTIONS LEAD</div>
+          <p>Bachelors in pharmacy. Leads development of pharma related deep learning models for industrial inspection systems.</p>
         </div>
       </div>
       <div class="team-card reveal rd2">
-        <div class="team-avatar">👨‍🏭</div>
+        <div class="team-avatar"><img src="../images/team-amrut.png" alt="Amrut Dhappadhule"></div>
         <div class="team-body">
-          <h4>Lead Automation Engineer</h4>
-          <div class="team-role">PLC / SCADA LEAD</div>
-          <p>Siemens-certified with 8+ years delivering large-scale factory automation for automotive OEMs.</p>
+          <h4>Amrut Dhappadhule</h4>
+          <div class="team-role">SOFTWARE DEVELOPMENT LEAD</div>
+          <p>8+ years of experience in software development for industrial automation. Leads the development of custom solutions for our clients.</p>
         </div>
       </div>
     </div>
