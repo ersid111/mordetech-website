@@ -26,7 +26,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; cursor: none; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-weight: 200; overflow-x: hidden; cursor: none; }
 
 /* CURSOR */
 #cursor { position:fixed; width:10px; height:10px; background:var(--cyan); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s; mix-blend-mode:screen; }
