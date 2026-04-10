@@ -1,14 +1,14 @@
 {
   "version": 2,
   "name": "mordetech-solutions",
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/services", "dest": "/services.html" },
-    { "src": "/solutions", "dest": "/solutions.html" },
-    { "src": "/sustainability", "dest": "/sustainability.html" },
-    { "src": "/news", "dest": "/news.html" },
-    { "src": "/careers", "dest": "/careers.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/contact", "dest": "/contact.html" }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/solutions", "destination": "/solutions.html" },
+    { "source": "/sustainability", "destination": "/sustainability.html" },
+    { "source": "/news", "destination": "/news.html" },
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/contact.html" }
   ]
 }
