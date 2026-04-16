@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>404 — Page Not Found | MordeTech Solutions</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/css/global.css">
+<style>
+.error-page { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 24px; }
+.error-inner { max-width:560px; }
+.error-code { font-family:var(--font-display); font-size:clamp(6rem,16vw,10rem); font-weight:900; line-height:1; background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200%; animation:gradShift 4s ease-in-out infinite; }
+@keyframes gradShift { 0%,100%{background-position:0%} 50%{background-position:100%} }
+.error-title { font-family:var(--font-display); font-size:clamp(1.4rem,4vw,2rem); font-weight:800; margin:16px 0 12px; }
+.error-msg { color:var(--text2); font-size:1rem; line-height:1.75; margin-bottom:36px; }
+.error-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.error-tag { font-family:var(--font-mono); font-size:.72rem; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px; display:block; }
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<section class="error-page">
+  <div class="error-inner">
+    <span class="error-tag">Error 404</span>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-msg">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="error-actions">
+      <button class="btn-primary btn-xl" onclick="location.href='/'">← Back to Home</button>
+      <button class="btn-ghost btn-xl" onclick="location.href='/contact.html'">Contact Us</button>
+    </div>
+  </div>
+</section>
+<script src="/js/global.js"></script>
+</body>
+</html>
