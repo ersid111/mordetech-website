@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>News & Insights — MordeTech Solutions</title>
+<meta name="description" content="Latest news and insights from MordeTech Solutions — automation trends, AI in manufacturing, and Industry 4.0 updates from Pune.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="News & Insights — MordeTech Solutions">
+<meta property="og:description" content="Stay updated on automation trends, AI machine vision breakthroughs, and Industry 4.0 news from MordeTech Solutions.">
+<meta property="og:url" content="https://mordetech-solutions.in/news.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="News & Insights — MordeTech Solutions">
+<meta name="twitter:description" content="Stay updated on automation trends, AI machine vision breakthroughs, and Industry 4.0 news from MordeTech Solutions.">
 <link rel="stylesheet" href="css/global.css">
 <style>
 .page-hero{padding:160px 0 80px;}
@@ -76,8 +86,8 @@
     <button class="filter-btn">Technology</button>
     <button class="filter-btn">Sustainability</button>
   </div>
-  <div class="news-grid">
-    <div class="news-hero-card reveal">
+  <div class="news-grid" id="newsGrid">
+    <div class="news-hero-card reveal" data-category="ai-vision">
       <div class="hero-news-img" style="font-size:6rem;position:relative;z-index:1;">🤖</div>
       <div class="hero-news-body">
         <div class="news-cat">🔥 FEATURED — AI / MACHINE VISION</div>
@@ -87,7 +97,7 @@
         <div class="read-more">Read Full Story →</div>
       </div>
     </div>
-    <div class="news-card reveal">
+    <div class="news-card reveal" data-category="industry-4-0">
       <div class="news-img ni1" style="font-size:3rem;position:relative;z-index:1;">⚡</div>
       <div class="news-body">
         <div class="news-cat">Industry 4.0</div>
@@ -97,17 +107,17 @@
         <div class="read-more">Read More →</div>
       </div>
     </div>
-    <div class="news-card reveal rd1">
+    <div class="news-card reveal rd1" data-category="technology">
       <div class="news-img ni2" style="font-size:3rem;position:relative;z-index:1;">📊</div>
       <div class="news-body">
-        <div class="news-cat">Product Launch</div>
+        <div class="news-cat">Technology</div>
         <h3>Introducing OEE Pro: Real-Time Analytics with AI-Powered Predictive Alerts</h3>
         <p>Our new OEE Pro platform delivers real-time production analytics, AI-driven anomaly detection, and shift-wise reporting — accessible from any device, anywhere.</p>
         <div class="news-date">JANUARY 2025</div>
         <div class="read-more">Read More →</div>
       </div>
     </div>
-    <div class="news-card reveal">
+    <div class="news-card reveal" data-category="company-news">
       <div class="news-img ni3" style="font-size:3rem;position:relative;z-index:1;">🌍</div>
       <div class="news-body">
         <div class="news-cat">Company News</div>
@@ -117,7 +127,7 @@
         <div class="read-more">Read More →</div>
       </div>
     </div>
-    <div class="news-card reveal rd1">
+    <div class="news-card reveal rd1" data-category="sustainability">
       <div class="news-img ni4" style="font-size:3rem;position:relative;z-index:1;">🌱</div>
       <div class="news-body">
         <div class="news-cat">Sustainability</div>
@@ -127,7 +137,7 @@
         <div class="read-more">Read More →</div>
       </div>
     </div>
-    <div class="news-card reveal rd2">
+    <div class="news-card reveal rd2" data-category="technology">
       <div class="news-img ni5" style="font-size:3rem;position:relative;z-index:1;">🔬</div>
       <div class="news-body">
         <div class="news-cat">Technology</div>
@@ -143,19 +153,32 @@
   <div class="footer-inner">
     <div class="footer-brand"><a href="/" class="nav-logo">Morde<em>Tech</em></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
     <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA/HMI</a></li><li><a href="services.html">AI Vision</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
     <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
 </footer>
 <script src="js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
 <script>
+// News category filter
+const filterMap = {
+  'All': null,
+  'AI / Vision': 'ai-vision',
+  'Industry 4.0': 'industry-4-0',
+  'Company News': 'company-news',
+  'Technology': 'technology',
+  'Sustainability': 'sustainability'
+};
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    const category = filterMap[btn.textContent.trim()];
+    document.querySelectorAll('#newsGrid > [data-category]').forEach(card => {
+      card.style.display = (!category || card.dataset.category === category) ? '' : 'none';
+    });
   });
 });
 </script>
-<script src="js/wa-analytics.js"></script>
 </body></html>

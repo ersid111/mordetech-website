@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Careers — MordeTech Solutions</title>
+<meta name="description" content="Join MordeTech Solutions — open roles in PLC automation, AI machine vision, IIoT, and smart factory engineering. Based in Pune, India.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Careers — MordeTech Solutions">
+<meta property="og:description" content="Join our team of automation engineers. Open roles in PLC, SCADA, AI vision, IIoT, and smart factory systems. Pune, India.">
+<meta property="og:url" content="https://mordetech-solutions.in/careers.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Careers — MordeTech Solutions">
+<meta name="twitter:description" content="Join our team of automation engineers. Open roles in PLC, SCADA, AI vision, IIoT, and smart factory systems. Pune, India.">
 <link rel="stylesheet" href="css/global.css">
 <style>
 .page-hero{padding:160px 0 80px;}
@@ -128,30 +138,90 @@
 
   <!-- APPLY FORM -->
   <div class="apply-form reveal" id="applyForm">
-    <h3>Apply to MordeTech Solutions</h3>
-    <p>Send us your application and our team will review it within 48 hours. We're always open to exceptional talent even if a specific role isn't listed.</p>
-    <div class="apply-grid">
-      <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your full name"></div>
-      <div class="form-group"><label>Email *</label><input type="email" placeholder="you@email.com"></div>
-      <div class="form-group"><label>Phone *</label><input type="tel" placeholder="+91 99999 00000"></div>
-      <div class="form-group"><label>Position</label><select><option>Senior PLC Engineer</option><option>Computer Vision Engineer</option><option>IIoT Solutions Architect</option><option>Frontend Engineer</option><option>SCADA Developer</option><option>Trainee Engineer</option><option>Other — I'll explain below</option></select></div>
-      <div class="form-group"><label>Experience</label><select><option>Fresher / 0 years</option><option>0 – 2 Years</option><option>2 – 5 Years</option><option>5 – 10 Years</option><option>10+ Years</option></select></div>
-      <div class="form-group"><label>LinkedIn / Portfolio URL</label><input type="url" placeholder="https://linkedin.com/in/yourname"></div>
-      <div class="form-group full"><label>Cover Message *</label><textarea rows="5" placeholder="Tell us about yourself, your experience with PLCs / AI / automation, and why you want to join MordeTech..."></textarea></div>
+    <div id="applySuccess" style="display:none;text-align:center;padding:48px 0;">
+      <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+      <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;margin-bottom:10px;">Application Received!</h3>
+      <p style="color:var(--muted);font-size:.95rem;">Our team will review your application and reach out within 48 hours.</p>
     </div>
-    <button class="btn-primary" style="padding:14px 40px;margin-top:16px;font-size:.98rem;"><span>🚀 Submit Application</span></button>
-    <p style="font-size:.8rem;color:var(--muted);margin-top:12px;font-family:var(--font-mono);">Or email directly: careers@mordetech-solutions.in · +91 73874 41521</p>
+    <div id="applyFormWrap">
+      <h3>Apply to MordeTech Solutions</h3>
+      <p>Send us your application and our team will review it within 48 hours. We're always open to exceptional talent even if a specific role isn't listed.</p>
+      <div class="apply-grid">
+        <div class="form-group"><label>Full Name *</label><input id="aName" type="text" placeholder="Your full name" required></div>
+        <div class="form-group"><label>Email *</label><input id="aEmail" type="email" placeholder="you@email.com" required></div>
+        <div class="form-group"><label>Phone *</label><input id="aPhone" type="tel" placeholder="+91 99999 00000" required></div>
+        <div class="form-group"><label>Position</label><select id="aPosition"><option>Senior PLC Engineer</option><option>Computer Vision Engineer</option><option>IIoT Solutions Architect</option><option>Frontend Engineer</option><option>SCADA Developer</option><option>Trainee Engineer</option><option>Other — I'll explain below</option></select></div>
+        <div class="form-group"><label>Experience</label><select id="aExp"><option>Fresher / 0 years</option><option>0 – 2 Years</option><option>2 – 5 Years</option><option>5 – 10 Years</option><option>10+ Years</option></select></div>
+        <div class="form-group"><label>LinkedIn / Portfolio URL</label><input id="aLinkedin" type="url" placeholder="https://linkedin.com/in/yourname"></div>
+        <div class="form-group full"><label>Cover Message *</label><textarea id="aCover" rows="5" placeholder="Tell us about yourself, your experience with PLCs / AI / automation, and why you want to join MordeTech..." required></textarea></div>
+      </div>
+      <button id="applyBtn" class="btn-primary" type="button" onclick="submitApply()" style="padding:14px 40px;margin-top:16px;font-size:.98rem;"><span>🚀 Submit Application</span></button>
+      <p style="font-size:.8rem;color:var(--muted);margin-top:12px;font-family:var(--font-mono);">Or email directly: <a href="mailto:careers@mordetech-solutions.in" style="color:var(--cyan);">careers@mordetech-solutions.in</a> · +91 73874 41521</p>
+    </div>
   </div>
 </div></section>
 <footer>
   <div class="footer-inner">
     <div class="footer-brand"><a href="/" class="nav-logo">Morde<em>Tech</em></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
     <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA/HMI</a></li><li><a href="services.html">AI Vision</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
     <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
 </footer>
 <script src="js/global.js"></script>
 <script src="js/wa-analytics.js"></script>
+<script>
+// Careers application form — Formspree submission
+// Sign up at formspree.io and replace CAREERS_FORM_ID with your form's ID
+const CAREERS_FORM_ID = 'xlgoyvzn'; // Replace with careers-specific Formspree form ID
+
+async function submitApply() {
+  const name = document.getElementById('aName').value.trim();
+  const email = document.getElementById('aEmail').value.trim();
+  const phone = document.getElementById('aPhone').value.trim();
+  const cover = document.getElementById('aCover').value.trim();
+  const position = document.getElementById('aPosition').value;
+  const exp = document.getElementById('aExp').value;
+  const linkedin = document.getElementById('aLinkedin').value.trim();
+
+  if (!name || !email || !phone || !cover) {
+    alert('Please fill in all required fields (Name, Email, Phone, Cover Message).');
+    return;
+  }
+
+  const btn = document.getElementById('applyBtn');
+  btn.innerHTML = '<span>⏳ Submitting...</span>';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + CAREERS_FORM_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name, email, phone, position, experience: exp, linkedin, cover_message: cover,
+        _subject: 'New Job Application — ' + position + ' — MordeTech',
+        _replyto: email
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('applyFormWrap').style.display = 'none';
+      document.getElementById('applySuccess').style.display = 'block';
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', { event_category: 'Careers', event_label: position });
+      }
+    } else {
+      const data = await res.json();
+      alert('Submission error: ' + (data.error || 'Please email us at careers@mordetech-solutions.in'));
+      btn.innerHTML = '<span>🚀 Submit Application</span>';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Network error. Please email us directly at careers@mordetech-solutions.in');
+    btn.innerHTML = '<span>🚀 Submit Application</span>';
+    btn.disabled = false;
+  }
+}
+</script>
 </body></html>
