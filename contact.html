@@ -16,40 +16,40 @@
 .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .form-grid .full { grid-column:1/-1; }
 .form-group { display:flex; flex-direction:column; gap:7px; }
-.form-group label { font-size:.68rem; color:var(--muted); letter-spacing:.1em; font-family:var(--font-mono); text-transform:uppercase; }
-.form-group input,.form-group textarea,.form-group select { background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:12px 16px; color:var(--text); font-family:var(--font-body); font-size:.88rem; outline:none; transition:border-color .3s,box-shadow .3s; resize:none; width:100%; }
+.form-group label { font-size:.75rem; color:var(--muted); letter-spacing:.1em; font-family:var(--font-mono); text-transform:uppercase; }
+.form-group input,.form-group textarea,.form-group select { background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:12px 16px; color:var(--text); font-family:var(--font-body); font-size:.95rem; outline:none; transition:border-color .3s,box-shadow .3s; resize:none; width:100%; }
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,.07); }
 .form-group select option { background:var(--bg2); }
-.submit-btn { width:100%; padding:14px; margin-top:8px; font-size:.9rem; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--cyan)); border:none; color:#000; font-family:var(--font-body); font-weight:700; cursor:pointer; transition:transform .2s,box-shadow .3s; letter-spacing:.04em; }
+.submit-btn { width:100%; padding:14px; margin-top:8px; font-size:.98rem; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--cyan)); border:none; color:#000; font-family:var(--font-body); font-weight:700; cursor:pointer; transition:transform .2s,box-shadow .3s; letter-spacing:.04em; }
 .submit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px var(--glow-blue); }
-.form-note { font-size:.72rem; color:var(--muted); margin-top:12px; text-align:center; font-family:var(--font-mono); }
+.form-note { font-size:.8rem; color:var(--muted); margin-top:12px; text-align:center; font-family:var(--font-mono); }
 /* SIDE INFO */
 .contact-side { display:flex; flex-direction:column; gap:18px; }
 .info-card { padding:28px; border-radius:var(--radius); background:var(--surface); border:1px solid var(--border); display:flex; gap:18px; align-items:flex-start; transition:border-color .3s,transform .3s; }
 .info-card:hover { border-color:rgba(0,212,255,.3); transform:translateX(4px); }
 .info-icon-wrap { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.08)); border:1px solid rgba(0,212,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
-.info-card h4 { font-family:var(--font-display); font-size:.9rem; font-weight:700; margin-bottom:5px; }
-.info-card p,.info-card a { font-size:.83rem; color:var(--muted); line-height:1.7; text-decoration:none; display:block; transition:color .3s; }
+.info-card h4 { font-family:var(--font-display); font-size:.98rem; font-weight:700; margin-bottom:5px; }
+.info-card p,.info-card a { font-size:.9rem; color:var(--muted); line-height:1.7; text-decoration:none; display:block; transition:color .3s; }
 .info-card a:hover { color:var(--cyan); }
 .quick-btns { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
 /* MAP */
 .map-wrap { border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); height:260px; position:relative; background:linear-gradient(135deg,rgba(0,50,120,.3),rgba(0,20,60,.5)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; }
 .map-wrap::before { content:'📍'; font-size:2.5rem; }
-.map-label { font-family:var(--font-mono); font-size:.72rem; color:var(--cyan); letter-spacing:.1em; text-align:center; }
-.map-sub { font-size:.78rem; color:var(--muted); text-align:center; }
+.map-label { font-family:var(--font-mono); font-size:.8rem; color:var(--cyan); letter-spacing:.1em; text-align:center; }
+.map-sub { font-size:.85rem; color:var(--muted); text-align:center; }
 /* SUCCESS MSG */
 .success-msg { display:none; text-align:center; padding:40px; }
 .success-msg .check { font-size:3rem; margin-bottom:16px; }
 .success-msg h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:10px; }
-.success-msg p { color:var(--muted); font-size:.88rem; }
+.success-msg p { color:var(--muted); font-size:.95rem; }
 /* FAQ */
 .faq { padding:0 0 100px; }
 .faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:56px; }
 .faq-item { padding:28px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); cursor:pointer; transition:border-color .3s; }
 .faq-item:hover { border-color:rgba(0,212,255,.3); }
-.faq-q { font-family:var(--font-display); font-size:.95rem; font-weight:700; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.faq-q { font-family:var(--font-display); font-size:1.02rem; font-weight:700; display:flex; justify-content:space-between; align-items:center; gap:12px; }
 .faq-q .arr { color:var(--cyan); font-family:var(--font-mono); transition:transform .3s; }
-.faq-a { font-size:.82rem; color:var(--muted); line-height:1.75; margin-top:12px; display:none; }
+.faq-a { font-size:.9rem; color:var(--muted); line-height:1.75; margin-top:12px; display:none; }
 .faq-item.open .faq-a { display:block; }
 .faq-item.open .arr { transform:rotate(45deg); }
 @media(max-width:1024px){ .contact-grid{grid-template-columns:1fr;} .faq-grid{grid-template-columns:1fr;} }
@@ -250,7 +250,7 @@
     <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#">in</a><a class="social-link" href="#">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in">@</a></div></div>
+  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
 </footer>
 <script src="js/global.js"></script>
 <script>
