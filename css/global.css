@@ -324,3 +324,39 @@ footer { border-top:1px solid var(--border); padding:60px 60px 40px; position:re
 .cookie-btn-decline { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 9px 22px; border-radius: 8px; font-size: .85rem; cursor: pointer; font-family: var(--font-body); white-space: nowrap; transition: border-color .3s, color .3s; }
 .cookie-btn-decline:hover { border-color: var(--muted); color: var(--text); }
 @media(max-width:640px) { #cookie-banner { padding: 16px 20px; } #cookie-banner p { font-size: .8rem; } }
+
+/* =============================================
+   CONSULTATION POPUP
+   ============================================= */
+#consult-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity .3s;
+}
+#consult-popup {
+  background: var(--surface);
+  border: 1px solid rgba(0,212,255,.2);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+#consult-popup h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+#consult-popup p { font-size: .95rem; color: var(--text2); line-height: 1.75; margin: 0; }
+#consult-close { position: absolute; top: 16px; right: 18px; background: transparent; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer; line-height: 1; padding: 4px 8px; transition: color .2s; }
+#consult-close:hover { color: var(--text); }
+.consult-btn-primary { display: inline-block; background: linear-gradient(135deg,var(--blue),var(--cyan)); color: #000; padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: .92rem; text-decoration: none; font-family: var(--font-body); transition: opacity .2s; }
+.consult-btn-primary:hover { opacity: .88; }
+.consult-btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 12px 28px; border-radius: 10px; font-size: .9rem; cursor: pointer; font-family: var(--font-body); transition: border-color .3s, color .3s; }
+.consult-btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+@media(max-width:480px) { #consult-popup { padding: 36px 24px; } }

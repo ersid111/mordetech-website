@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Vision Defect Detection — Case Study — MordeTech Solutions</title>
+<meta name="description" content="How MordeTech deployed real-time AI vision on a Tier-1 automotive stamping line, reducing defect escapes by 94% in 3 months.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case Study: AI Vision Defect Detection on Stamping Line — MordeTech">
+<meta property="og:description" content="Deep learning inspection replaced manual QC on a high-speed stamping line. Defect escapes down 94% in 3 months.">
+<meta property="og:url" content="https://mordetech-solutions.in/case-study-1.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.cs-hero{padding:160px 0 80px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-block;font-family:var(--font-mono);font-size:.7rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(0,212,255,.25);border-radius:4px;margin-bottom:20px;}
+.cs-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:20px;}
+.cs-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:28px;}
+.cs-meta-item{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);}
+.cs-meta-item strong{display:block;color:var(--text);font-size:.78rem;margin-bottom:3px;}
+.cs-body{padding:80px 0 120px;}
+.cs-layout{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;}
+.cs-content h2{font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin:48px 0 16px;}
+.cs-content h2:first-child{margin-top:0;}
+.cs-content p{font-size:.98rem;color:var(--text2);line-height:1.85;margin-bottom:16px;}
+.cs-content ul{list-style:none;padding:0;margin:0 0 20px;}
+.cs-content ul li{font-size:.95rem;color:var(--text2);line-height:1.75;padding:6px 0 6px 20px;border-bottom:1px solid var(--border2);position:relative;}
+.cs-content ul li::before{content:'→';position:absolute;left:0;color:var(--cyan);}
+.cs-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px;}
+.cs-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;}
+.cs-box h4{font-family:var(--font-mono);font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
+.cs-stat{margin-bottom:16px;}
+.cs-stat-num{font-family:var(--font-display);font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.cs-stat-label{font-size:.82rem;color:var(--text2);margin-top:4px;line-height:1.5;}
+.cs-tech-list{display:flex;flex-wrap:wrap;gap:8px;}
+.cs-tech{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);padding:4px 10px;border:1px solid var(--border);border-radius:4px;}
+.cs-quote{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(123,47,255,.04));border:1px solid rgba(0,212,255,.15);border-radius:var(--radius-sm);padding:28px;margin:40px 0;}
+.cs-quote p{font-size:1.05rem;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:12px;}
+.cs-quote cite{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);}
+.cs-next{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;text-align:center;margin-top:60px;}
+.cs-next h3{font-family:var(--font-display);font-size:1.4rem;font-weight:800;margin-bottom:10px;}
+.cs-next p{color:var(--text2);font-size:.92rem;margin-bottom:24px;line-height:1.7;}
+.cs-next-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+@media(max-width:1024px){.cs-layout{grid-template-columns:1fr;}.cs-sidebar{position:static;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div><div id="progress"></div><canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a><a href="services.html" onclick="closeMobile()">Services</a><a href="solutions.html" onclick="closeMobile()">Solutions</a><a href="sustainability.html" onclick="closeMobile()">Sustainability</a><a href="news.html" onclick="closeMobile()">News</a><a href="careers.html" onclick="closeMobile()">Careers</a><a href="about.html" onclick="closeMobile()">About</a><a href="demo.html" onclick="closeMobile()">🟢 Live Demo</a><a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo">Morde<em>Tech</em></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="services.html">Services</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="news.html">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel"><option>🌐 EN</option><option>🇩🇪 DE</option><option>🇮🇳 MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="cs-hero"><div class="container">
+  <div class="cs-tag reveal">🏭 CASE STUDY — AUTOMOTIVE</div>
+  <h1 class="reveal rd1">AI Vision Defect Detection<br><span class="grad">on Stamping Line</span></h1>
+  <p class="reveal rd2" style="font-size:1.05rem;color:var(--text2);max-width:640px;line-height:1.8;">How MordeTech replaced manual visual QC with a real-time deep learning inspection system on a high-speed metal stamping line — achieving 94% reduction in defect escapes within 90 days.</p>
+  <div class="cs-meta reveal">
+    <div class="cs-meta-item"><strong>Client</strong>Tier-1 Automotive Supplier</div>
+    <div class="cs-meta-item"><strong>Location</strong>Pune, Maharashtra</div>
+    <div class="cs-meta-item"><strong>Industry</strong>Automotive — Body Parts Stamping</div>
+    <div class="cs-meta-item"><strong>Duration</strong>14 weeks (deployment + validation)</div>
+    <div class="cs-meta-item"><strong>Completed</strong>March 2025</div>
+  </div>
+</div></section>
+
+<section class="cs-body"><div class="container">
+  <div class="cs-layout">
+    <div class="cs-content">
+
+      <h2>The Challenge</h2>
+      <p>The client's stamping line ran at 800 parts per minute producing structural body components. Manual visual inspection at this speed was impossible — operators were catching fewer than 40% of surface defects, micro-cracks, and dimensional deviations before parts reached downstream assembly.</p>
+      <p>The existing inline gauging system only checked a small sample (1-in-50) and couldn't detect surface anomalies. Warranty claims from assembly partners were rising, and an IATF 16949 audit had flagged the QC process as a high-risk non-conformance. The client needed a 100% inline inspection solution with zero impact on line speed.</p>
+
+      <h2>Our Approach</h2>
+      <p>MordeTech conducted a 3-day site assessment to map defect types, lighting conditions, and PLC integration requirements. We identified four primary defect categories to target:</p>
+      <ul>
+        <li>Micro-cracks and hairline fractures on stamped surfaces</li>
+        <li>Dimensional deviations beyond ±0.3mm tolerance</li>
+        <li>Surface scratches, dents, and paint/coating voids</li>
+        <li>Edge burrs and material tears at cut points</li>
+      </ul>
+      <p>We designed a custom inspection cell with four Basler acA4024 cameras (12.3MP) arranged around a 360° coverage fixture, triggered by the existing PLC conveyor encoder. An NVIDIA Jetson AGX Orin edge AI module runs the inference on-device, ensuring sub-15ms latency well within the part's 75ms conveyor window.</p>
+      <p>The deep learning model was trained on 28,000 labelled images captured from the line over a 2-week baseline period, augmented with synthetic defect generation. Training used a custom ResNet-based architecture fine-tuned with transfer learning from an automotive-specific defect dataset.</p>
+
+      <div class="cs-quote">
+        <p>"We had tried off-the-shelf vision systems before — they couldn't handle the reflective surfaces and speed. MordeTech built something completely custom that just works. The ROI was visible within the first month."</p>
+        <cite>— Quality Manager, Tier-1 Automotive Supplier, Pune (name withheld at client request)</cite>
+      </div>
+
+      <h2>Technical Implementation</h2>
+      <ul>
+        <li>4× Basler acA4024 GigE cameras with structured LED ring lighting (eliminating reflections on metal)</li>
+        <li>NVIDIA Jetson AGX Orin — 32 TOPS inference, runs 4 camera streams simultaneously at 120 FPS</li>
+        <li>Custom PyTorch model (ResNet-50 backbone) quantised to INT8 with TensorRT for edge deployment</li>
+        <li>Siemens S7-1500 PLC integration via PROFINET — reject signal triggers pneumatic ejector within 2ms of detection</li>
+        <li>MordeTech OEE Pro dashboard shows real-time pass/fail rates, defect type breakdown, and shift reports</li>
+        <li>Operator HMI panel shows defect images with bounding boxes and confidence scores for every rejection</li>
+      </ul>
+
+      <h2>Results After 90 Days</h2>
+      <ul>
+        <li>Defect escape rate reduced by 94% (from ~3,200 ppm to ~190 ppm)</li>
+        <li>Zero false-negative detections for Class A defects over 6-month operational period</li>
+        <li>False-positive rate below 0.03% — line efficiency unaffected</li>
+        <li>Inspection throughput: 100% of parts at full line speed (800 parts/min)</li>
+        <li>Warranty claim costs reduced by ₹42 Lakhs in first 6 months post-deployment</li>
+        <li>IATF 16949 non-conformance resolved — audit passed without finding on QC process</li>
+        <li>System paid back in full within 11 months of go-live</li>
+      </ul>
+
+    </div>
+
+    <aside class="cs-sidebar">
+      <div class="cs-box">
+        <h4>Key Results</h4>
+        <div class="cs-stat"><div class="cs-stat-num">94%</div><div class="cs-stat-label">Reduction in defect escape rate</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">800/min</div><div class="cs-stat-label">Parts inspected at full line speed</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">11mo</div><div class="cs-stat-label">Full ROI payback period</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">₹42L</div><div class="cs-stat-label">Warranty cost savings in 6 months</div></div>
+      </div>
+      <div class="cs-box">
+        <h4>Tech Stack</h4>
+        <div class="cs-tech-list">
+          <span class="cs-tech">PyTorch</span>
+          <span class="cs-tech">TensorRT</span>
+          <span class="cs-tech">NVIDIA Jetson AGX</span>
+          <span class="cs-tech">Basler Cameras</span>
+          <span class="cs-tech">Siemens S7-1500</span>
+          <span class="cs-tech">PROFINET</span>
+          <span class="cs-tech">OEE Pro Dashboard</span>
+          <span class="cs-tech">IATF 16949</span>
+        </div>
+      </div>
+      <div class="cs-box">
+        <h4>Industry</h4>
+        <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin:0;">Automotive — Tier-1 body parts stamping for OEM supply chain. IATF 16949 quality standard environment.</p>
+      </div>
+      <button class="btn-primary" style="width:100%;padding:14px;" onclick="location.href='/contact.html'"><span>🚀 Discuss a Similar Project</span></button>
+    </aside>
+  </div>
+
+  <div class="cs-next">
+    <h3>More Case Studies</h3>
+    <p>See how MordeTech has delivered measurable results across manufacturing, energy, and process industries.</p>
+    <div class="cs-next-links">
+      <button class="btn-ghost" style="padding:12px 28px;" onclick="location.href='case-study-2.html'">Smart OEE & Predictive Maintenance →</button>
+      <button class="btn-ghost" style="padding:12px 28px;" onclick="location.href='case-study-3.html'">Legacy PLC Migration →</button>
+    </div>
+  </div>
+
+</div></section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Morde<em>Tech</em></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA/HMI</a></li><li><a href="services.html">AI Vision</a></li><li><a href="services.html">IIoT</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
+</footer>
+<script src="js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
+</body></html>
