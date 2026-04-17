@@ -55,4 +55,35 @@
     document.getElementById('cookieDecline').addEventListener('click', function() { dismissBanner(false); });
   }
 
+  // ── Free Consultation Popup ──
+  var POPUP_KEY = 'mt_popup_shown';
+  if (!sessionStorage.getItem(POPUP_KEY)) {
+    setTimeout(function() {
+      var overlay = document.createElement('div');
+      overlay.id = 'consult-overlay';
+      overlay.innerHTML =
+        '<div id="consult-popup">' +
+          '<button id="consult-close" aria-label="Close">✕</button>' +
+          '<div style="font-size:2rem;margin-bottom:12px;">🚀</div>' +
+          '<h3>Free 30-Min Consultation</h3>' +
+          '<p>Talk to a MordeTech automation engineer about your factory challenges — no obligation, no sales pitch. Just expert advice.</p>' +
+          '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px;">' +
+            '<a href="/contact.html" class="consult-btn-primary">Book Free Call →</a>' +
+            '<button class="consult-btn-ghost" id="consult-later">Maybe Later</button>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+
+      function closePopup() {
+        sessionStorage.setItem(POPUP_KEY, '1');
+        overlay.style.opacity = '0';
+        setTimeout(function() { overlay.remove(); }, 300);
+      }
+
+      document.getElementById('consult-close').addEventListener('click', closePopup);
+      document.getElementById('consult-later').addEventListener('click', closePopup);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closePopup(); });
+    }, 25000);
+  }
+
 })();

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smart OEE Dashboard & Predictive Maintenance — Case Study — MordeTech Solutions</title>
+<meta name="description" content="How MordeTech improved OEE from 61% to 83% at a press shop in Aurangabad using IIoT, MQTT, and vibration-based predictive maintenance.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case Study: Smart OEE Dashboard & Predictive Maintenance — MordeTech">
+<meta property="og:description" content="OEE lifted from 61% to 83% across 18 machines in 6 months using OPC-UA, MQTT, and AI vibration analytics.">
+<meta property="og:url" content="https://mordetech-solutions.in/case-study-2.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.cs-hero{padding:160px 0 80px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-block;font-family:var(--font-mono);font-size:.7rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(0,212,255,.25);border-radius:4px;margin-bottom:20px;}
+.cs-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:20px;}
+.cs-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:28px;}
+.cs-meta-item{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);}
+.cs-meta-item strong{display:block;color:var(--text);font-size:.78rem;margin-bottom:3px;}
+.cs-body{padding:80px 0 120px;}
+.cs-layout{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;}
+.cs-content h2{font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin:48px 0 16px;}
+.cs-content h2:first-child{margin-top:0;}
+.cs-content p{font-size:.98rem;color:var(--text2);line-height:1.85;margin-bottom:16px;}
+.cs-content ul{list-style:none;padding:0;margin:0 0 20px;}
+.cs-content ul li{font-size:.95rem;color:var(--text2);line-height:1.75;padding:6px 0 6px 20px;border-bottom:1px solid var(--border2);position:relative;}
+.cs-content ul li::before{content:'→';position:absolute;left:0;color:var(--cyan);}
+.cs-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px;}
+.cs-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;}
+.cs-box h4{font-family:var(--font-mono);font-size:.65rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
+.cs-stat{margin-bottom:16px;}
+.cs-stat-num{font-family:var(--font-display);font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.cs-stat-label{font-size:.82rem;color:var(--text2);margin-top:4px;line-height:1.5;}
+.cs-tech-list{display:flex;flex-wrap:wrap;gap:8px;}
+.cs-tech{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);padding:4px 10px;border:1px solid var(--border);border-radius:4px;}
+.cs-quote{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(123,47,255,.04));border:1px solid rgba(0,212,255,.15);border-radius:var(--radius-sm);padding:28px;margin:40px 0;}
+.cs-quote p{font-size:1.05rem;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:12px;}
+.cs-quote cite{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);}
+.cs-next{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;text-align:center;margin-top:60px;}
+.cs-next h3{font-family:var(--font-display);font-size:1.4rem;font-weight:800;margin-bottom:10px;}
+.cs-next p{color:var(--text2);font-size:.92rem;margin-bottom:24px;line-height:1.7;}
+.cs-next-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+@media(max-width:1024px){.cs-layout{grid-template-columns:1fr;}.cs-sidebar{position:static;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div><div id="progress"></div><canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a><a href="services.html" onclick="closeMobile()">Services</a><a href="solutions.html" onclick="closeMobile()">Solutions</a><a href="sustainability.html" onclick="closeMobile()">Sustainability</a><a href="news.html" onclick="closeMobile()">News</a><a href="careers.html" onclick="closeMobile()">Careers</a><a href="about.html" onclick="closeMobile()">About</a><a href="demo.html" onclick="closeMobile()">🟢 Live Demo</a><a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo">Morde<em>Tech</em></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="services.html">Services</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="news.html">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel"><option>🌐 EN</option><option>🇩🇪 DE</option><option>🇮🇳 MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="cs-hero"><div class="container">
+  <div class="cs-tag reveal">⚡ CASE STUDY — MANUFACTURING</div>
+  <h1 class="reveal rd1">Smart OEE Dashboard &amp;<br><span class="grad">Predictive Maintenance</span></h1>
+  <p class="reveal rd2" style="font-size:1.05rem;color:var(--text2);max-width:640px;line-height:1.8;">How MordeTech connected 18 machines to a unified IIoT platform, added vibration-based predictive maintenance, and lifted OEE from 61% to 83% in 6 months — eliminating surprise breakdowns entirely.</p>
+  <div class="cs-meta reveal">
+    <div class="cs-meta-item"><strong>Client</strong>Mid-size Press Shop</div>
+    <div class="cs-meta-item"><strong>Location</strong>Aurangabad, Maharashtra</div>
+    <div class="cs-meta-item"><strong>Industry</strong>Metal Pressings — Auto Component Supply</div>
+    <div class="cs-meta-item"><strong>Duration</strong>18 weeks (deployment + tuning)</div>
+    <div class="cs-meta-item"><strong>Completed</strong>October 2024</div>
+  </div>
+</div></section>
+
+<section class="cs-body"><div class="container">
+  <div class="cs-layout">
+    <div class="cs-content">
+
+      <h2>The Challenge</h2>
+      <p>The client operated 18 stamping and press machines across two production halls. Shift supervisors tracked production on paper-based logs and a basic Excel spreadsheet updated at end-of-shift. Real OEE was unknown — estimates ranged from 55% to 70% depending on who you asked.</p>
+      <p>Unplanned breakdowns were the biggest pain point. On average, 4–6 machines failed unexpectedly per month, each requiring 2–8 hours of downtime for emergency repair. The maintenance team operated entirely in reactive mode. There was no visibility into machine health, and bearing failures — the most common fault — were only caught after audible damage had already occurred.</p>
+      <p>Management wanted a single screen showing live production status for all machines, and a way to predict failures before they caused downtime.</p>
+
+      <h2>Our Approach</h2>
+      <p>MordeTech deployed a phased IIoT connectivity project over 18 weeks:</p>
+      <ul>
+        <li><strong>Phase 1 (weeks 1–6):</strong> Installed Siemens SIMATIC ET 200SP edge I/O units on all 18 machines, connecting spindle speed, cycle count, power draw, and fault registers via OPC-UA to a local MQTT broker</li>
+        <li><strong>Phase 2 (weeks 7–12):</strong> Deployed MordeTech OEE Pro dashboard on a local server with cloud backup — showing real-time availability, performance, and quality per machine, per shift, per day</li>
+        <li><strong>Phase 3 (weeks 13–18):</strong> Installed triaxial MEMS vibration sensors on 12 priority machines (those with highest breakdown history), feeding an ML model that detects bearing wear signatures up to 5 days before failure</li>
+      </ul>
+
+      <div class="cs-quote">
+        <p>"For the first time, I can see from my phone at 11pm what's happening on the floor. Last month the system warned us about a bearing on Press #7. We changed it on Sunday — no downtime. That one alert alone saved us a full day's production."</p>
+        <cite>— Plant Manager, Mid-size Press Shop, Aurangabad (name withheld at client request)</cite>
+      </div>
+
+      <h2>Technical Implementation</h2>
+      <ul>
+        <li>18× Siemens SIMATIC ET 200SP edge I/O modules — OPC-UA server on each machine controller</li>
+        <li>Eclipse Mosquitto MQTT broker on local industrial PC — aggregates all machine data streams</li>
+        <li>Node-RED flows for data normalisation, OEE calculation, and alert routing</li>
+        <li>MordeTech OEE Pro — React dashboard with Grafana backend, accessible from browser and mobile</li>
+        <li>12× triaxial MEMS vibration sensors (SparkFun LSM6DS3) on main bearing housings</li>
+        <li>Edge ML model (isolation forest + FFT frequency analysis) for bearing wear detection</li>
+        <li>WhatsApp + email alerts for predictive maintenance warnings, auto-routed to maintenance team</li>
+        <li>Shift-level report PDFs auto-generated and emailed to management every 8 hours</li>
+      </ul>
+
+      <h2>Results After 6 Months</h2>
+      <ul>
+        <li>OEE improved from 61% to 83% — a 22-point gain across all 18 machines</li>
+        <li>Unplanned breakdowns dropped from 4–6 per month to zero in months 4, 5, and 6</li>
+        <li>Predictive alerts issued on 7 bearing failures — all actioned during scheduled maintenance windows</li>
+        <li>Average shift efficiency reports now completed in real-time vs. 2-day lag previously</li>
+        <li>Energy consumption per part reduced 18% through idle-power management via OPC-UA control</li>
+        <li>Maintenance team shifted from reactive to proactive — planned maintenance up from 34% to 91%</li>
+        <li>Full ROI achieved within 14 months of deployment</li>
+      </ul>
+
+    </div>
+
+    <aside class="cs-sidebar">
+      <div class="cs-box">
+        <h4>Key Results</h4>
+        <div class="cs-stat"><div class="cs-stat-num">+22pt</div><div class="cs-stat-label">OEE improvement (61% → 83%)</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">0</div><div class="cs-stat-label">Unplanned breakdowns in final 3 months</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">5 days</div><div class="cs-stat-label">Advance warning on bearing failures</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">14mo</div><div class="cs-stat-label">Full ROI payback period</div></div>
+      </div>
+      <div class="cs-box">
+        <h4>Tech Stack</h4>
+        <div class="cs-tech-list">
+          <span class="cs-tech">OPC-UA</span>
+          <span class="cs-tech">MQTT</span>
+          <span class="cs-tech">Node-RED</span>
+          <span class="cs-tech">Grafana</span>
+          <span class="cs-tech">OEE Pro</span>
+          <span class="cs-tech">Siemens ET 200SP</span>
+          <span class="cs-tech">MEMS Vibration</span>
+          <span class="cs-tech">Isolation Forest ML</span>
+        </div>
+      </div>
+      <div class="cs-box">
+        <h4>Industry</h4>
+        <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin:0;">Metal pressings manufacturer supplying automotive Tier-1 and Tier-2 customers in Maharashtra.</p>
+      </div>
+      <button class="btn-primary" style="width:100%;padding:14px;" onclick="location.href='/contact.html'"><span>🚀 Discuss a Similar Project</span></button>
+    </aside>
+  </div>
+
+  <div class="cs-next">
+    <h3>More Case Studies</h3>
+    <p>See how MordeTech has delivered measurable results across manufacturing, energy, and process industries.</p>
+    <div class="cs-next-links">
+      <button class="btn-ghost" style="padding:12px 28px;" onclick="location.href='case-study-1.html'">AI Vision Defect Detection →</button>
+      <button class="btn-ghost" style="padding:12px 28px;" onclick="location.href='case-study-3.html'">Legacy PLC Migration →</button>
+    </div>
+  </div>
+
+</div></section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Morde<em>Tech</em></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA/HMI</a></li><li><a href="services.html">AI Vision</a></li><li><a href="services.html">IIoT</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
+</footer>
+<script src="js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
+</body></html>
