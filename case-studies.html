@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Case Studies — MordeTech Solutions</title>
+<meta name="description" content="Real automation projects, measurable outcomes. Read MordeTech case studies in AI vision, OEE improvement, and PLC migration across Indian manufacturing.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Case Studies — MordeTech Solutions">
+<meta property="og:description" content="Real projects. Measurable outcomes. AI vision, OEE dashboards, and PLC migrations across automotive, manufacturing, and energy.">
+<meta property="og:url" content="https://mordetech-solutions.in/case-studies.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<link rel="canonical" href="https://mordetech-solutions.in/case-studies.html">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.page-hero{padding:160px 0 80px;}
+.cs-list{padding:60px 0 120px;}
+.cs-list-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:56px;}
+.cs-list-card{display:grid;grid-template-columns:120px 1fr auto;gap:32px;align-items:center;padding:36px 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:inherit;transition:border-color .3s,transform .3s;}
+.cs-list-card:hover{border-color:rgba(0,212,255,.35);transform:translateX(6px);}
+.cs-list-icon{font-size:3.5rem;text-align:center;background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(0,212,255,.06));border:1px solid rgba(0,212,255,.15);border-radius:16px;height:96px;display:flex;align-items:center;justify-content:center;}
+.cs-list-tag{font-family:var(--font-mono);font-size:.65rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.cs-list-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:800;margin-bottom:8px;line-height:1.3;}
+.cs-list-client{font-size:.88rem;color:var(--muted);margin-bottom:12px;}
+.cs-list-outcome{font-family:var(--font-mono);font-size:.75rem;color:var(--green);background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.15);padding:5px 12px;border-radius:6px;display:inline-block;}
+.cs-list-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.cs-list-tag-chip{font-family:var(--font-mono);font-size:.65rem;color:var(--muted);padding:3px 9px;border:1px solid var(--border2);border-radius:4px;}
+.cs-list-arrow{font-family:var(--font-mono);font-size:1.5rem;color:var(--cyan);opacity:.5;transition:opacity .3s,transform .3s;}
+.cs-list-card:hover .cs-list-arrow{opacity:1;transform:translateX(4px);}
+.cs-cta{background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(123,47,255,.1));border:1px solid rgba(0,102,255,.25);border-radius:var(--radius);padding:52px;text-align:center;margin-top:60px;}
+.cs-cta h2{font-family:var(--font-display);font-size:2rem;font-weight:800;margin-bottom:12px;}
+.cs-cta p{color:var(--text2);font-size:.98rem;line-height:1.75;margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto;}
+@media(max-width:768px){.cs-list-card{grid-template-columns:1fr;gap:20px;}.cs-list-icon{height:64px;font-size:2.5rem;}.cs-list-arrow{display:none;}.cs-cta{padding:36px 24px;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div><div id="progress"></div><canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a><a href="services.html" onclick="closeMobile()">Services</a><a href="solutions.html" onclick="closeMobile()">Solutions</a><a href="case-studies.html" onclick="closeMobile()">Case Studies</a><a href="sustainability.html" onclick="closeMobile()">Sustainability</a><a href="news.html" onclick="closeMobile()">News</a><a href="careers.html" onclick="closeMobile()">Careers</a><a href="about.html" onclick="closeMobile()">About</a><a href="demo.html" onclick="closeMobile()">🟢 Live Demo</a><a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo">Morde<em>Tech</em></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="services.html">Services</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="case-studies.html" class="active">Case Studies</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="news.html">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel"><option>🌐 EN</option><option>🇩🇪 DE</option><option>🇮🇳 MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero"><div class="container">
+  <div class="section-tag reveal">PROVEN RESULTS</div>
+  <h1 class="reveal rd1">Case Studies &amp;<br><span class="grad">Project Outcomes</span></h1>
+  <p class="reveal rd2">Real projects. Measurable outcomes. Here's what we've delivered for manufacturers across India and beyond — with full technical detail on challenges, solutions, and results.</p>
+</div></section>
+
+<section class="cs-list"><div class="container">
+  <div class="section-tag reveal">3 PROJECTS</div>
+  <h2 class="reveal rd1">Featured Deployments</h2>
+
+  <div class="cs-list-grid">
+
+    <a href="case-study-1.html" class="cs-list-card reveal">
+      <div class="cs-list-icon">🏭</div>
+      <div>
+        <div class="cs-list-tag">Automotive · AI Vision</div>
+        <h3>AI Vision Defect Detection on High-Speed Stamping Line</h3>
+        <div class="cs-list-client">Tier-1 Automotive Supplier · Pune, Maharashtra · March 2025</div>
+        <div class="cs-list-outcome">✓ 94% reduction in defect escape rate — ROI in 11 months</div>
+        <div class="cs-list-tags">
+          <span class="cs-list-tag-chip">PyTorch</span>
+          <span class="cs-list-tag-chip">NVIDIA Jetson AGX</span>
+          <span class="cs-list-tag-chip">Basler Cameras</span>
+          <span class="cs-list-tag-chip">Siemens S7-1500</span>
+          <span class="cs-list-tag-chip">IATF 16949</span>
+        </div>
+      </div>
+      <div class="cs-list-arrow">→</div>
+    </a>
+
+    <a href="case-study-2.html" class="cs-list-card reveal rd1">
+      <div class="cs-list-icon">⚡</div>
+      <div>
+        <div class="cs-list-tag">Manufacturing · IIoT · Predictive Maintenance</div>
+        <h3>Smart OEE Dashboard &amp; Vibration-Based Predictive Maintenance</h3>
+        <div class="cs-list-client">Mid-size Press Shop · Aurangabad, Maharashtra · October 2024</div>
+        <div class="cs-list-outcome">✓ OEE: 61% → 83% · Zero unplanned breakdowns in final 3 months</div>
+        <div class="cs-list-tags">
+          <span class="cs-list-tag-chip">OPC-UA</span>
+          <span class="cs-list-tag-chip">MQTT</span>
+          <span class="cs-list-tag-chip">Grafana</span>
+          <span class="cs-list-tag-chip">MEMS Vibration</span>
+          <span class="cs-list-tag-chip">Node-RED</span>
+        </div>
+      </div>
+      <div class="cs-list-arrow">→</div>
+    </a>
+
+    <a href="case-study-3.html" class="cs-list-card reveal rd2">
+      <div class="cs-list-icon">🔧</div>
+      <div>
+        <div class="cs-list-tag">Energy &amp; Utilities · PLC Migration · SCADA</div>
+        <h3>Legacy Siemens S5 → S7-1500 Migration with Zero Production Downtime</h3>
+        <div class="cs-list-client">Industrial Utility Plant · Maharashtra · December 2024</div>
+        <div class="cs-list-outcome">✓ Zero downtime · ₹18L/yr saved · System life extended 15+ years</div>
+        <div class="cs-list-tags">
+          <span class="cs-list-tag-chip">TIA Portal V18</span>
+          <span class="cs-list-tag-chip">WinCC Unified</span>
+          <span class="cs-list-tag-chip">PROFIsafe</span>
+          <span class="cs-list-tag-chip">PI Historian</span>
+          <span class="cs-list-tag-chip">OPC-UA</span>
+        </div>
+      </div>
+      <div class="cs-list-arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="cs-cta reveal">
+    <h2>Ready to Be Our Next <span class="grad">Success Story?</span></h2>
+    <p>Every project above started with a conversation. Tell us your challenge — downtime, quality escapes, aging PLC, or missing visibility — and we'll design a solution around your specific needs and ROI targets.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-primary" style="padding:14px 36px;font-size:.98rem;" onclick="location.href='/contact.html'"><span>🚀 Discuss Your Project</span></button>
+      <button class="btn-ghost" style="padding:14px 36px;" onclick="location.href='/demo.html'">▶ See Live Dashboard Demo</button>
+    </div>
+  </div>
+
+</div></section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo">Morde<em>Tech</em></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA/HMI</a></li><li><a href="services.html">AI Vision</a></li><li><a href="services.html">IIoT</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+917387441521">+91 73874 41521</a></li><li><a href="mailto:sales@mordetech-solutions.in">sales@mordetech-solutions.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Siddheshwar Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="#" aria-label="LinkedIn">in</a><a class="social-link" href="#" aria-label="Twitter / X">𝕏</a><a class="social-link" href="mailto:sales@mordetech-solutions.in" aria-label="Send email">@</a></div></div>
+</footer>
+<script src="js/global.js"></script>
+<script src="js/wa-analytics.js"></script>
+</body></html>

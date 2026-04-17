@@ -1,10 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00d4ff"/>
       <stop offset="100%" stop-color="#0066ff"/>
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="32" height="32" rx="8" fill="#020408"/>
-  <text x="16" y="23" font-family="Arial,sans-serif" font-weight="900" font-size="20" text-anchor="middle" fill="url(#g)">M</text>
+  <rect width="200" height="200" fill="#020408"/>
+  <!-- Corner brackets -->
+  <path d="M16,52 L16,16 L52,16" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M148,16 L184,16 L184,52" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16,148 L16,184 L52,184" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M148,184 L184,184 L184,148" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Circle -->
+  <circle cx="100" cy="100" r="68" fill="rgba(0,212,255,0.07)"/>
+  <circle cx="100" cy="100" r="68" fill="none" stroke="url(#g)" stroke-width="2.5"/>
+  <!-- Trunk -->
+  <line x1="100" y1="158" x2="100" y2="108" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+  <!-- Level 1 branches -->
+  <line x1="100" y1="130" x2="72" y2="114" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="100" y1="130" x2="128" y2="114" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Level 2 branches -->
+  <line x1="100" y1="118" x2="78" y2="103" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100" y1="118" x2="122" y2="103" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100" y1="110" x2="100" y2="88" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Sub-branches left -->
+  <line x1="72" y1="114" x2="56" y2="103" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="72" y1="114" x2="67" y2="98" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="78" y1="103" x2="62" y2="90" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Sub-branches right -->
+  <line x1="128" y1="114" x2="144" y2="103" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="128" y1="114" x2="133" y2="98" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="122" y1="103" x2="138" y2="90" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Top branches -->
+  <line x1="100" y1="88" x2="86" y2="75" stroke="url(#g)" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="100" y1="88" x2="114" y2="75" stroke="url(#g)" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Circuit nodes -->
+  <circle cx="56" cy="103" r="5" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="67" cy="98" r="4.5" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="62" cy="90" r="4" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="144" cy="103" r="5" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="133" cy="98" r="4.5" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="138" cy="90" r="4" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="86" cy="75" r="4" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="114" cy="75" r="4" fill="url(#g)" filter="url(#glow)"/>
+  <circle cx="100" cy="158" r="6" fill="url(#g)" filter="url(#glow)"/>
 </svg>

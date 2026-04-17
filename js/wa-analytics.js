@@ -1,5 +1,21 @@
-// MordeTech — WhatsApp Float + Back-to-Top + Cookie Consent
+// MordeTech — WhatsApp Float + Back-to-Top + Cookie Consent + Conditional GA4
 (function() {
+  var GA_ID = 'G-XXXXXXXXXX';
+
+  function loadGA4() {
+    if (window._ga4loaded) return;
+    window._ga4loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+  }
+
+  if (localStorage.getItem('mt_cookie_consent') === 'accepted') loadGA4();
 
   // ── WhatsApp floating button ──
   var WA_NUMBER = '917387441521';
@@ -51,7 +67,7 @@
       setTimeout(function() { banner.remove(); }, 450);
     }
 
-    document.getElementById('cookieAccept').addEventListener('click', function() { dismissBanner(true); });
+    document.getElementById('cookieAccept').addEventListener('click', function() { dismissBanner(true); loadGA4(); });
     document.getElementById('cookieDecline').addEventListener('click', function() { dismissBanner(false); });
   }
 
