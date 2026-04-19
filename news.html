@@ -52,12 +52,12 @@
 <div id="cursor"></div><div id="cursor-ring"></div><div id="progress"></div><canvas id="bg-canvas"></canvas>
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-btn" onclick="closeMobile()">✕</button>
-  <a href="/" onclick="closeMobile()">Home</a><a href="solutions.html" onclick="closeMobile()">Solutions</a><a href="sustainability.html" onclick="closeMobile()">Sustainability</a><a href="news.html" onclick="closeMobile()">News</a><a href="careers.html" onclick="closeMobile()">Careers</a><a href="about.html" onclick="closeMobile()">About</a><a href="demo.html" onclick="closeMobile()">🟢 Live Demo</a><a href="contact.html" onclick="closeMobile()">Contact</a>
+  <a href="/" onclick="closeMobile()">Home</a><a href="solutions.html" onclick="closeMobile()">Solutions</a><a href="news.html" onclick="closeMobile()">News</a><a href="careers.html" onclick="closeMobile()">Careers</a><a href="about.html" onclick="closeMobile()">About</a><a href="demo.html" onclick="closeMobile()">🟢 Live Demo</a><a href="contact.html" onclick="closeMobile()">Contact</a>
 </div>
 <nav>
   <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="news.html" class="active">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
+    <li><a href="/">Home</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="news.html" class="active">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
   </ul>
   <div class="nav-right">
     <select class="lang-sel"><option>🌐 EN</option><option>🇩🇪 DE</option><option>🇮🇳 MR</option></select>
@@ -78,7 +78,6 @@
     <button class="filter-btn">Industry 4.0</button>
     <button class="filter-btn">Company News</button>
     <button class="filter-btn">Technology</button>
-    <button class="filter-btn">Sustainability</button>
   </div>
   <div class="news-grid" id="newsGrid">
     <div class="news-hero-card reveal" data-category="ai-vision">
@@ -121,16 +120,6 @@
         <div class="read-more">Read More →</div>
       </div>
     </div>
-    <div class="news-card reveal rd1" data-category="sustainability">
-      <div class="news-img ni4" style="font-size:3rem;position:relative;z-index:1;">🌱</div>
-      <div class="news-body">
-        <div class="news-cat">Sustainability</div>
-        <h3>Energy Audit Reveals 38% Reduction After MordeTech IIoT Deployment</h3>
-        <p>An independent energy audit of our 2022 smart factory deployment confirmed 38% energy reduction, translating to ₹1.2 Crore annual savings for the client.</p>
-        <div class="news-date">NOVEMBER 2024</div>
-        <div class="read-more">Read More →</div>
-      </div>
-    </div>
     <div class="news-card reveal rd2" data-category="technology">
       <div class="news-img ni5" style="font-size:3rem;position:relative;z-index:1;">🔬</div>
       <div class="news-body">
@@ -161,8 +150,7 @@ const filterMap = {
   'AI / Vision': 'ai-vision',
   'Industry 4.0': 'industry-4-0',
   'Company News': 'company-news',
-  'Technology': 'technology',
-  'Sustainability': 'sustainability'
+  'Technology': 'technology'
 };
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
