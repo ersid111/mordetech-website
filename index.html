@@ -29,9 +29,11 @@
 .hero-sub { font-size:1.05rem; color:var(--text2); margin:22px 0 38px; line-height:1.7; max-width:480px; }
 .hero-cta { display:flex; gap:12px; flex-wrap:wrap; }
 .btn-xl { padding:14px 32px; font-size:.97rem; border-radius:10px; }
-.hero-stats { display:flex; gap:40px; margin-top:56px; flex-wrap:wrap; }
-.stat-item .num { font-family:var(--font-display); font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
-.stat-item .lbl { font-size:.88rem; color:var(--muted); margin-top:4px; letter-spacing:.04em; }
+.hero-stats { display:flex; gap:0; margin-top:48px; flex-wrap:wrap; padding-top:32px; border-top:1px solid rgba(255,255,255,.06); }
+.stat-item { padding:0 32px 0 0; margin-right:32px; border-right:1px solid rgba(255,255,255,.06); }
+.stat-item:last-child { border-right:none; padding-right:0; margin-right:0; }
+.stat-item .num { font-family:var(--font-display); font-size:2.2rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+.stat-item .lbl { font-size:.82rem; color:var(--muted); margin-top:5px; letter-spacing:.05em; text-transform:uppercase; font-family:var(--font-mono); }
 .hero-visual { display:flex; align-items:center; justify-content:center; }
 /* TREE ANIMATION — Source of Knowledge */
 .tree-wrap { position:relative; width:390px; height:390px; }
@@ -54,17 +56,7 @@
 .k-node.n3{animation:kn3 13s linear infinite;}
 .k-node.n4{animation:kn4 7.5s linear infinite reverse;}
 .k-node.n5{animation:kn5 5s linear infinite;}
-.k-label { display:inline-flex; align-items:center; gap:5px; background:rgba(2,4,8,.85); border:1px solid rgba(0,212,255,.38); border-radius:100px; padding:5px 12px; font-family:var(--font-mono); font-size:.72rem; font-weight:500; color:var(--cyan); white-space:nowrap; letter-spacing:.04em; box-shadow:0 0 14px rgba(0,212,255,.22),inset 0 0 8px rgba(0,212,255,.06); backdrop-filter:blur(10px); }
-.k-node.n1 .k-label{animation:kl1 6s linear infinite;}
-.k-node.n2 .k-label{animation:kl2 9.5s linear infinite;}
-.k-node.n3 .k-label{animation:kl3 13s linear infinite;}
-.k-node.n4 .k-label{animation:kl4 7.5s linear infinite reverse;}
-.k-node.n5 .k-label{animation:kl5 5s linear infinite;}
-@keyframes kl1{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-@keyframes kl2{from{transform:rotate(-72deg)}to{transform:rotate(-432deg)}}
-@keyframes kl3{from{transform:rotate(-144deg)}to{transform:rotate(-504deg)}}
-@keyframes kl4{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes kl5{from{transform:rotate(-288deg)}to{transform:rotate(-648deg)}}
+.k-label { display:inline-flex; align-items:center; background:rgba(2,4,8,.9); border:1px solid rgba(0,212,255,.28); border-radius:6px; padding:5px 11px; font-family:var(--font-mono); font-size:.7rem; font-weight:500; color:var(--cyan); white-space:nowrap; letter-spacing:.06em; box-shadow:0 0 8px rgba(0,212,255,.12); backdrop-filter:blur(10px); }
 @keyframes kn1{from{transform:translate(-50%,-50%) rotate(0deg) translateX(158px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(158px) rotate(-360deg)}}
 @keyframes kn2{from{transform:translate(-50%,-50%) rotate(72deg) translateX(130px) rotate(-72deg)}to{transform:translate(-50%,-50%) rotate(432deg) translateX(130px) rotate(-432deg)}}
 @keyframes kn3{from{transform:translate(-50%,-50%) rotate(144deg) translateX(175px) rotate(-144deg)}to{transform:translate(-50%,-50%) rotate(504deg) translateX(175px) rotate(-504deg)}}
@@ -174,7 +166,8 @@
   .tree-logo-anim{width:90px;height:90px;}
   .tree-bg{width:110px;height:110px;}
   .hero-visual{margin-top:32px;margin-bottom:8px;}
-  .hero-stats{gap:20px;}
+  .hero-stats{gap:0;}
+  .stat-item{padding:0 18px 0 0;margin-right:18px;}
   .process-row{grid-template-columns:1fr;gap:24px;}
 }
 </style>
@@ -223,7 +216,7 @@
   <a href="/news.html" onclick="closeMobile()">News</a>
   <a href="/careers.html" onclick="closeMobile()">Careers</a>
   <a href="/about.html" onclick="closeMobile()">About</a>
-  <a href="/demo.html" onclick="closeMobile()">🟢 Live Demo</a>
+  <a href="/demo.html" onclick="closeMobile()">Live Demo</a>
   <a href="/contact.html" onclick="closeMobile()">Contact</a>
 </div>
 <nav id="navbar">
@@ -238,7 +231,7 @@
     <li><a href="/demo.html" style="color:var(--green);">● Live Demo</a></li>
   </ul>
   <div class="nav-right">
-    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">🌐 EN</option><option value="de">🇩🇪 DE</option><option value="mr">🇮🇳 MR</option></select>
+    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
     <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
     <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
   </div>
@@ -253,7 +246,7 @@
       <h1 class="hero-title">Engineering<br><span class="g" id="typeTarget">Intelligent Automation</span></h1>
       <p class="hero-sub">Where <strong>PLC meets AI.</strong> MordeTech Solutions delivers world-class Siemens automation, machine vision, and smart factory systems for the next era of manufacturing.</p>
       <div class="hero-cta">
-        <button class="btn-primary btn-xl" onclick="location.href='/services.html'">🚀 Explore Services</button>
+        <button class="btn-primary btn-xl" onclick="location.href='/services.html'">Explore Services</button>
         <button class="btn-ghost btn-xl" onclick="location.href='/demo.html'">▶ Live Demo</button>
       </div>
       <div class="hero-stats">
@@ -269,11 +262,11 @@
         <div class="tree-ring r1"></div>
         <div class="tree-ring r2"></div>
         <div class="tree-logo-anim"><img src="/images/logo.svg" alt="MordeTech Circuit Tree — Source of Intelligence"></div>
-        <div class="k-node n1"><span class="k-label">🔧 PLC</span></div>
-        <div class="k-node n2"><span class="k-label">👁 AI Vision</span></div>
-        <div class="k-node n3"><span class="k-label">🖥️ SCADA</span></div>
-        <div class="k-node n4"><span class="k-label">🌐 IIoT</span></div>
-        <div class="k-node n5"><span class="k-label">⚡ OPC UA</span></div>
+        <div class="k-node n1"><span class="k-label">PLC</span></div>
+        <div class="k-node n2"><span class="k-label">AI Vision</span></div>
+        <div class="k-node n3"><span class="k-label">SCADA</span></div>
+        <div class="k-node n4"><span class="k-label">IIoT</span></div>
+        <div class="k-node n5"><span class="k-label">OPC UA</span></div>
         <div class="k-particles">
           <div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div>
         </div>
