@@ -32,7 +32,6 @@
 .hero-stats { display:flex; gap:40px; margin-top:56px; flex-wrap:wrap; }
 .stat-item .num { font-family:var(--font-display); font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
 .stat-item .lbl { font-size:.88rem; color:var(--muted); margin-top:4px; letter-spacing:.04em; }
-/* Orb */
 .hero-visual { display:flex; align-items:center; justify-content:center; }
 /* TREE ANIMATION — Source of Knowledge */
 .tree-wrap { position:relative; width:390px; height:390px; }
@@ -48,13 +47,24 @@
   0%,100%{filter:drop-shadow(0 0 14px rgba(0,212,255,.65)) drop-shadow(0 0 32px rgba(0,102,255,.28));}
   50%{filter:drop-shadow(0 0 30px rgba(0,212,255,1)) drop-shadow(0 0 60px rgba(0,102,255,.55)) drop-shadow(0 0 90px rgba(123,47,255,.32));}
 }
-/* Orbiting knowledge nodes */
-.k-node { position:absolute; top:50%; left:50%; border-radius:50%; pointer-events:none; }
-.k-node.n1{width:10px;height:10px;background:var(--cyan);box-shadow:0 0 12px var(--cyan),0 0 24px rgba(0,212,255,.5);animation:kn1 6s linear infinite;}
-.k-node.n2{width:7px;height:7px;background:var(--purple);box-shadow:0 0 10px var(--purple);animation:kn2 9.5s linear infinite;}
-.k-node.n3{width:8px;height:8px;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:kn3 13s linear infinite;}
-.k-node.n4{width:5px;height:5px;background:var(--cyan);box-shadow:0 0 8px rgba(0,212,255,.8);animation:kn4 7.5s linear infinite reverse;}
-.k-node.n5{width:6px;height:6px;background:var(--green);box-shadow:0 0 8px rgba(0,255,136,.7);animation:kn5 5s linear infinite;}
+/* Orbiting technology chips */
+.k-node { position:absolute; top:50%; left:50%; pointer-events:none; }
+.k-node.n1{animation:kn1 6s linear infinite;}
+.k-node.n2{animation:kn2 9.5s linear infinite;}
+.k-node.n3{animation:kn3 13s linear infinite;}
+.k-node.n4{animation:kn4 7.5s linear infinite reverse;}
+.k-node.n5{animation:kn5 5s linear infinite;}
+.k-label { display:inline-flex; align-items:center; gap:5px; background:rgba(2,4,8,.85); border:1px solid rgba(0,212,255,.38); border-radius:100px; padding:5px 12px; font-family:var(--font-mono); font-size:.72rem; font-weight:500; color:var(--cyan); white-space:nowrap; letter-spacing:.04em; box-shadow:0 0 14px rgba(0,212,255,.22),inset 0 0 8px rgba(0,212,255,.06); backdrop-filter:blur(10px); }
+.k-node.n1 .k-label{animation:kl1 6s linear infinite;}
+.k-node.n2 .k-label{animation:kl2 9.5s linear infinite;}
+.k-node.n3 .k-label{animation:kl3 13s linear infinite;}
+.k-node.n4 .k-label{animation:kl4 7.5s linear infinite reverse;}
+.k-node.n5 .k-label{animation:kl5 5s linear infinite;}
+@keyframes kl1{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes kl2{from{transform:rotate(-72deg)}to{transform:rotate(-432deg)}}
+@keyframes kl3{from{transform:rotate(-144deg)}to{transform:rotate(-504deg)}}
+@keyframes kl4{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes kl5{from{transform:rotate(-288deg)}to{transform:rotate(-648deg)}}
 @keyframes kn1{from{transform:translate(-50%,-50%) rotate(0deg) translateX(158px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(158px) rotate(-360deg)}}
 @keyframes kn2{from{transform:translate(-50%,-50%) rotate(72deg) translateX(130px) rotate(-72deg)}to{transform:translate(-50%,-50%) rotate(432deg) translateX(130px) rotate(-432deg)}}
 @keyframes kn3{from{transform:translate(-50%,-50%) rotate(144deg) translateX(175px) rotate(-144deg)}to{transform:translate(-50%,-50%) rotate(504deg) translateX(175px) rotate(-504deg)}}
@@ -223,7 +233,7 @@
       <div class="hero-stats">
         <div class="stat-item"><div class="num" data-target="150" data-suffix="+">0+</div><div class="lbl">Projects Delivered</div></div>
         <div class="stat-item"><div class="num" data-target="80" data-suffix="+">0+</div><div class="lbl">Global Clients</div></div>
-        <div class="stat-item"><div class="num" data-target="12" data-suffix=" Yrs">0 Yrs</div><div class="lbl">Experience</div></div>
+        <div class="stat-item"><div class="num" data-target="13" data-suffix="+ Yrs">0+ Yrs</div><div class="lbl">Experience</div></div>
         <div class="stat-item"><div class="num" data-target="99" data-suffix="%">0%</div><div class="lbl">Uptime SLA</div></div>
       </div>
     </div>
@@ -233,11 +243,11 @@
         <div class="tree-ring r1"></div>
         <div class="tree-ring r2"></div>
         <div class="tree-logo-anim"><img src="/images/logo.svg" alt="MordeTech Circuit Tree — Source of Intelligence"></div>
-        <div class="k-node n1"></div>
-        <div class="k-node n2"></div>
-        <div class="k-node n3"></div>
-        <div class="k-node n4"></div>
-        <div class="k-node n5"></div>
+        <div class="k-node n1"><span class="k-label">🔧 PLC</span></div>
+        <div class="k-node n2"><span class="k-label">👁 AI Vision</span></div>
+        <div class="k-node n3"><span class="k-label">🖥️ SCADA</span></div>
+        <div class="k-node n4"><span class="k-label">🌐 IIoT</span></div>
+        <div class="k-node n5"><span class="k-label">⚡ OPC UA</span></div>
         <div class="k-particles">
           <div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div>
         </div>
