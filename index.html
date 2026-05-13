@@ -56,12 +56,15 @@
 .fc:nth-child(2){bottom:12%;left:-12%;animation-delay:1.2s;}
 .fc:nth-child(3){top:55%;right:-8%;animation-delay:2.2s;}
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-/* TRUSTED BY */
-#trusted { padding:60px 0 40px; border-bottom:1px solid var(--border); }
-.trusted-label { font-family:var(--font-mono); font-size:.68rem; color:var(--muted); letter-spacing:.2em; text-transform:uppercase; text-align:center; margin-bottom:32px; }
-.logo-strip { display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
-.logo-item { font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--muted); opacity:.5; letter-spacing:-.01em; transition:opacity .3s,color .3s; white-space:nowrap; }
-.logo-item:hover { opacity:.9; color:var(--text); }
+/* HOW WE WORK */
+#how-we-work { padding:90px 0 70px; border-bottom:1px solid var(--border); }
+.process-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:56px; position:relative; }
+.process-row::before { content:''; position:absolute; top:28px; left:12.5%; right:12.5%; height:1px; background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple)); opacity:.3; }
+.proc-step { text-align:center; padding:0 16px; }
+.proc-num { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.1)); border:1px solid rgba(0,212,255,.3); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:.75rem; font-weight:700; color:var(--cyan); margin:0 auto 18px; }
+.proc-step h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin-bottom:8px; }
+.proc-step p { font-size:.82rem; color:var(--muted); line-height:1.7; }
+@media(max-width:768px){ .process-row{grid-template-columns:repeat(2,1fr); gap:32px;} .process-row::before{display:none;} }
 /* TESTIMONIALS */
 #testimonials { padding:110px 0 80px; }
 .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
@@ -170,7 +173,8 @@
   <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
   <ul class="nav-links">
     <li><a href="/" class="active">Home</a></li>
-    <li><a href="/solutions.html">Solutions</a></li><a href="/sustainability.html">Sustainability</a></li>
+    <li><a href="/solutions.html">Solutions</a></li>
+    <li><a href="/sustainability.html">Sustainability</a></li>
     <li><a href="/news.html">News</a></li>
     <li><a href="/careers.html">Careers</a></li>
     <li><a href="/about.html">About</a></li>
@@ -217,18 +221,32 @@
   </div>
 </section>
 
-<!-- TRUSTED BY LOGOS -->
-<section id="trusted">
+<!-- HOW WE WORK -->
+<section id="how-we-work">
   <div class="container">
-    <div class="trusted-label">Trusted by leading manufacturers across India &amp; beyond</div>
-    <div class="logo-strip reveal">
-      <span class="logo-item">Tata Motors</span>
-      <span class="logo-item">Bharat Forge</span>
-      <span class="logo-item">Mahindra</span>
-      <span class="logo-item">L&amp;T Heavy Eng.</span>
-      <span class="logo-item">Thermax</span>
-      <span class="logo-item">Kirloskar</span>
-      <span class="logo-item">Forbes Marshall</span>
+    <div class="section-tag reveal">OUR PROCESS</div>
+    <h2 class="reveal rd1">How We Work</h2>
+    <div class="process-row">
+      <div class="proc-step reveal">
+        <div class="proc-num">01</div>
+        <h4>Discovery</h4>
+        <p>On-site plant assessment, process mapping, and technology feasibility study.</p>
+      </div>
+      <div class="proc-step reveal rd1">
+        <div class="proc-num">02</div>
+        <h4>Design &amp; Quote</h4>
+        <p>Fixed-price proposal, architecture blueprint, and ROI projection — no surprises.</p>
+      </div>
+      <div class="proc-step reveal rd2">
+        <div class="proc-num">03</div>
+        <h4>Build &amp; Test</h4>
+        <p>FAT in our lab, then SAT on your floor. Every system ships fully tested.</p>
+      </div>
+      <div class="proc-step reveal rd3">
+        <div class="proc-num">04</div>
+        <h4>Deploy &amp; Support</h4>
+        <p>Commissioning, operator training, and 4-hour SLA support post go-live.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -409,8 +427,6 @@
   <div class="footer-bottom">
     <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
     <div class="social-links">
-      <a class="social-link" href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
-      <a class="social-link" href="#" title="Twitter / X" aria-label="Twitter / X">𝕏</a>
       <a class="social-link" href="mailto:mordetechsolutions@zohomail.in" title="Email" aria-label="Send email">@</a>
     </div>
   </div>
