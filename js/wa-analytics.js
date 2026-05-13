@@ -18,7 +18,7 @@
   if (localStorage.getItem('mt_cookie_consent') === 'accepted') loadGA4();
 
   // ── WhatsApp floating button ──
-  var WA_NUMBER = '917387441521';
+  var WA_NUMBER = '919404030215';
   var WA_MESSAGE = encodeURIComponent('Hello MordeTech! I visited your website and would like to discuss an automation project.');
   var wa = document.createElement('div');
   wa.className = 'wa-float';
