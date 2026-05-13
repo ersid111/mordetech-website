@@ -361,3 +361,39 @@ footer { border-top:1px solid var(--border); padding:60px 60px 40px; position:re
 .consult-btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 12px 28px; border-radius: 10px; font-size: .97rem; cursor: pointer; font-family: var(--font-body); transition: border-color .3s, color .3s; }
 .consult-btn-ghost:hover { border-color: var(--muted); color: var(--text); }
 @media(max-width:480px) { #consult-popup { padding: 36px 24px; } }
+
+/* =============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================= */
+#wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4);
+  transition: transform .25s, box-shadow .25s, opacity .4s;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  cursor: pointer;
+}
+#wa-float.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+#wa-float:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 32px rgba(37,211,102,.55);
+}
+#wa-float svg { display: block; }
+@media(max-width:640px) { #wa-float { bottom: 20px; right: 18px; width: 50px; height: 50px; } }
