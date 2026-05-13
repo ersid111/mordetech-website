@@ -149,8 +149,34 @@
 .cta-band h2 { font-family:var(--font-display); font-size:2rem; font-weight:800; max-width:480px; }
 .cta-band h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .cta-btns { display:flex; gap:12px; flex-shrink:0; }
-@media(max-width:1024px){ .hero-inner{grid-template-columns:1fr;} .hero-visual{display:none;} .services-grid{grid-template-columns:repeat(2,1fr);} .sol-grid{grid-template-columns:1fr;} .why-grid{grid-template-columns:repeat(2,1fr);} .cta-band{padding:40px 32px;} #home{padding:140px 24px 60px;} }
-@media(max-width:640px){ .services-grid,.why-grid{grid-template-columns:1fr;} .cta-band{flex-direction:column;text-align:center;} #home{padding:90px 20px 40px;min-height:auto;} }
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{margin-top:48px;}
+  .tree-wrap{width:260px;height:260px;margin:0 auto;}
+  .tree-ring.r1{width:250px;height:250px;}
+  .tree-ring.r2{width:182px;height:182px;}
+  .tree-logo-anim{width:130px;height:130px;}
+  .tree-bg{width:150px;height:150px;}
+  .k-node,.k-particles,.f-cards{display:none;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .sol-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .cta-band{padding:40px 32px;}
+  #home{padding:120px 24px 60px;}
+}
+@media(max-width:640px){
+  .services-grid,.why-grid{grid-template-columns:1fr;}
+  .cta-band{flex-direction:column;text-align:center;}
+  #home{padding:90px 20px 40px;min-height:auto;}
+  .tree-wrap{width:180px;height:180px;}
+  .tree-ring.r1{width:172px;height:172px;}
+  .tree-ring.r2{width:126px;height:126px;}
+  .tree-logo-anim{width:90px;height:90px;}
+  .tree-bg{width:110px;height:110px;}
+  .hero-visual{margin-top:32px;margin-bottom:8px;}
+  .hero-stats{gap:20px;}
+  .process-row{grid-template-columns:1fr;gap:24px;}
+}
 </style>
 <!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
 <script type="application/ld+json">
