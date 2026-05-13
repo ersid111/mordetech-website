@@ -126,8 +126,8 @@ footer { border-top:1px solid var(--border); padding:60px 60px 40px; position:re
 .btn-call:hover { border-color:var(--cyan); color:var(--cyan); }
 
 /* RESPONSIVE */
-@media(max-width:1024px){ nav,nav.scrolled{padding:16px 24px;} .container{padding:0 24px;} .footer-inner{grid-template-columns:1fr 1fr;} footer{padding:40px 24px 32px;} .nav-links,.nav-right{display:none;} .hamburger{display:flex;} }
-@media(max-width:640px){ .footer-inner{grid-template-columns:1fr;gap:28px;} .footer-bottom{flex-direction:column;gap:14px;text-align:center;} }
+@media(max-width:1024px){ nav,nav.scrolled{padding:16px 24px;} .container{padding:0 24px;} .footer-inner{grid-template-columns:1fr 1fr;} footer{padding:40px 24px 32px;} .nav-links,.nav-right{display:none;} .hamburger{display:flex;} .page-hero{padding:120px 0 50px;} }
+@media(max-width:640px){ .footer-inner{grid-template-columns:1fr;gap:28px;} .footer-bottom{flex-direction:column;gap:14px;text-align:center;} .page-hero{padding:100px 0 36px;} }
 
 /* =============================================
    WHATSAPP FLOATING BUTTON
