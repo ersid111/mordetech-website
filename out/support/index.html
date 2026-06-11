@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Plant Support Plans — Annual Maintenance Contracts | MordeTech Solutions</title>
+<meta name="description" content="MordeTech AMC plans for PLC, SCADA, AI Vision, and IIoT systems. Bronze, Silver, Gold — from remote helpdesk to 4-hour on-site SLA. Pune, Maharashtra.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plant Support Plans — Annual Maintenance Contracts | MordeTech Solutions">
+<meta property="og:description" content="Keep your automation running. AMC plans with 4-hr emergency response, remote monitoring, and quarterly health checks for PLC/SCADA/AI systems.">
+<meta property="og:url" content="https://mordetech-solutions.in/support.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:title" content="Plant Support Plans — MordeTech Solutions">
+<meta name="twitter:description" content="AMC plans with 4-hr emergency response for PLC, SCADA, AI Vision, and IIoT systems.">
+<meta name="theme-color" content="#020408">
+<link rel="canonical" href="https://mordetech-solutions.in/support.html">
+<link rel="stylesheet" href="/css/global.css">
+<style>
+.page-hero { padding:160px 0 80px; }
+
+/* PLAN CARDS */
+.plans { padding:80px 0 100px; }
+.plans-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; align-items:start; }
+.plan-card { border-radius:var(--radius); padding:44px 36px; border:1px solid var(--border); background:var(--surface); position:relative; transition:transform .35s,border-color .35s,box-shadow .35s; }
+.plan-card:hover { transform:translateY(-8px); border-color:rgba(0,212,255,.3); box-shadow:0 24px 60px rgba(0,0,0,.4); }
+.plan-card.featured { border-color:rgba(0,212,255,.45); background:linear-gradient(145deg,rgba(0,102,255,.13),rgba(0,212,255,.06)); transform:scale(1.04); }
+.plan-card.featured:hover { transform:scale(1.04) translateY(-8px); }
+.plan-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--cyan),var(--blue)); color:#000; font-size:.75rem; font-weight:800; padding:5px 18px; border-radius:100px; white-space:nowrap; font-family:var(--font-mono); letter-spacing:.1em; text-transform:uppercase; }
+.plan-tier { font-family:var(--font-mono); font-size:.78rem; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
+.plan-name { font-family:var(--font-display); font-size:1.6rem; font-weight:800; margin-bottom:8px; }
+.plan-tagline { font-size:.95rem; color:var(--text2); line-height:1.6; margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid var(--border); }
+.plan-price { margin-bottom:8px; }
+.plan-price .amount { font-family:var(--font-display); font-size:2.4rem; font-weight:900; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+.plan-price .period { font-size:.92rem; color:var(--muted); margin-left:4px; }
+.plan-price .note { font-family:var(--font-mono); font-size:.75rem; color:var(--muted); letter-spacing:.06em; margin-top:4px; }
+.plan-sla { display:inline-flex; align-items:center; gap:6px; background:rgba(0,212,255,.06); border:1px solid rgba(0,212,255,.15); border-radius:6px; padding:6px 12px; font-family:var(--font-mono); font-size:.78rem; color:var(--cyan); margin:16px 0 28px; }
+.plan-includes { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:36px; }
+.plan-includes li { font-size:.95rem; color:var(--text2); display:flex; align-items:flex-start; gap:10px; line-height:1.55; }
+.plan-includes li.check::before { content:'✓'; color:var(--cyan); font-family:var(--font-mono); flex-shrink:0; font-weight:700; }
+.plan-includes li.cross { opacity:.45; }
+.plan-includes li.cross::before { content:'✕'; color:var(--muted); font-family:var(--font-mono); flex-shrink:0; }
+
+/* WHAT'S COVERED */
+.coverage { padding:80px 0; background:linear-gradient(to bottom,transparent,rgba(0,50,120,.06),transparent); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.cov-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
+.cov-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:32px 28px; transition:transform .3s,border-color .3s; }
+.cov-card:hover { transform:translateY(-4px); border-color:rgba(0,212,255,.28); }
+.cov-icon { font-size:2.2rem; margin-bottom:16px; display:block; }
+.cov-card h4 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:10px; }
+.cov-card p { font-size:.92rem; color:var(--muted); line-height:1.7; }
+.cov-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+.cov-tag { font-family:var(--font-mono); font-size:.72rem; color:var(--cyan); padding:3px 9px; border:1px solid rgba(0,212,255,.18); border-radius:4px; }
+
+/* HOW IT WORKS */
+.how-amc { padding:80px 0 100px; }
+.amc-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:56px; position:relative; }
+.amc-steps::before { content:''; position:absolute; top:28px; left:12.5%; right:12.5%; height:1px; background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple)); opacity:.3; }
+.amc-step { text-align:center; padding:0 16px; }
+.amc-num { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.1)); border:1px solid rgba(0,212,255,.3); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:.82rem; font-weight:700; color:var(--cyan); margin:0 auto 18px; }
+.amc-step h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin-bottom:8px; }
+.amc-step p { font-size:.88rem; color:var(--muted); line-height:1.7; }
+
+/* COMPARISON TABLE */
+.plan-compare { padding:80px 0; }
+.pc-table-wrap { overflow-x:auto; margin-top:48px; }
+.pc-table { width:100%; border-collapse:collapse; min-width:640px; }
+.pc-table th { padding:14px 20px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; text-align:left; border-bottom:1px solid var(--border); color:var(--muted); }
+.pc-table th.col-b { color:#a0bdd0; }
+.pc-table th.col-s { color:var(--cyan); }
+.pc-table th.col-g { color:var(--purple); }
+.pc-table td { padding:14px 20px; font-size:.92rem; color:var(--text2); border-bottom:1px solid rgba(255,255,255,.04); vertical-align:middle; }
+.pc-table td:first-child { font-weight:500; color:var(--text); }
+.pc-table tr:hover td { background:rgba(255,255,255,.02); }
+.pc-table .check { color:var(--green); font-size:1rem; font-weight:700; }
+.pc-table .cross { color:rgba(255,255,255,.2); font-size:1rem; }
+.pc-table .val { font-family:var(--font-mono); font-size:.88rem; }
+
+/* FAQ */
+.faq { padding:80px 0 100px; }
+.faq-list { margin-top:48px; display:flex; flex-direction:column; gap:0; }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-q { width:100%; background:none; border:none; color:var(--text); font-family:var(--font-display); font-size:1rem; font-weight:600; text-align:left; padding:24px 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; transition:color .3s; }
+.faq-q:hover { color:var(--cyan); }
+.faq-q .faq-arrow { flex-shrink:0; transition:transform .3s; font-size:.8rem; color:var(--muted); }
+.faq-item.open .faq-q { color:var(--cyan); }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-a { display:none; padding:0 0 24px; font-size:.97rem; color:var(--text2); line-height:1.85; max-width:720px; }
+.faq-item.open .faq-a { display:block; }
+
+/* CTA */
+.support-cta { padding:80px 0 120px; text-align:center; }
+.support-cta h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:800; letter-spacing:-.03em; margin-bottom:14px; }
+.support-cta h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.support-cta p { font-size:1.02rem; color:var(--text2); max-width:500px; margin:0 auto 36px; line-height:1.8; }
+
+@media(max-width:1024px){
+  .plans-grid { grid-template-columns:1fr; }
+  .plan-card.featured { transform:scale(1); }
+  .plan-card.featured:hover { transform:translateY(-8px); }
+  .cov-grid { grid-template-columns:repeat(2,1fr); }
+  .amc-steps { grid-template-columns:repeat(2,1fr); gap:32px; }
+  .amc-steps::before { display:none; }
+  .page-hero { padding:120px 0 60px; }
+}
+@media(max-width:640px){
+  .cov-grid { grid-template-columns:1fr; }
+  .amc-steps { grid-template-columns:1fr; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Plant Support & Annual Maintenance Contracts",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "MordeTech Solutions Pvt. Ltd.",
+    "url": "https://mordetech-solutions.in",
+    "telephone": "+919404030215",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    }
+  },
+  "description": "Annual maintenance contracts for PLC, SCADA, AI Vision, and IIoT systems in manufacturing plants.",
+  "areaServed": "IN",
+  "serviceType": "Annual Maintenance Contract",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Bronze AMC",
+      "description": "Remote helpdesk support with 48-hour response SLA"
+    },
+    {
+      "@type": "Offer",
+      "name": "Silver AMC",
+      "description": "Remote + quarterly on-site with 24-hour response SLA"
+    },
+    {
+      "@type": "Offer",
+      "name": "Gold AMC",
+      "description": "24/7 remote monitoring + monthly on-site + 4-hour emergency SLA"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/solutions.html" onclick="closeMobile()">Solutions</a>
+  <a href="/sustainability.html" onclick="closeMobile()">Sustainability</a>
+  <a href="/news.html" onclick="closeMobile()">News</a>
+  <a href="/careers.html" onclick="closeMobile()">Careers</a>
+  <a href="/about.html" onclick="closeMobile()">About</a>
+  <a href="/demo.html" onclick="closeMobile()">Live Demo</a>
+  <a href="/contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/solutions.html">Solutions</a></li>
+    <li><a href="/sustainability.html">Sustainability</a></li>
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/careers.html">Careers</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-tag reveal">PLANT SUPPORT</div>
+    <h1 class="reveal rd1">Keep Your Plant <span class="grad">Running. Always.</span></h1>
+    <p class="reveal rd2" style="max-width:580px;">Your automation system is the heartbeat of your production line. Our AMC plans give you a dedicated support team, guaranteed response times, and proactive health monitoring — so unplanned downtime becomes a thing of the past.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;" class="reveal rd3">
+      <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">
+        <span style="color:var(--green);font-size:1rem;">●</span> 4-hour emergency SLA available
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">
+        <span style="color:var(--cyan);font-size:1rem;">●</span> Covers PLC · SCADA · AI Vision · IIoT
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN CARDS -->
+<section class="plans">
+  <div class="container">
+    <div class="section-tag reveal">AMC PLANS</div>
+    <h2 class="reveal rd1">Choose Your Support Level</h2>
+    <p class="reveal rd2" style="color:var(--text2);max-width:500px;margin-top:10px;line-height:1.8;">All plans billed annually. Custom plans available for multi-site or complex integrated systems — contact us for a tailored quote.</p>
+    <div class="plans-grid">
+
+      <!-- BRONZE -->
+      <div class="plan-card reveal">
+        <div class="plan-tier">Bronze</div>
+        <div class="plan-name">Essentials</div>
+        <p class="plan-tagline">Remote helpdesk coverage for plants with lower criticality or in-house maintenance capability.</p>
+        <div class="plan-sla" style="margin:0 0 28px;">48-hr response SLA</div>
+        <ul class="plan-includes">
+          <li class="check">Remote helpdesk support (Mon–Sat, 9am–6pm)</li>
+          <li class="check">Unlimited remote troubleshooting sessions</li>
+          <li class="check">Annual system health audit (1 visit)</li>
+          <li class="check">Software backup storage (PLC programs, SCADA configs)</li>
+          <li class="check">Monthly system uptime report</li>
+          <li class="check">Email + WhatsApp ticket support</li>
+          <li class="cross">On-site emergency visits</li>
+          <li class="cross">Quarterly preventive maintenance</li>
+          <li class="cross">24/7 remote monitoring</li>
+          <li class="cross">Dedicated support engineer</li>
+        </ul>
+        <div style="text-align:center;font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:16px;">Pricing on request</div>
+        <button class="btn-ghost" style="width:100%;padding:13px;" onclick="location.href='/contact.html?plan=bronze'">Get Bronze Plan</button>
+      </div>
+
+      <!-- SILVER -->
+      <div class="plan-card featured reveal rd1">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-tier">Silver</div>
+        <div class="plan-name">Professional</div>
+        <p class="plan-tagline">The right balance for most manufacturing plants — remote coverage plus quarterly on-site attention.</p>
+        <div class="plan-sla" style="margin:0 0 28px;">24-hr response SLA</div>
+        <ul class="plan-includes">
+          <li class="check">Everything in Bronze</li>
+          <li class="check">4 on-site visits/year (quarterly preventive maintenance)</li>
+          <li class="check">24-hour response SLA (including weekends)</li>
+          <li class="check">PLC / SCADA software updates &amp; patches</li>
+          <li class="check">Spare parts consultation &amp; sourcing support</li>
+          <li class="check">Operator refresher training (1 session/year)</li>
+          <li class="check">Priority queue — ahead of non-AMC clients</li>
+          <li class="check">Remote monitoring dashboard access</li>
+          <li class="cross">4-hour emergency on-site SLA</li>
+          <li class="cross">Dedicated named support engineer</li>
+        </ul>
+        <div style="text-align:center;font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:16px;">Pricing on request</div>
+        <button class="btn-primary" style="width:100%;padding:13px;" onclick="location.href='/contact.html?plan=silver'"><span>Get Silver Plan</span></button>
+      </div>
+
+      <!-- GOLD -->
+      <div class="plan-card reveal rd2">
+        <div class="plan-tier">Gold</div>
+        <div class="plan-name">Mission Critical</div>
+        <p class="plan-tagline">For production lines where every hour of downtime costs more than the plan itself.</p>
+        <div class="plan-sla" style="margin:0 0 28px;border-color:rgba(123,47,255,.35);color:var(--purple);">4-hr emergency on-site SLA</div>
+        <ul class="plan-includes">
+          <li class="check">Everything in Silver</li>
+          <li class="check">4-hour emergency on-site response (within Pune–Nashik–Aurangabad belt)</li>
+          <li class="check">12 on-site visits/year (monthly preventive maintenance)</li>
+          <li class="check">24/7 remote monitoring with automated alerts</li>
+          <li class="check">Dedicated named support engineer (direct mobile number)</li>
+          <li class="check">Spare parts buffer stock held on your behalf</li>
+          <li class="check">Unlimited operator training sessions</li>
+          <li class="check">Quarterly system audit report with improvement roadmap</li>
+          <li class="check">Priority escalation to Priyanka Morde directly</li>
+          <li class="check">Free minor modifications (&lt;4 hrs engineering/month)</li>
+        </ul>
+        <div style="text-align:center;font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:16px;">Pricing on request</div>
+        <button class="btn-ghost" style="width:100%;padding:13px;border-color:rgba(123,47,255,.4);color:var(--purple);" onclick="location.href='/contact.html?plan=gold'">Get Gold Plan</button>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:32px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);" class="reveal">
+      Need a custom plan for multiple sites or legacy systems?
+      <a href="/contact.html" style="color:var(--cyan);text-decoration:none;"> Contact us →</a>
+    </p>
+  </div>
+</section>
+
+<!-- WHAT'S COVERED -->
+<section class="coverage">
+  <div class="container">
+    <div class="section-tag reveal">SCOPE OF COVERAGE</div>
+    <h2 class="reveal rd1">What We Maintain &amp; Support</h2>
+    <p class="reveal rd2" style="color:var(--text2);max-width:520px;margin-top:10px;line-height:1.8;">Our engineers are qualified across the full automation stack — from PLC ladder logic to AI model retraining.</p>
+    <div class="cov-grid">
+      <div class="cov-card reveal">
+        <span class="cov-icon">🔧</span>
+        <h4>PLC Systems</h4>
+        <p>Siemens S7-1200/1500/300, TIA Portal programs, safety PLCs, drive parameters, and I/O diagnostics.</p>
+        <div class="cov-tags"><span class="cov-tag">TIA Portal</span><span class="cov-tag">Step 7</span><span class="cov-tag">Safety</span></div>
+      </div>
+      <div class="cov-card reveal rd1">
+        <span class="cov-icon">🖥️</span>
+        <h4>SCADA / HMI</h4>
+        <p>WinCC, WinCC Unified, Ignition, and custom web HMI — server updates, tag database, trend archives.</p>
+        <div class="cov-tags"><span class="cov-tag">WinCC</span><span class="cov-tag">Ignition</span><span class="cov-tag">HMI</span></div>
+      </div>
+      <div class="cov-card reveal rd2">
+        <span class="cov-icon">👁</span>
+        <h4>AI Vision Systems</h4>
+        <p>Camera alignment, lighting checks, model retraining for new defect types, inference server health, reject actuator calibration.</p>
+        <div class="cov-tags"><span class="cov-tag">PyTorch</span><span class="cov-tag">Jetson</span><span class="cov-tag">Basler</span></div>
+      </div>
+      <div class="cov-card reveal">
+        <span class="cov-icon">🌐</span>
+        <h4>IIoT &amp; Networks</h4>
+        <p>OPC UA servers, MQTT brokers, edge devices (Raspberry Pi, Industrial PCs), network switches, and VPN tunnels.</p>
+        <div class="cov-tags"><span class="cov-tag">OPC UA</span><span class="cov-tag">MQTT</span><span class="cov-tag">Edge</span></div>
+      </div>
+      <div class="cov-card reveal rd1">
+        <span class="cov-icon">📊</span>
+        <h4>Dashboards &amp; Analytics</h4>
+        <p>Grafana dashboards, InfluxDB time-series databases, OEE calculation engines, and report generators.</p>
+        <div class="cov-tags"><span class="cov-tag">Grafana</span><span class="cov-tag">InfluxDB</span><span class="cov-tag">OEE</span></div>
+      </div>
+      <div class="cov-card reveal rd2">
+        <span class="cov-icon">🛡️</span>
+        <h4>OT Cybersecurity</h4>
+        <p>Network segmentation audits, firmware updates, access control reviews, and incident response for OT environments.</p>
+        <div class="cov-tags"><span class="cov-tag">OT Security</span><span class="cov-tag">IEC 62443</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-amc">
+  <div class="container">
+    <div class="section-tag reveal">ONBOARDING</div>
+    <h2 class="reveal rd1">How Your AMC Starts</h2>
+    <div class="amc-steps">
+      <div class="amc-step reveal">
+        <div class="amc-num">01</div>
+        <h4>System Audit</h4>
+        <p>Our engineer visits your plant for a baseline audit — documenting all installed systems, software versions, and risk areas.</p>
+      </div>
+      <div class="amc-step reveal rd1">
+        <div class="amc-num">02</div>
+        <h4>Documentation</h4>
+        <p>We create or update all PLC, SCADA, and AI system documentation. Backups secured in our encrypted cloud vault.</p>
+      </div>
+      <div class="amc-step reveal rd2">
+        <div class="amc-num">03</div>
+        <h4>Monitoring Setup</h4>
+        <p>Remote access and monitoring agents installed and tested. You get a live dashboard of system health from day one.</p>
+      </div>
+      <div class="amc-step reveal rd3">
+        <div class="amc-num">04</div>
+        <h4>Active Support</h4>
+        <p>Your AMC is live. Raise tickets via WhatsApp, email, or phone. We respond within your SLA window — guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="plan-compare">
+  <div class="container">
+    <div class="section-tag reveal">COMPARE PLANS</div>
+    <h2 class="reveal rd1">Feature Comparison</h2>
+    <div class="pc-table-wrap reveal">
+      <table class="pc-table">
+        <thead>
+          <tr>
+            <th style="width:40%;">Feature</th>
+            <th class="col-b">Bronze</th>
+            <th class="col-s">Silver</th>
+            <th class="col-g">Gold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Response SLA (remote)</td>
+            <td class="val">48 hours</td>
+            <td class="val">24 hours</td>
+            <td class="val">4 hours</td>
+          </tr>
+          <tr>
+            <td>Support hours</td>
+            <td class="val">Mon–Sat 9–6</td>
+            <td class="val">Mon–Sat 8–8</td>
+            <td class="val">24/7</td>
+          </tr>
+          <tr>
+            <td>On-site visits/year</td>
+            <td class="val">1</td>
+            <td class="val">4 (quarterly)</td>
+            <td class="val">12 (monthly)</td>
+          </tr>
+          <tr>
+            <td>Emergency on-site (4-hr SLA)</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>24/7 remote monitoring</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span> (dashboard)</td>
+            <td><span class="check">✓</span> (monitored + alerts)</td>
+          </tr>
+          <tr>
+            <td>Software updates &amp; patches</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Operator training sessions/year</td>
+            <td class="val">0</td>
+            <td class="val">1</td>
+            <td class="val">Unlimited</td>
+          </tr>
+          <tr>
+            <td>Dedicated support engineer</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Free minor modifications</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span> (4 hrs/month)</td>
+          </tr>
+          <tr>
+            <td>Spare parts buffer stock</td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Covers PLC systems</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Covers SCADA / HMI</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Covers AI Vision systems</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Covers IIoT / dashboards</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-tag reveal">FAQ</div>
+    <h2 class="reveal rd1">Common Questions</h2>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I get an AMC for a system MordeTech didn't build?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Yes. We take on third-party systems after a paid baseline audit (typically ₹8,000–15,000 one-time fee). The audit lets us document the system thoroughly so we can support it effectively. We've inherited Siemens, Mitsubishi, ABB, and custom-built systems from other integrators.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What happens if we have a breakdown outside support hours on Bronze?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Bronze covers Mon–Sat 9am–6pm. Outside those hours, emergency support is available as a pay-per-incident service at ₹3,500/hour (remote) or ₹7,500/hour (on-site) plus travel. If you find yourself using emergency support frequently, upgrading to Silver or Gold will almost certainly save money.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quickly can an AMC be activated for an existing system?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Typically 5–10 working days. We need to complete the baseline system audit and documentation before the AMC goes live. If you have an urgent situation and need immediate cover, we can arrange interim emergency support while the audit is completed.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does the AMC cover spare parts replacement costs?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">AMC plans cover the engineering labour for fault diagnosis and repair. Spare parts are charged separately at cost price plus a 10% handling fee. Gold plan clients benefit from a buffer stock of common consumable spares (fuses, HMI touch screens, I/O modules) held by MordeTech, reducing lead times for critical replacements.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does the 4-hour on-site SLA in Gold actually mean?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">A MordeTech engineer will be physically on-site at your plant within 4 hours of you raising a P1 (production-stopped) emergency ticket — for plants within our standard service zone (Pune, Nashik, Aurangabad, Kolhapur belt). For plants outside this zone, we'll discuss the SLA during contracting. The 4-hour clock starts when you call or WhatsApp us, not when we finish diagnosing remotely.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can we scale up from Bronze to Gold mid-contract?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Yes, you can upgrade at any time. We pro-rate the remaining contract value and apply it to the new plan. Downgrades are possible at annual renewal. We recommend starting with Silver and evaluating after 6 months — most clients find the quarterly visits alone justify the cost difference over Bronze.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="support-cta">
+  <div class="container">
+    <div class="section-tag reveal">GET STARTED</div>
+    <h2 class="reveal rd1">Stop firefighting.<br><span>Start preventing.</span></h2>
+    <p class="reveal rd2">Book a free 30-minute call with our support team. We'll assess your current systems, identify your top downtime risks, and recommend the right plan for your plant size and criticality.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" class="reveal rd3">
+      <button class="btn-primary btn-xl" onclick="location.href='/contact.html'">Book Free Assessment Call</button>
+      <button class="btn-ghost btn-xl" onclick="location.href='https://wa.me/919404030215?text=Hi%2C+I+am+interested+in+an+AMC+plan+for+my+plant.'" target="_blank">WhatsApp Us Now</button>
+    </div>
+    <p class="reveal rd4" style="margin-top:28px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">Response within 2 business hours &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Free for existing MordeTech clients</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
+      <p>Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
+    </div>
+    <div class="footer-col"><h5>Support Plans</h5><ul><li><a href="/support.html">Bronze Essentials</a></li><li><a href="/support.html">Silver Professional</a></li><li><a href="/support.html">Gold Mission Critical</a></li><li><a href="/contact.html">Custom Enterprise Plan</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/news.html">News</a></li><li><a href="/sustainability.html">Sustainability</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+919404030215">+91 94040 30215</a></li><li><a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a></li><li><a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener">Hinjewadi, Pune, India</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
+    <div class="social-links">
+      <a class="social-link" href="mailto:mordetechsolutions@zohomail.in" title="Email" aria-label="Send email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/global.js"></script>
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

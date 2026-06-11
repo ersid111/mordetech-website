@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Solutions for Manufacturing — Computer Vision, Predictive Maintenance | MordeTech</title>
+<meta name="description" content="MordeTech AI solutions for manufacturers: Computer Vision quality inspection (94% defect reduction), Predictive Maintenance, and Process Optimization AI. Pune, India.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Solutions for Manufacturing — MordeTech Solutions">
+<meta property="og:description" content="Computer Vision QC, Predictive Maintenance, and Process AI built for the factory floor. Not just models — complete OT+IT integration.">
+<meta property="og:url" content="https://mordetech-solutions.in/ai-solutions.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:title" content="AI Solutions for Manufacturing — MordeTech Solutions">
+<meta name="twitter:description" content="Computer Vision QC, Predictive Maintenance, and Process AI for manufacturers in India.">
+<meta name="theme-color" content="#020408">
+<link rel="canonical" href="https://mordetech-solutions.in/ai-solutions.html">
+<link rel="stylesheet" href="/css/global.css">
+<style>
+.page-hero { padding:160px 0 80px; }
+
+/* AI SERVICE AREAS */
+.ai-services { padding:80px 0 100px; }
+.ai-svc { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-bottom:100px; }
+.ai-svc:last-child { margin-bottom:0; }
+.ai-svc.rev { direction:rtl; }
+.ai-svc.rev > * { direction:ltr; }
+.ai-visual { border-radius:var(--radius); border:1px solid var(--border); overflow:hidden; position:relative; min-height:320px; display:flex; align-items:center; justify-content:center; }
+.ai-visual-bg { position:absolute; inset:0; }
+.ai-visual.v1 .ai-visual-bg { background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(0,102,255,.06)); }
+.ai-visual.v2 .ai-visual-bg { background:linear-gradient(135deg,rgba(123,47,255,.14),rgba(0,102,255,.06)); }
+.ai-visual.v3 .ai-visual-bg { background:linear-gradient(135deg,rgba(0,255,136,.07),rgba(0,102,255,.08)); }
+.ai-visual-icon { font-size:4.5rem; position:relative; z-index:1; filter:drop-shadow(0 0 24px rgba(0,212,255,.4)); }
+.ai-visual-chip { position:absolute; background:rgba(2,4,8,.88); border:1px solid var(--border); border-radius:8px; padding:8px 14px; font-family:var(--font-mono); font-size:.78rem; color:var(--cyan); white-space:nowrap; z-index:2; backdrop-filter:blur(8px); }
+.chip-tl { top:18px; left:18px; }
+.chip-tr { top:18px; right:18px; }
+.chip-br { bottom:18px; right:18px; }
+.chip-bl { bottom:18px; left:18px; }
+.ai-content h3 { font-family:var(--font-display); font-size:2rem; font-weight:800; letter-spacing:-.03em; margin-bottom:14px; }
+.ai-content .sub { font-family:var(--font-mono); font-size:.82rem; color:var(--cyan); letter-spacing:.12em; text-transform:uppercase; margin-bottom:20px; display:block; }
+.ai-content p { font-size:.99rem; color:var(--text2); line-height:1.9; margin-bottom:20px; }
+.feat-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin:0 0 28px; }
+.feat-list li { display:flex; align-items:flex-start; gap:10px; font-size:.97rem; color:var(--text2); line-height:1.6; }
+.feat-list li::before { content:'→'; color:var(--cyan); font-family:var(--font-mono); flex-shrink:0; margin-top:1px; }
+.metric-row { display:flex; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
+.metric-pill { background:rgba(0,212,255,.06); border:1px solid rgba(0,212,255,.18); border-radius:8px; padding:10px 16px; text-align:center; }
+.metric-pill .mv { font-family:var(--font-display); font-size:1.5rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
+.metric-pill .ml { font-family:var(--font-mono); font-size:.72rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+.tech-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.tech-chip { font-family:var(--font-mono); font-size:.75rem; color:var(--cyan); padding:4px 12px; border:1px solid rgba(0,212,255,.2); border-radius:100px; letter-spacing:.05em; }
+
+/* TECH STACK */
+.tech-stack { padding:80px 0; background:linear-gradient(to bottom,transparent,rgba(0,50,120,.06),transparent); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.stack-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:56px; }
+.stack-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:28px 20px; text-align:center; transition:transform .3s,border-color .3s; }
+.stack-card:hover { transform:translateY(-4px); border-color:rgba(0,212,255,.3); }
+.stack-icon { font-size:2rem; margin-bottom:12px; display:block; }
+.stack-card h4 { font-family:var(--font-display); font-size:.97rem; font-weight:700; margin-bottom:8px; }
+.stack-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
+
+/* ROI CALCULATOR */
+.roi-section { padding:100px 0; }
+.roi-inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.roi-form { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:44px 40px; }
+.roi-form h3 { font-family:var(--font-display); font-size:1.6rem; font-weight:800; margin-bottom:8px; }
+.roi-form .desc { font-size:.95rem; color:var(--text2); line-height:1.7; margin-bottom:32px; }
+.roi-field { margin-bottom:24px; }
+.roi-field label { display:block; font-family:var(--font-mono); font-size:.8rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
+.roi-field input, .roi-field select {
+  width:100%; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:10px;
+  padding:12px 16px; color:var(--text); font-family:var(--font-body); font-size:.97rem;
+  outline:none; transition:border-color .3s;
+}
+.roi-field input:focus, .roi-field select:focus { border-color:var(--cyan); }
+.roi-field .hint { font-size:.82rem; color:var(--muted); margin-top:6px; }
+.roi-result { background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(0,212,255,.06)); border:1px solid rgba(0,212,255,.25); border-radius:var(--radius); padding:44px 40px; position:sticky; top:100px; }
+.roi-result h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:800; margin-bottom:24px; color:var(--text); }
+.roi-stat { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.roi-stat:last-of-type { border-bottom:none; margin-bottom:28px; }
+.roi-stat .rs-label { font-family:var(--font-mono); font-size:.78rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; }
+.roi-stat .rs-value { font-family:var(--font-display); font-size:1.8rem; font-weight:800; line-height:1; }
+.roi-stat .rs-value.bad { color:#ff6b6b; }
+.roi-stat .rs-value.good { background:linear-gradient(135deg,var(--cyan),var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.roi-stat .rs-sub { font-size:.87rem; color:var(--muted); margin-top:4px; }
+.roi-empty { text-align:center; padding:40px 0; }
+.roi-empty .re-icon { font-size:3rem; margin-bottom:12px; display:block; }
+.roi-empty p { font-size:.97rem; color:var(--muted); }
+
+/* COMPARISON TABLE */
+.comparison { padding:80px 0 100px; }
+.comp-table-wrap { overflow-x:auto; margin-top:56px; }
+.comp-table { width:100%; border-collapse:collapse; min-width:640px; }
+.comp-table th { padding:16px 24px; font-family:var(--font-mono); font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; text-align:left; border-bottom:1px solid var(--border); }
+.comp-table th:first-child { color:var(--muted); }
+.comp-table th.col-human { color:#ff6b6b; }
+.comp-table th.col-ai { color:var(--cyan); }
+.comp-table td { padding:16px 24px; font-size:.95rem; color:var(--text2); border-bottom:1px solid rgba(255,255,255,.04); }
+.comp-table td:first-child { font-weight:500; color:var(--text); }
+.comp-table .bad { color:#ff6b6b; }
+.comp-table .good { color:var(--cyan); }
+.comp-table tr:hover td { background:rgba(255,255,255,.02); }
+.comp-table .check { color:var(--green); font-size:1.1rem; }
+.comp-table .cross { color:#ff6b6b; font-size:1.1rem; }
+
+/* CASE STUDY CALLOUT */
+.cs-callout { margin:60px 0 0; background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,102,255,.04)); border:1px solid rgba(0,212,255,.2); border-radius:var(--radius); padding:44px 48px; display:flex; align-items:center; gap:40px; flex-wrap:wrap; }
+.cs-callout .cc-icon { font-size:3rem; flex-shrink:0; }
+.cs-callout h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:800; margin-bottom:8px; }
+.cs-callout p { font-size:.97rem; color:var(--text2); line-height:1.7; }
+.cs-callout .cc-actions { flex-shrink:0; margin-left:auto; }
+
+/* FINAL CTA */
+.ai-cta { padding:100px 0 120px; text-align:center; }
+.ai-cta h2 { font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-.03em; margin-bottom:16px; }
+.ai-cta h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.ai-cta p { font-size:1.05rem; color:var(--text2); max-width:520px; margin:0 auto 40px; line-height:1.8; }
+.ai-cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+@media(max-width:1024px){
+  .ai-svc { grid-template-columns:1fr; gap:40px; }
+  .ai-svc.rev { direction:ltr; }
+  .stack-grid { grid-template-columns:repeat(2,1fr); }
+  .roi-inner { grid-template-columns:1fr; }
+  .roi-result { position:static; }
+}
+@media(max-width:640px){
+  .stack-grid { grid-template-columns:1fr 1fr; }
+  .cs-callout { flex-direction:column; }
+  .cs-callout .cc-actions { margin-left:0; }
+  .page-hero { padding:120px 0 56px; }
+  .roi-form, .roi-result { padding:28px 20px; }
+  .metric-row { gap:12px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Solutions for Manufacturing",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "MordeTech Solutions Pvt. Ltd.",
+    "url": "https://mordetech-solutions.in",
+    "telephone": "+919404030215",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    }
+  },
+  "description": "AI-powered quality inspection, predictive maintenance, and process optimization for manufacturing plants in India.",
+  "areaServed": "IN",
+  "serviceType": ["Computer Vision Quality Inspection", "Predictive Maintenance AI", "Process Optimization", "Machine Vision Systems"]
+}
+</script>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="/solutions.html" onclick="closeMobile()">Solutions</a>
+  <a href="/sustainability.html" onclick="closeMobile()">Sustainability</a>
+  <a href="/news.html" onclick="closeMobile()">News</a>
+  <a href="/careers.html" onclick="closeMobile()">Careers</a>
+  <a href="/about.html" onclick="closeMobile()">About</a>
+  <a href="/demo.html" onclick="closeMobile()">Live Demo</a>
+  <a href="/contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/solutions.html">Solutions</a></li>
+    <li><a href="/sustainability.html">Sustainability</a></li>
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/careers.html">Careers</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-tag reveal">AI FOR MANUFACTURING</div>
+    <h1 class="reveal rd1">AI That Works on <span class="grad">Your Factory Floor</span></h1>
+    <p class="reveal rd2" style="max-width:600px;">Not just models — complete OT+IT integration. We combine deep learning with PLC automation and IIoT to deliver AI systems that operate at line speed, talk to your existing Siemens controllers, and generate measurable ROI from day one.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;" class="reveal rd3">
+      <button class="btn-primary btn-xl" onclick="document.getElementById('roi-calc').scrollIntoView({behavior:'smooth'})">Calculate My ROI</button>
+      <button class="btn-ghost btn-xl" onclick="location.href='/contact.html'">Book a Free Demo</button>
+    </div>
+  </div>
+</section>
+
+<!-- AI SERVICE AREAS -->
+<section class="ai-services">
+  <div class="container">
+
+    <!-- 1. Computer Vision QC -->
+    <div class="ai-svc reveal">
+      <div class="ai-visual v1">
+        <div class="ai-visual-bg"></div>
+        <span class="ai-visual-icon">👁</span>
+        <div class="ai-visual-chip chip-tl">Basler acA1920 · 120fps</div>
+        <div class="ai-visual-chip chip-tr">PyTorch · Edge AI</div>
+        <div class="ai-visual-chip chip-bl">Defect Rate: <span style="color:var(--green)">0.02%</span></div>
+        <div class="ai-visual-chip chip-br">Latency: &lt;8ms</div>
+      </div>
+      <div class="ai-content">
+        <span class="sub">Service 01</span>
+        <h3>Computer Vision Quality Inspection</h3>
+        <div class="metric-row">
+          <div class="metric-pill"><div class="mv">94%</div><div class="ml">Defect Reduction</div></div>
+          <div class="metric-pill"><div class="mv">&lt;8ms</div><div class="ml">Inference Latency</div></div>
+          <div class="metric-pill"><div class="mv">24/7</div><div class="ml">Continuous Inspection</div></div>
+        </div>
+        <p>We deploy deep learning vision systems directly on your production line — operating at full line speed with no throughput penalty. Our custom-trained PyTorch models, running on NVIDIA Jetson edge hardware, detect surface defects, dimensional deviations, weld quality issues, and assembly errors that manual inspection routinely misses.</p>
+        <p>Crucially, we integrate the reject signal directly into your Siemens PLC reject logic — no manual intervention, no island system. The AI becomes part of your existing automation architecture.</p>
+        <ul class="feat-list">
+          <li>Custom model training on your specific defect library — not generic pre-trained models</li>
+          <li>Edge deployment on NVIDIA Jetson (no cloud dependency, no latency, no data privacy risk)</li>
+          <li>Full integration with Siemens S7-1200/1500 reject actuators via Profinet/Profibus</li>
+          <li>Real-time defect dashboard with trend analysis and root cause attribution</li>
+          <li>Supports: surface cracks, porosity, weld spatter, dimensional OOT, label verification</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="tech-chip">PyTorch</span>
+          <span class="tech-chip">OpenCV</span>
+          <span class="tech-chip">NVIDIA Jetson</span>
+          <span class="tech-chip">Basler / Cognex</span>
+          <span class="tech-chip">Siemens TIA Portal</span>
+          <span class="tech-chip">Profinet</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Predictive Maintenance -->
+    <div class="ai-svc rev reveal">
+      <div class="ai-visual v2">
+        <div class="ai-visual-bg"></div>
+        <span class="ai-visual-icon">📡</span>
+        <div class="ai-visual-chip chip-tl">Vibration: 3.2mm/s</div>
+        <div class="ai-visual-chip chip-tr">Status: <span style="color:#ffb347">Warning</span></div>
+        <div class="ai-visual-chip chip-bl">Bearing Life: 5 days</div>
+        <div class="ai-visual-chip chip-br">OEE: 83.4%</div>
+      </div>
+      <div class="ai-content">
+        <span class="sub">Service 02</span>
+        <h3>Predictive Maintenance AI</h3>
+        <div class="metric-row">
+          <div class="metric-pill"><div class="mv">60%</div><div class="ml">Downtime Reduction</div></div>
+          <div class="metric-pill"><div class="mv">5 Days</div><div class="ml">Advance Warning</div></div>
+          <div class="metric-pill"><div class="mv">OEE +22%</div><div class="ml">Avg. Improvement</div></div>
+        </div>
+        <p>Unplanned downtime is the most expensive event in manufacturing — typically ₹2-10L per hour depending on line value. Our predictive maintenance system uses vibration, temperature, current draw, and acoustic signals to predict failures days before they happen, giving you time to schedule maintenance without stopping production.</p>
+        <p>The ML models learn each machine's normal signature from your historical OPC UA data, then flag anomalies that precede failure patterns. Alert thresholds adapt automatically over time.</p>
+        <ul class="feat-list">
+          <li>Multi-sensor IIoT layer: vibration (MEMS), temperature (IR + contact), current (CT clamp)</li>
+          <li>OPC UA + MQTT data pipeline from machine to edge to cloud dashboard</li>
+          <li>Anomaly detection tuned per machine family — no false alarms on normal variation</li>
+          <li>Grafana dashboard: real-time health score, predicted time-to-failure, maintenance log</li>
+          <li>WhatsApp / SMS / email alerts to maintenance team with specific fault description</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="tech-chip">OPC UA</span>
+          <span class="tech-chip">MQTT</span>
+          <span class="tech-chip">Scikit-learn</span>
+          <span class="tech-chip">Grafana</span>
+          <span class="tech-chip">Raspberry Pi Edge</span>
+          <span class="tech-chip">InfluxDB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Process Optimization AI -->
+    <div class="ai-svc reveal">
+      <div class="ai-visual v3">
+        <div class="ai-visual-bg"></div>
+        <span class="ai-visual-icon">🧠</span>
+        <div class="ai-visual-chip chip-tl">Cycle Time: -18%</div>
+        <div class="ai-visual-chip chip-tr">Energy: -23%</div>
+        <div class="ai-visual-chip chip-bl">Yield: 98.7%</div>
+        <div class="ai-visual-chip chip-br">AI Optimizer: ON</div>
+      </div>
+      <div class="ai-content">
+        <span class="sub">Service 03</span>
+        <h3>Process Optimization AI</h3>
+        <div class="metric-row">
+          <div class="metric-pill"><div class="mv">-18%</div><div class="ml">Cycle Time</div></div>
+          <div class="metric-pill"><div class="mv">-23%</div><div class="ml">Energy Use</div></div>
+          <div class="metric-pill"><div class="mv">+4%</div><div class="ml">Yield Improvement</div></div>
+        </div>
+        <p>Beyond inspection and maintenance, AI can continuously optimize your process parameters — injection mold temperatures, welding currents, conveyor speeds, robot path timings — to maximize output quality while minimizing cycle time and energy consumption.</p>
+        <p>We build closed-loop AI controllers that read live sensor data from your SCADA, compute optimal setpoints, and write them back to the PLC automatically. The result: a self-tuning factory that improves every shift.</p>
+        <ul class="feat-list">
+          <li>Reinforcement learning controllers for multi-variable process optimization</li>
+          <li>Closed-loop integration: reads from SCADA, writes setpoints back to Siemens PLC</li>
+          <li>Energy consumption optimizer — targets compressor, HVAC, furnace scheduling</li>
+          <li>Digital twin for simulation before live deployment — zero production risk</li>
+          <li>Yield improvement: correlates process parameters with downstream quality outcomes</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="tech-chip">Reinforcement Learning</span>
+          <span class="tech-chip">Digital Twin</span>
+          <span class="tech-chip">WinCC / Ignition</span>
+          <span class="tech-chip">Python FastAPI</span>
+          <span class="tech-chip">Siemens S7-1500</span>
+          <span class="tech-chip">TensorFlow</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECHNOLOGY STACK -->
+<section class="tech-stack">
+  <div class="container">
+    <div class="section-tag reveal">OUR TOOLS</div>
+    <h2 class="reveal rd1">Built on Proven Industrial AI Stack</h2>
+    <p class="reveal rd2" style="color:var(--text2);max-width:560px;margin-top:12px;line-height:1.8;">We don't build with toy frameworks. Every component is production-grade, validated for 24/7 industrial operation under vibration, temperature, and EMI conditions.</p>
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <span class="stack-icon">🔬</span>
+        <h4>PyTorch + ONNX</h4>
+        <p>Custom model training, quantization for edge, and ONNX export for hardware-agnostic deployment.</p>
+      </div>
+      <div class="stack-card reveal rd1">
+        <span class="stack-icon">📷</span>
+        <h4>Industrial Cameras</h4>
+        <p>Basler, Cognex, and IDS cameras — from 2MP area scan to 20MP line scan for high-speed inspection.</p>
+      </div>
+      <div class="stack-card reveal rd2">
+        <span class="stack-icon">⚡</span>
+        <h4>NVIDIA Jetson</h4>
+        <p>Orin NX and AGX for edge inference — up to 100 TOPS with fanless enclosures rated for shop-floor IP67.</p>
+      </div>
+      <div class="stack-card reveal rd3">
+        <span class="stack-icon">🌐</span>
+        <h4>OPC UA + MQTT</h4>
+        <p>Standard industrial protocols ensuring your AI system speaks the same language as your existing OT infrastructure.</p>
+      </div>
+      <div class="stack-card reveal">
+        <span class="stack-icon">📊</span>
+        <h4>Grafana + InfluxDB</h4>
+        <p>Time-series dashboards for real-time AI output, defect trends, OEE, and maintenance health scores.</p>
+      </div>
+      <div class="stack-card reveal rd1">
+        <span class="stack-icon">🔒</span>
+        <h4>Air-gapped Architecture</h4>
+        <p>All inference runs on-premise — no production data leaves your facility. Cloud optional for analytics only.</p>
+      </div>
+      <div class="stack-card reveal rd2">
+        <span class="stack-icon">🤖</span>
+        <h4>Siemens TIA Portal</h4>
+        <p>Native PLC integration — AI outputs feed directly into your existing S7-1200/1500 logic with no middleware.</p>
+      </div>
+      <div class="stack-card reveal rd3">
+        <span class="stack-icon">🧪</span>
+        <h4>FAT + SAT Testing</h4>
+        <p>Every system undergoes Factory Acceptance Testing in our lab, then Site Acceptance Testing at your plant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-section" id="roi-calc">
+  <div class="container">
+    <div class="section-tag reveal">BUSINESS CASE</div>
+    <h2 class="reveal rd1">Calculate Your AI Vision ROI</h2>
+    <p class="reveal rd2" style="color:var(--text2);max-width:540px;margin-top:12px;line-height:1.8;">Enter your current production data to see how much an AI Vision QC system could save your plant annually. Based on real results from our deployments.</p>
+    <div class="roi-inner" style="margin-top:48px;">
+      <div class="roi-form reveal">
+        <h3>Your Production Data</h3>
+        <p class="desc">All inputs are estimates — we'll refine them together in a free consultation.</p>
+        <div class="roi-field">
+          <label>Current Defect Escape Rate (%)</label>
+          <input type="number" id="roi-defect" placeholder="e.g. 2.5" min="0.01" max="30" step="0.01" oninput="calcROI()">
+          <div class="hint">Defects that pass QC and reach the customer or cause rework</div>
+        </div>
+        <div class="roi-field">
+          <label>Annual Production Volume (units)</label>
+          <input type="number" id="roi-units" placeholder="e.g. 500000" min="1000" oninput="calcROI()">
+          <div class="hint">Total units produced per year across inspected lines</div>
+        </div>
+        <div class="roi-field">
+          <label>Cost per Defective Unit (₹)</label>
+          <input type="number" id="roi-cost" placeholder="e.g. 800" min="10" oninput="calcROI()">
+          <div class="hint">Include rework, scrap, warranty, and customer penalty costs</div>
+        </div>
+        <div class="roi-field">
+          <label>Industry</label>
+          <select id="roi-industry" onchange="calcROI()">
+            <option value="">Select industry...</option>
+            <option value="auto">Automotive</option>
+            <option value="fab">Food &amp; Beverage / Packaging</option>
+            <option value="pharma">Pharmaceutical</option>
+            <option value="metal">Metal / Stamping / Casting</option>
+            <option value="elec">Electronics / PCB Assembly</option>
+            <option value="other">Other Manufacturing</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width:100%;padding:14px;" onclick="calcROI()">Calculate Savings</button>
+      </div>
+      <div class="roi-result reveal rd1" id="roi-output">
+        <div class="roi-empty">
+          <span class="re-icon">📊</span>
+          <p>Enter your production data on the left to see your estimated annual savings from AI Vision QC.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <div class="container">
+    <div class="section-tag reveal">WHY AI VISION</div>
+    <h2 class="reveal rd1">Human QC vs. AI Vision System</h2>
+    <p class="reveal rd2" style="color:var(--text2);max-width:540px;margin-top:12px;line-height:1.8;">A direct comparison across the dimensions that matter to your plant manager, quality director, and CFO.</p>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="col-human">Human Visual QC</th>
+            <th class="col-ai">AI Vision System</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inspection speed</td>
+            <td class="bad">3–8 parts/min (fatigue-limited)</td>
+            <td class="good">Up to 1,200 parts/min</td>
+          </tr>
+          <tr>
+            <td>Consistency</td>
+            <td class="bad">Varies by inspector, shift, fatigue level</td>
+            <td class="good">100% consistent, every unit, every shift</td>
+          </tr>
+          <tr>
+            <td>Defect escape rate</td>
+            <td class="bad">2–5% miss rate on routine defects</td>
+            <td class="good">&lt;0.1% miss rate (94% improvement typical)</td>
+          </tr>
+          <tr>
+            <td>Repeatability</td>
+            <td class="bad">Inter-inspector variation: ±15–25%</td>
+            <td class="good">± &lt;1% (deterministic model output)</td>
+          </tr>
+          <tr>
+            <td>Operating cost</td>
+            <td class="bad">₹2–5L/year per QC operator (salary + training)</td>
+            <td class="good">System amortized over 5–7 years; &lt;₹50K/yr opex</td>
+          </tr>
+          <tr>
+            <td>Night shift / 3-shift operation</td>
+            <td class="bad">Higher miss rate, staffing cost 1.3–1.5× day rate</td>
+            <td class="good">Identical performance 24/7, 365 days</td>
+          </tr>
+          <tr>
+            <td>Data &amp; traceability</td>
+            <td class="bad">Paper records, limited digital audit trail</td>
+            <td class="good">Full image archive, defect database, ISO-ready reports</td>
+          </tr>
+          <tr>
+            <td>Scalability</td>
+            <td class="bad">Headcount grows linearly with volume</td>
+            <td class="good">One system handles multiple lines; marginal cost near zero</td>
+          </tr>
+          <tr>
+            <td>Regulatory compliance</td>
+            <td class="bad">Difficult to demonstrate GMP/IATF process control</td>
+            <td class="good">Electronic records, digital signatures, full process evidence</td>
+          </tr>
+          <tr>
+            <td>New defect types</td>
+            <td class="bad">Training takes weeks; quality varies</td>
+            <td class="good">Model retrained in 1–3 days with new image samples</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Case Study Callout -->
+    <div class="cs-callout reveal">
+      <div class="cc-icon">🏭</div>
+      <div>
+        <h3>We did this for a Tier-1 Automotive Supplier in Pune</h3>
+        <p>Deployed AI Vision on a high-speed stamping line. Defect escape rate dropped 94% in 3 months. Customer warranty claims down 70%. System paid for itself in 8 months.</p>
+      </div>
+      <div class="cc-actions">
+        <button class="btn-ghost" onclick="location.href='/case-study-1.html'" style="white-space:nowrap;">Read Case Study →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="ai-cta">
+  <div class="container">
+    <div class="section-tag reveal">NEXT STEP</div>
+    <h2 class="reveal rd1">Ready to see AI Vision <span>on your line?</span></h2>
+    <p class="reveal rd2">We offer a free half-day plant visit where our engineers assess your line, identify the top 3 defect categories for AI, and produce a preliminary ROI estimate — at no cost, no obligation.</p>
+    <div class="ai-cta-btns reveal rd3">
+      <button class="btn-primary btn-xl" onclick="location.href='/contact.html'">Book Free Plant Assessment</button>
+      <button class="btn-ghost btn-xl" onclick="location.href='/demo.html'">View Live Demo</button>
+    </div>
+    <p class="reveal rd4" style="margin-top:28px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">Or WhatsApp us directly: <a href="https://wa.me/919404030215" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">+91 94040 30215</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
+      <p>Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
+    </div>
+    <div class="footer-col"><h5>AI Solutions</h5><ul><li><a href="/ai-solutions.html">Computer Vision QC</a></li><li><a href="/ai-solutions.html">Predictive Maintenance</a></li><li><a href="/ai-solutions.html">Process Optimization</a></li><li><a href="/ai-solutions.html#roi-calc">ROI Calculator</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/news.html">News</a></li><li><a href="/sustainability.html">Sustainability</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+919404030215">+91 94040 30215</a></li><li><a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a></li><li><a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener">Hinjewadi, Pune, India</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
+    <div class="social-links">
+      <a class="social-link" href="mailto:mordetechsolutions@zohomail.in" title="Email" aria-label="Send email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/global.js"></script>
+<script>
+// ── ROI CALCULATOR ──
+function calcROI() {
+  const defectRate = parseFloat(document.getElementById('roi-defect').value);
+  const units = parseInt(document.getElementById('roi-units').value);
+  const costPerDefect = parseInt(document.getElementById('roi-cost').value);
+  const output = document.getElementById('roi-output');
+
+  if (!defectRate || !units || !costPerDefect || defectRate <= 0 || units <= 0 || costPerDefect <= 0) {
+    output.innerHTML = '<div class="roi-empty"><span class="re-icon">📊</span><p>Enter your production data on the left to see your estimated annual savings from AI Vision QC.</p></div>';
+    return;
+  }
+
+  const currentDefects = Math.round(units * defectRate / 100);
+  const currentLoss = currentDefects * costPerDefect;
+  // Based on our real case study: 94% defect reduction
+  const aiDefects = Math.round(currentDefects * 0.06);
+  const aiLoss = aiDefects * costPerDefect;
+  const annualSavings = currentLoss - aiLoss;
+
+  // Typical system cost range based on complexity
+  const systemCostLow = 1800000;
+  const systemCostHigh = 3500000;
+  const roiMonthsLow = annualSavings > 0 ? Math.round(systemCostLow / (annualSavings / 12)) : null;
+  const roiMonthsHigh = annualSavings > 0 ? Math.round(systemCostHigh / (annualSavings / 12)) : null;
+
+  function fmt(n) {
+    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + ' Cr';
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + ' L';
+    return '₹' + n.toLocaleString('en-IN');
+  }
+
+  output.innerHTML = `
+    <h3>Your Estimated Results</h3>
+    <div class="roi-stat">
+      <div class="rs-label">Current Annual Defect Loss</div>
+      <div class="rs-value bad">${fmt(currentLoss)}</div>
+      <div class="rs-sub">${currentDefects.toLocaleString('en-IN')} defective units × ${fmt(costPerDefect)}</div>
+    </div>
+    <div class="roi-stat">
+      <div class="rs-label">After AI Vision (94% reduction)</div>
+      <div class="rs-value good">${fmt(aiLoss)}</div>
+      <div class="rs-sub">Only ${aiDefects.toLocaleString('en-IN')} defects escape — ${Math.round(defectRate * 0.06 * 100) / 100}% residual rate</div>
+    </div>
+    <div class="roi-stat">
+      <div class="rs-label">Annual Savings</div>
+      <div class="rs-value good">${fmt(annualSavings)}</div>
+      <div class="rs-sub">Net of system operating costs</div>
+    </div>
+    <div class="roi-stat">
+      <div class="rs-label">Estimated ROI Period</div>
+      <div class="rs-value good">${roiMonthsLow}–${roiMonthsHigh} months</div>
+      <div class="rs-sub">Based on typical system investment ₹18–35L</div>
+    </div>
+    <button class="btn-primary" style="width:100%;padding:14px;margin-top:8px;" onclick="location.href='/contact.html?ref=roi-calc'">Get Exact Quote for My Plant</button>
+    <p style="font-size:.82rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;">These are estimates based on industry averages and our case study results. Actual savings depend on defect complexity, line speed, and integration scope.</p>
+  `;
+}
+</script>
+</body>
+</html>

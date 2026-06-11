@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — MordeTech Solutions</title>
+<meta name="description" content="Contact MordeTech Solutions. Call +91 94040 30215 or email mordetechsolutions@zohomail.in. Based in Pune, India.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact MordeTech Solutions — Get a Free Quote">
+<meta property="og:description" content="Reach us at +91 94040 30215 or mordetechsolutions@zohomail.in. Based in Hinjewadi, Pune. Free automation consultation.">
+<meta property="og:url" content="https://mordetech-solutions.in/contact.html">
+<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
+<meta name="twitter:title" content="Contact MordeTech Solutions — Get a Free Quote">
+<meta name="twitter:description" content="Reach us at +91 94040 30215 or mordetechsolutions@zohomail.in. Based in Hinjewadi, Pune. Free automation consultation.">
+<meta name="theme-color" content="#020408">
+<link rel="canonical" href="https://mordetech-solutions.in/contact.html">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.page-hero { padding:160px 0 60px; }
+.contact-main { padding:60px 0 120px; }
+.contact-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:60px; margin-top:56px; }
+/* FORM */
+.contact-form-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:48px 40px; position:relative; overflow:hidden; }
+.contact-form-wrap::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent); }
+.form-title { font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:28px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-grid .full { grid-column:1/-1; }
+.form-group { display:flex; flex-direction:column; gap:7px; }
+.form-group label { font-size:.82rem; color:var(--muted); letter-spacing:.1em; font-family:var(--font-mono); text-transform:uppercase; }
+.form-group input,.form-group textarea,.form-group select { background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:12px 16px; color:var(--text); font-family:var(--font-body); font-size:.95rem; outline:none; transition:border-color .3s,box-shadow .3s; resize:none; width:100%; }
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,.07); }
+.form-group select option { background:var(--bg2); }
+.submit-btn { width:100%; padding:14px; margin-top:8px; font-size:.98rem; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--cyan)); border:none; color:#000; font-family:var(--font-body); font-weight:700; cursor:pointer; transition:transform .2s,box-shadow .3s; letter-spacing:.04em; }
+.submit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px var(--glow-blue); }
+.form-note { font-size:.88rem; color:var(--muted); margin-top:12px; text-align:center; font-family:var(--font-mono); }
+/* SIDE INFO */
+.contact-side { display:flex; flex-direction:column; gap:18px; }
+.info-card { padding:28px; border-radius:var(--radius); background:var(--surface); border:1px solid var(--border); display:flex; gap:18px; align-items:flex-start; transition:border-color .3s,transform .3s; }
+.info-card:hover { border-color:rgba(0,212,255,.3); transform:translateX(4px); }
+.info-icon-wrap { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.08)); border:1px solid rgba(0,212,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.info-card h4 { font-family:var(--font-display); font-size:.98rem; font-weight:700; margin-bottom:5px; }
+.info-card p,.info-card a { font-size:.97rem; color:var(--muted); line-height:1.7; text-decoration:none; display:block; transition:color .3s; }
+.info-card a:hover { color:var(--cyan); }
+.quick-btns { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+/* MAP */
+.map-wrap { border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); height:260px; position:relative; background:linear-gradient(135deg,rgba(0,50,120,.3),rgba(0,20,60,.5)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; }
+.map-wrap::before { content:'📍'; font-size:2.5rem; }
+.map-label { font-family:var(--font-mono); font-size:.88rem; color:var(--cyan); letter-spacing:.1em; text-align:center; }
+.map-sub { font-size:.92rem; color:var(--muted); text-align:center; }
+/* SUCCESS MSG */
+.success-msg { display:none; text-align:center; padding:40px; }
+.success-msg .check { font-size:3rem; margin-bottom:16px; }
+.success-msg h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:10px; }
+.success-msg p { color:var(--muted); font-size:.95rem; }
+/* FAQ */
+.faq { padding:0 0 100px; }
+.faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:56px; }
+.faq-item { padding:28px; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); cursor:pointer; transition:border-color .3s; }
+.faq-item:hover { border-color:rgba(0,212,255,.3); }
+.faq-q { font-family:var(--font-display); font-size:1.02rem; font-weight:700; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.faq-q .arr { color:var(--cyan); font-family:var(--font-mono); transition:transform .3s; }
+.faq-a { font-size:.97rem; color:var(--muted); line-height:1.75; margin-top:12px; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .arr { transform:rotate(45deg); }
+@media(max-width:1024px){ .contact-grid{grid-template-columns:1fr;} .faq-grid{grid-template-columns:1fr;} }
+@media(max-width:640px){ .form-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMobile()">✕</button>
+  <a href="/" onclick="closeMobile()">Home</a>
+  <a href="solutions.html" onclick="closeMobile()">Solutions</a>
+  <a href="news.html" onclick="closeMobile()">News</a>
+  <a href="careers.html" onclick="closeMobile()">Careers</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="demo.html" onclick="closeMobile()">Live Demo</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="news.html">News</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About</a></li><li><a href="demo.html" style="color:var(--green);">● Live Demo</a></li>
+  </ul>
+  <div class="nav-right">
+    <select class="lang-sel"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
+    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
+    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-tag reveal">REACH OUT</div>
+    <h1 class="reveal rd1">Let's Build Something<br><span class="grad">Extraordinary Together</span></h1>
+    <p class="reveal rd2">Whether you have a project in mind, want a quote, or just need expert automation advice — Priyanka and the MordeTech team are ready to help.</p>
+  </div>
+</section>
+
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="contact-form-wrap reveal" id="formWrap">
+        <div class="form-title">Send Us a Message 📩</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="fname" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" id="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" id="phone" placeholder="+91 99999 00000" required>
+          </div>
+          <div class="form-group full">
+            <label>Service Required</label>
+            <select id="service">
+              <option value="">— Select a service —</option>
+              <option>PLC Programming (Siemens TIA Portal)</option>
+              <option>SCADA / HMI Development</option>
+              <option>AI-Based Defect Detection</option>
+              <option>Machine Vision System</option>
+              <option>Industrial Dashboard / OEE</option>
+              <option>IIoT Integration</option>
+              <option>Consultation / Assessment</option>
+              <option>AMC / Annual Maintenance</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Project Budget (Optional)</label>
+            <select id="budget">
+              <option value="">— Select range —</option>
+              <option>Under ₹5 Lakhs</option>
+              <option>₹5 – 20 Lakhs</option>
+              <option>₹20 – 50 Lakhs</option>
+              <option>₹50 Lakhs – 1 Crore</option>
+              <option>Above ₹1 Crore</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Your Message *</label>
+            <textarea id="message" rows="5" placeholder="Describe your project, requirements, or questions. The more detail, the faster we can help..." required></textarea>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Send Message</button>
+        <p class="form-note">Secure form powered by Formspree · We respond within 4 business hours · mordetechsolutions@zohomail.in</p>
+      </div>
+      <div id="successMsg" class="success-msg contact-form-wrap">
+        <div class="check">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thank you! Priyanka or a MordeTech engineer will reach out within 4 business hours.<br><br>For urgent queries, call us directly at <strong style="color:var(--cyan);">+91 94040 30215</strong></p>
+      </div>
+
+      <!-- SIDE INFO -->
+      <div class="contact-side">
+        <div class="info-card reveal">
+          <div class="info-icon-wrap">📍</div>
+          <div>
+            <h4>Office Address</h4>
+            <p>MordeTech Solutions Pvt. Ltd.<br>Hinjewadi Phase 2, Pune<br>Maharashtra, India — 411057</p>
+          </div>
+        </div>
+        <div class="info-card reveal rd1">
+          <div class="info-icon-wrap">📞</div>
+          <div>
+            <h4>Call / WhatsApp</h4>
+            <a href="tel:+919404030215">+91 94040 30215</a>
+            <p style="margin-top:4px;font-size:.82rem;">Priyanka Morde — Founder &amp; Director</p>
+            <div class="quick-btns">
+              <a href="https://wa.me/919404030215?text=Hello%20MordeTech%2C%20I%20would%20like%20to%20discuss%20an%20automation%20project." target="_blank"><button class="btn-wa">💬 WhatsApp</button></a>
+              <a href="tel:+919404030215"><button class="btn-call">📞 Call Now</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="info-card reveal rd2">
+          <div class="info-icon-wrap">📧</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a>
+            <p style="margin-top:4px;font-size:.82rem;">For project enquiries and quotes</p>
+          </div>
+        </div>
+        <div class="info-card reveal">
+          <div class="info-icon-wrap">⏰</div>
+          <div>
+            <h4>Business Hours</h4>
+            <p>Monday – Saturday: 9:00 AM – 6:30 PM IST</p>
+            <p style="color:var(--cyan);font-size:.82rem;margin-top:4px;">24/7 support for critical production systems</p>
+          </div>
+        </div>
+        <div class="map-wrap reveal" style="height:auto;flex-direction:column;padding:0;overflow:hidden;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.897!2d73.7397!3d18.5983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb00c3abf00f%3A0x0!2sHinjewadi+Phase+2%2C+Pune%2C+Maharashtra+411057!5e0!3m2!1sen!2sin!4v1"
+            width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="MordeTech Solutions Office Location — Hinjewadi Phase 2, Pune">
+          </iframe>
+          <div style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <div>
+              <div class="map-label">📍 PUNE OFFICE</div>
+              <div class="map-sub">Hinjewadi Phase 2, Pune — 411057</div>
+            </div>
+            <a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune" target="_blank" rel="noopener"><button class="btn-ghost" style="font-size:.85rem;padding:8px 16px;">Open in Maps →</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-tag reveal">COMMON QUESTIONS</div>
+    <h2 class="reveal rd1">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you work with non-Siemens PLCs? <span class="arr">+</span></div>
+        <div class="faq-a">Yes! While we specialize in Siemens TIA Portal, we also work with Allen Bradley (Studio 5000), Mitsubishi, Schneider, and Omron PLCs. Most of our IIoT and dashboard solutions are hardware-agnostic.</div>
+      </div>
+      <div class="faq-item reveal rd1" onclick="toggleFaq(this)">
+        <div class="faq-q">How long does a typical project take? <span class="arr">+</span></div>
+        <div class="faq-a">It depends on scope. A single PLC program retrofit typically takes 4–8 weeks. A full smart factory deployment with SCADA, AI vision, and IIoT can take 3–9 months. We always provide a detailed project schedule upfront.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you offer on-site support outside Pune? <span class="arr">+</span></div>
+        <div class="faq-a">Yes, we travel across India and internationally for on-site commissioning, FAT/SAT, and emergency support. We've delivered projects in Gujarat, Tamil Nadu, Karnataka, and internationally in Germany and UAE.</div>
+      </div>
+      <div class="faq-item reveal rd1" onclick="toggleFaq(this)">
+        <div class="faq-q">What's included in your AMC (Annual Maintenance Contract)? <span class="arr">+</span></div>
+        <div class="faq-a">Our AMC includes 24/7 remote monitoring, quarterly on-site visits, unlimited remote support calls, software updates, spare parts advice, and a dedicated account engineer. Response time SLA is 4 hours for remote and 48 hours for on-site.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Can you integrate AI/ML into our existing production line? <span class="arr">+</span></div>
+        <div class="faq-a">Absolutely. Our AI systems are designed to integrate non-disruptively into existing lines. We can add a camera + edge computing unit to an existing conveyor or assembly station without stopping production, and interface the AI output directly to your existing PLC logic.</div>
+      </div>
+      <div class="faq-item reveal rd1" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you provide training for our operators and engineers? <span class="arr">+</span></div>
+        <div class="faq-a">Yes, training is always included in our full project deliveries. We conduct hands-on operator training, engineer-level TIA Portal/SCADA training, and provide detailed as-built documentation, P&amp;ID, and system manuals.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Who owns the source code and IP after project delivery? <span class="arr">+</span></div>
+        <div class="faq-a">You do — completely. All source code, PLC programs, SCADA screens, AI models, and design documents are fully transferred to you upon final payment. There are no recurring licence fees or lock-in clauses. We also provide structured project archives so your in-house team can maintain the system independently.</div>
+      </div>
+      <div class="faq-item reveal rd1" onclick="toggleFaq(this)">
+        <div class="faq-q">How do you protect our confidential process data? <span class="arr">+</span></div>
+        <div class="faq-a">We sign a mutual NDA before any technical discussions begin. All project data is handled under strict confidentiality: no sharing with third parties, encrypted file transfers, and access limited to engineers assigned to your project. We are happy to sign your company's NDA template if preferred.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What post-deployment support do you offer? <span class="arr">+</span></div>
+        <div class="faq-a">All projects include a 12-month warranty covering defect rectification at no charge. Beyond warranty, we offer Annual Maintenance Contracts (AMC) with a 4-hour SLA for critical production-impacting issues — remote diagnosis guaranteed within 4 hours, on-site dispatch within 24 hours. Quarterly health-check visits and software updates are included in AMC plans.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a><p>Engineering Intelligent Automation for the world's best manufacturers.</p></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">PLC Programming</a></li><li><a href="services.html">SCADA / HMI</a></li><li><a href="services.html">AI Vision</a></li><li><a href="services.html">IIoT</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+919404030215">+91 94040 30215</a></li><li><a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 MordeTech Solutions Pvt. Ltd. — Priyanka Morde, Founder &amp; Director</p><div class="social-links"><a class="social-link" href="mailto:mordetechsolutions@zohomail.in" aria-label="Send email">@</a></div></div>
+</footer>
+<script src="js/global.js"></script>
+<script>
+async function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const msg = document.getElementById('message').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const service = document.getElementById('service').value;
+  const budget = document.getElementById('budget').value;
+
+  if (!name || !email || !phone || !msg) {
+    alert('Please fill in all required fields (Name, Email, Phone, Message).');
+    return;
+  }
+
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = '⏳ Sending...';
+  btn.disabled = true;
+
+  // ── Formspree: Sign up free at formspree.io and replace YOUR_FORM_ID below ──
+  const FORMSPREE_ID = 'xlgoyvzn'; // e.g. 'xpwzgkqb'
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name, email, phone, company, service, budget, message: msg,
+        _subject: 'New Enquiry from MordeTech Website — ' + (service || 'General'),
+        _replyto: email
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      // GA4 event tracking
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', { event_category: 'Contact', event_label: service || 'General' });
+      }
+    } else {
+      const data = await res.json();
+      alert('Submission error: ' + (data.error || 'Please try again or email us directly.'));
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Network error. Please email us directly at mordetechsolutions@zohomail.in');
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
+}
+function toggleFaq(el) { el.classList.toggle('open'); }
+</script>
+<script src="js/wa-analytics.js"></script>
+</body>
+</html>
