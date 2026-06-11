@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://mordetech-solutions.in'),
+  metadataBase: new URL('https://mordetech.com'),
   title: {
     default: 'MordeTech Solutions — Engineering Intelligent Automation',
     template: '%s | MordeTech Solutions',
@@ -35,12 +35,12 @@ export const metadata = {
     'predictive maintenance',
     'smart factory India',
   ],
-  authors: [{ name: 'Priyanka Morde', url: 'https://mordetech-solutions.in/about' }],
+  authors: [{ name: 'Priyanka Morde', url: 'https://mordetech.com/about' }],
   creator: 'MordeTech Solutions Pvt. Ltd.',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://mordetech-solutions.in',
+    url: 'https://mordetech.com',
     siteName: 'MordeTech Solutions',
     title: 'MordeTech Solutions — Engineering Intelligent Automation',
     description:
@@ -91,8 +91,8 @@ export default function RootLayout({ children }) {
               name: 'MordeTech Solutions Pvt. Ltd.',
               description:
                 'Siemens PLC automation, AI machine vision, SCADA/HMI, and IIoT systems for world-class manufacturers.',
-              url: 'https://mordetech-solutions.in',
-              logo: 'https://mordetech-solutions.in/favicon.svg',
+              url: 'https://mordetech.com',
+              logo: 'https://mordetech.com/favicon.svg',
               founder: { '@type': 'Person', name: 'Priyanka Morde' },
               foundingDate: '2012',
               address: {

@@ -15,7 +15,7 @@ export const metadata = {
   description:
     'MordeTech Solutions — AI machine vision, Siemens PLC automation, SCADA/HMI, and IIoT systems. Reduce defects by 94%, improve OEE by 22%. Pune, India.',
   alternates: {
-    canonical: 'https://mordetech-solutions.in',
+    canonical: 'https://mordetech.com',
   },
 }
 
