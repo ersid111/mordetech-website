@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #020408;
+  color: #e8f4ff;
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #020408; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,.25); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,.5); }
+
+/* Cursor */
+#cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: #00d4ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .25s, height .25s;
+  mix-blend-mode: screen;
+}
+#cursor-ring {
+  position: fixed;
+  width: 34px; height: 34px;
+  border: 1px solid rgba(0,212,255,.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width .25s, height .25s;
+}
+
+/* Selection */
+::selection { background: rgba(0,212,255,.25); color: #fff; }
+
+/* Gradient text utility */
+.grad-text {
+  background: linear-gradient(135deg, #00d4ff, #0066ff, #7b2fff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 4s ease-in-out infinite;
+}
+
+.grad-text-cyan {
+  background: linear-gradient(135deg, #00d4ff, #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0,130,220,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,130,220,0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Section separator glow */
+.section-glow-top {
+  background: linear-gradient(to bottom, rgba(0,212,255,.04) 0%, transparent 100%);
+}
+
+/* Orbit keyframes for tech chips */
+@keyframes kn1 {
+  from { transform: translate(-50%,-50%) rotate(0deg) translateX(158px) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg) translateX(158px) rotate(-360deg); }
+}
+@keyframes kn2 {
+  from { transform: translate(-50%,-50%) rotate(72deg) translateX(130px) rotate(-72deg); }
+  to   { transform: translate(-50%,-50%) rotate(432deg) translateX(130px) rotate(-432deg); }
+}
+@keyframes kn3 {
+  from { transform: translate(-50%,-50%) rotate(144deg) translateX(175px) rotate(-144deg); }
+  to   { transform: translate(-50%,-50%) rotate(504deg) translateX(175px) rotate(-504deg); }
+}
+@keyframes kn4 {
+  from { transform: translate(-50%,-50%) rotate(216deg) translateX(110px) rotate(-216deg); }
+  to   { transform: translate(-50%,-50%) rotate(576deg) translateX(110px) rotate(-576deg); }
+}
+@keyframes kn5 {
+  from { transform: translate(-50%,-50%) rotate(288deg) translateX(144px) rotate(-288deg); }
+  to   { transform: translate(-50%,-50%) rotate(648deg) translateX(144px) rotate(-648deg); }
+}
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+
+.k-node { position: absolute; top: 50%; left: 50%; pointer-events: none; }
+.k-node.n1 { animation: kn1 6s linear infinite; }
+.k-node.n2 { animation: kn2 9.5s linear infinite; }
+.k-node.n3 { animation: kn3 13s linear infinite; }
+.k-node.n4 { animation: kn4 7.5s linear infinite reverse; }
+.k-node.n5 { animation: kn5 5s linear infinite; }
+
+/* Reveal animation helper */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Progress bar */
+#progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #7b2fff);
+  z-index: 1000;
+  width: 0%;
+  box-shadow: 0 0 8px rgba(0,212,255,.5);
+  transition: width .1s;
+}
