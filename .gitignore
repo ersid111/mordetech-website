@@ -1,1 +1,8 @@
 .claude/
+
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
