@@ -70,7 +70,6 @@ export const metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  themeColor: '#020408',
 }
 
 export const viewport = {
