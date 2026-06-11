@@ -1,7 +1,4 @@
 {
   "version": 2,
-  "name": "mordetech-solutions",
-  "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
+  "name": "mordetech-solutions"
 }
