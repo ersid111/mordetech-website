@@ -1,322 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI Solutions for Manufacturing — Computer Vision, Predictive Maintenance | MordeTech</title>
-<meta name="description" content="MordeTech AI solutions for manufacturers: Computer Vision quality inspection (94% defect reduction), Predictive Maintenance, and Process Optimization AI. Pune, India.">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AI Solutions for Manufacturing — MordeTech Solutions">
-<meta property="og:description" content="Computer Vision QC, Predictive Maintenance, and Process AI built for the factory floor. Not just models — complete OT+IT integration.">
-<meta property="og:url" content="https://mordetech-solutions.in/ai-solutions.html">
-<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
-<meta name="twitter:title" content="AI Solutions for Manufacturing — MordeTech Solutions">
-<meta name="twitter:description" content="Computer Vision QC, Predictive Maintenance, and Process AI for manufacturers in India.">
-<meta name="theme-color" content="#020408">
-<link rel="canonical" href="https://mordetech-solutions.in/ai-solutions.html">
-<link rel="stylesheet" href="/css/global.css">
-<style>
-.page-hero { padding:160px 0 80px; }
-
-/* AI SERVICE AREAS */
-.ai-services { padding:80px 0 100px; }
-.ai-svc { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-bottom:100px; }
-.ai-svc:last-child { margin-bottom:0; }
-.ai-svc.rev { direction:rtl; }
-.ai-svc.rev > * { direction:ltr; }
-.ai-visual { border-radius:var(--radius); border:1px solid var(--border); overflow:hidden; position:relative; min-height:320px; display:flex; align-items:center; justify-content:center; }
-.ai-visual-bg { position:absolute; inset:0; }
-.ai-visual.v1 .ai-visual-bg { background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(0,102,255,.06)); }
-.ai-visual.v2 .ai-visual-bg { background:linear-gradient(135deg,rgba(123,47,255,.14),rgba(0,102,255,.06)); }
-.ai-visual.v3 .ai-visual-bg { background:linear-gradient(135deg,rgba(0,255,136,.07),rgba(0,102,255,.08)); }
-.ai-visual-icon { font-size:4.5rem; position:relative; z-index:1; filter:drop-shadow(0 0 24px rgba(0,212,255,.4)); }
-.ai-visual-chip { position:absolute; background:rgba(2,4,8,.88); border:1px solid var(--border); border-radius:8px; padding:8px 14px; font-family:var(--font-mono); font-size:.78rem; color:var(--cyan); white-space:nowrap; z-index:2; backdrop-filter:blur(8px); }
-.chip-tl { top:18px; left:18px; }
-.chip-tr { top:18px; right:18px; }
-.chip-br { bottom:18px; right:18px; }
-.chip-bl { bottom:18px; left:18px; }
-.ai-content h3 { font-family:var(--font-display); font-size:2rem; font-weight:800; letter-spacing:-.03em; margin-bottom:14px; }
-.ai-content .sub { font-family:var(--font-mono); font-size:.82rem; color:var(--cyan); letter-spacing:.12em; text-transform:uppercase; margin-bottom:20px; display:block; }
-.ai-content p { font-size:.99rem; color:var(--text2); line-height:1.9; margin-bottom:20px; }
-.feat-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin:0 0 28px; }
-.feat-list li { display:flex; align-items:flex-start; gap:10px; font-size:.97rem; color:var(--text2); line-height:1.6; }
-.feat-list li::before { content:'→'; color:var(--cyan); font-family:var(--font-mono); flex-shrink:0; margin-top:1px; }
-.metric-row { display:flex; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
-.metric-pill { background:rgba(0,212,255,.06); border:1px solid rgba(0,212,255,.18); border-radius:8px; padding:10px 16px; text-align:center; }
-.metric-pill .mv { font-family:var(--font-display); font-size:1.5rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
-.metric-pill .ml { font-family:var(--font-mono); font-size:.72rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
-.tech-chips { display:flex; flex-wrap:wrap; gap:8px; }
-.tech-chip { font-family:var(--font-mono); font-size:.75rem; color:var(--cyan); padding:4px 12px; border:1px solid rgba(0,212,255,.2); border-radius:100px; letter-spacing:.05em; }
-
-/* TECH STACK */
-.tech-stack { padding:80px 0; background:linear-gradient(to bottom,transparent,rgba(0,50,120,.06),transparent); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.stack-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:56px; }
-.stack-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:28px 20px; text-align:center; transition:transform .3s,border-color .3s; }
-.stack-card:hover { transform:translateY(-4px); border-color:rgba(0,212,255,.3); }
-.stack-icon { font-size:2rem; margin-bottom:12px; display:block; }
-.stack-card h4 { font-family:var(--font-display); font-size:.97rem; font-weight:700; margin-bottom:8px; }
-.stack-card p { font-size:.87rem; color:var(--muted); line-height:1.6; }
-
-/* ROI CALCULATOR */
-.roi-section { padding:100px 0; }
-.roi-inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
-.roi-form { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:44px 40px; }
-.roi-form h3 { font-family:var(--font-display); font-size:1.6rem; font-weight:800; margin-bottom:8px; }
-.roi-form .desc { font-size:.95rem; color:var(--text2); line-height:1.7; margin-bottom:32px; }
-.roi-field { margin-bottom:24px; }
-.roi-field label { display:block; font-family:var(--font-mono); font-size:.8rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
-.roi-field input, .roi-field select {
-  width:100%; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:10px;
-  padding:12px 16px; color:var(--text); font-family:var(--font-body); font-size:.97rem;
-  outline:none; transition:border-color .3s;
-}
-.roi-field input:focus, .roi-field select:focus { border-color:var(--cyan); }
-.roi-field .hint { font-size:.82rem; color:var(--muted); margin-top:6px; }
-.roi-result { background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(0,212,255,.06)); border:1px solid rgba(0,212,255,.25); border-radius:var(--radius); padding:44px 40px; position:sticky; top:100px; }
-.roi-result h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:800; margin-bottom:24px; color:var(--text); }
-.roi-stat { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
-.roi-stat:last-of-type { border-bottom:none; margin-bottom:28px; }
-.roi-stat .rs-label { font-family:var(--font-mono); font-size:.78rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; }
-.roi-stat .rs-value { font-family:var(--font-display); font-size:1.8rem; font-weight:800; line-height:1; }
-.roi-stat .rs-value.bad { color:#ff6b6b; }
-.roi-stat .rs-value.good { background:linear-gradient(135deg,var(--cyan),var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.roi-stat .rs-sub { font-size:.87rem; color:var(--muted); margin-top:4px; }
-.roi-empty { text-align:center; padding:40px 0; }
-.roi-empty .re-icon { font-size:3rem; margin-bottom:12px; display:block; }
-.roi-empty p { font-size:.97rem; color:var(--muted); }
-
-/* COMPARISON TABLE */
-.comparison { padding:80px 0 100px; }
-.comp-table-wrap { overflow-x:auto; margin-top:56px; }
-.comp-table { width:100%; border-collapse:collapse; min-width:640px; }
-.comp-table th { padding:16px 24px; font-family:var(--font-mono); font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; text-align:left; border-bottom:1px solid var(--border); }
-.comp-table th:first-child { color:var(--muted); }
-.comp-table th.col-human { color:#ff6b6b; }
-.comp-table th.col-ai { color:var(--cyan); }
-.comp-table td { padding:16px 24px; font-size:.95rem; color:var(--text2); border-bottom:1px solid rgba(255,255,255,.04); }
-.comp-table td:first-child { font-weight:500; color:var(--text); }
-.comp-table .bad { color:#ff6b6b; }
-.comp-table .good { color:var(--cyan); }
-.comp-table tr:hover td { background:rgba(255,255,255,.02); }
-.comp-table .check { color:var(--green); font-size:1.1rem; }
-.comp-table .cross { color:#ff6b6b; font-size:1.1rem; }
-
-/* CASE STUDY CALLOUT */
-.cs-callout { margin:60px 0 0; background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,102,255,.04)); border:1px solid rgba(0,212,255,.2); border-radius:var(--radius); padding:44px 48px; display:flex; align-items:center; gap:40px; flex-wrap:wrap; }
-.cs-callout .cc-icon { font-size:3rem; flex-shrink:0; }
-.cs-callout h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:800; margin-bottom:8px; }
-.cs-callout p { font-size:.97rem; color:var(--text2); line-height:1.7; }
-.cs-callout .cc-actions { flex-shrink:0; margin-left:auto; }
-
-/* FINAL CTA */
-.ai-cta { padding:100px 0 120px; text-align:center; }
-.ai-cta h2 { font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-.03em; margin-bottom:16px; }
-.ai-cta h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.ai-cta p { font-size:1.05rem; color:var(--text2); max-width:520px; margin:0 auto 40px; line-height:1.8; }
-.ai-cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-
-@media(max-width:1024px){
-  .ai-svc { grid-template-columns:1fr; gap:40px; }
-  .ai-svc.rev { direction:ltr; }
-  .stack-grid { grid-template-columns:repeat(2,1fr); }
-  .roi-inner { grid-template-columns:1fr; }
-  .roi-result { position:static; }
-}
-@media(max-width:640px){
-  .stack-grid { grid-template-columns:1fr 1fr; }
-  .cs-callout { flex-direction:column; }
-  .cs-callout .cc-actions { margin-left:0; }
-  .page-hero { padding:120px 0 56px; }
-  .roi-form, .roi-result { padding:28px 20px; }
-  .metric-row { gap:12px; }
-}
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "AI Solutions for Manufacturing",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "MordeTech Solutions Pvt. Ltd.",
-    "url": "https://mordetech-solutions.in",
-    "telephone": "+919404030215",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Pune",
-      "addressRegion": "Maharashtra",
-      "addressCountry": "IN"
-    }
-  },
-  "description": "AI-powered quality inspection, predictive maintenance, and process optimization for manufacturing plants in India.",
-  "areaServed": "IN",
-  "serviceType": ["Computer Vision Quality Inspection", "Predictive Maintenance AI", "Process Optimization", "Machine Vision Systems"]
-}
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="./support.js"></script>
 </head>
 <body>
-<div id="cursor"></div><div id="cursor-ring"></div>
-<div id="progress"></div>
-<canvas id="bg-canvas"></canvas>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-btn" onclick="closeMobile()">✕</button>
-  <a href="/" onclick="closeMobile()">Home</a>
-  <a href="/solutions.html" onclick="closeMobile()">Solutions</a>
-  <a href="/sustainability.html" onclick="closeMobile()">Sustainability</a>
-  <a href="/news.html" onclick="closeMobile()">News</a>
-  <a href="/careers.html" onclick="closeMobile()">Careers</a>
-  <a href="/about.html" onclick="closeMobile()">About</a>
-  <a href="/demo.html" onclick="closeMobile()">Live Demo</a>
-  <a href="/contact.html" onclick="closeMobile()">Contact</a>
-</div>
-<nav>
-  <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/solutions.html">Solutions</a></li>
-    <li><a href="/sustainability.html">Sustainability</a></li>
-    <li><a href="/news.html">News</a></li>
-    <li><a href="/careers.html">Careers</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/demo.html" style="color:var(--green);">● Live Demo</a></li>
-  </ul>
-  <div class="nav-right">
-    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
-    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
-    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: #00d4ff; text-decoration: none; }
+  a:hover { color: #7cebff; }
+  ::selection { background: rgba(0,212,255,.25); color: #fff; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #020408; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,212,255,.28); border-radius: 3px; }
+  input, select, button { font-family: inherit }
+  input::placeholder { color: rgba(74,106,138,.75) }
+  input:focus, select:focus { outline: none; border-color: #00d4ff !important }
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: .15 } }
+  @keyframes gradShift { 0%,100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
+  @keyframes scanline { 0% { transform: translateY(-8%) } 100% { transform: translateY(1000%) } }
+  @keyframes vibe { 0%,100% { transform: scaleY(.35) } 30% { transform: scaleY(.8) } 55% { transform: scaleY(1.5) } 70% { transform: scaleY(.5) } 88% { transform: scaleY(1.1) } }
+  @keyframes dialSpin { from { transform: rotate(0) } to { transform: rotate(360deg) } }
+  @keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+
+  /* ===== Responsive layer (inline styles are overridden via attribute selectors) ===== */
+  img { max-width: 100%; height: auto; }
+
+  @media (max-width: 1024px) {
+    [style*="px 60px"] { padding-left: 28px !important; padding-right: 28px !important; }
+    [style*="grid-template-columns:repeat(8,1fr)"] { grid-template-columns: repeat(4,1fr) !important; }
+    [style*="grid-template-columns:repeat(6,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"] { grid-template-columns: repeat(3,1fr) !important; }
+    [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="padding:110px 60px"],
+    [style*="padding:100px 60px"],
+    [style*="padding:96px 60px"],
+    [style*="padding:90px 60px"] { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+
+  @media (max-width: 900px) {
+    nav[style*="position:sticky"] { flex-wrap: wrap !important; gap: 12px !important; padding-left: 18px !important; padding-right: 18px !important; }
+    nav[style*="position:sticky"] > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important; padding-bottom: 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    nav[style*="position:sticky"] > div::-webkit-scrollbar { display: none; }
+
+    [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
+    [style*="grid-template-columns:1fr 1.6fr"],
+    [style*="grid-template-columns:1.35fr 1fr"],
+    [style*="grid-template-columns:1.2fr 1fr"],
+    [style*="grid-template-columns:1.1fr .9fr"],
+    [style*="grid-template-columns:1.05fr .95fr"] { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 860px) {
+    /* about.html timeline: drop the centre rail, stack entries left-aligned */
+    [style*="grid-template-columns:1fr 64px 1fr"] { grid-template-columns: 1fr !important; gap: 0 !important; }
+    [style*="grid-template-columns:1fr 64px 1fr"] > * { text-align: left !important; grid-column: 1 !important; }
+  }
+
+  @media (max-width: 760px) {
+    table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 640px) {
+    [style*="px 60px"] { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="padding:110px 60px"],
+    [style*="padding:100px 60px"],
+    [style*="padding:96px 60px"],
+    [style*="padding:90px 60px"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+
+    [style*="grid-template-columns:repeat(8,1fr)"],
+    [style*="grid-template-columns:repeat(6,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+
+    /* Legibility: lift sub-12px text to a readable floor on small screens */
+    [style*="font-size:.64rem"],
+    [style*="font-size:.66rem"],
+    [style*="font-size:.68rem"] { font-size: .78rem !important; }
+    [style*="font-size:.7rem"],
+    [style*="font-size:.72rem"] { font-size: .82rem !important; }
+    [style*="font-size:.82rem"],
+    [style*="font-size:.86rem"] { font-size: .88rem !important; }
+    [style*="font-size:.88rem"],
+    [style*="font-size:.9rem"],
+    [style*="font-size:.94rem"],
+    [style*="font-size:.95rem"] { font-size: .97rem !important; }
+  }
+
+  @media (max-width: 480px) {
+    [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="letter-spacing:.08em"] { letter-spacing: .05em !important; }
+  }
+</style>
+</helmet>
+
+<div style="background:#020408;color:#e8f4ff;font-family:'DM Sans',system-ui,sans-serif">
+
+<nav style="position:sticky;top:0;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 60px;background:rgba(2,4,8,.82);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.06)">
+  <a href="/" style="display:flex;align-items:center;gap:10px">
+    <img src="images/logo.svg" alt="MordeTech" width="32" height="32" style="display:block">
+    <span style="font-weight:800;font-size:1.22rem;letter-spacing:-.02em;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Morde<span style="-webkit-text-fill-color:#7b2fff">Tech</span></span>
+  </a>
+  <div style="display:flex;align-items:center;gap:30px">
+    <a href="/" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Home</a>
+    <a href="#top" style="color:#00d4ff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">AI Solutions</a>
+    <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
+    <a href="/about" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">About</a>
+    <a href="/contact" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Contact</a>
   </div>
-  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+  <a href="#roi-calc" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:10px;background:linear-gradient(135deg,#0066ff,#00d4ff);color:#04140a;font-weight:800;font-size:.86rem;white-space:nowrap" style-hover="opacity:.92">Calculate My ROI</a>
 </nav>
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="section-tag reveal">AI FOR MANUFACTURING</div>
-    <h1 class="reveal rd1">AI That Works on <span class="grad">Your Factory Floor</span></h1>
-    <p class="reveal rd2" style="max-width:600px;">Not just models — complete OT+IT integration. We combine deep learning with PLC automation and IIoT to deliver AI systems that operate at line speed, talk to your existing Siemens controllers, and generate measurable ROI from day one.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;" class="reveal rd3">
-      <button class="btn-primary btn-xl" onclick="document.getElementById('roi-calc').scrollIntoView({behavior:'smooth'})">Calculate My ROI</button>
-      <button class="btn-ghost btn-xl" onclick="location.href='/contact.html'">Book a Free Demo</button>
+<section id="top" style="position:relative;padding:100px 60px 70px;overflow:hidden;background-image:linear-gradient(to right,rgba(0,130,220,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,130,220,.045) 1px,transparent 1px);background-size:60px 60px">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(0,102,255,.1) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">AI for Manufacturing</span>
+    </div>
+    <h1 style="font-weight:800;font-size:clamp(2.6rem,4.6vw,4.2rem);line-height:1.02;letter-spacing:-.04em;margin:0 0 22px;max-width:900px">AI That Works on <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">Your Factory Floor</span></h1>
+    <p style="color:#a0bdd0;font-size:1.06rem;line-height:1.8;max-width:640px;margin:0">Not just models — complete OT+IT integration. We combine deep learning with PLC automation and IIoT to deliver AI systems that operate at line speed, talk to your existing Siemens controllers, and generate measurable ROI from day one.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+      <a href="#roi-calc" style="padding:16px 30px;border-radius:12px;background:linear-gradient(135deg,#0066ff,#00d4ff);color:#04140a;font-weight:800;font-size:1rem" style-hover="opacity:.92">Calculate My ROI</a>
+      <a href="https://wa.me/919404030215?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20AI%20demo." target="_blank" rel="noopener noreferrer" style="padding:16px 30px;border-radius:12px;border:1px solid rgba(255,255,255,.12);color:#a0bdd0;font-weight:600;font-size:1rem" style-hover="border-color:rgba(0,212,255,.4);color:#00d4ff">Book a Free Demo</a>
     </div>
   </div>
 </section>
 
-<!-- AI SERVICE AREAS -->
-<section class="ai-services">
-  <div class="container">
+<section style="padding:60px 60px 100px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:96px">
 
-    <!-- 1. Computer Vision QC -->
-    <div class="ai-svc reveal">
-      <div class="ai-visual v1">
-        <div class="ai-visual-bg"></div>
-        <span class="ai-visual-icon">👁</span>
-        <div class="ai-visual-chip chip-tl">Basler acA1920 · 120fps</div>
-        <div class="ai-visual-chip chip-tr">PyTorch · Edge AI</div>
-        <div class="ai-visual-chip chip-bl">Defect Rate: <span style="color:var(--green)">0.02%</span></div>
-        <div class="ai-visual-chip chip-br">Latency: &lt;8ms</div>
-      </div>
-      <div class="ai-content">
-        <span class="sub">Service 01</span>
-        <h3>Computer Vision Quality Inspection</h3>
-        <div class="metric-row">
-          <div class="metric-pill"><div class="mv">94%</div><div class="ml">Defect Reduction</div></div>
-          <div class="metric-pill"><div class="mv">&lt;8ms</div><div class="ml">Inference Latency</div></div>
-          <div class="metric-pill"><div class="mv">24/7</div><div class="ml">Continuous Inspection</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div style="position:relative;min-height:340px;border-radius:20px;border:1px solid rgba(0,212,255,.2);background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(0,102,255,.06));overflow:hidden;display:flex;align-items:center;justify-content:center">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(to right,rgba(0,212,255,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,212,255,.06) 1px,transparent 1px);background-size:30px 30px"></div>
+        <div style="position:relative;width:180px;height:180px;border:1px dashed rgba(0,212,255,.45);border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <div style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00d4ff,transparent);animation:scanline 2.6s linear infinite"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;letter-spacing:.12em">INSPECTING</div>
         </div>
-        <p>We deploy deep learning vision systems directly on your production line — operating at full line speed with no throughput penalty. Our custom-trained PyTorch models, running on NVIDIA Jetson edge hardware, detect surface defects, dimensional deviations, weld quality issues, and assembly errors that manual inspection routinely misses.</p>
-        <p>Crucially, we integrate the reject signal directly into your Siemens PLC reject logic — no manual intervention, no island system. The AI becomes part of your existing automation architecture.</p>
-        <ul class="feat-list">
-          <li>Custom model training on your specific defect library — not generic pre-trained models</li>
-          <li>Edge deployment on NVIDIA Jetson (no cloud dependency, no latency, no data privacy risk)</li>
-          <li>Full integration with Siemens S7-1200/1500 reject actuators via Profinet/Profibus</li>
-          <li>Real-time defect dashboard with trend analysis and root cause attribution</li>
-          <li>Supports: surface cracks, porosity, weld spatter, dimensional OOT, label verification</li>
-        </ul>
-        <div class="tech-chips">
-          <span class="tech-chip">PyTorch</span>
-          <span class="tech-chip">OpenCV</span>
-          <span class="tech-chip">NVIDIA Jetson</span>
-          <span class="tech-chip">Basler / Cognex</span>
-          <span class="tech-chip">Siemens TIA Portal</span>
-          <span class="tech-chip">Profinet</span>
+        <div style="position:absolute;top:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Basler acA1920 · 120fps</div>
+        <div style="position:absolute;top:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">PyTorch · Edge AI</div>
+        <div style="position:absolute;bottom:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Defect Rate: <span style="color:#00ff88">0.02%</span></div>
+        <div style="position:absolute;bottom:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Latency: &lt;8ms</div>
+      </div>
+      <div>
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#00d4ff;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px">Service 01</span>
+        <h3 style="font-weight:800;font-size:2rem;letter-spacing:-.03em;margin:0 0 20px">Computer Vision Quality Inspection</h3>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px">
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">94%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Defect Reduction</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">&lt;8ms</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Inference Latency</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">24/7</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Continuous Inspection</div>
+          </div>
+        </div>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 18px">We deploy deep learning vision systems directly on your production line — operating at full line speed with no throughput penalty. Our custom-trained PyTorch models, running on NVIDIA Jetson edge hardware, detect surface defects, dimensional deviations, weld quality issues, and assembly errors that manual inspection routinely misses.</p>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 22px">Crucially, we integrate the reject signal directly into your Siemens PLC reject logic — no manual intervention, no island system. The AI becomes part of your existing automation architecture.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:26px">
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Custom model training on your specific defect library — not generic pre-trained models</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Edge deployment on NVIDIA Jetson (no cloud dependency, no latency, no data privacy risk)</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Full integration with Siemens S7-1200/1500 reject actuators via Profinet/Profibus</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Real-time defect dashboard with trend analysis and root cause attribution</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Supports: surface cracks, porosity, weld spatter, dimensional OOT, label verification</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">PyTorch</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">OpenCV</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">NVIDIA Jetson</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Basler / Cognex</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Siemens TIA Portal</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Profinet</span>
         </div>
       </div>
     </div>
 
-    <!-- 2. Predictive Maintenance -->
-    <div class="ai-svc rev reveal">
-      <div class="ai-visual v2">
-        <div class="ai-visual-bg"></div>
-        <span class="ai-visual-icon">📡</span>
-        <div class="ai-visual-chip chip-tl">Vibration: 3.2mm/s</div>
-        <div class="ai-visual-chip chip-tr">Status: <span style="color:#ffb347">Warning</span></div>
-        <div class="ai-visual-chip chip-bl">Bearing Life: 5 days</div>
-        <div class="ai-visual-chip chip-br">OEE: 83.4%</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div>
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#00d4ff;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px">Service 02</span>
+        <h3 style="font-weight:800;font-size:2rem;letter-spacing:-.03em;margin:0 0 20px">Predictive Maintenance AI</h3>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px">
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">60%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Downtime Reduction</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">5 Days</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Advance Warning</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">OEE +22%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Avg. Improvement</div>
+          </div>
+        </div>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 18px">Unplanned downtime is the most expensive event in manufacturing — typically ₹2-10L per hour depending on line value. Our predictive maintenance system uses vibration, temperature, current draw, and acoustic signals to predict failures days before they happen, giving you time to schedule maintenance without stopping production.</p>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 22px">The ML models learn each machine's normal signature from your historical OPC UA data, then flag anomalies that precede failure patterns. Alert thresholds adapt automatically over time.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:26px">
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Multi-sensor IIoT layer: vibration (MEMS), temperature (IR + contact), current (CT clamp)</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>OPC UA + MQTT data pipeline from machine to edge to cloud dashboard</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Anomaly detection tuned per machine family — no false alarms on normal variation</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Grafana dashboard: real-time health score, predicted time-to-failure, maintenance log</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>WhatsApp / SMS / email alerts to maintenance team with specific fault description</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">OPC UA</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">MQTT</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Scikit-learn</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Grafana</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Raspberry Pi Edge</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">InfluxDB</span>
+        </div>
       </div>
-      <div class="ai-content">
-        <span class="sub">Service 02</span>
-        <h3>Predictive Maintenance AI</h3>
-        <div class="metric-row">
-          <div class="metric-pill"><div class="mv">60%</div><div class="ml">Downtime Reduction</div></div>
-          <div class="metric-pill"><div class="mv">5 Days</div><div class="ml">Advance Warning</div></div>
-          <div class="metric-pill"><div class="mv">OEE +22%</div><div class="ml">Avg. Improvement</div></div>
+      <div style="position:relative;min-height:340px;border-radius:20px;border:1px solid rgba(123,47,255,.22);background:linear-gradient(135deg,rgba(123,47,255,.14),rgba(0,102,255,.06));overflow:hidden;display:flex;align-items:center;justify-content:center;padding:30px">
+        <div style="display:flex;align-items:flex-end;gap:6px;height:130px;width:70%">
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:0s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.15s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.3s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#ffb347,rgba(255,179,71,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.45s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.6s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.75s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:.9s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 5s ease-in-out infinite;animation-delay:1.05s"></div>
         </div>
-        <p>Unplanned downtime is the most expensive event in manufacturing — typically ₹2-10L per hour depending on line value. Our predictive maintenance system uses vibration, temperature, current draw, and acoustic signals to predict failures days before they happen, giving you time to schedule maintenance without stopping production.</p>
-        <p>The ML models learn each machine's normal signature from your historical OPC UA data, then flag anomalies that precede failure patterns. Alert thresholds adapt automatically over time.</p>
-        <ul class="feat-list">
-          <li>Multi-sensor IIoT layer: vibration (MEMS), temperature (IR + contact), current (CT clamp)</li>
-          <li>OPC UA + MQTT data pipeline from machine to edge to cloud dashboard</li>
-          <li>Anomaly detection tuned per machine family — no false alarms on normal variation</li>
-          <li>Grafana dashboard: real-time health score, predicted time-to-failure, maintenance log</li>
-          <li>WhatsApp / SMS / email alerts to maintenance team with specific fault description</li>
-        </ul>
-        <div class="tech-chips">
-          <span class="tech-chip">OPC UA</span>
-          <span class="tech-chip">MQTT</span>
-          <span class="tech-chip">Scikit-learn</span>
-          <span class="tech-chip">Grafana</span>
-          <span class="tech-chip">Raspberry Pi Edge</span>
-          <span class="tech-chip">InfluxDB</span>
-        </div>
+        <div style="position:absolute;top:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Vibration: 3.2mm/s</div>
+        <div style="position:absolute;top:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Status: <span style="color:#ffb347">Warning</span></div>
+        <div style="position:absolute;bottom:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Bearing Life: 5 days</div>
+        <div style="position:absolute;bottom:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">OEE: 83.4%</div>
       </div>
     </div>
 
-    <!-- 3. Process Optimization AI -->
-    <div class="ai-svc reveal">
-      <div class="ai-visual v3">
-        <div class="ai-visual-bg"></div>
-        <span class="ai-visual-icon">🧠</span>
-        <div class="ai-visual-chip chip-tl">Cycle Time: -18%</div>
-        <div class="ai-visual-chip chip-tr">Energy: -23%</div>
-        <div class="ai-visual-chip chip-bl">Yield: 98.7%</div>
-        <div class="ai-visual-chip chip-br">AI Optimizer: ON</div>
-      </div>
-      <div class="ai-content">
-        <span class="sub">Service 03</span>
-        <h3>Process Optimization AI</h3>
-        <div class="metric-row">
-          <div class="metric-pill"><div class="mv">-18%</div><div class="ml">Cycle Time</div></div>
-          <div class="metric-pill"><div class="mv">-23%</div><div class="ml">Energy Use</div></div>
-          <div class="metric-pill"><div class="mv">+4%</div><div class="ml">Yield Improvement</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div style="position:relative;min-height:340px;border-radius:20px;border:1px solid rgba(0,255,136,.16);background:linear-gradient(135deg,rgba(0,255,136,.07),rgba(0,102,255,.08));overflow:hidden;display:flex;align-items:center;justify-content:center">
+        <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:1px dashed rgba(0,255,136,.3);animation:dialSpin 26s linear infinite"></div>
+        <div style="position:absolute;width:150px;height:150px;border-radius:50%;border:1px solid rgba(0,212,255,.28);animation:dialSpin 18s linear infinite reverse"></div>
+        <div style="position:relative;text-align:center;animation:floaty 5s ease-in-out infinite">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.16em;color:#4a6a8a;text-transform:uppercase">Setpoint</div>
+          <div style="font-weight:900;font-size:2.4rem;line-height:1.1;background:linear-gradient(135deg,#00ff88,#00d4ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">OPTIMAL</div>
         </div>
-        <p>Beyond inspection and maintenance, AI can continuously optimize your process parameters — injection mold temperatures, welding currents, conveyor speeds, robot path timings — to maximize output quality while minimizing cycle time and energy consumption.</p>
-        <p>We build closed-loop AI controllers that read live sensor data from your SCADA, compute optimal setpoints, and write them back to the PLC automatically. The result: a self-tuning factory that improves every shift.</p>
-        <ul class="feat-list">
-          <li>Reinforcement learning controllers for multi-variable process optimization</li>
-          <li>Closed-loop integration: reads from SCADA, writes setpoints back to Siemens PLC</li>
-          <li>Energy consumption optimizer — targets compressor, HVAC, furnace scheduling</li>
-          <li>Digital twin for simulation before live deployment — zero production risk</li>
-          <li>Yield improvement: correlates process parameters with downstream quality outcomes</li>
-        </ul>
-        <div class="tech-chips">
-          <span class="tech-chip">Reinforcement Learning</span>
-          <span class="tech-chip">Digital Twin</span>
-          <span class="tech-chip">WinCC / Ignition</span>
-          <span class="tech-chip">Python FastAPI</span>
-          <span class="tech-chip">Siemens S7-1500</span>
-          <span class="tech-chip">TensorFlow</span>
+        <div style="position:absolute;top:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Cycle Time: -18%</div>
+        <div style="position:absolute;top:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Energy: -23%</div>
+        <div style="position:absolute;bottom:18px;left:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">Yield: 98.7%</div>
+        <div style="position:absolute;bottom:18px;right:18px;background:rgba(2,4,8,.88);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#00d4ff;backdrop-filter:blur(8px)">AI Optimizer: ON</div>
+      </div>
+      <div>
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#00d4ff;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px">Service 03</span>
+        <h3 style="font-weight:800;font-size:2rem;letter-spacing:-.03em;margin:0 0 20px">Process Optimization AI</h3>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px">
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">-18%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Cycle Time</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">-23%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Energy Use</div>
+          </div>
+          <div style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:10px;padding:12px 18px;text-align:center">
+            <div style="font-weight:800;font-size:1.5rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">+4%</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.08em;text-transform:uppercase;margin-top:5px">Yield Improvement</div>
+          </div>
+        </div>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 18px">Beyond inspection and maintenance, AI can continuously optimize your process parameters — injection mold temperatures, welding currents, conveyor speeds, robot path timings — to maximize output quality while minimizing cycle time and energy consumption.</p>
+        <p style="color:#a0bdd0;font-size:.99rem;line-height:1.9;margin:0 0 22px">We build closed-loop AI controllers that read live sensor data from your SCADA, compute optimal setpoints, and write them back to the PLC automatically. The result: a self-tuning factory that improves every shift.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:26px">
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Reinforcement learning controllers for multi-variable process optimization</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Closed-loop integration: reads from SCADA, writes setpoints back to Siemens PLC</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Energy consumption optimizer — targets compressor, HVAC, furnace scheduling</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Digital twin for simulation before live deployment — zero production risk</div>
+          <div style="display:flex;gap:10px;color:#a0bdd0;font-size:.96rem;line-height:1.6"><span style="font-family:'JetBrains Mono',monospace;color:#00d4ff;flex:none">→</span>Yield improvement: correlates process parameters with downstream quality outcomes</div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Reinforcement Learning</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Digital Twin</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">WinCC / Ignition</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Python FastAPI</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">Siemens S7-1500</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#00d4ff;padding:5px 13px;border:1px solid rgba(0,212,255,.2);border-radius:100px">TensorFlow</span>
         </div>
       </div>
     </div>
@@ -324,281 +297,342 @@
   </div>
 </section>
 
-<!-- TECHNOLOGY STACK -->
-<section class="tech-stack">
-  <div class="container">
-    <div class="section-tag reveal">OUR TOOLS</div>
-    <h2 class="reveal rd1">Built on Proven Industrial AI Stack</h2>
-    <p class="reveal rd2" style="color:var(--text2);max-width:560px;margin-top:12px;line-height:1.8;">We don't build with toy frameworks. Every component is production-grade, validated for 24/7 industrial operation under vibration, temperature, and EMI conditions.</p>
-    <div class="stack-grid">
-      <div class="stack-card reveal">
-        <span class="stack-icon">🔬</span>
-        <h4>PyTorch + ONNX</h4>
-        <p>Custom model training, quantization for edge, and ONNX export for hardware-agnostic deployment.</p>
+<section style="padding:90px 60px;background:linear-gradient(to bottom,transparent,rgba(0,50,120,.07),transparent);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Our Tools</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 14px">Built on Proven Industrial AI Stack</h2>
+    <p style="color:#a0bdd0;max-width:560px;line-height:1.8;margin:0 0 52px">We don't build with toy frameworks. Every component is production-grade, validated for 24/7 industrial operation under vibration, temperature, and EMI conditions.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">01</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">PyTorch + ONNX</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Custom model training, quantization for edge, and ONNX export for hardware-agnostic deployment.</p>
       </div>
-      <div class="stack-card reveal rd1">
-        <span class="stack-icon">📷</span>
-        <h4>Industrial Cameras</h4>
-        <p>Basler, Cognex, and IDS cameras — from 2MP area scan to 20MP line scan for high-speed inspection.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">02</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">Industrial Cameras</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Basler, Cognex, and IDS cameras — from 2MP area scan to 20MP line scan for high-speed inspection.</p>
       </div>
-      <div class="stack-card reveal rd2">
-        <span class="stack-icon">⚡</span>
-        <h4>NVIDIA Jetson</h4>
-        <p>Orin NX and AGX for edge inference — up to 100 TOPS with fanless enclosures rated for shop-floor IP67.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">03</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">NVIDIA Jetson</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Orin NX and AGX for edge inference — up to 100 TOPS with fanless enclosures rated for shop-floor IP67.</p>
       </div>
-      <div class="stack-card reveal rd3">
-        <span class="stack-icon">🌐</span>
-        <h4>OPC UA + MQTT</h4>
-        <p>Standard industrial protocols ensuring your AI system speaks the same language as your existing OT infrastructure.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">04</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">OPC UA + MQTT</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Standard industrial protocols ensuring your AI system speaks the same language as your existing OT infrastructure.</p>
       </div>
-      <div class="stack-card reveal">
-        <span class="stack-icon">📊</span>
-        <h4>Grafana + InfluxDB</h4>
-        <p>Time-series dashboards for real-time AI output, defect trends, OEE, and maintenance health scores.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">05</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">Grafana + InfluxDB</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Time-series dashboards for real-time AI output, defect trends, OEE, and maintenance health scores.</p>
       </div>
-      <div class="stack-card reveal rd1">
-        <span class="stack-icon">🔒</span>
-        <h4>Air-gapped Architecture</h4>
-        <p>All inference runs on-premise — no production data leaves your facility. Cloud optional for analytics only.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">06</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">Air-gapped Architecture</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">All inference runs on-premise — no production data leaves your facility. Cloud optional for analytics only.</p>
       </div>
-      <div class="stack-card reveal rd2">
-        <span class="stack-icon">🤖</span>
-        <h4>Siemens TIA Portal</h4>
-        <p>Native PLC integration — AI outputs feed directly into your existing S7-1200/1500 logic with no middleware.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">07</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">Siemens TIA Portal</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Native PLC integration — AI outputs feed directly into your existing S7-1200/1500 logic with no middleware.</p>
       </div>
-      <div class="stack-card reveal rd3">
-        <span class="stack-icon">🧪</span>
-        <h4>FAT + SAT Testing</h4>
-        <p>Every system undergoes Factory Acceptance Testing in our lab, then Site Acceptance Testing at your plant.</p>
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 22px;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-4px);border-color:rgba(0,212,255,.3)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">08</div>
+        <h4 style="font-weight:700;font-size:.97rem;margin:0 0 8px">FAT + SAT Testing</h4>
+        <p style="font-size:.87rem;color:#4a6a8a;line-height:1.65;margin:0">Every system undergoes Factory Acceptance Testing in our lab, then Site Acceptance Testing at your plant.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ROI CALCULATOR -->
-<section class="roi-section" id="roi-calc">
-  <div class="container">
-    <div class="section-tag reveal">BUSINESS CASE</div>
-    <h2 class="reveal rd1">Calculate Your AI Vision ROI</h2>
-    <p class="reveal rd2" style="color:var(--text2);max-width:540px;margin-top:12px;line-height:1.8;">Enter your current production data to see how much an AI Vision QC system could save your plant annually. Based on real results from our deployments.</p>
-    <div class="roi-inner" style="margin-top:48px;">
-      <div class="roi-form reveal">
-        <h3>Your Production Data</h3>
-        <p class="desc">All inputs are estimates — we'll refine them together in a free consultation.</p>
-        <div class="roi-field">
-          <label>Current Defect Escape Rate (%)</label>
-          <input type="number" id="roi-defect" placeholder="e.g. 2.5" min="0.01" max="30" step="0.01" oninput="calcROI()">
-          <div class="hint">Defects that pass QC and reach the customer or cause rework</div>
+<section id="roi-calc" style="padding:100px 60px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Business Case</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 14px">Calculate Your AI Vision ROI</h2>
+    <p style="color:#a0bdd0;max-width:540px;line-height:1.8;margin:0 0 48px">Enter your current production data to see how much an AI Vision QC system could save your plant annually. Based on real results from our deployments.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start">
+      <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px 36px">
+        <h3 style="font-weight:800;font-size:1.6rem;margin:0 0 8px">Your Production Data</h3>
+        <p style="font-size:.95rem;color:#a0bdd0;line-height:1.7;margin:0 0 32px">All inputs are estimates — we'll refine them together in a free consultation.</p>
+        <div style="margin-bottom:24px">
+          <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Current Defect Escape Rate (%)</label>
+          <input type="number" ref="{{ refDefect }}" onInput="{{ recalc }}" placeholder="e.g. 2.5" min="0.01" max="30" step="0.01" style="width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.97rem">
+          <div style="font-size:.82rem;color:#4a6a8a;margin-top:6px">Defects that pass QC and reach the customer or cause rework</div>
         </div>
-        <div class="roi-field">
-          <label>Annual Production Volume (units)</label>
-          <input type="number" id="roi-units" placeholder="e.g. 500000" min="1000" oninput="calcROI()">
-          <div class="hint">Total units produced per year across inspected lines</div>
+        <div style="margin-bottom:24px">
+          <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Annual Production Volume (units)</label>
+          <input type="number" ref="{{ refUnits }}" onInput="{{ recalc }}" placeholder="e.g. 500000" min="1000" style="width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.97rem">
+          <div style="font-size:.82rem;color:#4a6a8a;margin-top:6px">Total units produced per year across inspected lines</div>
         </div>
-        <div class="roi-field">
-          <label>Cost per Defective Unit (₹)</label>
-          <input type="number" id="roi-cost" placeholder="e.g. 800" min="10" oninput="calcROI()">
-          <div class="hint">Include rework, scrap, warranty, and customer penalty costs</div>
+        <div style="margin-bottom:24px">
+          <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Cost per Defective Unit (₹)</label>
+          <input type="number" ref="{{ refCost }}" onInput="{{ recalc }}" placeholder="e.g. 800" min="10" style="width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.97rem">
+          <div style="font-size:.82rem;color:#4a6a8a;margin-top:6px">Include rework, scrap, warranty, and customer penalty costs</div>
         </div>
-        <div class="roi-field">
-          <label>Industry</label>
-          <select id="roi-industry" onchange="calcROI()">
-            <option value="">Select industry...</option>
-            <option value="auto">Automotive</option>
-            <option value="fab">Food &amp; Beverage / Packaging</option>
-            <option value="pharma">Pharmaceutical</option>
-            <option value="metal">Metal / Stamping / Casting</option>
-            <option value="elec">Electronics / PCB Assembly</option>
-            <option value="other">Other Manufacturing</option>
+        <div style="margin-bottom:28px">
+          <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Industry</label>
+          <select ref="{{ refIndustry }}" onChange="{{ recalc }}" style="width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.97rem">
+            <option value="" style="background:#060d18">Select industry...</option>
+            <option style="background:#060d18">Automotive</option>
+            <option style="background:#060d18">Food &amp; Beverage / Packaging</option>
+            <option style="background:#060d18">Pharmaceutical</option>
+            <option style="background:#060d18">Metal / Stamping / Casting</option>
+            <option style="background:#060d18">Electronics / PCB Assembly</option>
+            <option style="background:#060d18">Other Manufacturing</option>
           </select>
         </div>
-        <button class="btn-primary" style="width:100%;padding:14px;" onclick="calcROI()">Calculate Savings</button>
+        <button onClick="{{ recalc }}" style="width:100%;padding:15px;border-radius:10px;background:linear-gradient(135deg,#0066ff,#00d4ff);border:none;color:#000;font-weight:800;font-size:.98rem;cursor:pointer;letter-spacing:.04em">Calculate Savings</button>
       </div>
-      <div class="roi-result reveal rd1" id="roi-output">
-        <div class="roi-empty">
-          <span class="re-icon">📊</span>
-          <p>Enter your production data on the left to see your estimated annual savings from AI Vision QC.</p>
-        </div>
+
+      <div style="background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(0,212,255,.06));border:1px solid rgba(0,212,255,.25);border-radius:20px;padding:40px 36px">
+        <sc-if value="{{ noResult }}" hint-placeholder-val="{{ true }}">
+          <div style="text-align:center;padding:40px 0">
+            <div style="width:56px;height:56px;margin:0 auto 18px;border-radius:14px;border:1px solid rgba(0,212,255,.3);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff">ROI</div>
+            <p style="font-size:.97rem;color:#4a6a8a;line-height:1.8;margin:0">Enter your production data on the left to see your estimated annual savings from AI Vision QC.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hasResult }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h3 style="font-weight:800;font-size:1.3rem;margin:0 0 24px">Your Estimated Results</h3>
+            <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Current Annual Defect Loss</div>
+              <div style="font-weight:800;font-size:1.8rem;line-height:1;color:#ff6b6b">{{ currentLoss }}</div>
+              <div style="font-size:.87rem;color:#4a6a8a;margin-top:6px">{{ currentSub }}</div>
+            </div>
+            <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">After AI Vision (94% reduction)</div>
+              <div style="font-weight:800;font-size:1.8rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#00ff88);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ aiLoss }}</div>
+              <div style="font-size:.87rem;color:#4a6a8a;margin-top:6px">{{ aiSub }}</div>
+            </div>
+            <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Annual Savings</div>
+              <div style="font-weight:800;font-size:1.8rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#00ff88);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ savings }}</div>
+              <div style="font-size:.87rem;color:#4a6a8a;margin-top:6px">Net of system operating costs</div>
+            </div>
+            <div style="margin-bottom:28px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Estimated ROI Period</div>
+              <div style="font-weight:800;font-size:1.8rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#00ff88);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ roiPeriod }}</div>
+              <div style="font-size:.87rem;color:#4a6a8a;margin-top:6px">Based on typical system investment ₹18–35L</div>
+            </div>
+            <a href="https://wa.me/919404030215?text=Hi%2C%20I%20used%20the%20ROI%20calculator%20and%20want%20an%20exact%20quote%20for%20my%20plant." target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;width:100%;padding:15px;border-radius:10px;background:#25D366;color:#04140a;font-weight:800;font-size:.96rem" style-hover="opacity:.9">Get Exact Quote for My Plant</a>
+            <p style="font-size:.82rem;color:#4a6a8a;text-align:center;margin:12px 0 0;line-height:1.6">These are estimates based on industry averages and our case study results. Actual savings depend on defect complexity, line speed, and integration scope.</p>
+          </div>
+        </sc-if>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
-<section class="comparison">
-  <div class="container">
-    <div class="section-tag reveal">WHY AI VISION</div>
-    <h2 class="reveal rd1">Human QC vs. AI Vision System</h2>
-    <p class="reveal rd2" style="color:var(--text2);max-width:540px;margin-top:12px;line-height:1.8;">A direct comparison across the dimensions that matter to your plant manager, quality director, and CFO.</p>
-    <div class="comp-table-wrap reveal">
-      <table class="comp-table">
+<section style="padding:80px 60px 100px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Why AI Vision</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 14px">Human QC vs. AI Vision System</h2>
+    <p style="color:#a0bdd0;max-width:540px;line-height:1.8;margin:0 0 48px">A direct comparison across the dimensions that matter to your plant manager, quality director, and CFO.</p>
+    <div style="overflow-x:auto;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.015)">
+      <table style="width:100%;border-collapse:collapse;min-width:680px">
         <thead>
           <tr>
-            <th>Dimension</th>
-            <th class="col-human">Human Visual QC</th>
-            <th class="col-ai">AI Vision System</th>
+            <th style="padding:18px 24px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);color:#4a6a8a;font-weight:500">Dimension</th>
+            <th style="padding:18px 24px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);color:#ff6b6b;font-weight:500">Human Visual QC</th>
+            <th style="padding:18px 24px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);color:#00d4ff;font-weight:500">AI Vision System</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Inspection speed</td>
-            <td class="bad">3–8 parts/min (fatigue-limited)</td>
-            <td class="good">Up to 1,200 parts/min</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Inspection speed</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">3–8 parts/min (fatigue-limited)</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">Up to 1,200 parts/min</td>
           </tr>
           <tr>
-            <td>Consistency</td>
-            <td class="bad">Varies by inspector, shift, fatigue level</td>
-            <td class="good">100% consistent, every unit, every shift</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Consistency</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Varies by inspector, shift, fatigue level</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">100% consistent, every unit, every shift</td>
           </tr>
           <tr>
-            <td>Defect escape rate</td>
-            <td class="bad">2–5% miss rate on routine defects</td>
-            <td class="good">&lt;0.1% miss rate (94% improvement typical)</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Defect escape rate</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">2–5% miss rate on routine defects</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">&lt;0.1% miss rate (94% improvement typical)</td>
           </tr>
           <tr>
-            <td>Repeatability</td>
-            <td class="bad">Inter-inspector variation: ±15–25%</td>
-            <td class="good">± &lt;1% (deterministic model output)</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Repeatability</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Inter-inspector variation: ±15–25%</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">± &lt;1% (deterministic model output)</td>
           </tr>
           <tr>
-            <td>Operating cost</td>
-            <td class="bad">₹2–5L/year per QC operator (salary + training)</td>
-            <td class="good">System amortized over 5–7 years; &lt;₹50K/yr opex</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Operating cost</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">₹2–5L/year per QC operator (salary + training)</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">System amortized over 5–7 years; &lt;₹50K/yr opex</td>
           </tr>
           <tr>
-            <td>Night shift / 3-shift operation</td>
-            <td class="bad">Higher miss rate, staffing cost 1.3–1.5× day rate</td>
-            <td class="good">Identical performance 24/7, 365 days</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Night shift / 3-shift operation</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Higher miss rate, staffing cost 1.3–1.5× day rate</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">Identical performance 24/7, 365 days</td>
           </tr>
           <tr>
-            <td>Data &amp; traceability</td>
-            <td class="bad">Paper records, limited digital audit trail</td>
-            <td class="good">Full image archive, defect database, ISO-ready reports</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Data &amp; traceability</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Paper records, limited digital audit trail</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">Full image archive, defect database, ISO-ready reports</td>
           </tr>
           <tr>
-            <td>Scalability</td>
-            <td class="bad">Headcount grows linearly with volume</td>
-            <td class="good">One system handles multiple lines; marginal cost near zero</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Scalability</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Headcount grows linearly with volume</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">One system handles multiple lines; marginal cost near zero</td>
           </tr>
           <tr>
-            <td>Regulatory compliance</td>
-            <td class="bad">Difficult to demonstrate GMP/IATF process control</td>
-            <td class="good">Electronic records, digital signatures, full process evidence</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.04)">Regulatory compliance</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b;border-bottom:1px solid rgba(255,255,255,.04)">Difficult to demonstrate GMP/IATF process control</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff;border-bottom:1px solid rgba(255,255,255,.04)">Electronic records, digital signatures, full process evidence</td>
           </tr>
           <tr>
-            <td>New defect types</td>
-            <td class="bad">Training takes weeks; quality varies</td>
-            <td class="good">Model retrained in 1–3 days with new image samples</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#e8f4ff;font-weight:500">New defect types</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#ff6b6b">Training takes weeks; quality varies</td>
+            <td style="padding:16px 24px;font-size:.95rem;color:#00d4ff">Model retrained in 1–3 days with new image samples</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Case Study Callout -->
-    <div class="cs-callout reveal">
-      <div class="cc-icon">🏭</div>
-      <div>
-        <h3>We did this for a Tier-1 Automotive Supplier in Pune</h3>
-        <p>Deployed AI Vision on a high-speed stamping line. Defect escape rate dropped 94% in 3 months. Customer warranty claims down 70%. System paid for itself in 8 months.</p>
+    <div style="margin-top:56px;background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,102,255,.04));border:1px solid rgba(0,212,255,.2);border-radius:20px;padding:40px 44px;display:flex;align-items:center;gap:36px;flex-wrap:wrap">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;color:#00d4ff;border:1px solid rgba(0,212,255,.3);border-radius:10px;padding:14px 16px;flex:none">CASE<br>STUDY</div>
+      <div style="flex:1;min-width:280px">
+        <h3 style="font-weight:800;font-size:1.3rem;margin:0 0 8px">We did this for a Tier-1 Automotive Supplier in Pune</h3>
+        <p style="font-size:.97rem;color:#a0bdd0;line-height:1.7;margin:0">Deployed AI Vision on a high-speed stamping line. Defect escape rate dropped 94% in 3 months. Customer warranty claims down 70%. System paid for itself in 8 months.</p>
       </div>
-      <div class="cc-actions">
-        <button class="btn-ghost" onclick="location.href='/case-study-1.html'" style="white-space:nowrap;">Read Case Study →</button>
-      </div>
+      <a href="/#results" style="flex:none;padding:13px 26px;border-radius:10px;border:1px solid rgba(255,255,255,.12);color:#a0bdd0;font-weight:600;font-size:.93rem;white-space:nowrap" style-hover="border-color:rgba(0,212,255,.4);color:#00d4ff">Read Case Study →</a>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="ai-cta">
-  <div class="container">
-    <div class="section-tag reveal">NEXT STEP</div>
-    <h2 class="reveal rd1">Ready to see AI Vision <span>on your line?</span></h2>
-    <p class="reveal rd2">We offer a free half-day plant visit where our engineers assess your line, identify the top 3 defect categories for AI, and produce a preliminary ROI estimate — at no cost, no obligation.</p>
-    <div class="ai-cta-btns reveal rd3">
-      <button class="btn-primary btn-xl" onclick="location.href='/contact.html'">Book Free Plant Assessment</button>
-      <button class="btn-ghost btn-xl" onclick="location.href='/demo.html'">View Live Demo</button>
+<section style="padding:90px 60px 110px;text-align:center">
+  <div style="max-width:820px;margin:0 auto">
+    <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:26px">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00d4ff;animation:blink 1.4s infinite"></span>Next Step
     </div>
-    <p class="reveal rd4" style="margin-top:28px;font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">Or WhatsApp us directly: <a href="https://wa.me/919404030215" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">+91 94040 30215</a></p>
+    <h2 style="font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em;margin:0 0 18px">Ready to see AI Vision <span style="background:linear-gradient(135deg,#00d4ff,#7b2fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">on your line?</span></h2>
+    <p style="font-size:1.05rem;color:#a0bdd0;max-width:540px;margin:0 auto 40px;line-height:1.8">We offer a free half-day plant visit where our engineers assess your line, identify the top 3 defect categories for AI, and produce a preliminary ROI estimate — at no cost, no obligation.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/919404030215?text=Hi%2C%20I%20want%20to%20book%20a%20free%20plant%20assessment." target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:11px;padding:18px 32px;border-radius:13px;background:#25D366;color:#04140a;font-weight:800;font-size:1.02rem;box-shadow:0 0 40px rgba(37,211,102,.24)" style-hover="opacity:.9">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+        Book Free Plant Assessment
+      </a>
+      <a href="/#pipeline" style="padding:18px 32px;border-radius:13px;border:1px solid rgba(255,255,255,.12);color:#a0bdd0;font-weight:600;font-size:1.02rem" style-hover="border-color:rgba(0,212,255,.4);color:#00d4ff">View Live Demo</a>
+    </div>
+    <p style="margin:28px 0 0;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#4a6a8a">Or WhatsApp us directly: <a href="https://wa.me/919404030215" target="_blank" rel="noopener noreferrer">+91 94040 30215</a></p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
-      <p>Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
+<footer style="border-top:1px solid rgba(255,255,255,.06);background:#020408">
+  <div style="max-width:1200px;margin:0 auto;padding:56px 60px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+        <img src="images/logo.svg" alt="MordeTech" width="30" height="30" style="display:block">
+        <span style="font-weight:800;font-size:1.18rem;letter-spacing:-.02em;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Morde<span style="-webkit-text-fill-color:#7b2fff">Tech</span></span>
+      </div>
+      <p style="color:#4a6a8a;font-size:.92rem;line-height:1.7;max-width:280px;margin:0">Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
     </div>
-    <div class="footer-col"><h5>AI Solutions</h5><ul><li><a href="/ai-solutions.html">Computer Vision QC</a></li><li><a href="/ai-solutions.html">Predictive Maintenance</a></li><li><a href="/ai-solutions.html">Process Optimization</a></li><li><a href="/ai-solutions.html#roi-calc">ROI Calculator</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/news.html">News</a></li><li><a href="/sustainability.html">Sustainability</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
-    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+919404030215">+91 94040 30215</a></li><li><a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a></li><li><a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener">Hinjewadi, Pune, India</a></li></ul></div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 18px">AI Solutions</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#top" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Computer Vision QC</a>
+        <a href="#top" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Predictive Maintenance</a>
+        <a href="#top" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Process Optimization</a>
+        <a href="#roi-calc" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">ROI Calculator</a>
+      </div>
+    </div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 18px">Company</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="/about" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">About Us</a>
+        <a href="/services" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Services</a>
+        <a href="/contact" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 18px">Contact</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="tel:+919404030215" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">+91 94040 30215</a>
+        <a href="mailto:mordetechsolutions@zohomail.in" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">mordetechsolutions@zohomail.in</a>
+        <a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener noreferrer" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Hinjewadi, Pune, India</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
-    <div class="social-links">
-      <a class="social-link" href="mailto:mordetechsolutions@zohomail.in" title="Email" aria-label="Send email">@</a>
+  <div style="border-top:1px solid rgba(255,255,255,.06);padding:20px 60px">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <p style="color:#4a6a8a;font-size:.84rem;margin:0">© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(74,106,138,.7);letter-spacing:.06em">
+        <span style="width:6px;height:6px;border-radius:50%;background:#00ff88;animation:blink 1.4s infinite"></span>All systems operational
+      </div>
     </div>
   </div>
 </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+function fmt(n) {
+  if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + ' Cr';
+  if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + ' L';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
 
-<script src="/js/global.js"></script>
-<script>
-// ── ROI CALCULATOR ──
-function calcROI() {
-  const defectRate = parseFloat(document.getElementById('roi-defect').value);
-  const units = parseInt(document.getElementById('roi-units').value);
-  const costPerDefect = parseInt(document.getElementById('roi-cost').value);
-  const output = document.getElementById('roi-output');
+class Component extends DCLogic {
+  state = { r: null };
+  defect = React.createRef();
+  units = React.createRef();
+  cost = React.createRef();
+  industry = React.createRef();
 
-  if (!defectRate || !units || !costPerDefect || defectRate <= 0 || units <= 0 || costPerDefect <= 0) {
-    output.innerHTML = '<div class="roi-empty"><span class="re-icon">📊</span><p>Enter your production data on the left to see your estimated annual savings from AI Vision QC.</p></div>';
-    return;
+  compute() {
+    const num = (ref) => parseFloat(ref.current ? ref.current.value : '');
+    const defectRate = num(this.defect), units = num(this.units), costPerDefect = num(this.cost);
+    if (!defectRate || !units || !costPerDefect || defectRate <= 0 || units <= 0 || costPerDefect <= 0) {
+      this.setState({ r: null });
+      return;
+    }
+    const currentDefects = Math.round(units * defectRate / 100);
+    const currentLoss = currentDefects * costPerDefect;
+    const aiDefects = Math.round(currentDefects * 0.06);
+    const aiLoss = aiDefects * costPerDefect;
+    const annualSavings = currentLoss - aiLoss;
+    const low = Math.round(1800000 / (annualSavings / 12));
+    const high = Math.round(3500000 / (annualSavings / 12));
+    this.setState({
+      r: {
+        currentLoss: fmt(currentLoss),
+        currentSub: currentDefects.toLocaleString('en-IN') + ' defective units × ' + fmt(costPerDefect),
+        aiLoss: fmt(aiLoss),
+        aiSub: 'Only ' + aiDefects.toLocaleString('en-IN') + ' defects escape — ' + (Math.round(defectRate * 0.06 * 100) / 100) + '% residual rate',
+        savings: fmt(annualSavings),
+        roiPeriod: low + '–' + high + ' months'
+      }
+    });
   }
 
-  const currentDefects = Math.round(units * defectRate / 100);
-  const currentLoss = currentDefects * costPerDefect;
-  // Based on our real case study: 94% defect reduction
-  const aiDefects = Math.round(currentDefects * 0.06);
-  const aiLoss = aiDefects * costPerDefect;
-  const annualSavings = currentLoss - aiLoss;
-
-  // Typical system cost range based on complexity
-  const systemCostLow = 1800000;
-  const systemCostHigh = 3500000;
-  const roiMonthsLow = annualSavings > 0 ? Math.round(systemCostLow / (annualSavings / 12)) : null;
-  const roiMonthsHigh = annualSavings > 0 ? Math.round(systemCostHigh / (annualSavings / 12)) : null;
-
-  function fmt(n) {
-    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + ' Cr';
-    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + ' L';
-    return '₹' + n.toLocaleString('en-IN');
+  renderVals() {
+    const r = this.state.r;
+    return {
+      recalc: () => this.compute(),
+      refDefect: this.defect, refUnits: this.units, refCost: this.cost, refIndustry: this.industry,
+      hasResult: !!r,
+      noResult: !r,
+      currentLoss: r ? r.currentLoss : '',
+      currentSub: r ? r.currentSub : '',
+      aiLoss: r ? r.aiLoss : '',
+      aiSub: r ? r.aiSub : '',
+      savings: r ? r.savings : '',
+      roiPeriod: r ? r.roiPeriod : ''
+    };
   }
-
-  output.innerHTML = `
-    <h3>Your Estimated Results</h3>
-    <div class="roi-stat">
-      <div class="rs-label">Current Annual Defect Loss</div>
-      <div class="rs-value bad">${fmt(currentLoss)}</div>
-      <div class="rs-sub">${currentDefects.toLocaleString('en-IN')} defective units × ${fmt(costPerDefect)}</div>
-    </div>
-    <div class="roi-stat">
-      <div class="rs-label">After AI Vision (94% reduction)</div>
-      <div class="rs-value good">${fmt(aiLoss)}</div>
-      <div class="rs-sub">Only ${aiDefects.toLocaleString('en-IN')} defects escape — ${Math.round(defectRate * 0.06 * 100) / 100}% residual rate</div>
-    </div>
-    <div class="roi-stat">
-      <div class="rs-label">Annual Savings</div>
-      <div class="rs-value good">${fmt(annualSavings)}</div>
-      <div class="rs-sub">Net of system operating costs</div>
-    </div>
-    <div class="roi-stat">
-      <div class="rs-label">Estimated ROI Period</div>
-      <div class="rs-value good">${roiMonthsLow}–${roiMonthsHigh} months</div>
-      <div class="rs-sub">Based on typical system investment ₹18–35L</div>
-    </div>
-    <button class="btn-primary" style="width:100%;padding:14px;margin-top:8px;" onclick="location.href='/contact.html?ref=roi-calc'">Get Exact Quote for My Plant</button>
-    <p style="font-size:.82rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;">These are estimates based on industry averages and our case study results. Actual savings depend on defect complexity, line speed, and integration scope.</p>
-  `;
 }
 </script>
 </body>
