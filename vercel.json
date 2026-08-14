@@ -3,5 +3,6 @@
   "name": "mordetech-solutions",
   "framework": null,
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "cleanUrls": true
 }
