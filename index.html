@@ -153,7 +153,9 @@
     nav { flex-wrap: wrap !important; gap: 12px !important; }
     /* Keep each label on one line and give it a finger-sized hit area (15px -> ~41px). */
     nav > div a { white-space: nowrap; padding: 13px 0; }
-    footer a { display: inline-block; padding: 5px 0; }
+    footer a { display: inline-block; padding: 9px 0; }
+    /* Phone and email are the primary conversion path; make them easy to hit. */
+    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 8px 0; }
     /* Links drop to their own scrollable row beneath the logo and the CTA. */
     nav > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important;
                 scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -164,9 +166,6 @@
     [style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
     section, nav, footer { padding-left: 16px !important; padding-right: 16px !important; }
     section { padding-top: 56px !important; padding-bottom: 56px !important; }
-    /* max-width is load-bearing: display:block alone lets the table keep its
-       intrinsic 680px width, which then gets clipped and made unreachable. */
-    table { display: block; width: 100%; max-width: 100%; overflow-x: auto; }
 
     /* Readability floor. Prefix matching survives re-serialisation: React writes
        ".66rem" as "0.66rem", so "font-size: 0.6" covers 0.6–0.69rem in one rule. */
