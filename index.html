@@ -1,512 +1,961 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MordeTech Solutions — Engineering Intelligent Automation</title>
-<meta name="description" content="MordeTech Solutions — Siemens PLC Automation, AI Machine Vision, Smart Factory & IIoT Systems. Founded by Priyanka Morde.">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MordeTech Solutions — Engineering Intelligent Automation">
-<meta property="og:description" content="World-class Siemens PLC automation, AI machine vision, and smart factory systems for the next era of manufacturing.">
-<meta property="og:url" content="https://mordetech-solutions.in/">
-<meta property="og:image" content="https://mordetech-solutions.in/images/og-preview.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mordetech-solutions.in/images/og-preview.svg">
-<meta name="twitter:title" content="MordeTech Solutions — Engineering Intelligent Automation">
-<meta name="twitter:description" content="World-class Siemens PLC automation, AI machine vision, and smart factory systems for the next era of manufacturing.">
-<meta name="theme-color" content="#020408">
-<link rel="canonical" href="https://mordetech-solutions.in/">
-<link rel="stylesheet" href="css/global.css">
-<style>
-/* HOME SPECIFIC */
-#home { min-height:100vh; display:flex; align-items:center; padding:140px 60px 80px; }
-.hero-inner { max-width:1200px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-.hero-pill { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border:1px solid var(--border); border-radius:100px; background:rgba(0,212,255,.05); font-family:var(--font-mono); font-size:.82rem; color:var(--cyan); letter-spacing:.15em; margin-bottom:24px; }
-.hero-pill::before { content:'●'; animation:blink 1.4s infinite; font-size:.5rem; }
-@keyframes blink { 50%{opacity:0} }
-.hero-title { font-family:var(--font-display); font-size:clamp(3rem,5.5vw,5rem); font-weight:800; line-height:1.0; letter-spacing:-.04em; margin-bottom:8px; }
-.hero-title .g { background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200%; animation:gradShift 4s ease-in-out infinite; }
-@keyframes gradShift { 0%,100%{background-position:0%} 50%{background-position:100%} }
-.hero-sub { font-size:1.05rem; color:var(--text2); margin:22px 0 38px; line-height:1.7; max-width:480px; }
-.hero-cta { display:flex; gap:12px; flex-wrap:wrap; }
-.btn-xl { padding:14px 32px; font-size:.97rem; border-radius:10px; }
-.hero-stats { display:flex; gap:0; margin-top:48px; flex-wrap:wrap; padding-top:32px; border-top:1px solid rgba(255,255,255,.06); }
-.stat-item { padding:0 32px 0 0; margin-right:32px; border-right:1px solid rgba(255,255,255,.06); }
-.stat-item:last-child { border-right:none; padding-right:0; margin-right:0; }
-.stat-item .num { font-family:var(--font-display); font-size:2.2rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1; }
-.stat-item .lbl { font-size:.82rem; color:var(--muted); margin-top:5px; letter-spacing:.05em; text-transform:uppercase; font-family:var(--font-mono); }
-.hero-visual { display:flex; align-items:center; justify-content:center; }
-/* TREE ANIMATION — Source of Knowledge */
-.tree-wrap { position:relative; width:390px; height:390px; }
-.tree-bg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:230px; height:230px; border-radius:50%; background:radial-gradient(circle,rgba(0,212,255,.22) 0%,rgba(0,102,255,.1) 45%,transparent 70%); filter:blur(30px); animation:treeBgGlow 4s ease-in-out infinite; pointer-events:none; }
-@keyframes treeBgGlow { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.65;} 50%{transform:translate(-50%,-50%) scale(1.5);opacity:1;} }
-.tree-ring { position:absolute; top:50%; left:50%; border-radius:50%; }
-.tree-ring.r1 { width:370px;height:370px; border:1px dashed rgba(0,212,255,.1); animation:ringCW 32s linear infinite; }
-.tree-ring.r2 { width:268px;height:268px; border:1px solid rgba(0,102,255,.16); animation:ringCW 21s linear infinite reverse; }
-@keyframes ringCW { from{transform:translate(-50%,-50%) rotate(0)} to{transform:translate(-50%,-50%) rotate(360deg)} }
-.tree-logo-anim { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:204px; height:204px; }
-.tree-logo-anim img { width:100%; height:100%; display:block; animation:treeGlow 4s ease-in-out infinite; }
-@keyframes treeGlow {
-  0%,100%{filter:drop-shadow(0 0 14px rgba(0,212,255,.65)) drop-shadow(0 0 32px rgba(0,102,255,.28));}
-  50%{filter:drop-shadow(0 0 30px rgba(0,212,255,1)) drop-shadow(0 0 60px rgba(0,102,255,.55)) drop-shadow(0 0 90px rgba(123,47,255,.32));}
-}
-/* Orbiting technology chips */
-.k-node { position:absolute; top:50%; left:50%; pointer-events:none; }
-.k-node.n1{animation:kn1 6s linear infinite;}
-.k-node.n2{animation:kn2 9.5s linear infinite;}
-.k-node.n3{animation:kn3 13s linear infinite;}
-.k-node.n4{animation:kn4 7.5s linear infinite reverse;}
-.k-node.n5{animation:kn5 5s linear infinite;}
-.k-label { display:inline-flex; align-items:center; background:rgba(2,4,8,.9); border:1px solid rgba(0,212,255,.28); border-radius:6px; padding:5px 11px; font-family:var(--font-mono); font-size:.7rem; font-weight:500; color:var(--cyan); white-space:nowrap; letter-spacing:.06em; box-shadow:0 0 8px rgba(0,212,255,.12); backdrop-filter:blur(10px); }
-@keyframes kn1{from{transform:translate(-50%,-50%) rotate(0deg) translateX(158px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(158px) rotate(-360deg)}}
-@keyframes kn2{from{transform:translate(-50%,-50%) rotate(72deg) translateX(130px) rotate(-72deg)}to{transform:translate(-50%,-50%) rotate(432deg) translateX(130px) rotate(-432deg)}}
-@keyframes kn3{from{transform:translate(-50%,-50%) rotate(144deg) translateX(175px) rotate(-144deg)}to{transform:translate(-50%,-50%) rotate(504deg) translateX(175px) rotate(-504deg)}}
-@keyframes kn4{from{transform:translate(-50%,-50%) rotate(216deg) translateX(110px) rotate(-216deg)}to{transform:translate(-50%,-50%) rotate(576deg) translateX(110px) rotate(-576deg)}}
-@keyframes kn5{from{transform:translate(-50%,-50%) rotate(288deg) translateX(144px) rotate(-288deg)}to{transform:translate(-50%,-50%) rotate(648deg) translateX(144px) rotate(-648deg)}}
-/* Rising particles — knowledge flowing into the tree */
-.k-particles { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-.kp { position:absolute; border-radius:50%; bottom:20px; animation:kRise linear infinite; }
-.kp:nth-child(1){width:4px;height:4px;left:34%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation-duration:3.2s;animation-delay:.2s;}
-.kp:nth-child(2){width:3px;height:3px;left:52%;background:var(--blue);box-shadow:0 0 5px var(--blue);animation-duration:3.9s;animation-delay:1.1s;}
-.kp:nth-child(3){width:5px;height:5px;left:64%;background:var(--purple);box-shadow:0 0 7px var(--purple);animation-duration:4.3s;animation-delay:1.8s;}
-.kp:nth-child(4){width:3px;height:3px;left:44%;background:var(--green);box-shadow:0 0 5px var(--green);animation-duration:2.8s;animation-delay:2.5s;}
-.kp:nth-child(5){width:4px;height:4px;left:58%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation-duration:3.6s;animation-delay:.6s;}
-@keyframes kRise{0%{transform:translateY(0) scale(1);opacity:.9;}85%{opacity:.2;}100%{transform:translateY(-380px) scale(.1);opacity:0;}}
-/* Floating metric cards */
-.f-cards { position:absolute; inset:0; pointer-events:none; }
-.fc { position:absolute; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:10px 14px; backdrop-filter:blur(10px); font-size:.88rem; font-family:var(--font-mono); color:var(--muted); white-space:nowrap; animation:float 4s ease-in-out infinite; }
-.fc .v { color:var(--cyan); font-weight:500; }
-.fc:nth-child(1){top:8%;right:-5%;animation-delay:0s;}
-.fc:nth-child(2){bottom:12%;left:-12%;animation-delay:1.2s;}
-.fc:nth-child(3){top:55%;right:-8%;animation-delay:2.2s;}
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-/* HOW WE WORK */
-#how-we-work { padding:90px 0 70px; border-bottom:1px solid var(--border); }
-.process-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:56px; position:relative; }
-.process-row::before { content:''; position:absolute; top:28px; left:12.5%; right:12.5%; height:1px; background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple)); opacity:.3; }
-.proc-step { text-align:center; padding:0 16px; }
-.proc-num { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.1)); border:1px solid rgba(0,212,255,.3); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:.82rem; font-weight:700; color:var(--cyan); margin:0 auto 18px; }
-.proc-step h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin-bottom:8px; }
-.proc-step p { font-size:.88rem; color:var(--muted); line-height:1.7; }
-@media(max-width:768px){ .process-row{grid-template-columns:repeat(2,1fr); gap:32px;} .process-row::before{display:none;} }
-/* TESTIMONIALS */
-#testimonials { padding:110px 0 80px; }
-.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
-.testi-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; position:relative; transition:transform .3s,border-color .3s; }
-.testi-card:hover { transform:translateY(-6px); border-color:rgba(0,212,255,.3); }
-.testi-card::before { content:'"'; font-family:var(--font-display); font-size:4rem; line-height:1; color:var(--cyan); opacity:.2; position:absolute; top:16px; left:24px; }
-.testi-quote { font-size:.95rem; color:var(--text2); line-height:1.8; margin-bottom:24px; font-style:italic; }
-.testi-author { display:flex; align-items:center; gap:12px; }
-.testi-avatar { width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-.testi-name { font-family:var(--font-display); font-size:.99rem; font-weight:700; }
-.testi-role { font-family:var(--font-mono); font-size:.72rem; color:var(--muted); letter-spacing:.06em; margin-top:2px; }
-@media(max-width:1024px){ .testi-grid{grid-template-columns:1fr 1fr;} }
-@media(max-width:640px){ .testi-grid{grid-template-columns:1fr;} }
-/* SERVICES PREVIEW */
-#services { padding:110px 0; }
-.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:56px; }
-.svc-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; position:relative; overflow:hidden; transition:transform .4s,border-color .4s,box-shadow .4s; }
-.svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:0; transition:opacity .4s; }
-.svc-card::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%,rgba(0,212,255,.05),transparent 60%); opacity:0; transition:opacity .4s; }
-.svc-card:hover { transform:translateY(-8px); border-color:rgba(0,212,255,.3); box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 40px rgba(0,212,255,.07); }
-.svc-card:hover::before,.svc-card:hover::after { opacity:1; }
-.svc-icon { width:50px; height:50px; border-radius:12px; background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(0,102,255,.08)); border:1px solid rgba(0,212,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:18px; transition:transform .3s,box-shadow .3s; }
-.svc-card:hover .svc-icon { transform:scale(1.1); box-shadow:0 0 20px var(--glow-cyan); }
-.svc-card h3 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:10px; }
-.svc-card p { font-size:.97rem; color:var(--muted); line-height:1.75; }
-.svc-tag { display:inline-block; margin-top:18px; font-family:var(--font-mono); font-size:.75rem; color:var(--cyan); letter-spacing:.1em; text-transform:uppercase; padding:3px 9px; border:1px solid rgba(0,212,255,.2); border-radius:4px; }
-/* SOLUTIONS */
-#solutions { padding:110px 0; }
-.sol-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:56px; }
-.sol-card { border-radius:var(--radius); padding:44px 36px; position:relative; overflow:hidden; transition:transform .4s; cursor:default; }
-.sol-card:hover { transform:scale(1.02); }
-.sol-card:nth-child(1) { background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(0,212,255,.04)); border:1px solid rgba(0,102,255,.2); }
-.sol-card:nth-child(2) { background:linear-gradient(135deg,rgba(123,47,255,.15),rgba(0,212,255,.04)); border:1px solid rgba(123,47,255,.2); }
-.sol-card:nth-child(3) { background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(0,102,255,.04)); border:1px solid rgba(0,212,255,.15); }
-.sol-card:nth-child(4) { background:linear-gradient(135deg,rgba(18,28,58,.9),rgba(8,16,36,.95)); border:1px solid rgba(255,255,255,.06); }
-.sol-icon { font-size:2.4rem; margin-bottom:18px; }
-.sol-card h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:800; margin-bottom:12px; }
-.sol-card p { font-size:.97rem; color:var(--muted); line-height:1.8; }
-.sol-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
-.sol-tag { font-family:var(--font-mono); font-size:.77rem; color:var(--muted); padding:4px 10px; border:1px solid var(--border); border-radius:4px; }
-/* WHY US */
-#why { padding:110px 0; }
-.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:56px; }
-.why-card { padding:32px 24px; text-align:center; border-radius:var(--radius); border:1px solid var(--border); background:var(--surface); transition:transform .3s,border-color .3s; }
-.why-card:hover { transform:translateY(-6px); border-color:rgba(0,212,255,.3); }
-.why-num { font-family:var(--font-display); font-size:3rem; font-weight:800; background:linear-gradient(135deg,var(--cyan),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.why-card h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin:8px 0 6px; }
-.why-card p { font-size:.95rem; color:var(--muted); line-height:1.7; }
-/* CTA BAND */
-.cta-band { margin:60px 0; background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.12)); border:1px solid rgba(0,102,255,.2); border-radius:var(--radius); padding:60px 80px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-.cta-band h2 { font-family:var(--font-display); font-size:2rem; font-weight:800; max-width:480px; }
-.cta-band h2 span { background:linear-gradient(135deg,var(--cyan),var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.cta-btns { display:flex; gap:12px; flex-shrink:0; }
-@media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;}
-  .hero-visual{margin-top:48px;}
-  .tree-wrap{width:260px;height:260px;margin:0 auto;}
-  .tree-ring.r1{width:250px;height:250px;}
-  .tree-ring.r2{width:182px;height:182px;}
-  .tree-logo-anim{width:130px;height:130px;}
-  .tree-bg{width:150px;height:150px;}
-  .k-node,.k-particles,.f-cards{display:none;}
-  .services-grid{grid-template-columns:repeat(2,1fr);}
-  .sol-grid{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:repeat(2,1fr);}
-  .cta-band{padding:40px 32px;}
-  #home{padding:120px 24px 60px;}
-}
-@media(max-width:640px){
-  .services-grid,.why-grid{grid-template-columns:1fr;}
-  .cta-band{flex-direction:column;text-align:center;}
-  #home{padding:90px 20px 40px;min-height:auto;}
-  .tree-wrap{width:180px;height:180px;}
-  .tree-ring.r1{width:172px;height:172px;}
-  .tree-ring.r2{width:126px;height:126px;}
-  .tree-logo-anim{width:90px;height:90px;}
-  .tree-bg{width:110px;height:110px;}
-  .hero-visual{margin-top:32px;margin-bottom:8px;}
-  .hero-stats{gap:0;}
-  .stat-item{padding:0 18px 0 0;margin-right:18px;}
-  .process-row{grid-template-columns:1fr;gap:24px;}
-}
-</style>
-<!-- Google Analytics GA4 — Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "MordeTech Solutions Pvt. Ltd.",
-  "description": "Siemens PLC automation, AI machine vision, SCADA/HMI, and IIoT systems for world-class manufacturers.",
-  "url": "https://mordetech-solutions.in",
-  "logo": "https://mordetech-solutions.in/favicon.svg",
-  "founder": { "@type": "Person", "name": "Priyanka Morde" },
-  "foundingDate": "2012",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Hinjewadi Phase 2",
-    "addressLocality": "Pune",
-    "addressRegion": "Maharashtra",
-    "postalCode": "411057",
-    "addressCountry": "IN"
-  },
-  "telephone": "+919404030215",
-  "email": "mordetechsolutions@zohomail.in",
-  "openingHours": "Mo-Sa 09:00-18:30",
-  "sameAs": []
-}
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="./support.js"></script>
 </head>
 <body>
-<div id="cursor"></div><div id="cursor-ring"></div>
-<div id="progress"></div>
-<canvas id="bg-canvas"></canvas>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-btn" onclick="closeMobile()">✕</button>
-  <a href="/" onclick="closeMobile()">Home</a>
-  <a href="/solutions.html" onclick="closeMobile()">Solutions</a>
-  <a href="/sustainability.html" onclick="closeMobile()">Sustainability</a>
-  <a href="/news.html" onclick="closeMobile()">News</a>
-  <a href="/careers.html" onclick="closeMobile()">Careers</a>
-  <a href="/about.html" onclick="closeMobile()">About</a>
-  <a href="/demo.html" onclick="closeMobile()">Live Demo</a>
-  <a href="/contact.html" onclick="closeMobile()">Contact</a>
-</div>
-<nav id="navbar">
-  <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
-  <ul class="nav-links">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/solutions.html">Solutions</a></li>
-    <li><a href="/sustainability.html">Sustainability</a></li>
-    <li><a href="/news.html">News</a></li>
-    <li><a href="/careers.html">Careers</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/demo.html" style="color:var(--green);">● Live Demo</a></li>
-  </ul>
-  <div class="nav-right">
-    <select class="lang-sel" onchange="setLang(this.value)"><option value="en">EN</option><option value="de">DE</option><option value="mr">MR</option></select>
-    <button class="btn-ghost" onclick="location.href='/contact.html'">Get Quote</button>
-    <button class="btn-primary" onclick="location.href='/contact.html'"><span>Contact Now</span></button>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: #00d4ff; text-decoration: none; }
+  a:hover { color: #7cebff; }
+  ::selection { background: rgba(0,212,255,.25); color: #fff; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #020408; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,212,255,.28); border-radius: 3px; }
+  [data-motion="off"] * { animation-play-state: paused !important; }
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: .15 } }
+  @keyframes gradShift { 0%,100% { background-position: 0% 50% } 50% { background-position: 100% 50% } }
+  @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  @keyframes orb { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity: .6 } 50% { transform: translate(-50%,-50%) scale(1.35); opacity: 1 } }
+  @keyframes spinCW { from { transform: translate(-50%,-50%) rotate(0) } to { transform: translate(-50%,-50%) rotate(360deg) } }
+  @keyframes spinCCW { from { transform: translate(-50%,-50%) rotate(0) } to { transform: translate(-50%,-50%) rotate(-360deg) } }
+  @keyframes railDot { 0% { top: 0%; opacity: 0 } 6% { opacity: 1 } 94% { opacity: 1 } 100% { top: 100%; opacity: 0 } }
+  @keyframes stageGlow {
+    0%, 5% { border-color: rgba(0,212,255,.55); background: rgba(0,212,255,.07); box-shadow: 0 0 28px rgba(0,212,255,.14) }
+    16%, 100% { border-color: rgba(255,255,255,.07); background: rgba(255,255,255,.018); box-shadow: none }
+  }
+  @keyframes stageDot {
+    0%, 5% { background: #00d4ff; box-shadow: 0 0 12px rgba(0,212,255,.9) }
+    16%, 100% { background: rgba(74,106,138,.5); box-shadow: none }
+  }
+  @keyframes dashFlow { to { stroke-dashoffset: -240 } }
+  @keyframes barLive {
+    0%,100% { transform: scaleY(.42) } 20% { transform: scaleY(.86) } 38% { transform: scaleY(.58) }
+    56% { transform: scaleY(1) } 74% { transform: scaleY(.66) }
+  }
+  @keyframes sweep { 0% { transform: translateX(-100%) } 100% { transform: translateX(220%) } }
+  @keyframes pmPhase {
+    0%, 22% { opacity: 1; transform: translateY(0) }
+    30%, 100% { opacity: .22; transform: translateY(2px) }
+  }
+  @keyframes vibe {
+    0%,100% { transform: scaleY(.35) } 25% { transform: scaleY(.7) } 50% { transform: scaleY(.45) }
+    62% { transform: scaleY(1.6) } 70% { transform: scaleY(.5) } 85% { transform: scaleY(1.3) }
+  }
+  @keyframes alertPop { 0%, 55% { opacity: 0; transform: scale(.9) } 65%, 92% { opacity: 1; transform: scale(1) } 100% { opacity: 0 } }
+  @keyframes nodePing { 0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,.35) } 50% { box-shadow: 0 0 0 10px rgba(0,212,255,0) } }
+  @keyframes twinPulse { 0%,100% { opacity: .35 } 50% { opacity: 1 } }
+
+  /* ===== Responsive layer (inline styles are overridden via attribute selectors) ===== */
+  img { max-width: 100%; height: auto; }
+
+  @media (max-width: 1024px) {
+    [style*="px 60px"] { padding-left: 28px !important; padding-right: 28px !important; }
+    [style*="grid-template-columns:repeat(8,1fr)"] { grid-template-columns: repeat(4,1fr) !important; }
+    [style*="grid-template-columns:repeat(6,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"] { grid-template-columns: repeat(3,1fr) !important; }
+    [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="padding:110px 60px"],
+    [style*="padding:100px 60px"],
+    [style*="padding:96px 60px"],
+    [style*="padding:90px 60px"] { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+
+  @media (max-width: 900px) {
+    nav[style*="position:sticky"] { flex-wrap: wrap !important; gap: 12px !important; padding-left: 18px !important; padding-right: 18px !important; }
+    nav[style*="position:sticky"] > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important; padding-bottom: 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    nav[style*="position:sticky"] > div::-webkit-scrollbar { display: none; }
+
+    [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+    [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
+    [style*="grid-template-columns:1fr 1.6fr"],
+    [style*="grid-template-columns:1.35fr 1fr"],
+    [style*="grid-template-columns:1.2fr 1fr"],
+    [style*="grid-template-columns:1.1fr .9fr"],
+    [style*="grid-template-columns:1.05fr .95fr"] { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 860px) {
+    /* about.html timeline: drop the centre rail, stack entries left-aligned */
+    [style*="grid-template-columns:1fr 64px 1fr"] { grid-template-columns: 1fr !important; gap: 0 !important; }
+    [style*="grid-template-columns:1fr 64px 1fr"] > * { text-align: left !important; grid-column: 1 !important; }
+  }
+
+  @media (max-width: 760px) {
+    table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 640px) {
+    [style*="px 60px"] { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="padding:110px 60px"],
+    [style*="padding:100px 60px"],
+    [style*="padding:96px 60px"],
+    [style*="padding:90px 60px"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+
+    [style*="grid-template-columns:repeat(8,1fr)"],
+    [style*="grid-template-columns:repeat(6,1fr)"],
+    [style*="grid-template-columns:repeat(5,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+
+    /* Legibility: lift sub-12px text to a readable floor on small screens */
+    [style*="font-size:.64rem"],
+    [style*="font-size:.66rem"],
+    [style*="font-size:.68rem"] { font-size: .78rem !important; }
+    [style*="font-size:.7rem"],
+    [style*="font-size:.72rem"] { font-size: .82rem !important; }
+    [style*="font-size:.82rem"],
+    [style*="font-size:.86rem"] { font-size: .88rem !important; }
+    [style*="font-size:.88rem"],
+    [style*="font-size:.9rem"],
+    [style*="font-size:.94rem"],
+    [style*="font-size:.95rem"] { font-size: .97rem !important; }
+  }
+
+  @media (max-width: 480px) {
+    [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="letter-spacing:.08em"] { letter-spacing: .05em !important; }
+  }
+</style>
+</helmet>
+
+<div data-motion="{{ motionState }}" style="background:#020408;color:#e8f4ff;font-family:'DM Sans',system-ui,sans-serif;position:relative">
+
+<nav style="position:sticky;top:0;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 60px;background:rgba(2,4,8,.82);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.06)">
+  <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="images/logo.svg" alt="MordeTech" width="32" height="32" style="display:block">
+    <span style="font-weight:800;font-size:1.22rem;letter-spacing:-.02em;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Morde<span style="-webkit-text-fill-color:#7b2fff">Tech</span></span>
+  </a>
+  <div style="display:flex;align-items:center;gap:30px">
+    <a href="/ai-solutions" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">AI Solutions</a>
+    <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
+    <a href="#industries" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
+    <a href="/about" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">About</a>
+    <a href="/contact" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Contact</a>
   </div>
-  <button class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+  <a href="https://wa.me/919404030215?text=Hi%2C%20I%20want%20to%20discuss%20automation%20for%20my%20plant." target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:10px;background:#25D366;color:#04140a;font-weight:700;font-size:.86rem;white-space:nowrap" style-hover="opacity:.9">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+    WhatsApp Us
+  </a>
 </nav>
 
-<!-- HOME HERO -->
-<section id="home">
-  <div class="hero-inner">
+<section id="top" style="position:relative;padding:96px 60px 90px;overflow:hidden;background-image:linear-gradient(to right,rgba(0,130,220,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,130,220,.045) 1px,transparent 1px);background-size:60px 60px">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 72% 45%,rgba(0,102,255,.09) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center">
+
     <div>
-      <div class="hero-pill">INDUSTRY 4.0 SOLUTIONS</div>
-      <h1 class="hero-title">Engineering<br><span class="g" id="typeTarget">Intelligent Automation</span></h1>
-      <p class="hero-sub">Where <strong>PLC meets AI.</strong> MordeTech Solutions delivers world-class Siemens automation, machine vision, and smart factory systems for the next era of manufacturing.</p>
-      <div class="hero-cta">
-        <button class="btn-primary btn-xl" onclick="location.href='/services.html'">Explore Services</button>
-        <button class="btn-ghost btn-xl" onclick="location.href='/demo.html'">▶ Live Demo</button>
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:26px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#00d4ff;animation:blink 1.4s infinite"></span>
+        Industry 4.0 Solutions · Pune, India
       </div>
-      <div class="hero-stats">
-        <div class="stat-item"><div class="num" data-target="150" data-suffix="+">0+</div><div class="lbl">Projects Delivered</div></div>
-        <div class="stat-item"><div class="num" data-target="80" data-suffix="+">0+</div><div class="lbl">Global Clients</div></div>
-        <div class="stat-item"><div class="num" data-target="13" data-suffix="+ Yrs">0+ Yrs</div><div class="lbl">Experience</div></div>
-        <div class="stat-item"><div class="num" data-target="99" data-suffix="%">0%</div><div class="lbl">Uptime SLA</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="tree-wrap">
-        <div class="tree-bg"></div>
-        <div class="tree-ring r1"></div>
-        <div class="tree-ring r2"></div>
-        <div class="tree-logo-anim"><img src="/images/logo.svg" alt="MordeTech Circuit Tree — Source of Intelligence"></div>
-        <div class="k-node n1"><span class="k-label">PLC</span></div>
-        <div class="k-node n2"><span class="k-label">AI Vision</span></div>
-        <div class="k-node n3"><span class="k-label">SCADA</span></div>
-        <div class="k-node n4"><span class="k-label">IIoT</span></div>
-        <div class="k-node n5"><span class="k-label">OPC UA</span></div>
-        <div class="k-particles">
-          <div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div><div class="kp"></div>
-        </div>
-        <div class="f-cards">
-          <div class="fc">OPC UA → <span class="v">LIVE</span></div>
-          <div class="fc">AI Defect Rate: <span class="v">0.02%</span></div>
-          <div class="fc">OEE: <span class="v">94.7%</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- HOW WE WORK -->
-<section id="how-we-work">
-  <div class="container">
-    <div class="section-tag reveal">OUR PROCESS</div>
-    <h2 class="reveal rd1">How We Work</h2>
-    <div class="process-row">
-      <div class="proc-step reveal">
-        <div class="proc-num">01</div>
-        <h4>Discovery</h4>
-        <p>On-site plant assessment, process mapping, and technology feasibility study.</p>
-      </div>
-      <div class="proc-step reveal rd1">
-        <div class="proc-num">02</div>
-        <h4>Design &amp; Quote</h4>
-        <p>Fixed-price proposal, architecture blueprint, and ROI projection — no surprises.</p>
-      </div>
-      <div class="proc-step reveal rd2">
-        <div class="proc-num">03</div>
-        <h4>Build &amp; Test</h4>
-        <p>FAT in our lab, then SAT on your floor. Every system ships fully tested.</p>
-      </div>
-      <div class="proc-step reveal rd3">
-        <div class="proc-num">04</div>
-        <h4>Deploy &amp; Support</h4>
-        <p>Commissioning, operator training, and 4-hour SLA support post go-live.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES PREVIEW -->
-<section id="services">
-  <div class="container">
-    <div class="section-tag reveal">WHAT WE DO</div>
-    <h2 class="reveal rd1">Products &amp; Services</h2>
-    <div class="services-grid">
-      <div class="svc-card reveal"><div class="svc-icon">🔧</div><h3>PLC Programming</h3><p>Expert Siemens TIA Portal development — S7-1200, S7-1500. Ladder, FBD, SCL with full documentation.</p><div class="svc-tag">Siemens TIA Portal</div></div>
-      <div class="svc-card reveal rd1"><div class="svc-icon">🖥️</div><h3>SCADA / HMI Development</h3><p>Modern SCADA interfaces with WinCC, Ignition and custom web-based HMI for real-time visualization.</p><div class="svc-tag">WinCC · Ignition</div></div>
-      <div class="svc-card reveal rd2" style="cursor:pointer;" onclick="location.href='/ai-solutions.html'"><div class="svc-icon">🤖</div><h3>AI-Based Defect Detection</h3><p>Deep learning models for real-time quality inspection at line speed. 99.8%+ accuracy with sub-ms inference.</p><div class="svc-tag">Computer Vision · PyTorch</div><div style="margin-top:14px;font-family:var(--font-mono);font-size:.78rem;color:var(--cyan);">Explore AI Solutions →</div></div>
-      <div class="svc-card reveal" style="cursor:pointer;" onclick="location.href='/ai-solutions.html'"><div class="svc-icon">👁️</div><h3>Vision Inspection Systems</h3><p>Industrial camera integration, image pipelines, and automated rejection for zero-defect manufacturing.</p><div class="svc-tag">Cognex · Basler · OpenCV</div><div style="margin-top:14px;font-family:var(--font-mono);font-size:.78rem;color:var(--cyan);">Explore AI Solutions →</div></div>
-      <div class="svc-card reveal rd1"><div class="svc-icon">📊</div><h3>Industrial Dashboards</h3><p>Real-time OEE dashboards, production analytics and KPI monitoring with Grafana and custom React UIs.</p><div class="svc-tag">Grafana · React · FastAPI</div></div>
-      <div class="svc-card reveal rd2"><div class="svc-icon">🌐</div><h3>IIoT Integration</h3><p>End-to-end IIoT with MQTT, OPC UA, edge computing on Raspberry Pi and cloud connectivity.</p><div class="svc-tag">OPC UA · MQTT · Edge AI</div></div>
-    </div>
-    <div style="text-align:center;margin-top:40px;" class="reveal">
-      <button class="btn-ghost" onclick="location.href='/services.html'" style="padding:12px 36px;">View All Services →</button>
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTIONS PREVIEW -->
-<section id="solutions">
-  <div class="container">
-    <div class="section-tag reveal">INDUSTRIES WE SERVE</div>
-    <h2 class="reveal rd1">Solutions &amp; Business Areas</h2>
-    <div class="sol-grid">
-      <div class="sol-card reveal"><div class="sol-icon">🚗</div><h3>Automotive Industry</h3><p>Precision automation for body-in-white, powertrain assembly, and end-of-line testing with AI vision.</p><div class="sol-tags"><span class="sol-tag">Robot Integration</span><span class="sol-tag">Weld Inspection</span><span class="sol-tag">EoL Testing</span></div></div>
-      <div class="sol-card reveal rd1"><div class="sol-icon">🏭</div><h3>Manufacturing</h3><p>Complete factory automation with OEE optimization, predictive maintenance, and full MES integration.</p><div class="sol-tags"><span class="sol-tag">OEE Analytics</span><span class="sol-tag">Predictive Maint.</span><span class="sol-tag">MES</span></div></div>
-      <div class="sol-card reveal"><div class="sol-icon">⚡</div><h3>Energy &amp; Utilities</h3><p>Smart grid monitoring, substation automation and energy management for optimal carbon-footprint reduction.</p><div class="sol-tags"><span class="sol-tag">Smart Grid</span><span class="sol-tag">Energy Mgmt</span><span class="sol-tag">SCADA</span></div></div>
-      <div class="sol-card reveal rd1"><div class="sol-icon">🧠</div><h3>Smart Factories</h3><p>Industry 4.0 transformation with digital twins, AI process optimization, and full vertical cloud integration.</p><div class="sol-tags"><span class="sol-tag">Digital Twin</span><span class="sol-tag">AI Optimization</span><span class="sol-tag">Cloud</span></div></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- CASE STUDIES / PORTFOLIO -->
-<section class="case-studies">
-  <div class="container">
-    <div class="section-tag reveal">PROVEN RESULTS</div>
-    <h2 class="reveal rd1">Case Studies &amp; Project Outcomes</h2>
-    <p class="reveal rd2" style="color:var(--text2);font-size:1.02rem;line-height:1.8;max-width:560px;margin-top:12px;">Real projects. Measurable outcomes. Here's what we've delivered for manufacturers across India.</p>
-    <div class="case-grid">
-
-      <a href="case-study-1.html" class="case-card reveal" style="text-decoration:none;color:inherit;display:block;">
-        <div class="case-visual">🏭<span class="case-industry">Automotive</span></div>
-        <div class="case-body">
-          <div class="case-client">Tier-1 Automotive Supplier · Pune</div>
-          <div class="case-title">AI Vision Defect Detection on Stamping Line</div>
-          <p class="case-desc">Deployed a real-time deep learning inspection system on a high-speed metal stamping line. Replaced manual visual QC with a Basler camera + NVIDIA Jetson edge AI setup integrated directly into the existing Siemens PLC reject logic.</p>
-          <div class="case-outcome">Reduced defect escape rate by 94% in 3 months</div>
-          <div class="case-tags">
-            <span class="case-tag">AI Vision</span>
-            <span class="case-tag">Siemens S7-1500</span>
-            <span class="case-tag">NVIDIA Jetson</span>
-            <span class="case-tag">PyTorch</span>
+      <sc-if value="{{ showLoss }}" hint-placeholder-val="{{ true }}">
+        <div style="display:inline-flex;flex-direction:column;gap:4px;padding:12px 20px;border-radius:12px;border:1px solid rgba(255,77,77,.25);background:rgba(255,77,77,.05);backdrop-filter:blur(6px);margin-bottom:30px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,120,120,.85);letter-spacing:.12em;text-transform:uppercase">While you've been on this page</span>
+          <div style="display:flex;align-items:baseline;gap:7px">
+            <span style="font-weight:800;font-size:1.6rem;color:#ff4d4d;font-variant-numeric:tabular-nums">₹{{ lossText }}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.76rem;color:rgba(255,120,120,.6)">lost to downtime</span>
           </div>
-          <div style="margin-top:16px;font-family:var(--font-mono);font-size:.82rem;color:var(--cyan);">Read Full Case Study →</div>
         </div>
+      </sc-if>
+
+      <h1 style="font-weight:800;line-height:1.0;letter-spacing:-.04em;font-size:clamp(2.8rem,4.6vw,4.4rem);margin:0 0 20px">
+        AI that sees<br>
+        <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">{{ typed }}</span><span style="display:inline-block;width:3px;height:.82em;background:#00d4ff;margin-left:5px;vertical-align:middle;animation:blink 1.1s infinite"></span>
+      </h1>
+
+      <p style="color:#a0bdd0;font-size:1.05rem;line-height:1.75;max-width:480px;margin:0 0 34px">
+        Where <strong style="color:#fff;font-weight:600">PLC meets AI.</strong> MordeTech delivers world-class Siemens automation, machine vision, and smart factory systems — for manufacturers who refuse to lose.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px">
+        <a href="https://wa.me/919404030215?text=Hi%2C%20I%20want%20to%20book%20a%20free%20plant%20assessment." target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:12px;background:#25D366;color:#04140a;font-weight:800;font-size:.98rem;box-shadow:0 0 40px rgba(37,211,102,.22)" style-hover="opacity:.9">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+          Show Me My Plant's Potential
+        </a>
+        <a href="#pipeline" style="padding:16px 26px;border-radius:12px;border:1px solid rgba(255,255,255,.1);color:#a0bdd0;font-weight:500;font-size:.98rem" style-hover="border-color:rgba(0,212,255,.4);color:#00d4ff">▶ Watch Live Demo</a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.04)">
+        <div style="background:#020408;padding:6px 18px 0 0">
+          <div style="font-weight:800;font-size:1.95rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">150+</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:7px">Projects Delivered</div>
+        </div>
+        <div style="background:#020408;padding:6px 18px 0">
+          <div style="font-weight:800;font-size:1.95rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">13+</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:7px">Years Experience</div>
+        </div>
+        <div style="background:#020408;padding:6px 18px 0">
+          <div style="font-weight:800;font-size:1.95rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">99%</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:7px">Uptime SLA</div>
+        </div>
+        <div style="background:#020408;padding:6px 0 0 18px">
+          <div style="font-weight:800;font-size:1.95rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">40%</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:7px">Avg Cost Reduction</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pipeline" style="position:relative;display:flex;align-items:center;justify-content:center;min-height:620px">
+      <div style="position:absolute;top:50%;left:50%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.16) 0%,rgba(0,102,255,.08) 45%,transparent 70%);filter:blur(38px);transform:translate(-50%,-50%);animation:orb 5s ease-in-out infinite;pointer-events:none"></div>
+      <div style="position:absolute;top:50%;left:50%;width:560px;height:560px;border-radius:50%;border:1px dashed rgba(0,212,255,.09);transform:translate(-50%,-50%);animation:spinCW 40s linear infinite;pointer-events:none"></div>
+
+      <div style="position:relative;width:100%;max-width:430px;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(10,20,34,.72),rgba(2,6,12,.72));backdrop-filter:blur(18px);padding:22px;box-shadow:0 40px 90px rgba(0,0,0,.55)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#4a6a8a">Signal chain · live</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00ff88"><span style="width:5px;height:5px;border-radius:50%;background:#00ff88;animation:blink 1.4s infinite"></span>streaming</span>
+        </div>
+
+        <div style="position:relative;display:flex;flex-direction:column;gap:8px">
+          <div style="position:absolute;left:23px;top:14px;bottom:14px;width:1px;background:linear-gradient(180deg,rgba(0,212,255,.05),rgba(0,212,255,.35),rgba(123,47,255,.3),rgba(0,255,136,.25))"></div>
+          <div style="position:absolute;left:19px;width:9px;height:9px;border-radius:50%;background:#00d4ff;box-shadow:0 0 14px 3px rgba(0,212,255,.7);animation:railDot 8s linear infinite"></div>
+
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:0s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:0s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">01</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">Raw Material</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">batch in</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:1s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:1s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">02</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">Machine</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">1420 rpm</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:2s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:2s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">03</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">Sensors</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">18 channels</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:3s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:3s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">04</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">PLC</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">S7-1500</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:4s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:4s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">05</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">OPC UA</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">secure tag map</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:5s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:5s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">06</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">Cloud Analytics</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">MQTT · InfluxDB</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);animation:stageGlow 8s linear infinite;animation-delay:6s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:6s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">07</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">AI Engine</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a">anomaly p=0.94</span>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:12px;border:1px solid rgba(0,255,136,.22);background:rgba(0,255,136,.04);animation:stageGlow 8s linear infinite;animation-delay:7s">
+            <span style="width:9px;height:9px;border-radius:50%;background:rgba(74,106,138,.5);flex:none;animation:stageDot 8s linear infinite;animation-delay:7s"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;width:18px;flex:none">08</span>
+            <span style="font-weight:600;font-size:.94rem;color:#e8f4ff">Actionable Insights</span>
+            <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00ff88">act now</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:absolute;top:4%;right:-4%;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);backdrop-filter:blur(14px);font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#4a6a8a;white-space:nowrap;animation:float 4s ease-in-out infinite">OEE: <span style="color:#00d4ff;font-weight:500">94.7%</span></div>
+      <div style="position:absolute;bottom:8%;left:-6%;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);backdrop-filter:blur(14px);font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#4a6a8a;white-space:nowrap;animation:float 4s ease-in-out infinite;animation-delay:1.4s">AI Defect Rate: <span style="color:#00d4ff;font-weight:500">0.02%</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:110px 60px;overflow:hidden;background:linear-gradient(to bottom,#020408,#06030a 50%,#020408)">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 50% 40%,rgba(255,50,50,.035) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#ff4d4d"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#ff6b6b">The Real Cost</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:620px">Old factories die from <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">a thousand small cuts.</span></h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:540px;margin:0 0 58px">Every manufacturer knows the symptoms. Most never connect them to the real cause: an automation stack that was built for the 1990s, running a 2020s factory.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(255,77,77,.2);background:radial-gradient(ellipse at 0% 0%,rgba(255,77,77,.12),rgba(255,255,255,.02) 60%);transition:transform .4s" style-hover="transform:translateY(-8px)">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,77,77,.6),transparent)"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#4a6a8a;margin-bottom:20px">Quality</div>
+        <div style="font-weight:900;font-size:2.4rem;line-height:1;color:#ff6b6b">3–5%</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin:6px 0 22px">defect escape rate</div>
+        <h3 style="font-weight:700;font-size:1.1rem;color:#fff;margin:0 0 12px;line-height:1.35">Defects that reach your customer.</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0">Manual QC misses 3–5% of defects. They travel through your supply chain, reach the end customer, and return as warranty claims, production stoppages, and lost contracts. The damage compounds quietly — until it doesn't.</p>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(255,165,0,.2);background:radial-gradient(ellipse at 0% 0%,rgba(255,165,0,.1),rgba(255,255,255,.02) 60%);transition:transform .4s" style-hover="transform:translateY(-8px)">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,165,0,.6),transparent)"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#4a6a8a;margin-bottom:20px">Downtime</div>
+        <div style="font-weight:900;font-size:2.4rem;line-height:1;color:#ff6b6b">₹4–10L</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin:6px 0 22px">per breakdown event</div>
+        <h3 style="font-weight:700;font-size:1.1rem;color:#fff;margin:0 0 12px;line-height:1.35">The 2am phone call.</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0">A machine fails. You call the maintenance team. By the time the part arrives and the line restarts, you've lost a full shift. Reactive maintenance costs 3–5× more than prevention. And it happens again next quarter.</p>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(123,47,255,.2);background:radial-gradient(ellipse at 0% 0%,rgba(123,47,255,.12),rgba(255,255,255,.02) 60%);transition:transform .4s" style-hover="transform:translateY(-8px)">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(123,47,255,.6),transparent)"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#4a6a8a;margin-bottom:20px">Visibility</div>
+        <div style="font-weight:900;font-size:2.4rem;line-height:1;color:#ff6b6b">72 hrs</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin:6px 0 22px">average decision lag</div>
+        <h3 style="font-weight:700;font-size:1.1rem;color:#fff;margin:0 0 12px;line-height:1.35">Managing a live factory with dead data.</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0">Your SCADA shows yesterday. Your Excel sheet shows last week. You're making critical production decisions based on information that's already stale. By the time you see the problem, it's already a crisis.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-top:56px">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent)"></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase">There is a better way</span>
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent)"></div>
+    </div>
+  </div>
+</section>
+
+<section id="solutions" style="position:relative;padding:110px 60px;overflow:hidden;background:linear-gradient(to bottom,#020408,#030810 50%,#020408)">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 25%,rgba(0,100,200,.07) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">The MordeTech Way</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;margin-bottom:72px">
+      <div>
+        <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 26px">We built a different kind of <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">automation company.</span></h2>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px">
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="margin-top:8px;width:6px;height:6px;border-radius:50%;background:#00d4ff;flex:none"></span><p style="color:#a0bdd0;font-size:1rem;line-height:1.7;margin:0">Not a system integrator that installs and disappears.</p></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="margin-top:8px;width:6px;height:6px;border-radius:50%;background:#00d4ff;flex:none"></span><p style="color:#a0bdd0;font-size:1rem;line-height:1.7;margin:0">Not an AI startup that doesn't know a PLC from a HMI.</p></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="margin-top:8px;width:6px;height:6px;border-radius:50%;background:#00d4ff;flex:none"></span><p style="color:#a0bdd0;font-size:1rem;line-height:1.7;margin:0">We sit at the intersection of deep OT expertise and modern AI.</p></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="margin-top:8px;width:6px;height:6px;border-radius:50%;background:#00d4ff;flex:none"></span><p style="color:#a0bdd0;font-size:1rem;line-height:1.7;margin:0">We don't leave until your numbers move.</p></div>
+        </div>
+        <blockquote style="border-left:2px solid #00d4ff;padding:4px 0 4px 20px;margin:0">
+          <p style="color:#a0bdd0;font-style:italic;font-size:.98rem;line-height:1.75;margin:0">“13 years building automation systems for Indian manufacturers. AI-augmented. OT-native. We speak your plant floor language — and your CFO's.”</p>
+          <footer style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.06em;text-transform:uppercase">— Priyanka Morde, Founder &amp; Director</footer>
+        </blockquote>
+      </div>
+
+      <div style="position:relative;display:flex;align-items:center;justify-content:center;min-height:320px">
+        <div style="position:absolute;top:50%;left:50%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.18) 0%,rgba(0,102,255,.08) 45%,transparent 70%);filter:blur(26px);transform:translate(-50%,-50%);animation:orb 4s ease-in-out infinite"></div>
+        <div style="position:absolute;top:50%;left:50%;width:300px;height:300px;border-radius:50%;border:1px dashed rgba(0,212,255,.12);transform:translate(-50%,-50%);animation:spinCW 34s linear infinite"></div>
+        <div style="position:absolute;top:50%;left:50%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(0,102,255,.18);transform:translate(-50%,-50%);animation:spinCCW 22s linear infinite"></div>
+        <img src="images/logo.svg" alt="MordeTech circuit tree" width="168" height="168" style="position:relative;display:block;filter:drop-shadow(0 0 18px rgba(0,212,255,.6))">
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="position:relative;border-radius:20px;padding:30px;border:1px solid rgba(0,102,255,.2);background:linear-gradient(135deg,rgba(0,102,255,.14),rgba(0,212,255,.04));overflow:hidden;transition:transform .4s,box-shadow .4s" style-hover="transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.45)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#00d4ff;margin-bottom:16px">Module 01</div>
+        <h3 style="font-weight:700;font-size:1.22rem;color:#fff;margin:0 0 12px">AI Vision QC</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0 0 20px">Eyes that never blink. Deep learning models running at line speed — 94%+ defect reduction from day one.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#ff6b6b;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Challenge</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">Manual QC misses 3–5% of defects at line speed.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Solution</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">Edge inference on every part, with reject actuation via PLC.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00ff88;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Result</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">4.0% → 0.06% escape rate; warranty claims down 70%.</span></div>
+        </div>
+        <div style="display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:5px 10px;letter-spacing:.05em">PyTorch · NVIDIA Jetson · OpenCV</div>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:30px;border:1px solid rgba(0,212,255,.2);background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(0,102,255,.04));overflow:hidden;transition:transform .4s,box-shadow .4s" style-hover="transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.45)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#00d4ff;margin-bottom:16px">Module 02</div>
+        <h3 style="font-weight:700;font-size:1.22rem;color:#fff;margin:0 0 12px">Smart Automation</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0 0 20px">Reflexes in milliseconds. Siemens TIA Portal + SCADA systems that react before humans can see the problem.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#ff6b6b;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Challenge</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">Legacy S5/S7-300 panels no one can service.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Solution</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">Staged migration to S7-1500 + WinCC Unified, live line kept running.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00ff88;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Result</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">Zero production loss; 3 stoppages/year → 0.</span></div>
+        </div>
+        <div style="display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:5px 10px;letter-spacing:.05em">Siemens S7-1500 · WinCC · OPC UA</div>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:30px;border:1px solid rgba(123,47,255,.2);background:linear-gradient(135deg,rgba(123,47,255,.14),rgba(0,212,255,.04));overflow:hidden;transition:transform .4s,box-shadow .4s" style-hover="transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.45)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#00d4ff;margin-bottom:16px">Module 03</div>
+        <h3 style="font-weight:700;font-size:1.22rem;color:#fff;margin:0 0 12px">IIoT Intelligence</h3>
+        <p style="color:#4a6a8a;font-size:.95rem;line-height:1.75;margin:0 0 20px">Your factory, live. Real-time OEE dashboards, predictive maintenance, and data that's always current.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#ff6b6b;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Challenge</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">72-hour lag between an event and the report.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Solution</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">OPC UA → MQTT → InfluxDB with Grafana OEE and energy views.</span></div>
+          <div style="display:flex;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00ff88;width:70px;flex:none;text-transform:uppercase;letter-spacing:.08em;padding-top:2px">Result</span><span style="color:#a0bdd0;font-size:.88rem;line-height:1.6">OEE 61% → 83%; root cause visible in seconds.</span></div>
+        </div>
+        <div style="display:inline-block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;border:1px solid rgba(0,212,255,.2);border-radius:6px;padding:5px 10px;letter-spacing:.05em">MQTT · Grafana · InfluxDB · Edge AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:110px 60px;background:#020408;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,102,255,.05) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Predictive Maintenance</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:640px">The failure announces itself. <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">Five days early.</span></h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:540px;margin:0 0 52px">Vibration and temperature on the motor bearing, sampled continuously. The model learns the healthy signature, then flags the drift — and the work order is raised before the line stops.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch">
+      <div style="position:relative;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(10,20,34,.6),rgba(2,6,12,.6));padding:26px;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#4a6a8a">Motor M-04 · Bearing NDE</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00ff88">monitoring</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:5px;height:150px;padding:0 2px;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:0s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.12s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.24s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.36s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.48s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.6s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#ff4d4d,rgba(255,77,77,.2));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.72s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.84s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:.96s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:1.08s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:1.2s"></div>
+          <div style="flex:1;height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.25));border-radius:3px 3px 0 0;transform-origin:bottom;animation:vibe 6s ease-in-out infinite;animation-delay:1.32s"></div>
+        </div>
+        <div style="display:flex;gap:26px;margin-top:18px">
+          <div><div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em">Vibration</div><div style="font-weight:700;font-size:1.1rem;color:#e8f4ff">4.8 <span style="font-size:.8rem;color:#4a6a8a">mm/s</span></div></div>
+          <div><div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em">Temperature</div><div style="font-weight:700;font-size:1.1rem;color:#e8f4ff">78 <span style="font-size:.8rem;color:#4a6a8a">°C</span></div></div>
+          <div><div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em">Baseline dev.</div><div style="font-weight:700;font-size:1.1rem;color:#ff6b6b">+38%</div></div>
+        </div>
+        <div style="position:absolute;right:22px;top:64px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,77,77,.35);background:rgba(30,6,10,.9);backdrop-filter:blur(10px);animation:alertPop 6s ease-in-out infinite">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#ff6b6b;margin-bottom:4px">Anomaly detected</div>
+          <div style="font-weight:700;font-size:.92rem;color:#fff">Bearing wear · p=0.94</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:20px 22px;animation:pmPhase 6s ease-in-out infinite;animation-delay:0s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Phase 01</div>
+          <div style="font-weight:700;font-size:1.02rem;color:#fff;margin-bottom:6px">Sense</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.9rem;line-height:1.65">Vibration and temperature streamed from the motor and bearing over OPC UA.</p>
+        </div>
+        <div style="border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:20px 22px;animation:pmPhase 6s ease-in-out infinite;animation-delay:1.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Phase 02</div>
+          <div style="font-weight:700;font-size:1.02rem;color:#fff;margin-bottom:6px">Detect</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.9rem;line-height:1.65">The model compares live signature against the healthy baseline and scores the drift.</p>
+        </div>
+        <div style="border-radius:16px;border:1px solid rgba(255,77,77,.22);background:rgba(255,77,77,.04);padding:20px 22px;animation:pmPhase 6s ease-in-out infinite;animation-delay:3s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#ff6b6b;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Phase 03</div>
+          <div style="font-weight:700;font-size:1.02rem;color:#fff;margin-bottom:6px">Alert</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.9rem;line-height:1.65">Alert to plant head and maintenance lead on WhatsApp with the failure mode named.</p>
+        </div>
+        <div style="border-radius:16px;border:1px solid rgba(0,255,136,.22);background:rgba(0,255,136,.04);padding:20px 22px;animation:pmPhase 6s ease-in-out infinite;animation-delay:4.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00ff88;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">Phase 04</div>
+          <div style="font-weight:700;font-size:1.02rem;color:#fff;margin-bottom:6px">Schedule</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.9rem;line-height:1.65">Work order lands in the planned shutdown window. The line never stops unplanned.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:110px 60px;overflow:hidden;background:linear-gradient(to bottom,#020408,#030810,#020408)">
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#7b2fff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#a97bff">Industry 4.0 Architecture</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:620px">One factory. <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">One nervous system.</span></h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:540px;margin:0 0 52px">Sensors to ERP without a manual hand-off anywhere in the chain. Every layer speaks a defined protocol, so the number on the director's screen is the number on the machine.</p>
+
+    <div style="position:relative;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(8,16,28,.7),rgba(2,6,12,.7));padding:40px 36px;overflow:hidden">
+      <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(0,130,220,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,130,220,.05) 1px,transparent 1px);background-size:40px 40px"></div>
+      <div style="position:relative;height:360px">
+      <svg viewBox="0 0 600 360" width="100%" height="360" preserveAspectRatio="none" style="position:absolute;inset:0;display:block" aria-hidden="true">
+        <g stroke="rgba(0,212,255,.5)" stroke-width="1.6" fill="none" stroke-dasharray="6 10" vector-effect="non-scaling-stroke" style="animation:dashFlow 6s linear infinite">
+          <path d="M50 300 L150 300"></path>
+          <path d="M150 300 L250 180"></path>
+          <path d="M250 180 L350 180"></path>
+          <path d="M350 180 L450 60"></path>
+          <path d="M450 60 L550 60"></path>
+        </g>
+        <g stroke="rgba(123,47,255,.4)" stroke-width="1.4" fill="none" stroke-dasharray="4 12" vector-effect="non-scaling-stroke" style="animation:dashFlow 9s linear infinite">
+          <path d="M250 180 C 340 120, 400 80, 550 60"></path>
+          <path d="M50 300 C 160 240, 200 140, 350 180"></path>
+        </g>
+      </svg>
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:1fr 1fr 1fr;column-gap:14px">
+        <div style="grid-row:3;align-self:center;border-radius:14px;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:0s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 0</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">Machines</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">24 assets</div>
+        </div>
+        <div style="grid-row:3;align-self:center;border-radius:14px;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 1</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">Sensors</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">312 tags</div>
+        </div>
+        <div style="grid-row:2;align-self:center;border-radius:14px;border:1px solid rgba(0,102,255,.3);background:rgba(0,102,255,.08);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:1s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 2</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">PLCs</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">S7-1500</div>
+        </div>
+        <div style="grid-row:2;align-self:center;border-radius:14px;border:1px solid rgba(0,102,255,.3);background:rgba(0,102,255,.08);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:1.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 3</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">SCADA</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">WinCC Unified</div>
+        </div>
+        <div style="grid-row:1;align-self:center;border-radius:14px;border:1px solid rgba(123,47,255,.3);background:rgba(123,47,255,.08);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:2s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 4</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">MES</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">genealogy · OEE</div>
+        </div>
+        <div style="grid-row:1;align-self:center;border-radius:14px;border:1px solid rgba(0,255,136,.28);background:rgba(0,255,136,.06);padding:16px;animation:nodePing 3.6s ease-in-out infinite;animation-delay:2.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Layer 5</div>
+          <div style="font-weight:700;font-size:.98rem;color:#fff">ERP</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;margin-top:4px">orders · costing</div>
+        </div>
+      </div>
+      </div>
+      <div style="position:relative;display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a">
+        <span><span style="color:#00d4ff">——</span> OPC UA / Profinet</span>
+        <span><span style="color:#a97bff">——</span> MQTT to cloud</span>
+        <span><span style="color:#00ff88">●</span> bi-directional write-back</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:110px 60px;background:#020408;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(0,255,136,.045) 0%,transparent 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00ff88"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00ff88">Smart Energy Monitoring</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:620px">Every kilowatt, attributed to a machine.</h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:540px;margin:0 0 52px">Energy meters on each feeder stream into one dashboard, so consumption reads per asset, per shift, per tonne produced — and the anomaly is a machine name, not a monthly bill.</p>
+
+    <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:20px">
+      <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(10,20,34,.6),rgba(2,6,12,.6));padding:26px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:40%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.6),transparent);animation:sweep 5s linear infinite"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#4a6a8a">Plant load · live kW</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00ff88">updating</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:10px;height:200px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:1px">
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00ff88,rgba(0,212,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:0s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:.6s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:1.2s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#7b2fff,rgba(123,47,255,.15));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:1.8s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:2.4s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00ff88,rgba(0,212,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:3s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:3.6s"></div></div>
+          <div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:100%;background:linear-gradient(180deg,#00d4ff,rgba(0,102,255,.18));border-radius:5px 5px 0 0;transform-origin:bottom;animation:barLive 7s ease-in-out infinite;animation-delay:4.2s"></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-align:center">
+          <span>MILL-1</span><span>MILL-2</span><span>PRESS</span><span>KILN</span><span>COMP</span><span>CHILL</span><span>PACK</span><span>UTIL</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase">Specific energy</div>
+          <div style="font-weight:800;font-size:2rem;margin-top:6px;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ kwhText }} <span style="font-size:.9rem;-webkit-text-fill-color:#4a6a8a;font-family:'JetBrains Mono',monospace">kWh / tonne</span></div>
+        </div>
+        <div style="border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4a6a8a;letter-spacing:.1em;text-transform:uppercase">Idle-load recovered</div>
+          <div style="font-weight:800;font-size:2rem;margin-top:6px;color:#00ff88">₹18L<span style="font-size:.9rem;color:#4a6a8a;font-family:'JetBrains Mono',monospace"> / year</span></div>
+        </div>
+        <div style="border-radius:16px;border:1px solid rgba(0,255,136,.2);background:rgba(0,255,136,.04);padding:22px;flex:1">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00ff88;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Live finding</div>
+          <p style="margin:0;color:#a0bdd0;font-size:.92rem;line-height:1.7">KILN drawing 11% above baseline for the same throughput since the last shift change. Flagged to the energy manager automatically.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" style="position:relative;padding:110px 60px;overflow:hidden;background:linear-gradient(to bottom,#020408,#030810,#020408)">
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Industries</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:620px">Pick your plant.</h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:520px;margin:0 0 44px">The stack is the same. What changes is the process it has to respect.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px">
+      <button onClick="{{ pick0 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg0 }}" style-hover="border-color:rgba(0,212,255,.45)">Cement Plants</button>
+      <button onClick="{{ pick1 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg1 }}" style-hover="border-color:rgba(0,212,255,.45)">Grinding Plants</button>
+      <button onClick="{{ pick2 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg2 }}" style-hover="border-color:rgba(0,212,255,.45)">Chemical Plants</button>
+      <button onClick="{{ pick3 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg3 }}" style-hover="border-color:rgba(0,212,255,.45)">Food Industries</button>
+      <button onClick="{{ pick4 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg4 }}" style-hover="border-color:rgba(0,212,255,.45)">Pharma Industries</button>
+      <button onClick="{{ pick5 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg5 }}" style-hover="border-color:rgba(0,212,255,.45)">Manufacturing Plants</button>
+      <button onClick="{{ pick6 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg6 }}" style-hover="border-color:rgba(0,212,255,.45)">Process Industries</button>
+      <button onClick="{{ pick7 }}" style="cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#e8f4ff;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:{{ bg7 }}" style-hover="border-color:rgba(0,212,255,.45)">Industrial OEMs</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(8,16,28,.7),rgba(2,6,12,.7));padding:36px">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#00d4ff;margin-bottom:14px">{{ indName }}</div>
+        <h3 style="font-weight:800;font-size:1.6rem;line-height:1.25;color:#fff;margin:0 0 16px">{{ indHeadline }}</h3>
+        <p style="color:#a0bdd0;font-size:.98rem;line-height:1.75;margin:0 0 26px">{{ indValue }}</p>
+        <div style="display:flex;gap:28px">
+          <div><div style="font-weight:800;font-size:1.8rem;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ indKpiA }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:5px">{{ indKpiALabel }}</div></div>
+          <div><div style="font-weight:800;font-size:1.8rem;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">{{ indKpiB }}</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:5px">{{ indKpiBLabel }}</div></div>
+        </div>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.07);padding-left:32px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#4a6a8a;margin-bottom:16px">Use cases</div>
+        <sc-for list="{{ indCases }}" as="uc" hint-placeholder-count="4">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)">
+            <span style="margin-top:7px;width:5px;height:5px;border-radius:50%;background:#00d4ff;flex:none"></span>
+            <span style="color:#a0bdd0;font-size:.94rem;line-height:1.6">{{ uc }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" style="position:relative;padding:110px 60px;background:#020408">
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Proven Results</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 16px">Three plants. <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">Transformed.</span></h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:520px;margin:0 0 56px">Real projects. Verifiable numbers. Here's exactly what we delivered — and how.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(0,102,255,.18);background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(0,212,255,.04));display:flex;flex-direction:column">
+        <div style="padding:26px 24px 20px;border-bottom:1px solid rgba(255,255,255,.05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a">Tier-1 Supplier · Pune</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 11px;text-transform:uppercase;letter-spacing:.1em">Automotive</span>
+          </div>
+          <h3 style="font-weight:800;font-size:1.12rem;line-height:1.3;color:#fff;margin:0">From 4% defects to 0.06%. In 3 months.</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:20px 24px">
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(255,77,77,.2);background:rgba(255,77,77,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Before</div>
+            <div style="font-weight:800;font-size:1.3rem;color:#ff6b6b">4.0%</div>
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;color:#4a6a8a">→</span>
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">After</div>
+            <div style="font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0.06%</div>
+          </div>
+        </div>
+        <div style="padding:0 24px 22px;flex:1">
+          <p style="color:#4a6a8a;font-size:.9rem;line-height:1.7;margin:0 0 18px">Warranty claims dropped 70% in Q1. System ROI achieved in 8 months.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">AI Vision</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">NVIDIA Jetson</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">Siemens S7-1500</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(0,212,255,.18);background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(123,47,255,.04));display:flex;flex-direction:column">
+        <div style="padding:26px 24px 20px;border-bottom:1px solid rgba(255,255,255,.05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a">Press Shop · Aurangabad</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 11px;text-transform:uppercase;letter-spacing:.1em">Manufacturing</span>
+          </div>
+          <h3 style="font-weight:800;font-size:1.12rem;line-height:1.3;color:#fff;margin:0">From 61% OEE to 83%. In 6 months.</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:20px 24px">
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(255,77,77,.2);background:rgba(255,77,77,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Before</div>
+            <div style="font-weight:800;font-size:1.3rem;color:#ff6b6b">61%</div>
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;color:#4a6a8a">→</span>
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">After</div>
+            <div style="font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">83%</div>
+          </div>
+        </div>
+        <div style="padding:0 24px 22px;flex:1">
+          <p style="color:#4a6a8a;font-size:.9rem;line-height:1.7;margin:0 0 18px">Predictive alerts caught bearing failures 5 days early. Zero unplanned downtime in 6 months.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">OPC UA</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">IIoT</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">Grafana</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">Predictive Maint.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(123,47,255,.18);background:linear-gradient(135deg,rgba(123,47,255,.12),rgba(0,212,255,.04));display:flex;flex-direction:column">
+        <div style="padding:26px 24px 20px;border-bottom:1px solid rgba(255,255,255,.05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a">Utility Plant · Maharashtra</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#4a6a8a;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 11px;text-transform:uppercase;letter-spacing:.1em">Energy</span>
+          </div>
+          <h3 style="font-weight:800;font-size:1.12rem;line-height:1.3;color:#fff;margin:0">15-year-old system. Zero downtime. 3 days.</h3>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:20px 24px">
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(255,77,77,.2);background:rgba(255,77,77,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Before</div>
+            <div style="font-weight:800;font-size:1.3rem;color:#ff6b6b">3/year</div>
+          </div>
+          <span style="font-family:'JetBrains Mono',monospace;color:#4a6a8a">→</span>
+          <div style="flex:1;border-radius:10px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);padding:10px;text-align:center">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">After</div>
+            <div style="font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0/year</div>
+          </div>
+        </div>
+        <div style="padding:0 24px 22px;flex:1">
+          <p style="color:#4a6a8a;font-size:.9rem;line-height:1.7;margin:0 0 18px">S5 → S7-1500 migration with zero production loss. ₹18L/year saved.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">TIA Portal</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">S7-1500</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">WinCC Unified</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#00d4ff;border:1px solid rgba(0,212,255,.18);border-radius:5px;padding:4px 8px">Migration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:76px;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(8,16,28,.6),rgba(2,6,12,.6));padding:40px 36px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff;margin-bottom:28px">Manufacturing intelligence · value chain</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch">
+        <div style="border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);padding:20px;animation:stageGlow 7.5s linear infinite;animation-delay:0s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;margin-bottom:10px">01</div>
+          <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px">Production Line</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.86rem;line-height:1.6">Cycle times, rejects and stoppages captured at the source.</p>
+        </div>
+        <div style="border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);padding:20px;animation:stageGlow 7.5s linear infinite;animation-delay:1.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;margin-bottom:10px">02</div>
+          <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px">Data Collection</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.86rem;line-height:1.6">One tag model across PLCs, meters and quality stations.</p>
+        </div>
+        <div style="border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);padding:20px;animation:stageGlow 7.5s linear infinite;animation-delay:3s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;margin-bottom:10px">03</div>
+          <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px">Analytics</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.86rem;line-height:1.6">OEE, loss trees and root cause available per shift.</p>
+        </div>
+        <div style="border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.018);padding:20px;animation:stageGlow 7.5s linear infinite;animation-delay:4.5s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;margin-bottom:10px">04</div>
+          <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px">Optimization</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.86rem;line-height:1.6">Setpoints, schedules and maintenance windows corrected.</p>
+        </div>
+        <div style="border-radius:14px;border:1px solid rgba(0,255,136,.22);background:rgba(0,255,136,.04);padding:20px;animation:stageGlow 7.5s linear infinite;animation-delay:6s">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#4a6a8a;letter-spacing:.1em;margin-bottom:10px">05</div>
+          <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px">Profit Increase</div>
+          <p style="margin:0;color:#4a6a8a;font-size:.86rem;line-height:1.6">Fewer rejects, fewer stoppages, lower energy per tonne.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:110px 60px;background:#020408">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 30% 50%,rgba(0,102,255,.05) 0%,transparent 60%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:1px;background:#00d4ff"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#00d4ff">Client Stories</span>
+    </div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 16px">In their own words.</h2>
+    <p style="color:#a0bdd0;font-size:1.02rem;line-height:1.8;max-width:480px;margin:0 0 56px">Real plant managers, real engineering directors, real results.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:72px">
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:transform .4s,border-color .4s" style-hover="transform:translateY(-8px);border-color:rgba(0,212,255,.25)">
+        <div style="position:absolute;top:10px;left:24px;font-size:4.6rem;line-height:1;color:rgba(0,212,255,.15);pointer-events:none">“</div>
+        <p style="position:relative;color:#a0bdd0;font-size:.95rem;line-height:1.85;font-style:italic;margin:16px 0 28px">MordeTech transformed our stamping line. Their AI vision system caught defects we were completely missing — our warranty claims dropped 70% in the first quarter. Delivered on time, within budget.</p>
+        <div><div style="font-weight:700;font-size:.97rem;color:#fff">Rajesh Kulkarni</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Plant Head · Tier-1 Automotive, Pune</div></div>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:transform .4s,border-color .4s" style-hover="transform:translateY(-8px);border-color:rgba(0,212,255,.25)">
+        <div style="position:absolute;top:10px;left:24px;font-size:4.6rem;line-height:1;color:rgba(0,212,255,.15);pointer-events:none">“</div>
+        <p style="position:relative;color:#a0bdd0;font-size:.95rem;line-height:1.85;font-style:italic;margin:16px 0 28px">We migrated our 15-year-old S5 system to S7-1500 with zero downtime. What seemed impossible was handled flawlessly. The new WinCC HMI has made our operators 40% more efficient.</p>
+        <div><div style="font-weight:700;font-size:.97rem;color:#fff">Amit Deshpande</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Engineering Director · Industrial Utility, Maharashtra</div></div>
+      </div>
+      <div style="position:relative;border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:transform .4s,border-color .4s" style-hover="transform:translateY(-8px);border-color:rgba(0,212,255,.25)">
+        <div style="position:absolute;top:10px;left:24px;font-size:4.6rem;line-height:1;color:rgba(0,212,255,.15);pointer-events:none">“</div>
+        <p style="position:relative;color:#a0bdd0;font-size:.95rem;line-height:1.85;font-style:italic;margin:16px 0 28px">The OEE dashboard changed how we run our factory. We went from guessing at downtime causes to having real-time root cause data. OEE improved from 61% to 83% in 6 months.</p>
+        <div><div style="font-weight:700;font-size:.97rem;color:#fff">Sneha Patil</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.06em;margin-top:4px">VP Operations · Press Shop, Aurangabad</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden">
+      <div style="background:#020408;padding:32px 24px;text-align:center">
+        <div style="font-weight:900;font-size:2.6rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">150+</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:10px">Plants Automated</div>
+      </div>
+      <div style="background:#020408;padding:32px 24px;text-align:center">
+        <div style="font-weight:900;font-size:2.6rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">13+</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:10px">Years Experience</div>
+      </div>
+      <div style="background:#020408;padding:32px 24px;text-align:center">
+        <div style="font-weight:900;font-size:2.6rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">99%</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:10px">Uptime SLA</div>
+      </div>
+      <div style="background:#020408;padding:32px 24px;text-align:center">
+        <div style="font-weight:900;font-size:2.6rem;line-height:1;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">3</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.08em;margin-top:10px">States Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:120px 60px;overflow:hidden;background:#020408">
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(0,130,220,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,130,220,.045) 1px,transparent 1px);background-size:60px 60px;opacity:.6"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(0,80,160,.12) 0%,rgba(123,47,255,.07) 40%,transparent 70%)"></div>
+  <div style="position:relative;max-width:820px;margin:0 auto;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:30px">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00d4ff;animation:blink 1.4s infinite"></span>Your move
+    </div>
+    <h2 style="font-weight:900;font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;letter-spacing:-.04em;margin:0 0 24px">Your competition<br><span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">isn't waiting.</span></h2>
+    <p style="color:#a0bdd0;font-size:1.08rem;line-height:1.8;max-width:560px;margin:0 auto 44px">Every day without AI vision, predictive maintenance, or real-time OEE costs more than the system would. Let's find out exactly how much — in a free, no-obligation, 2-hour plant assessment.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:56px">
+      <a href="https://wa.me/919404030215?text=Hi%2C%20I%20want%20to%20book%20a%20free%20plant%20assessment." target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:11px;padding:19px 34px;border-radius:14px;background:#25D366;color:#04140a;font-weight:800;font-size:1.05rem;box-shadow:0 0 40px rgba(37,211,102,.26)" style-hover="opacity:.9">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="21" height="21" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+        WhatsApp Us Now
       </a>
-
-      <a href="case-study-2.html" class="case-card reveal rd1" style="text-decoration:none;color:inherit;display:block;">
-        <div class="case-visual">⚡<span class="case-industry">Manufacturing</span></div>
-        <div class="case-body">
-          <div class="case-client">Mid-size Press Shop · Aurangabad</div>
-          <div class="case-title">Smart OEE Dashboard &amp; Predictive Maintenance System</div>
-          <p class="case-desc">Built a full IIoT layer using OPC-UA and MQTT to pull live data from 18 machines into a Grafana OEE dashboard. Added vibration-based predictive maintenance alerts that reduced unplanned downtime by flagging bearing wear 5 days in advance.</p>
-          <div class="case-outcome">OEE improved from 61% to 83% within 6 months</div>
-          <div class="case-tags">
-            <span class="case-tag">OPC-UA</span>
-            <span class="case-tag">MQTT</span>
-            <span class="case-tag">Grafana</span>
-            <span class="case-tag">Predictive Maint.</span>
-          </div>
-          <div style="margin-top:16px;font-family:var(--font-mono);font-size:.82rem;color:var(--cyan);">Read Full Case Study →</div>
-        </div>
-      </a>
-
-      <a href="case-study-3.html" class="case-card reveal rd2" style="text-decoration:none;color:inherit;display:block;">
-        <div class="case-visual">🔧<span class="case-industry">Energy</span></div>
-        <div class="case-body">
-          <div class="case-client">Industrial Utility Plant · Maharashtra</div>
-          <div class="case-title">Legacy PLC Migration &amp; SCADA Modernisation</div>
-          <p class="case-desc">Migrated a 15-year-old Siemens S5 system to S7-1500 TIA Portal with zero production downtime using a parallel-run cutover strategy. Replaced aging SCADA panels with a modern WinCC Unified web-based HMI accessible from tablets on the shop floor.</p>
-          <div class="case-outcome">Eliminated 3 annual production stoppages, saving ₹18L/yr</div>
-          <div class="case-tags">
-            <span class="case-tag">TIA Portal</span>
-            <span class="case-tag">S7-1500</span>
-            <span class="case-tag">WinCC Unified</span>
-            <span class="case-tag">Migration</span>
-          </div>
-          <div style="margin-top:16px;font-family:var(--font-mono);font-size:.82rem;color:var(--cyan);">Read Full Case Study →</div>
-        </div>
-      </a>
-
+      <a href="tel:+919404030215" style="padding:19px 32px;border-radius:14px;border:1px solid rgba(255,255,255,.12);color:#a0bdd0;font-weight:600;font-size:1.05rem" style-hover="border-color:rgba(0,212,255,.4);color:#00d4ff">Call +91 94040 30215</a>
     </div>
-    <div style="text-align:center;margin-top:48px;" class="reveal">
-      <button class="btn-ghost" onclick="location.href='/contact.html'" style="padding:12px 36px;">Discuss Your Project →</button>
-    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;letter-spacing:.05em;margin:0">Response within 2 business hours &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Free plant assessment</p>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="container">
-    <div class="section-tag reveal">CLIENT STORIES</div>
-    <h2 class="reveal rd1">What Our Clients Say</h2>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <p class="testi-quote">MordeTech transformed our stamping line. Their AI vision system caught defects we were completely missing — our warranty claims dropped by 70% in the first quarter. Priyanka's team delivered on time and within budget.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">🏭</div>
-          <div>
-            <div class="testi-name">Rajesh Kulkarni</div>
-            <div class="testi-role">PLANT HEAD · TIER-1 AUTOMOTIVE, PUNE</div>
-          </div>
-        </div>
+<footer style="border-top:1px solid rgba(255,255,255,.06);background:#020408">
+  <div style="max-width:1200px;margin:0 auto;padding:64px 60px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+        <img src="images/logo.svg" alt="MordeTech" width="30" height="30" style="display:block">
+        <span style="font-weight:800;font-size:1.18rem;letter-spacing:-.02em;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Morde<span style="-webkit-text-fill-color:#7b2fff">Tech</span></span>
       </div>
-      <div class="testi-card reveal rd1">
-        <p class="testi-quote">We migrated our 15-year-old S5 system to S7-1500 with zero downtime. What seemed impossible was handled flawlessly. The new WinCC HMI has made our operators 40% more efficient. Truly world-class work.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">⚡</div>
-          <div>
-            <div class="testi-name">Amit Deshpande</div>
-            <div class="testi-role">ENGINEERING DIRECTOR · INDUSTRIAL UTILITY, MAHARASHTRA</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd2">
-        <p class="testi-quote">The OEE dashboard MordeTech built changed how we run our factory. We went from guessing at downtime causes to having real-time root cause data. OEE improved from 61% to 83% in 6 months. Best investment we made.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">📊</div>
-          <div>
-            <div class="testi-name">Sneha Patil</div>
-            <div class="testi-role">VP OPERATIONS · PRESS SHOP, AURANGABAD</div>
-          </div>
-        </div>
+      <p style="color:#4a6a8a;font-size:.92rem;line-height:1.7;max-width:250px;margin:0">Engineering Intelligent Automation. Siemens PLC, AI Vision &amp; IIoT for world-class manufacturers.</p>
+    </div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 20px">Solutions</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">AI Vision QC</a>
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Predictive Maintenance</a>
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Process Optimization</a>
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">PLC Programming</a>
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">SCADA / HMI</a>
+        <a href="#solutions" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">IIoT Integration</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- WHY MORDETECH -->
-<section id="why">
-  <div class="container">
-    <div class="section-tag reveal">WHY CHOOSE US</div>
-    <h2 class="reveal rd1">Built Different. Proven in the Field.</h2>
-    <div class="why-grid">
-      <div class="why-card reveal"><div class="why-num" data-target="150" data-suffix="+">0+</div><h4>Projects Delivered</h4><p>From small retrofits to greenfield smart factories across 3 continents.</p></div>
-      <div class="why-card reveal rd1"><div class="why-num" data-target="13" data-suffix="+ Yrs">0+ Yrs</div><h4>Deep Expertise</h4><p>Siemens-certified engineers with hands-on TIA Portal and OPC UA mastery.</p></div>
-      <div class="why-card reveal rd2"><div class="why-num" data-target="48" data-suffix="hr">0hr</div><h4>Response Time</h4><p>Emergency support with 48-hour on-site SLA for critical production systems.</p></div>
-      <div class="why-card reveal rd3"><div class="why-num" data-target="99" data-suffix="%">0%</div><h4>Uptime SLA</h4><p>Mission-critical systems with redundant architecture and 24/7 monitoring.</p></div>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 20px">Company</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">About Us</a>
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Support Plans (AMC)</a>
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Case Studies</a>
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Sustainability</a>
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Careers</a>
+        <a href="#results" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">News</a>
+      </div>
     </div>
-    <!-- CTA BAND -->
-    <div class="cta-band reveal" style="margin-top:60px;">
-      <h2>Ready to <span>transform your factory</span> with intelligent automation?</h2>
-      <div class="cta-btns">
-        <button class="btn-primary btn-xl" onclick="location.href='/contact.html'"><span>Get Started</span></button>
-        <button class="btn-ghost btn-xl" onclick="location.href='/about.html'">Our Story</button>
+    <div>
+      <h5 style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#4a6a8a;text-transform:uppercase;letter-spacing:.15em;margin:0 0 20px">Contact</h5>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="tel:+919404030215" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">+91 94040 30215</a>
+        <a href="mailto:mordetechsolutions@zohomail.in" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">mordetechsolutions@zohomail.in</a>
+        <a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener noreferrer" style="color:#a0bdd0;font-size:.9rem" style-hover="color:#00d4ff">Hinjewadi, Pune, India</a>
       </div>
     </div>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="nav-logo"><img src="/images/logo.svg" alt="MordeTech Logo" width="36" height="36"><span>Morde<em>Tech</em></span></a>
-      <p>Engineering Intelligent Automation. Siemens PLC, AI Vision, Smart Factory &amp; IIoT solutions for world-class manufacturers.</p>
-    </div>
-    <div class="footer-col"><h5>Services</h5><ul><li><a href="/services.html">PLC Programming</a></li><li><a href="/services.html">SCADA / HMI</a></li><li><a href="/services.html">AI Vision</a></li><li><a href="/services.html">IIoT Integration</a></li><li><a href="/services.html">Dashboards</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/support.html">Support Plans (AMC)</a></li><li><a href="/careers.html">Careers</a></li><li><a href="/news.html">News</a></li><li><a href="/sustainability.html">Sustainability</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
-    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+919404030215">+91 94040 30215</a></li><li><a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a></li><li><a href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune+Maharashtra" target="_blank" rel="noopener">Hinjewadi, Pune, India</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
-    <div class="social-links">
-      <a class="social-link" href="mailto:mordetechsolutions@zohomail.in" title="Email" aria-label="Send email">@</a>
+  <div style="border-top:1px solid rgba(255,255,255,.06);padding:20px 60px">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <p style="color:#4a6a8a;font-size:.84rem;margin:0">© 2025 MordeTech Solutions Pvt. Ltd. Founded by Priyanka Morde. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(74,106,138,.7);letter-spacing:.06em">
+        <span style="width:6px;height:6px;border-radius:50%;background:#00ff88;animation:blink 1.4s infinite"></span>All systems operational
+      </div>
     </div>
   </div>
 </footer>
-<script src="js/global.js"></script>
-<script>
-// Typewriter
-const words = ['Intelligent Automation','Smart Factories','AI-Driven Quality','Industry 4.0'];
-let wi=0,ci=0,del=false;
-const el = document.getElementById('typeTarget');
-function type(){
-  const w=words[wi];
-  if(!del){el.textContent=w.slice(0,ci+1);ci++;if(ci===w.length){del=true;setTimeout(type,2200);return;}}
-  else{el.textContent=w.slice(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}
-  setTimeout(type,del?55:100);
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showLossCounter&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;pauseMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+const WORDS = ['Intelligent Automation', 'Smart Factories', 'AI-Driven Quality', 'Industry 4.0'];
+
+const INDUSTRIES = [
+  { name: 'Cement Plants', headline: 'Kiln stability without a firefight every shift.',
+    value: 'Continuous process, huge inertia, and energy as the dominant cost. We instrument the kiln and mill circuit, then close the loop on setpoints so quality holds while specific energy falls.',
+    kpiA: '−9%', kpiALabel: 'kWh / tonne', kpiB: '+6 pts', kpiBLabel: 'kiln availability',
+    cases: ['Kiln and mill circuit SCADA on WinCC Unified', 'Free-lime prediction from process tags', 'Baghouse and fan energy attribution per line', 'Vibration monitoring on mill gearboxes'] },
+  { name: 'Grinding Plants', headline: 'Throughput per unit of power, measured hourly.',
+    value: 'Grinding is where the electricity bill lives. Real-time separator and feed control plus per-mill metering turn a monthly bill into an hourly decision.',
+    kpiA: '+12%', kpiALabel: 'mill throughput', kpiB: '−8%', kpiBLabel: 'energy per tonne',
+    cases: ['Mill feed and separator speed optimisation', 'Per-mill energy metering with shift dashboards', 'Bearing and gearbox predictive maintenance', 'Blend consistency reporting to ERP'] },
+  { name: 'Chemical Plants', headline: 'Batch discipline, with the record written for you.',
+    value: 'Recipe control, interlocks and traceability engineered against real safety constraints — with the batch record produced as a by-product of running the plant.',
+    kpiA: '100%', kpiALabel: 'batch traceability', kpiB: '−35%', kpiBLabel: 'batch cycle variance',
+    cases: ['Recipe and phase control on S7-1500', 'Interlock and alarm rationalisation', 'Electronic batch record from SCADA history', 'Reactor temperature soft sensors'] },
+  { name: 'Food Industries', headline: 'Hygienic lines that still tell you everything.',
+    value: 'Washdown-rated instrumentation, vision inspection for pack integrity, and OEE that separates changeover loss from breakdown loss.',
+    kpiA: '−94%', kpiALabel: 'pack defects', kpiB: '+18%', kpiBLabel: 'line OEE',
+    cases: ['Fill level and seal integrity vision inspection', 'CIP cycle monitoring and verification', 'Changeover loss analytics per SKU', 'Cold chain and utility energy monitoring'] },
+  { name: 'Pharma Industries', headline: 'Validated systems, audit-ready by design.',
+    value: 'Automation built for a regulated environment: access control, audit trail and data integrity treated as system requirements rather than paperwork.',
+    kpiA: 'GxP', kpiALabel: 'aligned design', kpiB: '−40%', kpiBLabel: 'documentation effort',
+    cases: ['Audit trail and user access on SCADA', 'Environmental monitoring with alarm escalation', 'Serialisation and line clearance vision checks', 'Equipment qualification data capture'] },
+  { name: 'Manufacturing Plants', headline: 'Discrete lines with one honest OEE number.',
+    value: 'Cycle time, rejects and stoppage reasons captured at the machine, so every improvement argument starts from the same number.',
+    kpiA: '61→83%', kpiALabel: 'OEE', kpiB: '0', kpiBLabel: 'unplanned stops / 6 mo',
+    cases: ['Machine-level OEE with reason-code capture', 'AI vision inspection at line speed', 'Predictive maintenance on presses and motors', 'Andon and escalation to shift leads'] },
+  { name: 'Process Industries', headline: 'Loops that stay tuned after the commissioning team leaves.',
+    value: 'Control loop performance monitored continuously, so drift is caught as a report rather than as a quality excursion.',
+    kpiA: '−30%', kpiALabel: 'process variability', kpiB: '+5 pts', kpiBLabel: 'first-pass yield',
+    cases: ['Control loop performance monitoring', 'Advanced regulatory control retuning', 'Soft sensors for lab-lag properties', 'Historian and reporting stack on InfluxDB'] },
+  { name: 'Industrial OEMs', headline: 'Ship machines your customer can monitor remotely.',
+    value: 'We build the automation and connectivity layer inside your machine — standard tag model, secure remote access, and a dashboard your customers actually use.',
+    kpiA: '−50%', kpiALabel: 'commissioning time', kpiB: '2 wk', kpiBLabel: 'to a branded dashboard',
+    cases: ['Standard PLC and HMI platform per machine family', 'Secure remote diagnostics and OTA parameter sets', 'White-label customer dashboard', 'Fleet telemetry and warranty analytics'] }
+];
+
+class Component extends DCLogic {
+  state = { rupees: 0, typed: '', wi: 0, del: false, ind: 0, kwh: 41.6 };
+
+  componentDidMount() {
+    this.t0 = Date.now();
+    this.loss = setInterval(() => this.setState({ rupees: Math.floor((Date.now() - this.t0) / 200) }), 250);
+    this.energy = setInterval(() => this.setState({ kwh: 40.2 + Math.random() * 2.6 }), 2200);
+    this.tick();
+  }
+  componentWillUnmount() {
+    clearInterval(this.loss); clearInterval(this.energy); clearTimeout(this.type);
+  }
+  tick() {
+    const { typed, wi, del } = this.state;
+    const word = WORDS[wi];
+    let next = typed, nDel = del, nWi = wi, wait = del ? 55 : 110;
+    if (!del) {
+      next = word.slice(0, typed.length + 1);
+      if (next.length === word.length) { nDel = true; wait = 2200; }
+    } else {
+      next = word.slice(0, typed.length - 1);
+      if (next.length === 0) { nDel = false; nWi = (wi + 1) % WORDS.length; }
+    }
+    this.setState({ typed: next, del: nDel, wi: nWi });
+    this.type = setTimeout(() => this.tick(), wait);
+  }
+
+  renderVals() {
+    const i = this.state.ind;
+    const ind = INDUSTRIES[i];
+    const pick = (n) => () => this.setState({ ind: n });
+    const bg = (n) => (n === i ? 'rgba(0,212,255,.14)' : 'rgba(255,255,255,.03)');
+    return {
+      motionState: this.props.pauseMotion ? 'off' : 'on',
+      showLoss: this.props.showLossCounter !== false,
+      lossText: this.state.rupees.toLocaleString('en-IN'),
+      typed: this.state.typed,
+      kwhText: this.state.kwh.toFixed(1),
+      indName: ind.name, indHeadline: ind.headline, indValue: ind.value,
+      indKpiA: ind.kpiA, indKpiALabel: ind.kpiALabel, indKpiB: ind.kpiB, indKpiBLabel: ind.kpiBLabel,
+      indCases: ind.cases,
+      pick0: pick(0), pick1: pick(1), pick2: pick(2), pick3: pick(3),
+      pick4: pick(4), pick5: pick(5), pick6: pick(6), pick7: pick(7),
+      bg0: bg(0), bg1: bg(1), bg2: bg(2), bg3: bg(3), bg4: bg(4), bg5: bg(5), bg6: bg(6), bg7: bg(7)
+    };
+  }
 }
-setTimeout(type,1000);
-// Stats animate on load
-setTimeout(animateCounters, 400);
 </script>
-<script src="js/wa-analytics.js"></script>
 </body>
 </html>
