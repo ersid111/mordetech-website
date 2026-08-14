@@ -3,9 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+(function () {
+  var el = document.documentElement;
+  var s = document.createElement('style');
+  s.textContent = 'x-dc{display:none!important}#dc-fallback{display:none}';
+  el.appendChild(s);
+  // window.__dcRegistry is assigned only once the runtime's init() has run,
+  // which requires React to have loaded successfully.
+  function booted() { return !!window.__dcRegistry; }
+  // Show the fallback if the runtime has not come up in time...
+  setTimeout(function () { if (!booted()) el.className += ' dc-failed'; }, 8000);
+  // ...but withdraw it if a slow connection finishes booting afterwards, so the
+  // fallback can never sit on top of a page that did eventually render.
+  var poll = setInterval(function () {
+    if (booted()) { el.className = el.className.replace(/\s*\bdc-failed\b/g, ''); clearInterval(poll); }
+  }, 500);
+  setTimeout(function () { clearInterval(poll); }, 60000);
+})();
+</script>
+<script src="/vendor/react-18.3.1.production.min.js"></script>
+<script src="/vendor/react-dom-18.3.1.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
+<style>
+  html.dc-failed #dc-fallback { display: block !important; }
+  #dc-fallback { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #e8f4ff;
+    background: #020408; min-height: 100vh; margin: 0; padding: 40px 20px; line-height: 1.65; }
+  #dc-fallback .w { max-width: 720px; margin: 0 auto; }
+  #dc-fallback h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -.02em; }
+  #dc-fallback h2 { font-size: 1rem; margin: 32px 0 10px; color: #00d4ff; letter-spacing: .04em;
+    text-transform: uppercase; }
+  #dc-fallback p, #dc-fallback li { color: #a0bdd0; font-size: 1rem; }
+  #dc-fallback a { color: #00d4ff; }
+  #dc-fallback .brand { font-weight: 800; font-size: 1.25rem; color: #00d4ff; margin-bottom: 22px; }
+  #dc-fallback nav a { display: inline-block; margin: 0 14px 8px 0; }
+  #dc-fallback .card { border: 1px solid rgba(255,255,255,.1); border-radius: 12px;
+    padding: 18px 20px; margin-top: 18px; background: rgba(255,255,255,.02); }
+  #dc-fallback .cta { display: inline-block; margin-top: 8px; padding: 12px 20px; border-radius: 10px;
+    background: #25D366; color: #04140a; font-weight: 700; text-decoration: none; }
+</style>
+<noscript><style>x-dc{display:none!important}#dc-fallback{display:block!important}</style></noscript>
+<div id="dc-fallback">
+  <div class="w">
+    <div class="brand">MordeTech Solutions</div>
+    <h1>Our Services</h1>
+    <p>PLC programming, SCADA/HMI, AI defect detection, vision inspection, OEE dashboards and IIoT.</p>
+    <h2>Navigate</h2>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/ai-solutions">AI Solutions</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="card">
+      <h2 style="margin-top:0">Contact us</h2>
+      <p>
+        <strong>WhatsApp / Phone:</strong> <a href="tel:+919404030215">+91 94040 30215</a><br>
+        <strong>Email:</strong> <a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a><br>
+        <strong>Office:</strong> Hinjewadi Phase 2, Pune, Maharashtra, India
+      </p>
+      <a class="cta" href="https://wa.me/919404030215">Message us on WhatsApp</a>
+    </div>
+    <p style="margin-top:26px;font-size:.85rem;color:#4a6a8a">
+      The full interactive version of this page needs JavaScript. The details above are always available.
+    </p>
+  </div>
+</div>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
