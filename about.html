@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Self-hosted so rendering never depends on a third-party font host. Google Fonts
+   was render-blocking: with fonts.googleapis.com unreachable, first contentful
+   paint went from 284ms to 12,808ms. Industrial networks filter egress. */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-400.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-500.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-600.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-700.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/dm-sans-800.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:900;font-display:swap;src:url('/fonts/dm-sans-900.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/jetbrains-mono-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/jetbrains-mono-500.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/jetbrains-mono-600.woff2') format('woff2')}
+</style>
 <title>About MordeTech Solutions — Industrial Automation Engineers | Pune</title>
 <meta name="description" content="13+ years building automation and Industry 4.0 systems for Indian manufacturing. Meet the engineers behind MordeTech Solutions.">
 <link rel="canonical" href="https://mordetech.com/about">
@@ -65,6 +81,7 @@
       <a href="/">Home</a>
       <a href="/ai-solutions">AI Solutions</a>
       <a href="/services">Services</a>
+    <a href="/#industries">Industries</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
     </nav>
@@ -84,9 +101,6 @@
 </div>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
@@ -125,11 +139,12 @@
 
   @media (max-width: 900px) {
     nav { flex-wrap: wrap !important; gap: 12px !important; }
-    /* Keep each label on one line and give it a finger-sized hit area (15px -> ~41px). */
-    nav > div a { white-space: nowrap; padding: 13px 0; }
-    footer a { display: inline-block; padding: 9px 0; }
+    /* Keep each label on one line and meet the 44px minimum hit area
+       (Apple HIG 44pt, Material 48dp): 15px text + 15px padding = 45px. */
+    nav > div a { white-space: nowrap; padding: 15px 0; }
+    footer a { display: inline-block; padding: 11px 0; }
     /* Phone and email are the primary conversion path; make them easy to hit. */
-    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 8px 0; }
+    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 12px 0; }
     /* Links drop to their own scrollable row beneath the logo and the CTA. */
     nav > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important;
                 scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -168,6 +183,7 @@
     <a href="/" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Home</a>
     <a href="/ai-solutions" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">AI Solutions</a>
     <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
+        <a href="/#industries" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
     <a href="#top" style="color:#00d4ff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">About</a>
     <a href="/contact" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Contact</a>
   </div>
@@ -194,13 +210,13 @@
     <div style="position:relative;border-radius:20px;padding:44px 36px;background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(123,47,255,.08));border:1px solid rgba(0,102,255,.25);text-align:center;overflow:hidden">
       <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00d4ff,#7b2fff,transparent)"></div>
       <div style="position:relative;width:120px;height:120px;border-radius:50%;margin:0 auto 20px;overflow:hidden;box-shadow:0 0 40px rgba(0,212,255,.28);background:linear-gradient(135deg,#00d4ff,#7b2fff)">
-        <img src="images/team-priyanka.png" alt="Founder Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img src="images/team-priyanka.jpg" alt="Founder Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
       <div style="font-weight:800;font-size:1.5rem;margin-bottom:6px">Priyanka Morde</div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px">Founder &amp; Director</div>
       <p style="color:#a0bdd0;font-size:.99rem;line-height:1.8;text-align:left;margin:0">An automation engineer with over 13+ years of hands-on experience in Siemens PLC systems, machine vision, and IIoT architectures. Passionate about bringing AI to the factory floor.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00d4ff;border:1px solid rgba(0,212,255,.25);border-radius:100px;padding:5px 12px">Siemens Certified</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00d4ff;border:1px solid rgba(0,212,255,.25);border-radius:100px;padding:5px 12px">Siemens-Trained Engineers</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#a97bff;border:1px solid rgba(123,47,255,.3);border-radius:100px;padding:5px 12px">AI / ML</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00ff88;border:1px solid rgba(0,255,136,.25);border-radius:100px;padding:5px 12px">IIoT Expert</span>
       </div>
@@ -393,7 +409,7 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);overflow:hidden;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(0,212,255,.3)">
         <div style="height:190px;background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1));overflow:hidden">
-          <img src="images/team-priyanka.png" alt="Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="images/team-priyanka.jpg" alt="Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div style="padding:24px">
           <h4 style="font-weight:800;font-size:1rem;margin:0 0 4px">Priyanka Morde</h4>
@@ -403,7 +419,7 @@
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);overflow:hidden;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(0,212,255,.3)">
         <div style="height:190px;background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1));overflow:hidden">
-          <img src="images/team-amrut.png" alt="Amrut Dhappadhule" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="images/team-amrut.jpg" alt="Amrut Dhappadhule" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div style="padding:24px">
           <h4 style="font-weight:800;font-size:1rem;margin:0 0 4px">Amrut Dhappadhule</h4>
@@ -430,12 +446,12 @@
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">01</div>
-        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">Siemens Certified</h4>
+        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">Siemens-Trained Engineers</h4>
         <p style="font-size:.88rem;color:#4a6a8a;line-height:1.7;margin:0">TIA Portal &amp; SIMATIC certified engineers on every project.</p>
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">02</div>
-        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">IATF 16949 Ready</h4>
+        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">IATF 16949-Aligned Processes</h4>
         <p style="font-size:.88rem;color:#4a6a8a;line-height:1.7;margin:0">Processes aligned to automotive quality management standards.</p>
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">

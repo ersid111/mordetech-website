@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Self-hosted so rendering never depends on a third-party font host. Google Fonts
+   was render-blocking: with fonts.googleapis.com unreachable, first contentful
+   paint went from 284ms to 12,808ms. Industrial networks filter egress. */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-400.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-500.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-600.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-700.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/dm-sans-800.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:900;font-display:swap;src:url('/fonts/dm-sans-900.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/jetbrains-mono-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/jetbrains-mono-500.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/jetbrains-mono-600.woff2') format('woff2')}
+</style>
 <title>Contact MordeTech Solutions — Automation Enquiries | Pune</title>
 <meta name="description" content="Talk to us about automation, AI vision or IIoT for your plant. Based in Hinjewadi Phase 2, Pune. WhatsApp +91 94040 30215.">
 <link rel="canonical" href="https://mordetech.com/contact">
@@ -65,6 +81,7 @@
       <a href="/">Home</a>
       <a href="/ai-solutions">AI Solutions</a>
       <a href="/services">Services</a>
+    <a href="/#industries">Industries</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
     </nav>
@@ -84,9 +101,6 @@
 </div>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
@@ -126,11 +140,12 @@
 
   @media (max-width: 900px) {
     nav { flex-wrap: wrap !important; gap: 12px !important; }
-    /* Keep each label on one line and give it a finger-sized hit area (15px -> ~41px). */
-    nav > div a { white-space: nowrap; padding: 13px 0; }
-    footer a { display: inline-block; padding: 9px 0; }
+    /* Keep each label on one line and meet the 44px minimum hit area
+       (Apple HIG 44pt, Material 48dp): 15px text + 15px padding = 45px. */
+    nav > div a { white-space: nowrap; padding: 15px 0; }
+    footer a { display: inline-block; padding: 11px 0; }
     /* Phone and email are the primary conversion path; make them easy to hit. */
-    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 8px 0; }
+    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 12px 0; }
     /* Links drop to their own scrollable row beneath the logo and the CTA. */
     nav > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important;
                 scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -169,6 +184,7 @@
     <a href="/" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Home</a>
     <a href="/ai-solutions" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">AI Solutions</a>
     <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
+        <a href="/#industries" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
     <a href="/about" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">About</a>
     <a href="#top" style="color:#00d4ff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Contact</a>
   </div>
@@ -194,7 +210,7 @@
       <div style="position:relative;border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:44px 40px;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#00d4ff,#7b2fff,transparent)"></div>
         <div style="font-weight:800;font-size:1.4rem;margin-bottom:28px">Send Us a Message</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <form onsubmit="{{ submit }}" novalidate><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <div style="display:flex;flex-direction:column;gap:7px">
             <label style="font-size:.76rem;color:#4a6a8a;letter-spacing:.12em;font-family:'JetBrains Mono',monospace;text-transform:uppercase">Full Name *</label>
             <input type="text" ref="{{ refName }}" placeholder="Your full name" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.95rem;width:100%">
@@ -226,7 +242,7 @@
             </select>
           </div>
           <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:7px">
-            <label style="font-size:.76rem;color:#4a6a8a;letter-spacing:.12em;font-family:'JetBrains Mono',monospace;text-transform:uppercase">Project Budget (Optional)</label>
+            <label style="font-size:.76rem;color:#4a6a8a;letter-spacing:.12em;font-family:'JetBrains Mono',monospace;text-transform:uppercase">Approx. Budget (optional)</label>
             <select ref="{{ refBudget }}" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#e8f4ff;font-size:.95rem;width:100%">
               <option value="" style="background:#060d18">— Select range —</option>
               <option style="background:#060d18">Under ₹5 Lakhs</option>
@@ -242,8 +258,9 @@
           </div>
         </div>
         <div style="min-height:22px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#ff6b6b">{{ errorText }}</div>
-        <button onClick="{{ submit }}" style="width:100%;padding:15px;border-radius:10px;background:linear-gradient(135deg,#0066ff,#00d4ff);border:none;color:#000;font-weight:800;font-size:.98rem;cursor:pointer;letter-spacing:.04em;transition:transform .2s,box-shadow .3s" style-hover="transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,102,255,.35)">Send Message</button>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;margin:14px 0 0;text-align:center;line-height:1.7">Secure form powered by Formspree · We respond within 4 business hours · mordetechsolutions@zohomail.in</p>
+        <button type="submit" style="width:100%;padding:15px;border-radius:10px;background:linear-gradient(135deg,#0066ff,#00d4ff);border:none;color:#000;font-weight:800;font-size:.98rem;cursor:pointer;letter-spacing:.04em;transition:transform .2s,box-shadow .3s" style-hover="transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,102,255,.35)">{{ submitLabel }}</button>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#4a6a8a;margin:14px 0 0;text-align:center;line-height:1.7">We respond within 4 business hours · mordetechsolutions@zohomail.in</p>
+        </form>
       </div>
     </sc-if>
 
@@ -252,6 +269,14 @@
         <div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(0,255,136,.5);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#00ff88;font-size:1.4rem;animation:ping 2s ease-out infinite">✓</div>
         <h3 style="font-weight:800;font-size:1.4rem;margin:0 0 12px">Message Sent!</h3>
         <p style="color:#a0bdd0;font-size:.96rem;line-height:1.8;margin:0">Thank you! Priyanka or a MordeTech engineer will reach out within 4 business hours.<br><br>For urgent queries, call us directly at <strong style="color:#00d4ff">+91 94040 30215</strong></p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ handoff }}" hint-placeholder-val="{{ false }}">
+      <div style="position:relative;border-radius:20px;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.04);padding:56px 40px;text-align:center;overflow:hidden">
+        <div style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(0,212,255,.5);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#00d4ff;font-size:1.5rem">&#9993;</div>
+        <h3 style="font-weight:800;font-size:1.4rem;margin:0 0 12px">Finish sending in your email app</h3>
+        <p style="color:#a0bdd0;font-size:.96rem;line-height:1.8;margin:0">Your email app should have opened with the message ready. Press send there and it reaches us directly.<br><br>If nothing opened, email <a href="mailto:mordetechsolutions@zohomail.in" style="color:#00d4ff">mordetechsolutions@zohomail.in</a> or <a href="https://wa.me/919404030215" target="_blank" rel="noopener noreferrer" style="color:#25D366">message us on WhatsApp</a>.</p>
       </div>
     </sc-if>
 
@@ -402,8 +427,21 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+// ---------------------------------------------------------------------------
+// Contact endpoint.
+//
+// Leave this empty and the form hands the enquiry to the visitor's own mail
+// client, so a message can never be silently lost. Set it to a form-backend URL
+// (Formspree, Web3Forms, Getform, or your own /api route) and the form POSTs
+// JSON directly and reports real success or failure.
+//
+//   const CONTACT_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+// ---------------------------------------------------------------------------
+const CONTACT_ENDPOINT = '';
+const CONTACT_EMAIL = 'mordetechsolutions@zohomail.in';
+
 class Component extends DCLogic {
-  state = { sent: false, error: '' };
+  state = { sent: false, sending: false, handoff: false, error: '' };
   name = React.createRef();
   company = React.createRef();
   email = React.createRef();
@@ -412,21 +450,77 @@ class Component extends DCLogic {
   budget = React.createRef();
   message = React.createRef();
 
+  collect() {
+    const v = (r) => (r.current ? r.current.value.trim() : '');
+    return {
+      name: v(this.name), company: v(this.company), email: v(this.email),
+      phone: v(this.phone), service: v(this.service), budget: v(this.budget),
+      message: v(this.message)
+    };
+  }
+
+  // Fallback path: open a prefilled email rather than pretend the form sent.
+  handOffToMail(d) {
+    const subject = 'Website enquiry — ' + (d.company || d.name);
+    const body = [
+      'Name: ' + d.name,
+      'Company: ' + d.company,
+      'Email: ' + d.email,
+      'Phone: ' + d.phone,
+      'Service: ' + d.service,
+      'Budget: ' + d.budget,
+      '', d.message
+    ].join('\n');
+    window.location.href = 'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+    this.setState({ handoff: true, sending: false, error: '' });
+  }
+
   renderVals() {
     return {
       sent: this.state.sent,
-      notSent: !this.state.sent,
+      handoff: this.state.handoff,
+      notSent: !this.state.sent && !this.state.handoff,
       errorText: this.state.error,
+      submitLabel: this.state.sending ? 'Sending…' : 'Send Message',
       refName: this.name, refCompany: this.company, refEmail: this.email,
       refPhone: this.phone, refService: this.service, refBudget: this.budget,
       refMessage: this.message,
-      submit: () => {
-        const v = (r) => (r.current ? r.current.value.trim() : '');
-        if (!v(this.name) || !v(this.email) || !v(this.phone) || !v(this.message)) {
+      submit: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        if (this.state.sending) return;
+
+        const d = this.collect();
+        if (!d.name || !d.email || !d.phone || !d.message) {
           this.setState({ error: 'Please fill in Name, Email, Phone and Message.' });
           return;
         }
-        this.setState({ sent: true, error: '' });
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) {
+          this.setState({ error: 'That email address does not look right.' });
+          return;
+        }
+
+        if (!CONTACT_ENDPOINT) { this.handOffToMail(d); return; }
+
+        this.setState({ sending: true, error: '' });
+        fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(d)
+        })
+          .then((r) => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            this.setState({ sent: true, sending: false, error: '' });
+          })
+          .catch(() => {
+            // Never strand the enquiry: fall back to the visitor's mail client.
+            this.setState({
+              sending: false,
+              error: 'We could not send that automatically — opening your email app instead.'
+            });
+            setTimeout(() => this.handOffToMail(d), 1200);
+          });
       }
     };
   }

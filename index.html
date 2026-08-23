@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Self-hosted so rendering never depends on a third-party font host. Google Fonts
+   was render-blocking: with fonts.googleapis.com unreachable, first contentful
+   paint went from 284ms to 12,808ms. Industrial networks filter egress. */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-400.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-500.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-600.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-700.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/dm-sans-800.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:900;font-display:swap;src:url('/fonts/dm-sans-900.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/jetbrains-mono-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/jetbrains-mono-500.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/jetbrains-mono-600.woff2') format('woff2')}
+</style>
 <title>MordeTech Solutions — Industrial Automation &amp; Industry 4.0 | Pune</title>
 <meta name="description" content="PLC and SCADA engineering, AI vision inspection and IIoT platforms for manufacturing plants. Industrial automation partner based in Pune, India.">
 <link rel="canonical" href="https://mordetech.com/">
@@ -84,9 +100,6 @@
 </div>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
@@ -151,11 +164,12 @@
 
   @media (max-width: 900px) {
     nav { flex-wrap: wrap !important; gap: 12px !important; }
-    /* Keep each label on one line and give it a finger-sized hit area (15px -> ~41px). */
-    nav > div a { white-space: nowrap; padding: 13px 0; }
-    footer a { display: inline-block; padding: 9px 0; }
+    /* Keep each label on one line and meet the 44px minimum hit area
+       (Apple HIG 44pt, Material 48dp): 15px text + 15px padding = 45px. */
+    nav > div a { white-space: nowrap; padding: 15px 0; }
+    footer a { display: inline-block; padding: 11px 0; }
     /* Phone and email are the primary conversion path; make them easy to hit. */
-    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 8px 0; }
+    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 12px 0; }
     /* Links drop to their own scrollable row beneath the logo and the CTA. */
     nav > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important;
                 scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -210,7 +224,7 @@
     <div>
       <div style="display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:26px">
         <span style="width:6px;height:6px;border-radius:50%;background:#00d4ff;animation:blink 1.4s infinite"></span>
-        Industry 4.0 Solutions · Pune, India
+        PLC &amp; SCADA · AI Vision · Industrial IoT
       </div>
 
       <sc-if value="{{ showLoss }}" hint-placeholder-val="{{ true }}">
@@ -224,7 +238,7 @@
       </sc-if>
 
       <h1 style="font-weight:800;line-height:1.0;letter-spacing:-.04em;font-size:clamp(2.8rem,4.6vw,4.4rem);margin:0 0 20px">
-        AI that sees<br>
+        We engineer<br>
         <span style="background:linear-gradient(135deg,#00d4ff,#0066ff,#7b2fff);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease-in-out infinite">{{ typed }}</span><span style="display:inline-block;width:3px;height:.82em;background:#00d4ff;margin-left:5px;vertical-align:middle;animation:blink 1.1s infinite"></span>
       </h1>
 
@@ -926,7 +940,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showLossCounter&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;pauseMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
-const WORDS = ['Intelligent Automation', 'Smart Factories', 'AI-Driven Quality', 'Industry 4.0'];
+const WORDS = ['AI vision inspection', 'PLC and SCADA systems', 'predictive maintenance', 'smart factory IIoT'];
 
 const INDUSTRIES = [
   { name: 'Cement Plants', headline: 'Kiln stability without a firefight every shift.',
