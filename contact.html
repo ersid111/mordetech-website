@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MordeTech Solutions","url":"https://mordetech.com","logo":"https://mordetech.com/images/logo.svg","description":"Industrial automation and Industry 4.0 engineering: PLC and SCADA systems, AI vision inspection, predictive maintenance and IIoT platforms for manufacturing plants.","foundingDate":"2012","founder":{"@type":"Person","name":"Priyanka Morde","jobTitle":"Founder & Director"},"address":{"@type":"PostalAddress","streetAddress":"Hinjewadi Phase 2","addressLocality":"Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"contactPoint":[{"@type":"ContactPoint","telephone":"+91-94040-30215","email":"mordetechsolutions@zohomail.in","contactType":"sales","areaServed":"IN","availableLanguage":["en","hi","mr"]}],"knowsAbout":["PLC programming","SCADA","HMI development","Machine vision","Predictive maintenance","Industrial IoT","OEE","Industry 4.0"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you work with non-Siemens PLCs?","acceptedAnswer":{"@type":"Answer","text":"Yes! While we specialize in Siemens TIA Portal, we also work with Allen Bradley (Studio 5000), Mitsubishi, Schneider, and Omron PLCs. Most of our IIoT and dashboard solutions are hardware-agnostic."}},{"@type":"Question","name":"How long does a typical project take?","acceptedAnswer":{"@type":"Answer","text":"It depends on scope. A single PLC program retrofit typically takes 4–8 weeks. A full smart factory deployment with SCADA, AI vision, and IIoT can take 3–9 months. We always provide a detailed project schedule upfront."}},{"@type":"Question","name":"Do you offer on-site support outside Pune?","acceptedAnswer":{"@type":"Answer","text":"Yes, we travel across India and internationally for on-site commissioning, FAT/SAT, and emergency support. We've delivered projects in Gujarat, Tamil Nadu, Karnataka, and internationally in Germany and UAE."}},{"@type":"Question","name":"What's included in your AMC (Annual Maintenance Contract)?","acceptedAnswer":{"@type":"Answer","text":"Our AMC includes 24/7 remote monitoring, quarterly on-site visits, unlimited remote support calls, software updates, spare parts advice, and a dedicated account engineer. Response time SLA is 4 hours for remote and 48 hours for on-site."}},{"@type":"Question","name":"Can you integrate AI/ML into our existing production line?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Our AI systems are designed to integrate non-disruptively into existing lines. We can add a camera + edge computing unit to an existing conveyor or assembly station without stopping production, and interface the AI output directly to your existing PLC logic."}},{"@type":"Question","name":"Do you provide training for our operators and engineers?","acceptedAnswer":{"@type":"Answer","text":"Yes, training is always included in our full project deliveries. We conduct hands-on operator training, engineer-level TIA Portal/SCADA training, and provide detailed as-built documentation, P&ID, and system manuals."}},{"@type":"Question","name":"Who owns the source code and IP after project delivery?","acceptedAnswer":{"@type":"Answer","text":"You do — completely. All source code, PLC programs, SCADA screens, AI models, and design documents are fully transferred to you upon final payment. There are no recurring licence fees or lock-in clauses. We also provide structured project archives so your in-house team can maintain the system independently."}},{"@type":"Question","name":"How do you protect our confidential process data?","acceptedAnswer":{"@type":"Answer","text":"We sign a mutual NDA before any technical discussions begin. All project data is handled under strict confidentiality: no sharing with third parties, encrypted file transfers, and access limited to engineers assigned to your project. We are happy to sign your company's NDA template if preferred."}},{"@type":"Question","name":"What post-deployment support do you offer?","acceptedAnswer":{"@type":"Answer","text":"All projects include a 12-month warranty covering defect rectification at no charge. Beyond warranty, we offer Annual Maintenance Contracts (AMC) with a 4-hour SLA for critical production-impacting issues — remote diagnosis guaranteed within 4 hours, on-site dispatch within 24 hours. Quarterly health-check visits and software updates are included in AMC plans."}}]}</script>
 <link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -27,25 +29,35 @@
 <meta property="og:title" content="Contact MordeTech Solutions — Automation Enquiries | Pune">
 <meta property="og:description" content="Talk to us about automation, AI vision or IIoT for your plant. Based in Hinjewadi Phase 2, Pune. WhatsApp +91 94040 30215.">
 <meta property="og:url" content="https://mordetech.com/contact">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mordetech.com/images/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MordeTech Solutions — where PLC meets AI">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>
 (function () {
-  var el = document.documentElement;
+  // The page ships a prerendered snapshot of itself (#dc-prerender) so that
+  // crawlers, no-JS visitors and the first paint all get real content instead
+  // of an empty body. Hide the raw <x-dc> template immediately, then swap the
+  // snapshot out the moment the live runtime mounts #dc-root.
   var s = document.createElement('style');
-  s.textContent = 'x-dc{display:none!important}#dc-fallback{display:none}';
-  el.appendChild(s);
-  // window.__dcRegistry is assigned only once the runtime's init() has run,
-  // which requires React to have loaded successfully.
-  function booted() { return !!window.__dcRegistry; }
-  // Show the fallback if the runtime has not come up in time...
-  setTimeout(function () { if (!booted()) el.className += ' dc-failed'; }, 8000);
-  // ...but withdraw it if a slow connection finishes booting afterwards, so the
-  // fallback can never sit on top of a page that did eventually render.
-  var poll = setInterval(function () {
-    if (booted()) { el.className = el.className.replace(/\s*\bdc-failed\b/g, ''); clearInterval(poll); }
-  }, 500);
-  setTimeout(function () { clearInterval(poll); }, 60000);
+  s.textContent = 'x-dc{display:none!important}';
+  document.documentElement.appendChild(s);
+
+  function hideSnapshot() {
+    var p = document.getElementById('dc-prerender');
+    if (p) p.setAttribute('hidden', '');
+  }
+  if (document.getElementById('dc-root')) { hideSnapshot(); return; }
+
+  var mo = new MutationObserver(function () {
+    if (document.getElementById('dc-root')) { hideSnapshot(); mo.disconnect(); }
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+  // Stop observing eventually; if the runtime never boots the snapshot simply
+  // stays visible, which is the correct outcome.
+  setTimeout(function () { mo.disconnect(); }, 30000);
 })();
 </script>
 <script src="/vendor/react-18.3.1.production.min.js"></script>
@@ -53,52 +65,234 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<style>
-  html.dc-failed #dc-fallback { display: block !important; }
-  #dc-fallback { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #e8f4ff;
-    background: #020408; min-height: 100vh; margin: 0; padding: 40px 20px; line-height: 1.65; }
-  #dc-fallback .w { max-width: 720px; margin: 0 auto; }
-  #dc-fallback h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -.02em; }
-  #dc-fallback h2 { font-size: 1rem; margin: 32px 0 10px; color: #00d4ff; letter-spacing: .04em;
-    text-transform: uppercase; }
-  #dc-fallback p, #dc-fallback li { color: #a0bdd0; font-size: 1rem; }
-  #dc-fallback a { color: #00d4ff; }
-  #dc-fallback .brand { font-weight: 800; font-size: 1.25rem; color: #00d4ff; margin-bottom: 22px; }
-  #dc-fallback nav a { display: inline-block; margin: 0 14px 8px 0; }
-  #dc-fallback .card { border: 1px solid rgba(255,255,255,.1); border-radius: 12px;
-    padding: 18px 20px; margin-top: 18px; background: rgba(255,255,255,.02); }
-  #dc-fallback .cta { display: inline-block; margin-top: 8px; padding: 12px 20px; border-radius: 10px;
-    background: #25D366; color: #04140a; font-weight: 700; text-decoration: none; }
-</style>
-<noscript><style>x-dc{display:none!important}#dc-fallback{display:block!important}</style></noscript>
-<div id="dc-fallback">
-  <div class="w">
-    <div class="brand">MordeTech Solutions</div>
-    <h1>Contact MordeTech Solutions</h1>
-    <p>Talk to us about automation, AI vision or IIoT for your plant.</p>
-    <h2>Navigate</h2>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/ai-solutions">AI Solutions</a>
-      <a href="/services">Services</a>
-    <a href="/#industries">Industries</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    <div class="card">
-      <h2 style="margin-top:0">Contact us</h2>
-      <p>
-        <strong>WhatsApp / Phone:</strong> <a href="tel:+919404030215">+91 94040 30215</a><br>
-        <strong>Email:</strong> <a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a><br>
-        <strong>Office:</strong> Hinjewadi Phase 2, Pune, Maharashtra, India
-      </p>
-      <a class="cta" href="https://wa.me/919404030215">Message us on WhatsApp</a>
-    </div>
-    <p style="margin-top:26px;font-size:.85rem;color:#4a6a8a">
-      The full interactive version of this page needs JavaScript. The details above are always available.
-    </p>
+<noscript><style>x-dc{display:none!important}</style></noscript>
+<div id="dc-prerender">
+<div class="sc-host" data-sc-name="contact"><div data-dc-tpl="2" style="background: rgb(2, 4, 8); color: rgb(232, 244, 255); font-family: &quot;DM Sans&quot;, system-ui, sans-serif;"><nav data-dc-tpl="3" style="position: sticky; top: 0px; z-index: 500; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 60px; background: rgba(2, 4, 8, 0.82); backdrop-filter: blur(22px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+  <a data-dc-tpl="4" href="/" style="display: flex; align-items: center; gap: 10px;">
+    <img data-dc-tpl="5" src="images/logo.svg" alt="MordeTech" width="32" height="32" style="display: block;">
+    <span data-dc-tpl="6" style="font-weight: 800; font-size: 1.22rem; letter-spacing: -0.02em; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;">Morde<span data-dc-tpl="7" style="-webkit-text-fill-color: rgb(123, 47, 255);">Tech</span></span>
+  </a>
+  <div data-dc-tpl="8" style="display: flex; align-items: center; gap: 30px;">
+    <a data-dc-tpl="9" href="/" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Home</a>
+    <a data-dc-tpl="10" href="/ai-solutions" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">AI Solutions</a>
+    <a data-dc-tpl="11" href="/services" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Services</a>
+        <a data-dc-tpl="12" href="/#industries" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Industries</a>
+    <a data-dc-tpl="13" href="/about" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">About</a>
+    <a data-dc-tpl="14" href="#top" style="color: rgb(0, 212, 255); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Contact</a>
   </div>
+  <a data-dc-tpl="15" href="tel:+919404030215" class="scp1" style="display: inline-flex; align-items: center; gap: 9px; padding: 11px 20px; border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.3); color: rgb(0, 212, 255); font-weight: 700; font-size: 0.86rem; white-space: nowrap;">+91 94040 30215</a></nav><section data-dc-tpl="16" id="top" style="position: relative; padding: 100px 60px 50px; overflow: hidden; background-image: linear-gradient(to right, rgba(0, 130, 220, 0.043) 1px, transparent 1px), linear-gradient(rgba(0, 130, 220, 0.043) 1px, transparent 1px); background-size: 60px 60px;">
+  <div data-dc-tpl="17" style="position: absolute; inset: 0px; pointer-events: none; background: radial-gradient(60% 60% at 60% 40%, rgba(0, 102, 255, 0.09) 0%, transparent 70%);"></div>
+  <div data-dc-tpl="18" style="position: relative; max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="19" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="20" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="21" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">Reach Out</span>
+    </div>
+    <h1 data-dc-tpl="22" style="font-weight: 800; font-size: clamp(2.6rem, 4.6vw, 4.2rem); line-height: 1.02; letter-spacing: -0.04em; margin: 0px 0px 22px;">Let's Build Something<br data-dc-tpl="23"><span data-dc-tpl="24" style="background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255), rgb(123, 47, 255)) 0% 0% / 200% text; -webkit-text-fill-color: transparent; animation: 4s ease-in-out 0s infinite normal none running gradShift;">Extraordinary Together</span></h1>
+    <p data-dc-tpl="25" style="color: rgb(160, 189, 208); font-size: 1.06rem; line-height: 1.8; max-width: 640px; margin: 0px;">Whether you have a project in mind, want a quote, or just need expert automation advice — Priyanka and the MordeTech team are ready to help.</p>
+  </div></section><section data-dc-tpl="26" style="padding: 50px 60px 100px;">
+  <div data-dc-tpl="27" style="max-width: 1200px; margin: 0px auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: start;">
+
+    
+      <div data-dc-tpl="29" style="position: relative; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 44px 40px; overflow: hidden;">
+        <div data-dc-tpl="30" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 1px; background: linear-gradient(90deg, transparent, rgb(0, 212, 255), rgb(123, 47, 255), transparent);"></div>
+        <div data-dc-tpl="31" style="font-weight: 800; font-size: 1.4rem; margin-bottom: 28px;">Send Us a Message</div>
+        <form data-dc-tpl="32" novalidate=""><div data-dc-tpl="33" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div data-dc-tpl="34" style="display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="35" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Full Name *</label>
+            <input data-dc-tpl="36" type="text" placeholder="Your full name" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+          </div>
+          <div data-dc-tpl="37" style="display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="38" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Company</label>
+            <input data-dc-tpl="39" type="text" placeholder="Company name" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+          </div>
+          <div data-dc-tpl="40" style="display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="41" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Email *</label>
+            <input data-dc-tpl="42" type="email" placeholder="you@company.com" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+          </div>
+          <div data-dc-tpl="43" style="display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="44" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Phone *</label>
+            <input data-dc-tpl="45" type="tel" placeholder="+91 99999 00000" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+          </div>
+          <div data-dc-tpl="46" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="47" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Service Required</label>
+            <select data-dc-tpl="48" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+              <option data-dc-tpl="49" value="" style="background: rgb(6, 13, 24);">— Select a service —</option>
+              <option data-dc-tpl="50" style="background: rgb(6, 13, 24);">PLC Programming (Siemens TIA Portal)</option>
+              <option data-dc-tpl="51" style="background: rgb(6, 13, 24);">SCADA / HMI Development</option>
+              <option data-dc-tpl="52" style="background: rgb(6, 13, 24);">AI-Based Defect Detection</option>
+              <option data-dc-tpl="53" style="background: rgb(6, 13, 24);">Machine Vision System</option>
+              <option data-dc-tpl="54" style="background: rgb(6, 13, 24);">Industrial Dashboard / OEE</option>
+              <option data-dc-tpl="55" style="background: rgb(6, 13, 24);">IIoT Integration</option>
+              <option data-dc-tpl="56" style="background: rgb(6, 13, 24);">Consultation / Assessment</option>
+              <option data-dc-tpl="57" style="background: rgb(6, 13, 24);">AMC / Annual Maintenance</option>
+            </select>
+          </div>
+          <div data-dc-tpl="58" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="59" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Approx. Budget (optional)</label>
+            <select data-dc-tpl="60" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%;">
+              <option data-dc-tpl="61" value="" style="background: rgb(6, 13, 24);">— Select range —</option>
+              <option data-dc-tpl="62" style="background: rgb(6, 13, 24);">Under ₹5 Lakhs</option>
+              <option data-dc-tpl="63" style="background: rgb(6, 13, 24);">₹5 – 20 Lakhs</option>
+              <option data-dc-tpl="64" style="background: rgb(6, 13, 24);">₹20 – 50 Lakhs</option>
+              <option data-dc-tpl="65" style="background: rgb(6, 13, 24);">₹50 Lakhs – 1 Crore</option>
+              <option data-dc-tpl="66" style="background: rgb(6, 13, 24);">Above ₹1 Crore</option>
+            </select>
+          </div>
+          <div data-dc-tpl="67" style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 7px;">
+            <label data-dc-tpl="68" style="font-size: 0.76rem; color: rgb(74, 106, 138); letter-spacing: 0.12em; font-family: &quot;JetBrains Mono&quot;, monospace; text-transform: uppercase;">Your Message *</label>
+            <textarea data-dc-tpl="69" rows="5" placeholder="Describe your project, requirements, or questions. The more detail, the faster we can help..." style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px 16px; color: rgb(232, 244, 255); font-size: 0.95rem; width: 100%; resize: vertical;"></textarea>
+          </div>
+        </div>
+        <div data-dc-tpl="70" style="min-height: 22px; margin-top: 12px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.78rem; color: rgb(255, 107, 107);"><span class="sc-interp"></span></div>
+        <button data-dc-tpl="71" type="submit" class="scp2" style="width: 100%; padding: 15px; border-radius: 10px; background: linear-gradient(135deg, rgb(0, 102, 255), rgb(0, 212, 255)); border: none; color: rgb(0, 0, 0); font-weight: 800; font-size: 0.98rem; cursor: pointer; letter-spacing: 0.04em; transition: transform 0.2s, box-shadow 0.3s;"><span class="sc-interp">Send Message</span></button>
+        <p data-dc-tpl="72" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.76rem; color: rgb(74, 106, 138); margin: 14px 0px 0px; text-align: center; line-height: 1.7;">We respond within 4 business hours · mordetechsolutions@zohomail.in</p>
+        </form>
+      </div>
+    
+
+    
+
+    
+
+    <div data-dc-tpl="90" style="display: flex; flex-direction: column; gap: 16px;">
+      <div data-dc-tpl="91" class="scp3" style="padding: 26px; border-radius: 18px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; gap: 18px; align-items: flex-start; transition: border-color 0.3s, transform 0.3s;">
+        <div data-dc-tpl="92" style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.08)); border: 1px solid rgba(0, 212, 255, 0.18); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.7rem; color: rgb(0, 212, 255);">HQ</div>
+        <div data-dc-tpl="93">
+          <h4 data-dc-tpl="94" style="font-weight: 700; font-size: 0.98rem; margin: 0px 0px 6px;">Office Address</h4>
+          <p data-dc-tpl="95" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">MordeTech Solutions Pvt. Ltd.<br data-dc-tpl="96">Hinjewadi Phase 2, Pune<br data-dc-tpl="97">Maharashtra, India — 411057</p>
+        </div>
+      </div>
+      <div data-dc-tpl="98" class="scp3" style="padding: 26px; border-radius: 18px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; gap: 18px; align-items: flex-start; transition: border-color 0.3s, transform 0.3s;">
+        <div data-dc-tpl="99" style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.08)); border: 1px solid rgba(0, 212, 255, 0.18); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.7rem; color: rgb(0, 212, 255);">TEL</div>
+        <div data-dc-tpl="100">
+          <h4 data-dc-tpl="101" style="font-weight: 700; font-size: 0.98rem; margin: 0px 0px 6px;">Call / WhatsApp</h4>
+          <a data-dc-tpl="102" href="tel:+919404030215" style="font-size: 0.96rem; display: block;">+91 94040 30215</a>
+          <p data-dc-tpl="103" style="margin: 6px 0px 0px; font-size: 0.82rem; color: rgb(74, 106, 138);">Priyanka Morde — Founder &amp; Director</p>
+          <div data-dc-tpl="104" style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;">
+            <a data-dc-tpl="105" href="https://wa.me/919404030215?text=Hello%20MordeTech%2C%20I%20would%20like%20to%20discuss%20an%20automation%20project." target="_blank" rel="noopener noreferrer" class="scp4" style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 9px; background: rgb(37, 211, 102); color: rgb(4, 20, 10); font-weight: 700; font-size: 0.85rem;">
+              <svg data-dc-tpl="106" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path data-dc-tpl="107" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+              WhatsApp
+            </a>
+            <a data-dc-tpl="108" href="tel:+919404030215" class="scp5" style="padding: 9px 16px; border-radius: 9px; border: 1px solid rgba(255, 255, 255, 0.12); color: rgb(160, 189, 208); font-weight: 600; font-size: 0.85rem;">Call Now</a>
+          </div>
+        </div>
+      </div>
+      <div data-dc-tpl="109" class="scp3" style="padding: 26px; border-radius: 18px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; gap: 18px; align-items: flex-start; transition: border-color 0.3s, transform 0.3s;">
+        <div data-dc-tpl="110" style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.08)); border: 1px solid rgba(0, 212, 255, 0.18); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.9rem; color: rgb(0, 212, 255);">@</div>
+        <div data-dc-tpl="111">
+          <h4 data-dc-tpl="112" style="font-weight: 700; font-size: 0.98rem; margin: 0px 0px 6px;">Email</h4>
+          <a data-dc-tpl="113" href="mailto:mordetechsolutions@zohomail.in" style="font-size: 0.96rem; display: block;">mordetechsolutions@zohomail.in</a>
+          <p data-dc-tpl="114" style="margin: 6px 0px 0px; font-size: 0.82rem; color: rgb(74, 106, 138);">For project enquiries and quotes</p>
+        </div>
+      </div>
+      <div data-dc-tpl="115" class="scp3" style="padding: 26px; border-radius: 18px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; gap: 18px; align-items: flex-start; transition: border-color 0.3s, transform 0.3s;">
+        <div data-dc-tpl="116" style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.08)); border: 1px solid rgba(0, 212, 255, 0.18); display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255);">IST</div>
+        <div data-dc-tpl="117">
+          <h4 data-dc-tpl="118" style="font-weight: 700; font-size: 0.98rem; margin: 0px 0px 6px;">Business Hours</h4>
+          <p data-dc-tpl="119" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">Monday – Saturday: 9:00 AM – 6:30 PM IST</p>
+          <p data-dc-tpl="120" style="color: rgb(0, 212, 255); font-size: 0.82rem; margin: 6px 0px 0px;">24/7 support for critical production systems</p>
+        </div>
+      </div>
+      <div data-dc-tpl="121" style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); background: linear-gradient(135deg, rgba(0, 50, 120, 0.3), rgba(0, 20, 60, 0.5));">
+        <iframe data-dc-tpl="122" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.897!2d73.7397!3d18.5983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb00c3abf00f%3A0x0!2sHinjewadi+Phase+2%2C+Pune%2C+Maharashtra+411057!5e0!3m2!1sen!2sin!4v1" width="100%" height="240" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="MordeTech Solutions Office Location — Hinjewadi Phase 2, Pune" style="border: 0px; display: block; filter: grayscale(0.4) invert(0.9) hue-rotate(180deg) contrast(0.9);"></iframe>
+        <div data-dc-tpl="123" style="padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div data-dc-tpl="124">
+            <div data-dc-tpl="125" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.82rem; color: rgb(0, 212, 255); letter-spacing: 0.1em;">PUNE OFFICE</div>
+            <div data-dc-tpl="126" style="font-size: 0.9rem; color: rgb(74, 106, 138); margin-top: 3px;">Hinjewadi Phase 2, Pune — 411057</div>
+          </div>
+          <a data-dc-tpl="127" href="https://maps.google.com/?q=Hinjewadi+Phase+2+Pune" target="_blank" rel="noopener noreferrer" class="scp5" style="padding: 9px 16px; border-radius: 9px; border: 1px solid rgba(255, 255, 255, 0.12); color: rgb(160, 189, 208); font-weight: 600; font-size: 0.85rem;">Open in Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="128" style="padding: 0px 60px 110px; background: rgb(2, 4, 8);">
+  <div data-dc-tpl="129" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="130" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="131" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="132" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">Common Questions</span>
+    </div>
+    <h2 data-dc-tpl="133" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 48px;">Frequently Asked Questions</h2>
+    <div data-dc-tpl="134" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start;">
+      <details data-dc-tpl="135" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="136" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="137">Do you work with non-Siemens PLCs?</span><span data-dc-tpl="138" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="139" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">Yes! While we specialize in Siemens TIA Portal, we also work with Allen Bradley (Studio 5000), Mitsubishi, Schneider, and Omron PLCs. Most of our IIoT and dashboard solutions are hardware-agnostic.</p>
+      </details>
+      <details data-dc-tpl="140" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="141" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="142">How long does a typical project take?</span><span data-dc-tpl="143" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="144" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">It depends on scope. A single PLC program retrofit typically takes 4–8 weeks. A full smart factory deployment with SCADA, AI vision, and IIoT can take 3–9 months. We always provide a detailed project schedule upfront.</p>
+      </details>
+      <details data-dc-tpl="145" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="146" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="147">Do you offer on-site support outside Pune?</span><span data-dc-tpl="148" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="149" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">Yes, we travel across India and internationally for on-site commissioning, FAT/SAT, and emergency support. We've delivered projects in Gujarat, Tamil Nadu, Karnataka, and internationally in Germany and UAE.</p>
+      </details>
+      <details data-dc-tpl="150" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="151" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="152">What's included in your AMC (Annual Maintenance Contract)?</span><span data-dc-tpl="153" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="154" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">Our AMC includes 24/7 remote monitoring, quarterly on-site visits, unlimited remote support calls, software updates, spare parts advice, and a dedicated account engineer. Response time SLA is 4 hours for remote and 48 hours for on-site.</p>
+      </details>
+      <details data-dc-tpl="155" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="156" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="157">Can you integrate AI/ML into our existing production line?</span><span data-dc-tpl="158" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="159" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">Absolutely. Our AI systems are designed to integrate non-disruptively into existing lines. We can add a camera + edge computing unit to an existing conveyor or assembly station without stopping production, and interface the AI output directly to your existing PLC logic.</p>
+      </details>
+      <details data-dc-tpl="160" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="161" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="162">Do you provide training for our operators and engineers?</span><span data-dc-tpl="163" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="164" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">Yes, training is always included in our full project deliveries. We conduct hands-on operator training, engineer-level TIA Portal/SCADA training, and provide detailed as-built documentation, P&amp;ID, and system manuals.</p>
+      </details>
+      <details data-dc-tpl="165" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="166" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="167">Who owns the source code and IP after project delivery?</span><span data-dc-tpl="168" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="169" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">You do — completely. All source code, PLC programs, SCADA screens, AI models, and design documents are fully transferred to you upon final payment. There are no recurring licence fees or lock-in clauses. We also provide structured project archives so your in-house team can maintain the system independently.</p>
+      </details>
+      <details data-dc-tpl="170" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="171" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="172">How do you protect our confidential process data?</span><span data-dc-tpl="173" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="174" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">We sign a mutual NDA before any technical discussions begin. All project data is handled under strict confidentiality: no sharing with third parties, encrypted file transfers, and access limited to engineers assigned to your project. We are happy to sign your company's NDA template if preferred.</p>
+      </details>
+      <details data-dc-tpl="175" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02);">
+        <summary data-dc-tpl="176" style="font-weight: 700; font-size: 1.02rem; display: flex; justify-content: space-between; align-items: center; gap: 12px;"><span data-dc-tpl="177">What post-deployment support do you offer?</span><span data-dc-tpl="178" style="color: rgb(0, 212, 255); font-family: &quot;JetBrains Mono&quot;, monospace;">+</span></summary>
+        <p data-dc-tpl="179" style="font-size: 0.96rem; color: rgb(74, 106, 138); line-height: 1.75; margin: 12px 0px 0px;">All projects include a 12-month warranty covering defect rectification at no charge. Beyond warranty, we offer Annual Maintenance Contracts (AMC) with a 4-hour SLA for critical production-impacting issues — remote diagnosis guaranteed within 4 hours, on-site dispatch within 24 hours. Quarterly health-check visits and software updates are included in AMC plans.</p>
+      </details>
+    </div>
+  </div></section><footer data-dc-tpl="180" style="border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgb(2, 4, 8);">
+  <div data-dc-tpl="181" style="max-width: 1200px; margin: 0px auto; padding: 56px 60px; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;">
+    <div data-dc-tpl="182">
+      <div data-dc-tpl="183" style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+        <img data-dc-tpl="184" src="images/logo.svg" alt="MordeTech" width="30" height="30" style="display: block;">
+        <span data-dc-tpl="185" style="font-weight: 800; font-size: 1.18rem; letter-spacing: -0.02em; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;">Morde<span data-dc-tpl="186" style="-webkit-text-fill-color: rgb(123, 47, 255);">Tech</span></span>
+      </div>
+      <p data-dc-tpl="187" style="color: rgb(74, 106, 138); font-size: 0.92rem; line-height: 1.7; max-width: 260px; margin: 0px;">Engineering Intelligent Automation for the world's best manufacturers.</p>
+    </div>
+    <div data-dc-tpl="188">
+      <h5 data-dc-tpl="189" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Services</h5>
+      <div data-dc-tpl="190" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="191" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">PLC Programming</a>
+        <a data-dc-tpl="192" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">SCADA / HMI</a>
+        <a data-dc-tpl="193" href="/ai-solutions" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">AI Vision</a>
+        <a data-dc-tpl="194" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">IIoT</a>
+      </div>
+    </div>
+    <div data-dc-tpl="195">
+      <h5 data-dc-tpl="196" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Company</h5>
+      <div data-dc-tpl="197" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="198" href="/about" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">About</a>
+        <a data-dc-tpl="199" href="/" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">Home</a>
+        <a data-dc-tpl="200" href="#top" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">Contact</a>
+      </div>
+    </div>
+    <div data-dc-tpl="201">
+      <h5 data-dc-tpl="202" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Contact</h5>
+      <div data-dc-tpl="203" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="204" href="tel:+919404030215" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">+91 94040 30215</a>
+        <a data-dc-tpl="205" href="mailto:mordetechsolutions@zohomail.in" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">mordetechsolutions@zohomail.in</a>
+      </div>
+    </div>
+  </div>
+  <div data-dc-tpl="206" style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 20px 60px;">
+    <div data-dc-tpl="207" style="max-width: 1200px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <p data-dc-tpl="208" style="color: rgb(74, 106, 138); font-size: 0.84rem; margin: 0px;">© 2025 MordeTech Solutions Pvt. Ltd. — Priyanka Morde, Founder &amp; Director</p>
+      <div data-dc-tpl="209" style="display: flex; align-items: center; gap: 8px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgba(74, 106, 138, 0.7); letter-spacing: 0.06em;">
+        <span data-dc-tpl="210" style="width: 6px; height: 6px; border-radius: 50%; background: rgb(0, 255, 136); animation: 1.4s ease 0s infinite normal none running blink;"></span>All systems operational
+      </div>
+    </div>
+  </div></footer></div></div>
 </div>
+
 <x-dc>
 <helmet>
 <style>
@@ -436,6 +630,10 @@
 // JSON directly and reports real success or failure.
 //
 //   const CONTACT_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+//
+// You already have a Formspree account: careers.html posts to form id
+// 'xlgoyvzn'. Create a SECOND form there for sales enquiries (so job
+// applications and leads stay separate) and paste its id above.
 // ---------------------------------------------------------------------------
 const CONTACT_ENDPOINT = '';
 const CONTACT_EMAIL = 'mordetechsolutions@zohomail.in';
