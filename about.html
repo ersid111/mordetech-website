@@ -52,7 +52,11 @@
 
   function hideSnapshot() {
     var p = document.getElementById('dc-prerender');
-    if (p) p.setAttribute('hidden', '');
+    // Remove rather than hide: the snapshot duplicates every id in the page, and
+    // a hidden duplicate still wins getElementById and :target, which breaks
+    // in-page anchors (#industries, #roi-calc) and any script that looks an
+    // element up by id. Once the live runtime has mounted it serves no purpose.
+    if (p && p.parentNode) p.parentNode.removeChild(p);
   }
   if (document.getElementById('dc-root')) { hideSnapshot(); return; }
 

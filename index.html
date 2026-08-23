@@ -52,7 +52,11 @@
 
   function hideSnapshot() {
     var p = document.getElementById('dc-prerender');
-    if (p) p.setAttribute('hidden', '');
+    // Remove rather than hide: the snapshot duplicates every id in the page, and
+    // a hidden duplicate still wins getElementById and :target, which breaks
+    // in-page anchors (#industries, #roi-calc) and any script that looks an
+    // element up by id. Once the live runtime has mounted it serves no purpose.
+    if (p && p.parentNode) p.parentNode.removeChild(p);
   }
   if (document.getElementById('dc-root')) { hideSnapshot(); return; }
 
@@ -78,10 +82,10 @@
     <span data-dc-tpl="6" style="font-weight: 800; font-size: 1.22rem; letter-spacing: -0.02em; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;">Morde<span data-dc-tpl="7" style="-webkit-text-fill-color: rgb(123, 47, 255);">Tech</span></span>
   </a>
   <div data-dc-tpl="8" style="display: flex; align-items: center; gap: 30px;">
-    <a data-dc-tpl="9" href="/" aria-current="page" style="color: rgb(0, 212, 255); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Home</a>
+    <a data-dc-tpl="9" href="/" aria-current="page" class="scp0" style="color: rgb(0, 212, 255); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Home</a>
     <a data-dc-tpl="10" href="/ai-solutions" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">AI Solutions</a>
     <a data-dc-tpl="11" href="/services" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Services</a>
-    <a data-dc-tpl="12" href="/#industries" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Industries</a>
+    <a data-dc-tpl="12" href="/#industries" aria-current="false" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Industries</a>
     <a data-dc-tpl="13" href="/about" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">About</a>
     <a data-dc-tpl="14" href="/contact" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Contact</a>
   </div>
@@ -484,7 +488,7 @@
       <div data-dc-tpl="373" style="display: flex; flex-direction: column; gap: 12px;">
         <div data-dc-tpl="374" style="border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 22px;">
           <div data-dc-tpl="375" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.1em; text-transform: uppercase;">Specific energy</div>
-          <div data-dc-tpl="376" style="font-weight: 800; font-size: 2rem; margin-top: 6px; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;"><span class="sc-interp">42.7</span> <span data-dc-tpl="377" style="font-size: 0.9rem; -webkit-text-fill-color: rgb(74, 106, 138); font-family: &quot;JetBrains Mono&quot;, monospace;">kWh / tonne</span></div>
+          <div data-dc-tpl="376" style="font-weight: 800; font-size: 2rem; margin-top: 6px; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;"><span class="sc-interp">41.7</span> <span data-dc-tpl="377" style="font-size: 0.9rem; -webkit-text-fill-color: rgb(74, 106, 138); font-family: &quot;JetBrains Mono&quot;, monospace;">kWh / tonne</span></div>
         </div>
         <div data-dc-tpl="378" style="border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 22px;">
           <div data-dc-tpl="379" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.1em; text-transform: uppercase;">Idle-load recovered</div>
@@ -901,10 +905,10 @@
     <span style="font-weight:800;font-size:1.22rem;letter-spacing:-.02em;background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Morde<span style="-webkit-text-fill-color:#7b2fff">Tech</span></span>
   </a>
   <div style="display:flex;align-items:center;gap:30px">
-    <a href="/" aria-current="page" style="color:#00d4ff;font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Home</a>
+    <a href="/" aria-current="{{ navHomeAria }}" style="color:{{ navHomeColor }};font-weight:{{ navHomeWeight }};font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Home</a>
     <a href="/ai-solutions" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">AI Solutions</a>
     <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
-    <a href="/#industries" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
+    <a href="/#industries" aria-current="{{ navIndAria }}" style="color:{{ navIndColor }};font-weight:{{ navIndWeight }};font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
     <a href="/about" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">About</a>
     <a href="/contact" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Contact</a>
   </div>
@@ -1675,17 +1679,40 @@ const INDUSTRIES = [
 ];
 
 class Component extends DCLogic {
-  state = { rupees: 0, typed: '', wi: 0, del: false, ind: 0, kwh: 41.6 };
+  state = { rupees: 0, typed: '', wi: 0, del: false, ind: 0, kwh: 41.6, atIndustries: false };
 
   componentDidMount() {
     this.t0 = Date.now();
     this.loss = setInterval(() => this.setState({ rupees: Math.floor((Date.now() - this.t0) / 200) }), 250);
     this.energy = setInterval(() => this.setState({ kwh: 40.2 + Math.random() * 2.6 }), 2200);
     this.tick();
+    this.watchIndustries();
   }
   componentWillUnmount() {
     clearInterval(this.loss); clearInterval(this.energy); clearTimeout(this.type);
+    if (this.io) this.io.disconnect();
   }
+
+  // Industries is a section on this page rather than a page of its own, so the
+  // nav item tracks visibility to show where the reader actually is.
+  // IntersectionObserver rather than a scroll listener: the runtime sets
+  // html,body{height:100%} and #dc-root{height:100%}, so the page scrolls
+  // inside #dc-root and window scroll events never fire.
+  watchIndustries() {
+    const el = document.getElementById('industries');
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    this.io = new IntersectionObserver(
+      ([entry]) => {
+        const on = entry.isIntersecting;
+        if (on !== this.state.atIndustries) this.setState({ atIndustries: on });
+      },
+      // Band running from just below the sticky header to mid-viewport, so the
+      // item lights up while the section is the one being read.
+      { rootMargin: '-120px 0px -50% 0px', threshold: 0 }
+    );
+    this.io.observe(el);
+  }
+
   tick() {
     const { typed, wi, del } = this.state;
     const word = WORDS[wi];
@@ -1706,7 +1733,15 @@ class Component extends DCLogic {
     const ind = INDUSTRIES[i];
     const pick = (n) => () => this.setState({ ind: n });
     const bg = (n) => (n === i ? 'rgba(0,212,255,.14)' : 'rgba(255,255,255,.03)');
+    const atInd = !!this.state.atIndustries;
     return {
+      navHomeColor:  atInd ? '#4a6a8a' : '#00d4ff',
+      navHomeWeight: atInd ? '500' : '600',
+      navHomeAria:   atInd ? 'false' : 'page',
+      navIndColor:   atInd ? '#00d4ff' : '#4a6a8a',
+      navIndWeight:  atInd ? '600' : '500',
+      // "location" is the correct ARIA value for the current section of a page.
+      navIndAria:    atInd ? 'location' : 'false',
       motionState: this.props.pauseMotion ? 'off' : 'on',
       showLoss: this.props.showLossCounter !== false,
       lossText: this.state.rupees.toLocaleString('en-IN'),
