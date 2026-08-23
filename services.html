@@ -7,6 +7,8 @@
 <link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Anchor targets clear the 73px sticky header when jumped to. */
+[id] { scroll-margin-top: 88px; }
 /* Self-hosted so rendering never depends on a third-party font host. Google Fonts
    was render-blocking: with fonts.googleapis.com unreachable, first contentful
    paint went from 284ms to 12,808ms. Industrial networks filter egress. */
@@ -57,6 +59,26 @@
     // in-page anchors (#industries, #roi-calc) and any script that looks an
     // element up by id. Once the live runtime has mounted it serves no purpose.
     if (p && p.parentNode) p.parentNode.removeChild(p);
+    applyHash();
+  }
+
+  // The browser resolves the URL fragment against the prerendered snapshot,
+  // which is then replaced by the live render — leaving the reader at the top
+  // of the page. Re-apply it once the real content exists.
+  //
+  // #dc-root is inserted empty and React fills it a moment later, so the target
+  // is not there on the first frame. Poll briefly rather than guess a delay.
+  function applyHash() {
+    var h = window.location.hash;
+    if (!h || h.length < 2) return;
+    var id;
+    try { id = decodeURIComponent(h.slice(1)); } catch (e) { id = h.slice(1); }
+    var tries = 0;
+    (function seek() {
+      var el = document.getElementById(id);
+      if (el) { el.scrollIntoView(); return; }
+      if (++tries < 60) setTimeout(seek, 50);   // give up after ~3s
+    })();
   }
   if (document.getElementById('dc-root')) { hideSnapshot(); return; }
 
