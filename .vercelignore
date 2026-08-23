@@ -1,0 +1,29 @@
+# vercel.json sets outputDirectory to ".", so every file in the repo is served
+# at a public URL unless it is listed here. None of the entries below are
+# referenced by any page (verified: 0 references from HTML, CSS or JS).
+
+# Stale Next.js export. Still contained the old mordetech-solutions.in canonical
+# tags, so search engines could index it as a duplicate of the real site.
+out/
+
+# Next.js sources, unused since the site reverted to static HTML.
+app/
+components/
+lib/
+public/
+next.config.mjs
+postcss.config.js
+tailwind.config.js
+.eslintrc.json
+package.json
+package-lock.json
+
+# Build tooling — runs locally, never needs to be reachable over HTTP.
+tools/
+node_modules/
+
+# Unused originals kept in the repo: about.html now loads the .jpg versions,
+# which are 78% smaller.
+images/team-priyanka.png
+images/team-amrut.png
+images/og-preview.svg
