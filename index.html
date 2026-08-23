@@ -40,6 +40,12 @@
   // crawlers, no-JS visitors and the first paint all get real content instead
   // of an empty body. Hide the raw <x-dc> template immediately, then swap the
   // snapshot out the moment the live runtime mounts #dc-root.
+  // The runtime re-fetches this page and re-parses its template unless
+  // __resources is set (see boot() in support.js). Without this, the
+  // prerendered snapshot below gets absorbed into the template and duplicated
+  // into #dc-root, compounding on every prerender run.
+  window.__resources = window.__resources || {};
+
   var s = document.createElement('style');
   s.textContent = 'x-dc{display:none!important}';
   document.documentElement.appendChild(s);
@@ -477,7 +483,7 @@
       <div data-dc-tpl="372" style="display: flex; flex-direction: column; gap: 12px;">
         <div data-dc-tpl="373" style="border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 22px;">
           <div data-dc-tpl="374" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.1em; text-transform: uppercase;">Specific energy</div>
-          <div data-dc-tpl="375" style="font-weight: 800; font-size: 2rem; margin-top: 6px; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;"><span class="sc-interp">42.4</span> <span data-dc-tpl="376" style="font-size: 0.9rem; -webkit-text-fill-color: rgb(74, 106, 138); font-family: &quot;JetBrains Mono&quot;, monospace;">kWh / tonne</span></div>
+          <div data-dc-tpl="375" style="font-weight: 800; font-size: 2rem; margin-top: 6px; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;"><span class="sc-interp">41.8</span> <span data-dc-tpl="376" style="font-size: 0.9rem; -webkit-text-fill-color: rgb(74, 106, 138); font-family: &quot;JetBrains Mono&quot;, monospace;">kWh / tonne</span></div>
         </div>
         <div data-dc-tpl="377" style="border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 22px;">
           <div data-dc-tpl="378" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.1em; text-transform: uppercase;">Idle-load recovered</div>
@@ -785,7 +791,7 @@
       </div>
     </div>
   </div></footer></div></div>
-</div>
+<!--/dc-prerender--></div>
 
 <x-dc>
 <helmet>

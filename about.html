@@ -40,6 +40,12 @@
   // crawlers, no-JS visitors and the first paint all get real content instead
   // of an empty body. Hide the raw <x-dc> template immediately, then swap the
   // snapshot out the moment the live runtime mounts #dc-root.
+  // The runtime re-fetches this page and re-parses its template unless
+  // __resources is set (see boot() in support.js). Without this, the
+  // prerendered snapshot below gets absorbed into the template and duplicated
+  // into #dc-root, compounding on every prerender run.
+  window.__resources = window.__resources || {};
+
   var s = document.createElement('style');
   s.textContent = 'x-dc{display:none!important}';
   document.documentElement.appendChild(s);
@@ -378,7 +384,7 @@
       </div>
     </div>
   </div></footer></div></div>
-</div>
+<!--/dc-prerender--></div>
 
 <x-dc>
 <helmet>
