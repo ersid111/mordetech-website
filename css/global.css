@@ -397,3 +397,13 @@ footer { border-top:1px solid var(--border); padding:60px 60px 40px; position:re
 }
 #wa-float svg { display: block; }
 @media(max-width:640px) { #wa-float { bottom: 20px; right: 18px; width: 50px; height: 50px; } }
+
+
+/* Readability floor on small screens. These utility labels render at 9.3-11.5px,
+   below the ~12px minimum comfortable reading size on a phone. Measured on
+   case-studies, support and demo at a 390px viewport. */
+@media (max-width: 640px) {
+  .cs-list-tag-chip, .cs-list-tag, .cov-tag,
+  .panel-title, .vi-part, .vi-conf { font-size: 12px !important; }
+  .m-stat, .kpi-label, .vi-badge { font-size: 11.5px !important; }
+}

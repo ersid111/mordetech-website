@@ -3,6 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MordeTech Solutions","url":"https://mordetech.com","logo":"https://mordetech.com/images/logo.svg","description":"Industrial automation and Industry 4.0 engineering: PLC and SCADA systems, AI vision inspection, predictive maintenance and IIoT platforms for manufacturing plants.","foundingDate":"2012","founder":{"@type":"Person","name":"Priyanka Morde","jobTitle":"Founder & Director"},"address":{"@type":"PostalAddress","streetAddress":"Hinjewadi Phase 2","addressLocality":"Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"contactPoint":[{"@type":"ContactPoint","telephone":"+91-94040-30215","email":"mordetechsolutions@zohomail.in","contactType":"sales","areaServed":"IN","availableLanguage":["en","hi","mr"]}],"knowsAbout":["PLC programming","SCADA","HMI development","Machine vision","Predictive maintenance","Industrial IoT","OEE","Industry 4.0"]}</script>
+<link rel="preload" href="/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Self-hosted so rendering never depends on a third-party font host. Google Fonts
+   was render-blocking: with fonts.googleapis.com unreachable, first contentful
+   paint went from 284ms to 12,808ms. Industrial networks filter egress. */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-400.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-500.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-600.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-700.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/dm-sans-800.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:900;font-display:swap;src:url('/fonts/dm-sans-900.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/jetbrains-mono-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/jetbrains-mono-500.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/jetbrains-mono-600.woff2') format('woff2')}
+</style>
 <title>About MordeTech Solutions — Industrial Automation Engineers | Pune</title>
 <meta name="description" content="13+ years building automation and Industry 4.0 systems for Indian manufacturing. Meet the engineers behind MordeTech Solutions.">
 <link rel="canonical" href="https://mordetech.com/about">
@@ -11,25 +28,41 @@
 <meta property="og:title" content="About MordeTech Solutions — Industrial Automation Engineers | Pune">
 <meta property="og:description" content="13+ years building automation and Industry 4.0 systems for Indian manufacturing. Meet the engineers behind MordeTech Solutions.">
 <meta property="og:url" content="https://mordetech.com/about">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mordetech.com/images/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MordeTech Solutions — where PLC meets AI">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>
 (function () {
-  var el = document.documentElement;
+  // The page ships a prerendered snapshot of itself (#dc-prerender) so that
+  // crawlers, no-JS visitors and the first paint all get real content instead
+  // of an empty body. Hide the raw <x-dc> template immediately, then swap the
+  // snapshot out the moment the live runtime mounts #dc-root.
+  // The runtime re-fetches this page and re-parses its template unless
+  // __resources is set (see boot() in support.js). Without this, the
+  // prerendered snapshot below gets absorbed into the template and duplicated
+  // into #dc-root, compounding on every prerender run.
+  window.__resources = window.__resources || {};
+
   var s = document.createElement('style');
-  s.textContent = 'x-dc{display:none!important}#dc-fallback{display:none}';
-  el.appendChild(s);
-  // window.__dcRegistry is assigned only once the runtime's init() has run,
-  // which requires React to have loaded successfully.
-  function booted() { return !!window.__dcRegistry; }
-  // Show the fallback if the runtime has not come up in time...
-  setTimeout(function () { if (!booted()) el.className += ' dc-failed'; }, 8000);
-  // ...but withdraw it if a slow connection finishes booting afterwards, so the
-  // fallback can never sit on top of a page that did eventually render.
-  var poll = setInterval(function () {
-    if (booted()) { el.className = el.className.replace(/\s*\bdc-failed\b/g, ''); clearInterval(poll); }
-  }, 500);
-  setTimeout(function () { clearInterval(poll); }, 60000);
+  s.textContent = 'x-dc{display:none!important}';
+  document.documentElement.appendChild(s);
+
+  function hideSnapshot() {
+    var p = document.getElementById('dc-prerender');
+    if (p) p.setAttribute('hidden', '');
+  }
+  if (document.getElementById('dc-root')) { hideSnapshot(); return; }
+
+  var mo = new MutationObserver(function () {
+    if (document.getElementById('dc-root')) { hideSnapshot(); mo.disconnect(); }
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+  // Stop observing eventually; if the runtime never boots the snapshot simply
+  // stays visible, which is the correct outcome.
+  setTimeout(function () { mo.disconnect(); }, 30000);
 })();
 </script>
 <script src="/vendor/react-18.3.1.production.min.js"></script>
@@ -37,56 +70,324 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<style>
-  html.dc-failed #dc-fallback { display: block !important; }
-  #dc-fallback { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #e8f4ff;
-    background: #020408; min-height: 100vh; margin: 0; padding: 40px 20px; line-height: 1.65; }
-  #dc-fallback .w { max-width: 720px; margin: 0 auto; }
-  #dc-fallback h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -.02em; }
-  #dc-fallback h2 { font-size: 1rem; margin: 32px 0 10px; color: #00d4ff; letter-spacing: .04em;
-    text-transform: uppercase; }
-  #dc-fallback p, #dc-fallback li { color: #a0bdd0; font-size: 1rem; }
-  #dc-fallback a { color: #00d4ff; }
-  #dc-fallback .brand { font-weight: 800; font-size: 1.25rem; color: #00d4ff; margin-bottom: 22px; }
-  #dc-fallback nav a { display: inline-block; margin: 0 14px 8px 0; }
-  #dc-fallback .card { border: 1px solid rgba(255,255,255,.1); border-radius: 12px;
-    padding: 18px 20px; margin-top: 18px; background: rgba(255,255,255,.02); }
-  #dc-fallback .cta { display: inline-block; margin-top: 8px; padding: 12px 20px; border-radius: 10px;
-    background: #25D366; color: #04140a; font-weight: 700; text-decoration: none; }
-</style>
-<noscript><style>x-dc{display:none!important}#dc-fallback{display:block!important}</style></noscript>
-<div id="dc-fallback">
-  <div class="w">
-    <div class="brand">MordeTech Solutions</div>
-    <h1>About MordeTech Solutions</h1>
-    <p>13+ years building automation and Industry 4.0 systems for Indian manufacturing.</p>
-    <h2>Navigate</h2>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/ai-solutions">AI Solutions</a>
-      <a href="/services">Services</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    <div class="card">
-      <h2 style="margin-top:0">Contact us</h2>
-      <p>
-        <strong>WhatsApp / Phone:</strong> <a href="tel:+919404030215">+91 94040 30215</a><br>
-        <strong>Email:</strong> <a href="mailto:mordetechsolutions@zohomail.in">mordetechsolutions@zohomail.in</a><br>
-        <strong>Office:</strong> Hinjewadi Phase 2, Pune, Maharashtra, India
-      </p>
-      <a class="cta" href="https://wa.me/919404030215">Message us on WhatsApp</a>
-    </div>
-    <p style="margin-top:26px;font-size:.85rem;color:#4a6a8a">
-      The full interactive version of this page needs JavaScript. The details above are always available.
-    </p>
+<noscript><style>x-dc{display:none!important}</style></noscript>
+<div id="dc-prerender">
+<div class="sc-host" data-sc-name="about"><div data-dc-tpl="2" style="background: rgb(2, 4, 8); color: rgb(232, 244, 255); font-family: &quot;DM Sans&quot;, system-ui, sans-serif;"><nav data-dc-tpl="3" style="position: sticky; top: 0px; z-index: 500; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 60px; background: rgba(2, 4, 8, 0.82); backdrop-filter: blur(22px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+  <a data-dc-tpl="4" href="/" style="display: flex; align-items: center; gap: 10px;">
+    <img data-dc-tpl="5" src="images/logo.svg" alt="MordeTech" width="32" height="32" style="display: block;">
+    <span data-dc-tpl="6" style="font-weight: 800; font-size: 1.22rem; letter-spacing: -0.02em; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;">Morde<span data-dc-tpl="7" style="-webkit-text-fill-color: rgb(123, 47, 255);">Tech</span></span>
+  </a>
+  <div data-dc-tpl="8" style="display: flex; align-items: center; gap: 30px;">
+    <a data-dc-tpl="9" href="/" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Home</a>
+    <a data-dc-tpl="10" href="/ai-solutions" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">AI Solutions</a>
+    <a data-dc-tpl="11" href="/services" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Services</a>
+        <a data-dc-tpl="12" href="/#industries" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Industries</a>
+    <a data-dc-tpl="13" href="#top" style="color: rgb(0, 212, 255); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">About</a>
+    <a data-dc-tpl="14" href="/contact" class="scp0" style="color: rgb(74, 106, 138); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;">Contact</a>
   </div>
-</div>
+  <a data-dc-tpl="15" href="https://wa.me/919404030215?text=Hi%2C%20I%20would%20like%20to%20connect%20with%20MordeTech." target="_blank" rel="noopener noreferrer" class="scp1" style="display: inline-flex; align-items: center; gap: 9px; padding: 11px 20px; border-radius: 10px; background: rgb(37, 211, 102); color: rgb(4, 20, 10); font-weight: 700; font-size: 0.86rem; white-space: nowrap;">
+    <svg data-dc-tpl="16" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path data-dc-tpl="17" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+    WhatsApp Us
+  </a></nav><section data-dc-tpl="18" id="top" style="position: relative; padding: 100px 60px 70px; overflow: hidden; background-image: linear-gradient(to right, rgba(0, 130, 220, 0.043) 1px, transparent 1px), linear-gradient(rgba(0, 130, 220, 0.043) 1px, transparent 1px); background-size: 60px 60px;">
+  <div data-dc-tpl="19" style="position: absolute; inset: 0px; pointer-events: none; background: radial-gradient(60% 60% at 40% 40%, rgba(123, 47, 255, 0.08) 0%, transparent 70%);"></div>
+  <div data-dc-tpl="20" style="position: relative; max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="21" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="22" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="23" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">Our Story</span>
+    </div>
+    <h1 data-dc-tpl="24" style="font-weight: 800; font-size: clamp(2.6rem, 4.6vw, 4.2rem); line-height: 1.02; letter-spacing: -0.04em; margin: 0px 0px 22px;">Built by Engineers,<br data-dc-tpl="25"><span data-dc-tpl="26" style="background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255), rgb(123, 47, 255)) 0% 0% / 200% text; -webkit-text-fill-color: transparent; animation: 4s ease-in-out 0s infinite normal none running gradShift;">For Engineers.</span></h1>
+    <p data-dc-tpl="27" style="color: rgb(160, 189, 208); font-size: 1.06rem; line-height: 1.8; max-width: 620px; margin: 0px;">MordeTech Solutions was born from one engineer's belief that Indian manufacturing deserves world-class automation — accessible, intelligent, and built to last.</p>
+  </div></section><section data-dc-tpl="28" style="padding: 70px 60px 90px;">
+  <div data-dc-tpl="29" style="max-width: 1200px; margin: 0px auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; align-items: center;">
+    <div data-dc-tpl="30" style="position: relative; border-radius: 20px; padding: 44px 36px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.12), rgba(123, 47, 255, 0.08)); border: 1px solid rgba(0, 102, 255, 0.25); text-align: center; overflow: hidden;">
+      <div data-dc-tpl="31" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 2px; background: linear-gradient(90deg, transparent, rgb(0, 212, 255), rgb(123, 47, 255), transparent);"></div>
+      <div data-dc-tpl="32" style="position: relative; width: 120px; height: 120px; border-radius: 50%; margin: 0px auto 20px; overflow: hidden; box-shadow: rgba(0, 212, 255, 0.28) 0px 0px 40px; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(123, 47, 255));">
+        <img data-dc-tpl="33" src="images/team-priyanka.jpg" alt="Founder Priyanka Morde" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div data-dc-tpl="34" style="font-weight: 800; font-size: 1.5rem; margin-bottom: 6px;">Priyanka Morde</div>
+      <div data-dc-tpl="35" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.82rem; color: rgb(0, 212, 255); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Founder &amp; Director</div>
+      <p data-dc-tpl="36" style="color: rgb(160, 189, 208); font-size: 0.99rem; line-height: 1.8; text-align: left; margin: 0px;">An automation engineer with over 13+ years of hands-on experience in Siemens PLC systems, machine vision, and IIoT architectures. Passionate about bringing AI to the factory floor.</p>
+      <div data-dc-tpl="37" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; justify-content: center;">
+        <span data-dc-tpl="38" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(0, 212, 255); border: 1px solid rgba(0, 212, 255, 0.25); border-radius: 100px; padding: 5px 12px;">Siemens-Trained Engineers</span>
+        <span data-dc-tpl="39" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(169, 123, 255); border: 1px solid rgba(123, 47, 255, 0.3); border-radius: 100px; padding: 5px 12px;">AI / ML</span>
+        <span data-dc-tpl="40" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(0, 255, 136); border: 1px solid rgba(0, 255, 136, 0.25); border-radius: 100px; padding: 5px 12px;">IIoT Expert</span>
+      </div>
+    </div>
+    <div data-dc-tpl="41">
+      <h2 data-dc-tpl="42" style="font-weight: 800; font-size: 2.4rem; letter-spacing: -0.03em; margin: 0px 0px 20px;">The Founder's <span data-dc-tpl="43" style="background: linear-gradient(135deg, rgb(0, 212, 255), rgb(123, 47, 255)) text; -webkit-text-fill-color: transparent;">Vision</span></h2>
+      <p data-dc-tpl="44" style="color: rgb(160, 189, 208); font-size: 1rem; line-height: 1.9; margin: 0px 0px 18px;">Priyanka Morde started MordeTech Solutions in 2012 with a simple but powerful mission: to make world-class industrial automation accessible to Indian manufacturers — not just the large corporations, but the mid-size factories that form the backbone of India's industrial economy.</p>
+      <p data-dc-tpl="45" style="color: rgb(160, 189, 208); font-size: 1rem; line-height: 1.9; margin: 0px 0px 18px;">Having worked on the shop floor as a controls engineer, Priyanka understood firsthand the gap between what automation technology could deliver and what most manufacturers were actually experiencing. She saw PLCs programmed in the 1990s still running critical production lines. She saw operators making decisions without real data. She saw AI and machine vision as distant aspirations rather than practical tools.</p>
+      <blockquote data-dc-tpl="46" style="border-left: 2px solid rgb(0, 212, 255); padding: 16px 24px; margin: 28px 0px; background: rgba(0, 212, 255, 0.04); border-radius: 0px 12px 12px 0px; font-style: italic; font-size: 1rem; color: rgb(232, 244, 255); line-height: 1.7;">
+        "Every factory deserves a brain. Our job is to give it one — intelligently, reliably, and affordably."<br data-dc-tpl="47">
+        <strong data-dc-tpl="48" style="font-style: normal; font-size: 0.88rem; color: rgb(0, 212, 255);">— Priyanka Morde, Founder &amp; Director</strong>
+      </blockquote>
+      <p data-dc-tpl="49" style="color: rgb(160, 189, 208); font-size: 1rem; line-height: 1.9; margin: 0px;">Today, MordeTech Solutions operates across automotive, manufacturing, energy, and smart factory sectors — having delivered 150+ projects across India and internationally. The mission remains the same: engineer intelligence into every factory.</p>
+      <div data-dc-tpl="50" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
+        <a data-dc-tpl="51" href="https://wa.me/919404030215?text=Hi%20Priyanka%2C%20I%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="scp1" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 24px; border-radius: 11px; background: rgb(37, 211, 102); color: rgb(4, 20, 10); font-weight: 800; font-size: 0.95rem;">Connect with Priyanka</a>
+        <a data-dc-tpl="52" href="/contact" class="scp2" style="padding: 14px 24px; border-radius: 11px; border: 1px solid rgba(255, 255, 255, 0.12); color: rgb(160, 189, 208); font-weight: 600; font-size: 0.95rem;">Join the Team</a>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="53" style="padding: 0px 60px 100px;">
+  <div data-dc-tpl="54" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="55" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="56" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="57" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">What Drives Us</span>
+    </div>
+    <h2 data-dc-tpl="58" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 52px;">Vision, Mission &amp; Values</h2>
+    <div data-dc-tpl="59" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div data-dc-tpl="60" style="padding: 40px 34px; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.12), rgba(0, 212, 255, 0.05)); border: 1px solid rgba(0, 102, 255, 0.22);">
+        <div data-dc-tpl="61" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px;">01</div>
+        <h3 data-dc-tpl="62" style="font-weight: 800; font-size: 1.2rem; margin: 0px 0px 12px;">Our Vision</h3>
+        <p data-dc-tpl="63" style="color: rgb(160, 189, 208); font-size: 0.99rem; line-height: 1.8; margin: 0px;">To be India's most trusted industrial automation partner — known for engineering excellence, innovation in AI, and creating smarter factories that compete globally.</p>
+      </div>
+      <div data-dc-tpl="64" style="padding: 40px 34px; border-radius: 20px; background: linear-gradient(135deg, rgba(123, 47, 255, 0.12), rgba(0, 212, 255, 0.04)); border: 1px solid rgba(123, 47, 255, 0.22);">
+        <div data-dc-tpl="65" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px;">02</div>
+        <h3 data-dc-tpl="66" style="font-weight: 800; font-size: 1.2rem; margin: 0px 0px 12px;">Our Mission</h3>
+        <p data-dc-tpl="67" style="color: rgb(160, 189, 208); font-size: 0.99rem; line-height: 1.8; margin: 0px;">Enable manufacturers worldwide to achieve zero-defect, zero-downtime production through cutting-edge Siemens automation, AI vision, and IIoT systems — making Industry 4.0 real, not theoretical.</p>
+      </div>
+      <div data-dc-tpl="68" style="padding: 40px 34px; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 102, 255, 0.05)); border: 1px solid rgba(0, 212, 255, 0.18);">
+        <div data-dc-tpl="69" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px;">03</div>
+        <h3 data-dc-tpl="70" style="font-weight: 800; font-size: 1.2rem; margin: 0px 0px 12px;">Our Promise</h3>
+        <p data-dc-tpl="71" style="color: rgb(160, 189, 208); font-size: 0.99rem; line-height: 1.8; margin: 0px;">We don't disappear after go-live. Every MordeTech project comes with a long-term partnership commitment — continuous improvement, training, and 24/7 support.</p>
+      </div>
+      <div data-dc-tpl="72" style="padding: 40px 34px; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 102, 255, 0.07)); border: 1px solid rgba(0, 255, 136, 0.15);">
+        <div data-dc-tpl="73" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(74, 106, 138); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px;">04</div>
+        <h3 data-dc-tpl="74" style="font-weight: 800; font-size: 1.2rem; margin: 0px 0px 12px;">Our Impact</h3>
+        <p data-dc-tpl="75" style="color: rgb(160, 189, 208); font-size: 0.99rem; line-height: 1.8; margin: 0px;">Beyond efficiency gains, we help factories reduce energy consumption, eliminate waste, and build sustainable operations for the next generation of manufacturing.</p>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="76" style="position: relative; padding: 0px 60px 100px;">
+  <div data-dc-tpl="77" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="78" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="79" style="width: 26px; height: 1px; background: rgb(123, 47, 255);"></span>
+      <span data-dc-tpl="80" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(169, 123, 255);">Our Journey</span>
+    </div>
+    <h2 data-dc-tpl="81" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 56px;">12 Years of Engineering Excellence</h2>
+    <div data-dc-tpl="82" style="position: relative; display: flex; flex-direction: column; gap: 40px;">
+      <div data-dc-tpl="83" style="position: absolute; left: 50%; top: 0px; bottom: 0px; width: 1px; background: linear-gradient(rgb(0, 212, 255), rgb(123, 47, 255), transparent); transform: translateX(-50%);"></div>
+
+      <div data-dc-tpl="84" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="85" style="text-align: right; padding-right: 36px;">
+          <div data-dc-tpl="86" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2012</div>
+          <h4 data-dc-tpl="87" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">Founded in Pune</h4>
+          <p data-dc-tpl="88" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Priyanka Morde established MordeTech as a 3-person PLC consultancy focused on Siemens S7 systems for Pune's manufacturing belt.</p>
+        </div>
+        <div data-dc-tpl="89" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="90" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 0s infinite normal none running tlDot;">2012</div>
+        </div>
+        <div data-dc-tpl="91"></div>
+      </div>
+
+      <div data-dc-tpl="92" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="93"></div>
+        <div data-dc-tpl="94" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="95" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 1.5s infinite normal none running tlDot;">2014</div>
+        </div>
+        <div data-dc-tpl="96" style="padding-left: 36px;">
+          <div data-dc-tpl="97" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2014</div>
+          <h4 data-dc-tpl="98" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">First Enterprise Contract</h4>
+          <p data-dc-tpl="99" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Landed our first Tier-1 automotive supplier contract — a complete body shop automation retrofit with 24 Siemens PLCs.</p>
+        </div>
+      </div>
+
+      <div data-dc-tpl="100" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="101" style="text-align: right; padding-right: 36px;">
+          <div data-dc-tpl="102" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2016</div>
+          <h4 data-dc-tpl="103" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">SCADA Division Launched</h4>
+          <p data-dc-tpl="104" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Expanded into SCADA and HMI development with WinCC and Ignition. Team grew to 15 engineers.</p>
+        </div>
+        <div data-dc-tpl="105" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="106" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 3s infinite normal none running tlDot;">2016</div>
+        </div>
+        <div data-dc-tpl="107"></div>
+      </div>
+
+      <div data-dc-tpl="108" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="109"></div>
+        <div data-dc-tpl="110" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="111" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 4.5s infinite normal none running tlDot;">2019</div>
+        </div>
+        <div data-dc-tpl="112" style="padding-left: 36px;">
+          <div data-dc-tpl="113" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2019</div>
+          <h4 data-dc-tpl="114" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">AI &amp; Vision R&amp;D Lab</h4>
+          <p data-dc-tpl="115" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Established dedicated AI and machine vision lab in Pune. Filed first patent on adaptive defect detection algorithm.</p>
+        </div>
+      </div>
+
+      <div data-dc-tpl="116" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="117" style="text-align: right; padding-right: 36px;">
+          <div data-dc-tpl="118" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2021</div>
+          <h4 data-dc-tpl="119" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">International Expansion</h4>
+          <p data-dc-tpl="120" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">First international project delivered in Germany — IIoT integration for a precision manufacturing company in Bavaria.</p>
+        </div>
+        <div data-dc-tpl="121" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="122" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 6s infinite normal none running tlDot;">2021</div>
+        </div>
+        <div data-dc-tpl="123"></div>
+      </div>
+
+      <div data-dc-tpl="124" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="125"></div>
+        <div data-dc-tpl="126" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="127" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 7.5s infinite normal none running tlDot;">2023</div>
+        </div>
+        <div data-dc-tpl="128" style="padding-left: 36px;">
+          <div data-dc-tpl="129" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2023</div>
+          <h4 data-dc-tpl="130" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">IIoT Platform Release</h4>
+          <p data-dc-tpl="131" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Released MordeTech IIoT Platform v1.0, connecting 1,000+ PLCs globally. Recognised as a top Industry 4.0 solution provider.</p>
+        </div>
+      </div>
+
+      <div data-dc-tpl="132" style="display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start;">
+        <div data-dc-tpl="133" style="text-align: right; padding-right: 36px;">
+          <div data-dc-tpl="134" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.84rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 8px;">2025</div>
+          <h4 data-dc-tpl="135" style="font-weight: 800; font-size: 1.05rem; margin: 0px 0px 8px;">AI Suite &amp; OEE Pro</h4>
+          <p data-dc-tpl="136" style="color: rgb(74, 106, 138); font-size: 0.97rem; line-height: 1.75; margin: 0px;">Launched full AI suite for predictive maintenance, real-time defect detection, and our OEE Pro analytics platform.</p>
+        </div>
+        <div data-dc-tpl="137" style="display: flex; justify-content: center;">
+          <div data-dc-tpl="138" style="width: 48px; height: 48px; border-radius: 50%; background: rgb(6, 13, 24); border: 1px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(74, 106, 138); animation: 10.5s linear 9s infinite normal none running tlDot;">2025</div>
+        </div>
+        <div data-dc-tpl="139"></div>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="140" style="padding: 0px 60px 100px;">
+  <div data-dc-tpl="141" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="142" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="143" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="144" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">What We Stand For</span>
+    </div>
+    <h2 data-dc-tpl="145" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 52px;">Core Values</h2>
+    <div data-dc-tpl="146" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+      <div data-dc-tpl="147" class="scp3" style="padding: 30px 24px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="148" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">01</div>
+        <h4 data-dc-tpl="149" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 8px;">Innovation First</h4>
+        <p data-dc-tpl="150" style="color: rgb(74, 106, 138); font-size: 0.95rem; line-height: 1.7; margin: 0px;">We never stop asking "what if?" — pushing the boundaries of what's possible in industrial automation.</p>
+      </div>
+      <div data-dc-tpl="151" class="scp3" style="padding: 30px 24px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="152" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">02</div>
+        <h4 data-dc-tpl="153" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 8px;">Engineering Precision</h4>
+        <p data-dc-tpl="154" style="color: rgb(74, 106, 138); font-size: 0.95rem; line-height: 1.7; margin: 0px;">Every line of code, every electrical drawing, every system we deliver is held to the highest engineering standard.</p>
+      </div>
+      <div data-dc-tpl="155" class="scp3" style="padding: 30px 24px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="156" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">03</div>
+        <h4 data-dc-tpl="157" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 8px;">Partnership Mindset</h4>
+        <p data-dc-tpl="158" style="color: rgb(74, 106, 138); font-size: 0.95rem; line-height: 1.7; margin: 0px;">We think like your internal engineering team. Your success is our success — we're in it for the long term.</p>
+      </div>
+      <div data-dc-tpl="159" class="scp3" style="padding: 30px 24px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="160" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">04</div>
+        <h4 data-dc-tpl="161" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 8px;">Sustainable Impact</h4>
+        <p data-dc-tpl="162" style="color: rgb(74, 106, 138); font-size: 0.95rem; line-height: 1.7; margin: 0px;">We design systems that not only improve efficiency but also reduce energy consumption and environmental footprint.</p>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="163" style="padding: 0px 60px 100px;">
+  <div data-dc-tpl="164" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="165" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="166" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="167" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">The People</span>
+    </div>
+    <h2 data-dc-tpl="168" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 52px;">Meet the Team</h2>
+    <div data-dc-tpl="169" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div data-dc-tpl="170" class="scp3" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); overflow: hidden; transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="171" style="height: 190px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(123, 47, 255, 0.1)); overflow: hidden;">
+          <img data-dc-tpl="172" src="images/team-priyanka.jpg" alt="Priyanka Morde" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div data-dc-tpl="173" style="padding: 24px;">
+          <h4 data-dc-tpl="174" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 4px;">Priyanka Morde</h4>
+          <div data-dc-tpl="175" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 10px;">FOUNDER &amp; DIRECTOR</div>
+          <p data-dc-tpl="176" style="color: rgb(74, 106, 138); font-size: 0.92rem; line-height: 1.7; margin: 0px;">13+ years in Siemens PLC, AI vision and IIoT. Drives the company's technical vision and client partnerships.</p>
+        </div>
+      </div>
+      <div data-dc-tpl="177" class="scp3" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); overflow: hidden; transition: transform 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="178" style="height: 190px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(123, 47, 255, 0.1)); overflow: hidden;">
+          <img data-dc-tpl="179" src="images/team-amrut.jpg" alt="Amrut Dhappadhule" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div data-dc-tpl="180" style="padding: 24px;">
+          <h4 data-dc-tpl="181" style="font-weight: 800; font-size: 1rem; margin: 0px 0px 4px;">Amrut Dhappadhule</h4>
+          <div data-dc-tpl="182" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.74rem; color: rgb(0, 212, 255); letter-spacing: 0.1em; margin-bottom: 10px;">SOFTWARE DEVELOPMENT LEAD</div>
+          <p data-dc-tpl="183" style="color: rgb(74, 106, 138); font-size: 0.92rem; line-height: 1.7; margin: 0px;">8+ years of experience in software development for industrial automation. Leads the development of custom solutions for our clients.</p>
+        </div>
+      </div>
+      <div data-dc-tpl="184" style="border-radius: 20px; border: 1px dashed rgba(0, 212, 255, 0.25); background: rgba(0, 212, 255, 0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; gap: 14px;">
+        <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(0, 212, 255); letter-spacing: 0.14em; text-transform: uppercase;">We're hiring</div>
+        <p data-dc-tpl="186" style="color: rgb(74, 106, 138); font-size: 0.93rem; line-height: 1.7; margin: 0px;">Controls, vision and IIoT engineers — Pune.</p>
+        <a data-dc-tpl="187" href="https://wa.me/919404030215?text=Hi%2C%20I%20would%20like%20to%20apply%20to%20MordeTech." target="_blank" rel="noopener noreferrer" class="scp4" style="padding: 11px 22px; border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.35); color: rgb(0, 212, 255); font-weight: 600; font-size: 0.9rem;">Join Our Team</a>
+      </div>
+    </div>
+  </div></section><section data-dc-tpl="188" style="padding: 0px 60px 110px;">
+  <div data-dc-tpl="189" style="max-width: 1200px; margin: 0px auto;">
+    <div data-dc-tpl="190" style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+      <span data-dc-tpl="191" style="width: 26px; height: 1px; background: rgb(0, 212, 255);"></span>
+      <span data-dc-tpl="192" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(0, 212, 255);">Credentials &amp; Standards</span>
+    </div>
+    <h2 data-dc-tpl="193" style="font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; margin: 0px 0px 48px;">Why Buyers Trust Us</h2>
+    <div data-dc-tpl="194" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      <div data-dc-tpl="195" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 32px 24px;">
+        <div data-dc-tpl="196" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">01</div>
+        <h4 data-dc-tpl="197" style="font-weight: 700; font-size: 0.95rem; margin: 0px 0px 8px;">Siemens-Trained Engineers</h4>
+        <p data-dc-tpl="198" style="font-size: 0.88rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">TIA Portal &amp; SIMATIC certified engineers on every project.</p>
+      </div>
+      <div data-dc-tpl="199" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 32px 24px;">
+        <div data-dc-tpl="200" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">02</div>
+        <h4 data-dc-tpl="201" style="font-weight: 700; font-size: 0.95rem; margin: 0px 0px 8px;">IATF 16949-Aligned Processes</h4>
+        <p data-dc-tpl="202" style="font-size: 0.88rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">Processes aligned to automotive quality management standards.</p>
+      </div>
+      <div data-dc-tpl="203" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 32px 24px;">
+        <div data-dc-tpl="204" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">03</div>
+        <h4 data-dc-tpl="205" style="font-weight: 700; font-size: 0.95rem; margin: 0px 0px 8px;">NDA &amp; Full IP Transfer</h4>
+        <p data-dc-tpl="206" style="font-size: 0.88rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">Mutual NDA signed before engagement. All code &amp; designs are yours.</p>
+      </div>
+      <div data-dc-tpl="207" style="border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); padding: 32px 24px;">
+        <div data-dc-tpl="208" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.68rem; color: rgb(0, 212, 255); letter-spacing: 0.16em; margin-bottom: 14px;">04</div>
+        <h4 data-dc-tpl="209" style="font-weight: 700; font-size: 0.95rem; margin: 0px 0px 8px;">4-Hour SLA</h4>
+        <p data-dc-tpl="210" style="font-size: 0.88rem; color: rgb(74, 106, 138); line-height: 1.7; margin: 0px;">Critical system issues acknowledged and remotely diagnosed within 4 hours.</p>
+      </div>
+    </div>
+  </div></section><footer data-dc-tpl="211" style="border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgb(2, 4, 8);">
+  <div data-dc-tpl="212" style="max-width: 1200px; margin: 0px auto; padding: 56px 60px; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;">
+    <div data-dc-tpl="213">
+      <div data-dc-tpl="214" style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+        <img data-dc-tpl="215" src="images/logo.svg" alt="MordeTech" width="30" height="30" style="display: block;">
+        <span data-dc-tpl="216" style="font-weight: 800; font-size: 1.18rem; letter-spacing: -0.02em; background: linear-gradient(135deg, rgb(0, 212, 255), rgb(0, 102, 255)) text; -webkit-text-fill-color: transparent;">Morde<span data-dc-tpl="217" style="-webkit-text-fill-color: rgb(123, 47, 255);">Tech</span></span>
+      </div>
+      <p data-dc-tpl="218" style="color: rgb(74, 106, 138); font-size: 0.92rem; line-height: 1.7; max-width: 260px; margin: 0px;">Engineering Intelligent Automation for the world's best manufacturers.</p>
+    </div>
+    <div data-dc-tpl="219">
+      <h5 data-dc-tpl="220" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Services</h5>
+      <div data-dc-tpl="221" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="222" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">PLC Programming</a>
+        <a data-dc-tpl="223" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">SCADA / HMI</a>
+        <a data-dc-tpl="224" href="/ai-solutions" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">AI Vision</a>
+        <a data-dc-tpl="225" href="/services" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">IIoT</a>
+      </div>
+    </div>
+    <div data-dc-tpl="226">
+      <h5 data-dc-tpl="227" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Company</h5>
+      <div data-dc-tpl="228" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="229" href="#top" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">About</a>
+        <a data-dc-tpl="230" href="/" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">Home</a>
+        <a data-dc-tpl="231" href="/contact" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">Contact</a>
+      </div>
+    </div>
+    <div data-dc-tpl="232">
+      <h5 data-dc-tpl="233" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgb(74, 106, 138); text-transform: uppercase; letter-spacing: 0.15em; margin: 0px 0px 18px;">Contact</h5>
+      <div data-dc-tpl="234" style="display: flex; flex-direction: column; gap: 12px;">
+        <a data-dc-tpl="235" href="tel:+919404030215" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">+91 94040 30215</a>
+        <a data-dc-tpl="236" href="mailto:mordetechsolutions@zohomail.in" class="scp0" style="color: rgb(160, 189, 208); font-size: 0.9rem;">mordetechsolutions@zohomail.in</a>
+      </div>
+    </div>
+  </div>
+  <div data-dc-tpl="237" style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 20px 60px;">
+    <div data-dc-tpl="238" style="max-width: 1200px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+      <p data-dc-tpl="239" style="color: rgb(74, 106, 138); font-size: 0.84rem; margin: 0px;">© 2025 MordeTech Solutions Pvt. Ltd. — Priyanka Morde, Founder &amp; Director</p>
+      <div data-dc-tpl="240" style="display: flex; align-items: center; gap: 8px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 0.72rem; color: rgba(74, 106, 138, 0.7); letter-spacing: 0.06em;">
+        <span data-dc-tpl="241" style="width: 6px; height: 6px; border-radius: 50%; background: rgb(0, 255, 136); animation: 1.4s ease 0s infinite normal none running blink;"></span>All systems operational
+      </div>
+    </div>
+  </div></footer></div></div>
+<!--/dc-prerender--></div>
+
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { margin: 0; background: #020408; color: #e8f4ff; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
@@ -125,11 +426,12 @@
 
   @media (max-width: 900px) {
     nav { flex-wrap: wrap !important; gap: 12px !important; }
-    /* Keep each label on one line and give it a finger-sized hit area (15px -> ~41px). */
-    nav > div a { white-space: nowrap; padding: 13px 0; }
-    footer a { display: inline-block; padding: 9px 0; }
+    /* Keep each label on one line and meet the 44px minimum hit area
+       (Apple HIG 44pt, Material 48dp): 15px text + 15px padding = 45px. */
+    nav > div a { white-space: nowrap; padding: 15px 0; }
+    footer a { display: inline-block; padding: 11px 0; }
     /* Phone and email are the primary conversion path; make them easy to hit. */
-    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 8px 0; }
+    a[href^="tel:"], a[href^="mailto:"] { display: inline-block; padding: 12px 0; }
     /* Links drop to their own scrollable row beneath the logo and the CTA. */
     nav > div { order: 3; width: 100%; overflow-x: auto; gap: 20px !important;
                 scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -168,6 +470,7 @@
     <a href="/" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Home</a>
     <a href="/ai-solutions" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">AI Solutions</a>
     <a href="/services" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Services</a>
+        <a href="/#industries" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Industries</a>
     <a href="#top" style="color:#00d4ff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">About</a>
     <a href="/contact" style="color:#4a6a8a;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase" style-hover="color:#00d4ff">Contact</a>
   </div>
@@ -194,13 +497,13 @@
     <div style="position:relative;border-radius:20px;padding:44px 36px;background:linear-gradient(135deg,rgba(0,102,255,.12),rgba(123,47,255,.08));border:1px solid rgba(0,102,255,.25);text-align:center;overflow:hidden">
       <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00d4ff,#7b2fff,transparent)"></div>
       <div style="position:relative;width:120px;height:120px;border-radius:50%;margin:0 auto 20px;overflow:hidden;box-shadow:0 0 40px rgba(0,212,255,.28);background:linear-gradient(135deg,#00d4ff,#7b2fff)">
-        <img src="images/team-priyanka.png" alt="Founder Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img src="images/team-priyanka.jpg" alt="Founder Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
       <div style="font-weight:800;font-size:1.5rem;margin-bottom:6px">Priyanka Morde</div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#00d4ff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px">Founder &amp; Director</div>
       <p style="color:#a0bdd0;font-size:.99rem;line-height:1.8;text-align:left;margin:0">An automation engineer with over 13+ years of hands-on experience in Siemens PLC systems, machine vision, and IIoT architectures. Passionate about bringing AI to the factory floor.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00d4ff;border:1px solid rgba(0,212,255,.25);border-radius:100px;padding:5px 12px">Siemens Certified</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00d4ff;border:1px solid rgba(0,212,255,.25);border-radius:100px;padding:5px 12px">Siemens-Trained Engineers</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#a97bff;border:1px solid rgba(123,47,255,.3);border-radius:100px;padding:5px 12px">AI / ML</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#00ff88;border:1px solid rgba(0,255,136,.25);border-radius:100px;padding:5px 12px">IIoT Expert</span>
       </div>
@@ -393,7 +696,7 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);overflow:hidden;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(0,212,255,.3)">
         <div style="height:190px;background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1));overflow:hidden">
-          <img src="images/team-priyanka.png" alt="Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="images/team-priyanka.jpg" alt="Priyanka Morde" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div style="padding:24px">
           <h4 style="font-weight:800;font-size:1rem;margin:0 0 4px">Priyanka Morde</h4>
@@ -403,7 +706,7 @@
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);overflow:hidden;transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(0,212,255,.3)">
         <div style="height:190px;background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(123,47,255,.1));overflow:hidden">
-          <img src="images/team-amrut.png" alt="Amrut Dhappadhule" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="images/team-amrut.jpg" alt="Amrut Dhappadhule" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div style="padding:24px">
           <h4 style="font-weight:800;font-size:1rem;margin:0 0 4px">Amrut Dhappadhule</h4>
@@ -430,12 +733,12 @@
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">01</div>
-        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">Siemens Certified</h4>
+        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">Siemens-Trained Engineers</h4>
         <p style="font-size:.88rem;color:#4a6a8a;line-height:1.7;margin:0">TIA Portal &amp; SIMATIC certified engineers on every project.</p>
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#00d4ff;letter-spacing:.16em;margin-bottom:14px">02</div>
-        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">IATF 16949 Ready</h4>
+        <h4 style="font-weight:700;font-size:.95rem;margin:0 0 8px">IATF 16949-Aligned Processes</h4>
         <p style="font-size:.88rem;color:#4a6a8a;line-height:1.7;margin:0">Processes aligned to automotive quality management standards.</p>
       </div>
       <div style="border-radius:20px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);padding:32px 24px">
