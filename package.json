@@ -6,19 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm run lint && npm run test"
   },
   "dependencies": {
-    "next": "14.2.5",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "framer-motion": "11.3.8"
+    "next": "15.5.4",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "zod": "3.25.76"
   },
   "devDependencies": {
-    "tailwindcss": "3.4.6",
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.40",
-    "eslint": "8.57.0",
-    "eslint-config-next": "14.2.5"
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.27.0",
+    "eslint-config-next": "15.5.4",
+    "playwright": "1.52",
+    "postcss": "8.5.3",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.8.3",
+    "vitest": "3.1.4"
   }
 }
