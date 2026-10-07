@@ -8,7 +8,7 @@ const fails = [];
 
 for (const route of ROUTES) {
   const page = await ctx.newPage();
-  await page.goto('http://127.0.0.1:3100' + route, { waitUntil: 'load' });
+  await page.goto('http://127.0.0.1:3200' + route, { waitUntil: 'load' });
   await page.waitForTimeout(400);
   const bad = await page.evaluate(() => {
     const lum = (rgb) => {

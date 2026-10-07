@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 const EXE = process.env.CHROMIUM_PATH;
-const BASE = 'http://127.0.0.1:3100';
+const BASE = 'http://127.0.0.1:3200';
 const b = await chromium.launch(EXE ? { executablePath: EXE, args: ['--no-sandbox','--disable-dev-shm-usage'] } : {});
 
 for (const route of ['/', '/solutions/ai-vision-inspection', '/contact']) {
