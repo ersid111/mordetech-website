@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
 
-const BASE = "http://127.0.0.1:3100";
+const BASE = "http://127.0.0.1:3200";
 const EXE = process.env.CHROMIUM_PATH;
 
 const ROUTES = [

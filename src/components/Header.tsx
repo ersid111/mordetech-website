@@ -12,7 +12,14 @@ export function Header() {
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   // Close on route change so the menu never persists across navigation.
-  useEffect(() => setOpen(false), [pathname]);
+  // Adjusted during render rather than in an effect: setting state inside an
+  // effect would commit the open menu first and then close it, which React
+  // flags as a cascading render.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   // Escape closes and returns focus to the control that opened it.
   useEffect(() => {
