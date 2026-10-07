@@ -1,8 +1,1 @@
-{
-  "version": 2,
-  "name": "mordetech-solutions",
-  "framework": null,
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "cleanUrls": true
-}
+{ "framework": "nextjs" }
