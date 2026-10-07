@@ -33,7 +33,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         ])}
       />
 
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead as="h1" eyebrow={c.sector} title={c.title} />
         <dl className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl">
           <div>
@@ -65,7 +65,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <ul className="mt-8 space-y-4 max-w-prose">
           {c.solution.map((s) => (
             <li key={s} className="flex gap-3 text-ink-soft">
-              <span aria-hidden="true" className="text-lime-deep">✓</span>
+              <span aria-hidden="true" className="text-blue-deep">✓</span>
               <span>{s}</span>
             </li>
           ))}
@@ -78,7 +78,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {metrics.map((m) => (
               <div key={m.label} className="rounded-card border border-paper-edge bg-paper-raised p-6">
-                <p className="font-display text-step-3 text-lime-deep m-0">{m.value}</p>
+                <p className="font-display text-step-3 text-copper m-0">{m.value}</p>
                 <p className="mt-1.5 text-ink-soft m-0">{m.label}</p>
                 <p className="mt-3 font-mono text-[0.7rem] text-ink-muted m-0">Source: {m.source}</p>
               </div>

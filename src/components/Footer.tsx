@@ -15,7 +15,7 @@ export function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.svg" alt="" width={28} height={28} />
               <span className="font-display font-extrabold text-[1.1rem]">
-                Morde<span className="text-lime">Tech</span>
+                Morde<span className="text-blue-light">Tech</span>
               </span>
             </div>
             <p className="mt-3 text-step--1 text-ink-invert/65 max-w-[34ch]">
@@ -23,18 +23,18 @@ export function Footer() {
             </p>
             <address className="mt-5 not-italic text-step--1 text-ink-invert/65 space-y-1.5">
               <div>{site.address.locality}, {site.address.city}, {site.address.region}, {site.address.countryName}</div>
-              <div><a href={site.phoneHref} className="hover:text-lime">{site.phone}</a></div>
-              <div><a href={`mailto:${site.email}`} className="hover:text-lime break-all">{site.email}</a></div>
+              <div><a href={site.phoneHref} className="hover:text-blue-light">{site.phone}</a></div>
+              <div><a href={`mailto:${site.email}`} className="hover:text-blue-light break-all">{site.email}</a></div>
             </address>
           </div>
 
           {Object.entries(footerNav).map(([heading, links]) => (
             <nav key={heading} aria-label={heading}>
-              <h2 className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-lime">{heading}</h2>
+              <h2 className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-blue-light">{heading}</h2>
               <ul className="mt-3.5 space-y-2">
                 {links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-step--1 text-ink-invert/70 hover:text-lime">
+                    <Link href={l.href} className="text-step--1 text-ink-invert/70 hover:text-blue-light">
                       {l.label}
                     </Link>
                   </li>
@@ -49,9 +49,9 @@ export function Footer() {
             © {year} {site.legalName}. Founded by {site.people.founder.name}.
           </p>
           <div className="flex flex-wrap gap-5 text-step--1">
-            <Link href="/privacy" className="text-ink-invert/65 hover:text-lime">Privacy</Link>
-            <Link href="/terms" className="text-ink-invert/65 hover:text-lime">Terms</Link>
-            <a href={whatsappHref(WA_DEFAULT)} target="_blank" rel="noopener noreferrer" className="text-ink-invert/65 hover:text-lime">
+            <Link href="/privacy" className="text-ink-invert/65 hover:text-blue-light">Privacy</Link>
+            <Link href="/terms" className="text-ink-invert/65 hover:text-blue-light">Terms</Link>
+            <a href={whatsappHref(WA_DEFAULT)} target="_blank" rel="noopener noreferrer" className="text-ink-invert/65 hover:text-blue-light">
               WhatsApp
             </a>
           </div>

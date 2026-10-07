@@ -11,7 +11,7 @@ export const metadata = pageMeta({
 export default function TermsPage() {
   return (
     <>
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead as="h1" eyebrow="Legal" title="Terms of Service" />
         <p className="mt-4 font-mono text-[0.76rem] text-ink-invert/55 m-0">Last updated: October 2026</p>
       </Section>
@@ -41,7 +41,7 @@ export default function TermsPage() {
           <p>These terms are governed by the laws of India, subject to the exclusive jurisdiction of the courts of {site.address.city}, {site.address.region}.</p>
 
           <h2 className="text-step-2 text-ink">8. Contact</h2>
-          <p><a href={`mailto:${site.email}`} className="text-steel underline">{site.email}</a> · <a href={site.phoneHref} className="text-steel underline">{site.phone}</a></p>
+          <p><a href={`mailto:${site.email}`} className="text-blue-deep underline">{site.email}</a> · <a href={site.phoneHref} className="text-blue-deep underline">{site.phone}</a></p>
         </div>
       </Section>
     </>

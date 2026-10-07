@@ -16,7 +16,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Case Studies', path: '/case-studies' }])} />
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="Selected work"
@@ -29,9 +29,9 @@ export default function CaseStudiesPage() {
         <div className="grid gap-6">
           {caseStudies.map((c) => (
             <article key={c.slug} className="rounded-card border border-paper-edge bg-paper-raised p-7">
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-lime-deep m-0">{c.sector}</p>
+              <p className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-blue-deep m-0">{c.sector}</p>
               <h2 className="mt-2.5 text-step-3">
-                <Link href={`/case-studies/${c.slug}`} className="text-ink hover:text-lime-deep transition-colors">
+                <Link href={`/case-studies/${c.slug}`} className="text-ink hover:text-blue-deep transition-colors">
                   {c.title}
                 </Link>
               </h2>

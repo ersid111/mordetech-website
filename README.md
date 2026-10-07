@@ -84,6 +84,25 @@ You already have a Formspree account — `legacy/careers.html` posts to form
 `xlgoyvzn`. Create a second form there for sales enquiries so applications and
 leads stay separate, and use its URL here.
 
+## Design system
+
+Tokens live in `tailwind.config.ts`; components never hardcode a hex value.
+
+| Token | Use |
+|---|---|
+| `ground` / `ground-raised` / `ground-edge` | Deep navy foundation for dark sections |
+| `paper` / `paper-raised` / `paper-edge` | Light surfaces for reading |
+| `ink` / `ink-soft` / `ink-muted` / `ink-invert` | Text, in descending emphasis |
+| `blue` | The single accent. `blue` fills, `blue-deep` is text-safe on paper, `blue-light` on navy |
+| `copper` | Figures and data only — never chrome. `copper-light` on navy |
+| `signal-ok` / `signal-warn` / `signal-crit` | State, kept separate from the accent |
+
+Type: Archivo (display), Source Sans 3 (body), IBM Plex Mono (data labels), all
+self-hosted at build time by `next/font`.
+
+Every token combination used for text is verified against WCAG AA by
+`tools/qa/contrast.mjs`. Changing a colour means re-running it.
+
 ## Replacing the hero visual
 
 `src/components/HeroVisual.tsx` draws an inline SVG: a process signal settling

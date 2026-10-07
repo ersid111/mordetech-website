@@ -27,7 +27,7 @@ export default function SupportPage() {
         ]}
       />
 
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="Support"

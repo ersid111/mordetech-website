@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])} />
 
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="About"
@@ -49,7 +49,7 @@ export default function AboutPage() {
           <div className="space-y-5">
             <Card>
               <h3 className="text-step-2">{site.people.founder.name}</h3>
-              <p className="font-mono text-[0.74rem] text-lime-deep mt-1 m-0">{site.people.founder.role}</p>
+              <p className="font-mono text-[0.74rem] text-blue-deep mt-1 m-0">{site.people.founder.role}</p>
               <p className="mt-3 text-ink-soft m-0">
                 Founded MordeTech in {site.founded} after years in industrial automation, having seen
                 how often good engineering fails at adoption rather than at design.
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </Card>
             <Card>
               <h3 className="text-step-2">{site.people.engineeringLead.name}</h3>
-              <p className="font-mono text-[0.74rem] text-lime-deep mt-1 m-0">{site.people.engineeringLead.role}</p>
+              <p className="font-mono text-[0.74rem] text-blue-deep mt-1 m-0">{site.people.engineeringLead.role}</p>
               <p className="mt-3 text-ink-soft m-0">
                 Leads the software side: edge collection, vision pipelines, dashboards and the
                 integrations that connect them to the control layer.

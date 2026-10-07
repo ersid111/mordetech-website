@@ -39,7 +39,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         ])}
       />
 
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead as="h1" eyebrow="Industry" title={i.title} lede={i.summary} />
         <div className="mt-8"><Button href="/contact">Book a Plant Assessment</Button></div>
       </Section>
@@ -49,7 +49,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {i.pressures.map((p) => (
             <li key={p} className="flex gap-3 rounded-card border border-paper-edge bg-paper-raised p-5">
-              <span aria-hidden="true" className="font-mono text-lime-deep">—</span>
+              <span aria-hidden="true" className="font-mono text-blue-deep">—</span>
               <span className="text-ink-soft">{p}</span>
             </li>
           ))}
@@ -74,13 +74,13 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <p className="mt-5 text-ink-soft">{i.constraints}</p>
         </div>
         <div className="mt-10">
-          <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-lime-deep">Related solutions</h3>
+          <h3 className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-blue-deep">Related solutions</h3>
           <div className="mt-4 flex flex-wrap gap-3">
             {solutions.map((s) => (
               <Link
                 key={s.slug}
                 href={`/solutions/${s.slug}`}
-                className="rounded-card border border-paper-edge bg-paper-raised px-4 py-2.5 font-display text-[0.9rem] font-bold text-steel hover:border-lime-deep"
+                className="rounded-card border border-paper-edge bg-paper-raised px-4 py-2.5 font-display text-[0.9rem] font-bold text-blue-deep hover:border-blue-deep"
               >
                 {s.nav}
               </Link>

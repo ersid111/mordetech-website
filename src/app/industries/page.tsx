@@ -14,7 +14,7 @@ export default function IndustriesPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Industries', path: '/industries' }])} />
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="Industries"
@@ -29,9 +29,9 @@ export default function IndustriesPage() {
             <Link
               key={i.slug}
               href={`/industries/${i.slug}`}
-              className="group rounded-card border border-paper-edge bg-paper-raised p-6 transition-colors hover:border-lime-deep"
+              className="group rounded-card border border-paper-edge bg-paper-raised p-6 transition-colors hover:border-blue-deep"
             >
-              <h2 className="text-step-2 group-hover:text-lime-deep transition-colors">{i.title}</h2>
+              <h2 className="text-step-2 group-hover:text-blue-deep transition-colors">{i.title}</h2>
               <p className="mt-2.5 text-ink-soft m-0">{i.summary}</p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {i.pressures.slice(0, 2).map((p) => (

@@ -60,7 +60,7 @@ export function Header() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo.svg" alt="" width={30} height={30} className="block" />
           <span className="font-display font-extrabold text-[1.2rem] tracking-tight text-ink-invert">
-            Morde<span className="text-lime">Tech</span>
+            Morde<span className="text-blue-light">Tech</span>
           </span>
         </Link>
 
@@ -71,8 +71,8 @@ export function Header() {
                 <Link
                   href={item.href}
                   aria-current={isCurrent(item.href) ? 'page' : undefined}
-                  className={`font-mono text-[0.76rem] uppercase tracking-[0.1em] transition-colors hover:text-lime ${
-                    isCurrent(item.href) ? 'text-lime' : 'text-ink-invert/65'
+                  className={`font-mono text-[0.76rem] uppercase tracking-[0.1em] transition-colors hover:text-blue-light ${
+                    isCurrent(item.href) ? 'text-blue-light' : 'text-ink-invert/65'
                   }`}
                 >
                   {item.label}
@@ -85,7 +85,7 @@ export function Header() {
         <div className="hidden lg:block shrink-0">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-card bg-lime px-4 py-2.5 font-display text-[0.86rem] font-bold text-ground hover:bg-lime/90 transition-colors"
+            className="inline-flex items-center rounded-card bg-blue px-4 py-2.5 font-display text-[0.86rem] font-bold text-white hover:bg-blue/90 transition-colors"
           >
             Book a Plant Assessment
           </Link>
@@ -100,7 +100,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
         >
           <span className="font-mono text-[0.72rem] uppercase tracking-[0.1em]">{open ? 'Close' : 'Menu'}</span>
-          <span aria-hidden="true" className="text-lime">{open ? '✕' : '☰'}</span>
+          <span aria-hidden="true" className="text-blue-light">{open ? '✕' : '☰'}</span>
         </button>
       </div>
 
@@ -114,7 +114,7 @@ export function Header() {
                     href={item.href}
                     aria-current={isCurrent(item.href) ? 'page' : undefined}
                     className={`block py-3.5 font-display text-[1.05rem] ${
-                      isCurrent(item.href) ? 'text-lime' : 'text-ink-invert'
+                      isCurrent(item.href) ? 'text-blue-light' : 'text-ink-invert'
                     }`}
                   >
                     {item.label}
@@ -124,7 +124,7 @@ export function Header() {
             </ul>
             <Link
               href="/contact"
-              className="mt-5 inline-flex w-full items-center justify-center rounded-card bg-lime px-4 py-3.5 font-display font-bold text-ground"
+              className="mt-5 inline-flex w-full items-center justify-center rounded-card bg-blue px-4 py-3.5 font-display font-bold text-white"
             >
               Book a Plant Assessment
             </Link>
