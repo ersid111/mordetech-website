@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Barlow', system-ui, sans-serif;
+    --font-body: 'Source Sans 3', system-ui, sans-serif;
+    --font-mono: 'DM Mono', ui-monospace, monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
+
+  body { @apply bg-paper text-ink font-body antialiased; }
+  h1, h2, h3, h4 { @apply font-display font-bold tracking-tight; text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  /* Anchor targets clear the sticky header instead of hiding behind it. */
+  [id] { scroll-margin-top: 6rem; }
+
+  /* Visible focus everywhere, not just where a component remembered to add it. */
+  :focus-visible { @apply outline-none ring-2 ring-lime-deep ring-offset-2 ring-offset-paper rounded-sm; }
+  .on-dark :focus-visible { @apply ring-lime ring-offset-ground; }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-shell px-5 sm:px-8; }
+  .eyebrow { @apply font-mono text-[0.72rem] uppercase tracking-[0.18em] text-lime-deep; }
+  .on-dark .eyebrow { @apply text-lime; }
+  .lede { @apply text-step-1 text-ink-soft max-w-prose; }
+  .on-dark .lede { @apply text-ink-invert/75; }
+
+  /* Ghost buttons appear on both grounds. Declared once here rather than
+     branching in the component, so neither context can be forgotten. */
+  .btn-ghost { @apply border border-ink-muted text-ink-soft hover:text-ink hover:border-ink; }
+  .on-dark .btn-ghost { @apply border-ink-invert/45 text-ink-invert hover:text-lime hover:border-lime; }
+}
