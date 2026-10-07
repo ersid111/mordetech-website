@@ -1,5 +1,5 @@
 import { chromium, devices } from 'playwright';
-const BASE = "http://127.0.0.1:3200";
+const BASE = "http://127.0.0.1:3400";
 const EXE = process.env.CHROMIUM_PATH;
 const browser = await chromium.launch(EXE ? { executablePath: EXE, args: ['--no-sandbox','--disable-dev-shm-usage'] } : {});
 const fails = [];

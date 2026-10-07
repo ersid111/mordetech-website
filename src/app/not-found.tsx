@@ -17,7 +17,7 @@ export default function NotFound() {
         <ul className="mt-7 flex flex-wrap gap-3 list-none p-0">
           {primaryNav.map((n) => (
             <li key={n.href}>
-              <Link href={n.href} className="inline-flex rounded-card border border-ground-edge px-4 py-2.5 font-display text-[0.9rem] font-bold text-ink-invert hover:border-lime hover:text-lime">
+              <Link href={n.href} className="inline-flex rounded-card border border-ground-edge px-4 py-2.5 font-display text-[0.9rem] font-bold text-ink-invert hover:border-blue-light hover:text-blue-light">
                 {n.label}
               </Link>
             </li>

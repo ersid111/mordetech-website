@@ -29,7 +29,7 @@ export default function ContactPage() {
         ]}
       />
 
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="Get in touch"
@@ -44,22 +44,22 @@ export default function ContactPage() {
 
           <aside className="space-y-5">
             <div className="rounded-card border border-paper-edge bg-paper-raised p-6">
-              <h2 className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-lime-deep m-0">Direct</h2>
+              <h2 className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-blue-deep m-0">Direct</h2>
               <ul className="mt-4 space-y-3.5 m-0 list-none p-0">
                 <li>
-                  <a href={site.phoneHref} className="font-display text-[1.1rem] font-bold text-ink hover:text-lime-deep">
+                  <a href={site.phoneHref} className="font-display text-[1.1rem] font-bold text-ink hover:text-blue-deep">
                     {site.phone}
                   </a>
                   <p className="text-step--1 text-ink-muted m-0">Phone and WhatsApp</p>
                 </li>
                 <li>
-                  <a href={`mailto:${site.email}`} className="text-steel underline break-all">{site.email}</a>
+                  <a href={`mailto:${site.email}`} className="text-blue-deep underline break-all">{site.email}</a>
                   <p className="text-step--1 text-ink-muted m-0">Email</p>
                 </li>
                 <li>
                   <a href={whatsappHref('Hello MordeTech — I would like to arrange a plant assessment.')}
                      target="_blank" rel="noopener noreferrer"
-                     className="inline-flex items-center rounded-card bg-steel px-4 py-2.5 font-display text-[0.9rem] font-bold text-white hover:bg-steel/90">
+                     className="inline-flex items-center rounded-card bg-ground px-4 py-2.5 font-display text-[0.9rem] font-bold text-white hover:bg-ground-raised">
                     Message on WhatsApp
                   </a>
                 </li>
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-card border border-paper-edge bg-paper-raised p-6">
-              <h2 className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-lime-deep m-0">Office</h2>
+              <h2 className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-blue-deep m-0">Office</h2>
               <address className="mt-3 not-italic text-ink-soft">
                 {site.legalName}<br />
                 {site.address.locality}<br />
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <details key={f.q} className="group py-4">
               <summary className="cursor-pointer list-none font-display text-[1.05rem] font-bold flex justify-between gap-4">
                 {f.q}
-                <span aria-hidden="true" className="text-lime-deep transition-transform group-open:rotate-45">+</span>
+                <span aria-hidden="true" className="text-blue-deep transition-transform group-open:rotate-45">+</span>
               </summary>
               <p className="mt-3 text-ink-soft m-0">{f.a}</p>
             </details>

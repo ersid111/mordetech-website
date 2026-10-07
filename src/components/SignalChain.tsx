@@ -18,9 +18,9 @@ export function SignalChain() {
         {STAGES.map((s, i) => (
           <li key={s.n} className="bg-ground-raised p-5 flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[0.7rem] text-lime">{s.n}</span>
+              <span className="font-mono text-[0.7rem] text-blue-light">{s.n}</span>
               {i < STAGES.length - 1 && (
-                <span aria-hidden="true" className="hidden lg:block h-px flex-1 bg-lime/30" />
+                <span aria-hidden="true" className="hidden lg:block h-px flex-1 bg-blue/30" />
               )}
             </div>
             <h3 className="mt-3 font-display text-[1rem] text-ink-invert">{s.title}</h3>

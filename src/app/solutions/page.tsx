@@ -14,7 +14,7 @@ export default function SolutionsPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Solutions', path: '/solutions' }])} />
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead
           as="h1"
           eyebrow="Solutions"
@@ -29,11 +29,11 @@ export default function SolutionsPage() {
             <article key={s.slug} className="rounded-card border border-paper-edge bg-paper-raised p-7">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <h2 className="text-step-3">
-                  <Link href={`/solutions/${s.slug}`} className="text-ink hover:text-lime-deep transition-colors">
+                  <Link href={`/solutions/${s.slug}`} className="text-ink hover:text-blue-deep transition-colors">
                     {s.title}
                   </Link>
                 </h2>
-                <p className="font-mono text-[0.76rem] text-lime-deep m-0">{s.outcome}</p>
+                <p className="font-mono text-[0.76rem] text-blue-deep m-0">{s.outcome}</p>
               </div>
               <p className="mt-3 text-ink-soft max-w-prose">{s.summary}</p>
               <ul className="mt-5 flex flex-wrap gap-2">

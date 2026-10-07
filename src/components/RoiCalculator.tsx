@@ -75,7 +75,7 @@ export function RoiCalculator() {
                 step={f.step ?? '1'}
                 value={raw[f.key]}
                 onChange={(e) => onChange(f.key, e.target.value)}
-                className="mt-2 w-full rounded-card border border-paper-edge bg-paper-raised px-3.5 py-2.5 text-ink focus-visible:border-lime-deep"
+                className="mt-2 w-full rounded-card border border-paper-edge bg-paper-raised px-3.5 py-2.5 text-ink focus-visible:border-blue-deep"
               />
             </div>
           ))}
@@ -92,7 +92,7 @@ export function RoiCalculator() {
         <div aria-live="polite" aria-atomic="true">
           {result ? (
             <>
-              <p className="mt-2 font-display text-step-4 text-lime-deep m-0">
+              <p className="mt-2 font-display text-step-4 text-copper m-0">
                 {formatInr(result.annualSaving)}
               </p>
               <dl className="mt-5 space-y-2 text-step--1">
@@ -108,7 +108,7 @@ export function RoiCalculator() {
 
         {result && (
           <details className="mt-6">
-            <summary className="cursor-pointer font-mono text-[0.72rem] uppercase tracking-[0.1em] text-steel">
+            <summary className="cursor-pointer font-mono text-[0.72rem] uppercase tracking-[0.1em] text-blue-deep">
               Assumptions used
             </summary>
             <ul className="mt-3 space-y-1.5 text-step--1 text-ink-soft">
@@ -128,7 +128,7 @@ export function RoiCalculator() {
           href={whatsappHref('Hello MordeTech — I used the ROI calculator and would like to discuss a vision proof of concept.')}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center justify-center rounded-card bg-steel px-5 py-3 font-display text-[0.92rem] font-bold text-white hover:bg-steel/90"
+          className="mt-5 inline-flex items-center justify-center rounded-card bg-ground px-5 py-3 font-display text-[0.92rem] font-bold text-white hover:bg-ground-raised"
         >
           Discuss a proof of concept
         </a>

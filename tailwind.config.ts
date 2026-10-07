@@ -10,16 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ground: { DEFAULT: '#10161D', raised: '#19222B', edge: '#243039' },
-        paper: { DEFAULT: '#F4F5F2', raised: '#FFFFFF', edge: '#DDE1DB' },
-        // muted is darkened from #6B7A84, which measured 4.05:1 on paper — below AA.
-        ink: { DEFAULT: '#131A20', soft: '#39464F', muted: '#5C6971', invert: '#E8EDEF' },
-        // Single accent, from machine guarding and hi-vis workwear.
-        // `deep` is the text-safe lime: the bright accent measures 2.89:1 on paper,
-        // so it is used for fills and on dark grounds only, never for body text.
-        lime: { DEFAULT: '#B4DE28', deep: '#5A7005', wash: '#F0F7D8' },
-        steel: { DEFAULT: '#3E6E8E', light: '#7FB2D0', wash: '#E6EEF3' },
-        signal: { ok: '#3C6B45', warn: '#A8630A', crit: '#A32018' },
+        // Deep navy foundation. Reads as engineering and scale rather than
+        // startup; the restraint is what makes it feel global.
+        ground: { DEFAULT: '#0A1826', raised: '#11263A', edge: '#1D3348' },
+        paper: { DEFAULT: '#F7F8FA', raised: '#FFFFFF', edge: '#DDE3EA' },
+        ink: { DEFAULT: '#0F1C28', soft: '#33424F', muted: '#5A6875', invert: '#E9EEF3' },
+        // One accent. `DEFAULT` is the fill (white on it measures 5.98:1),
+        // `deep` is the text-safe variant on paper, `light` the variant on navy.
+        blue: { DEFAULT: '#0B62BF', deep: '#0A56A8', light: '#7FB4F0', wash: '#E8F0FA' },
+        // Copper is reserved for figures and data labels, never for chrome.
+        copper: { DEFAULT: '#8A4F20', light: '#E0A271', wash: '#F8EFE6' },
+        signal: { ok: '#2F6B46', warn: '#8A5A12', crit: '#9B2420' },
       },
       fontFamily: {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],

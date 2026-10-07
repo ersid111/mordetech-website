@@ -15,7 +15,7 @@ export default function GlobalError({ reset }: { error: Error & { digest?: strin
         <div className="mt-8 flex flex-wrap gap-3">
           <button
             onClick={reset}
-            className="inline-flex items-center rounded-card bg-lime px-5 py-3 font-display font-bold text-ground hover:bg-lime/90"
+            className="inline-flex items-center rounded-card bg-blue px-5 py-3 font-display font-bold text-white hover:bg-blue/90"
           >
             Try again
           </button>

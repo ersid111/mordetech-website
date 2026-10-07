@@ -36,7 +36,7 @@ export default function HomePage() {
       <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }])} />
 
       {/* Hero */}
-      <section className="on-dark bg-ground text-ink-invert border-b-[3px] border-lime">
+      <section className="on-dark bg-ground text-ink-invert border-b-[3px] border-blue-light">
         <div className="shell py-20 sm:py-28 grid items-center gap-14 lg:grid-cols-[1.08fr_1fr]">
           <div>
           <p className="eyebrow m-0">Industrial automation &amp; Industry 4.0 · {site.address.city}, India</p>
@@ -87,12 +87,12 @@ export default function HomePage() {
             <Link
               key={s.slug}
               href={`/solutions/${s.slug}`}
-              className="group rounded-card border border-paper-edge bg-paper p-6 transition-colors hover:border-lime-deep"
+              className="group rounded-card border border-paper-edge bg-paper p-6 transition-colors hover:border-blue-deep"
             >
-              <h3 className="text-step-2 group-hover:text-lime-deep transition-colors">{s.nav}</h3>
-              <p className="mt-1.5 font-mono text-[0.76rem] text-lime-deep m-0">{s.outcome}</p>
+              <h3 className="text-step-2 group-hover:text-blue-deep transition-colors">{s.nav}</h3>
+              <p className="mt-1.5 font-mono text-[0.76rem] text-blue-deep m-0">{s.outcome}</p>
               <p className="mt-3 text-ink-soft m-0">{s.summary}</p>
-              <p className="mt-4 font-display text-[0.9rem] font-bold text-steel m-0">Read more →</p>
+              <p className="mt-4 font-display text-[0.9rem] font-bold text-blue-deep m-0">Read more →</p>
             </Link>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function HomePage() {
             <Link
               key={i.slug}
               href={`/industries/${i.slug}`}
-              className="rounded-card border border-paper-edge bg-paper-raised p-5 transition-colors hover:border-lime-deep"
+              className="rounded-card border border-paper-edge bg-paper-raised p-5 transition-colors hover:border-blue-deep"
             >
               <h3 className="font-display text-[1.05rem]">{i.nav}</h3>
               <p className="mt-2 text-step--1 text-ink-soft m-0">{i.summary}</p>
@@ -144,12 +144,12 @@ export default function HomePage() {
             <Link
               key={c.slug}
               href={`/case-studies/${c.slug}`}
-              className="rounded-card border border-paper-edge bg-paper p-6 transition-colors hover:border-lime-deep"
+              className="rounded-card border border-paper-edge bg-paper p-6 transition-colors hover:border-blue-deep"
             >
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-lime-deep m-0">{c.sector}</p>
+              <p className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-blue-deep m-0">{c.sector}</p>
               <h3 className="mt-2.5 font-display text-[1.08rem] leading-snug">{c.title}</h3>
               <p className="mt-3 text-step--1 text-ink-soft m-0 line-clamp-4">{c.challenge}</p>
-              <p className="mt-4 font-display text-[0.9rem] font-bold text-steel m-0">Read the case →</p>
+              <p className="mt-4 font-display text-[0.9rem] font-bold text-blue-deep m-0">Read the case →</p>
             </Link>
           ))}
         </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
         <ol className="mt-10 grid gap-px bg-paper-edge sm:grid-cols-2 lg:grid-cols-5 rounded-card overflow-hidden border border-paper-edge">
           {DELIVERY.map((d) => (
             <li key={d.n} className="bg-paper-raised p-5">
-              <span className="font-mono text-[0.7rem] text-lime-deep">{d.n}</span>
+              <span className="font-mono text-[0.7rem] text-blue-deep">{d.n}</span>
               <h3 className="mt-2.5 font-display text-[1rem]">{d.title}</h3>
               <p className="mt-2 text-step--1 text-ink-soft m-0">{d.body}</p>
             </li>
@@ -188,7 +188,7 @@ export default function HomePage() {
             <Button href={whatsappHref('Hello MordeTech — I would like to arrange a plant assessment.')} variant="secondary" external>
               WhatsApp the team
             </Button>
-            <a href={site.phoneHref} className="inline-flex items-center px-5 py-3 font-display text-[0.95rem] font-bold text-ink-invert/80 hover:text-lime">
+            <a href={site.phoneHref} className="inline-flex items-center px-5 py-3 font-display text-[0.95rem] font-bold text-ink-invert/80 hover:text-blue-light">
               {site.phone}
             </a>
           </div>

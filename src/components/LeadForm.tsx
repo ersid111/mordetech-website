@@ -8,7 +8,7 @@ import { solutions } from '@/content/solutions';
 type Status = 'idle' | 'submitting' | 'sent' | 'error';
 
 const FIELD =
-  'w-full rounded-card border border-paper-edge bg-paper-raised px-3.5 py-2.5 text-ink placeholder:text-ink-muted/70 focus-visible:border-lime-deep';
+  'w-full rounded-card border border-paper-edge bg-paper-raised px-3.5 py-2.5 text-ink placeholder:text-ink-muted/70 focus-visible:border-blue-deep';
 
 export function LeadForm() {
   const [status, setStatus] = useState<Status>('idle');
@@ -134,7 +134,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="inline-flex items-center justify-center rounded-card bg-lime px-6 py-3.5 font-display font-bold text-ground hover:bg-lime/90 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="inline-flex items-center justify-center rounded-card bg-blue px-6 py-3.5 font-display font-bold text-white hover:bg-blue/90 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === 'submitting' ? 'Sending…' : 'Request a plant assessment'}
       </button>
@@ -142,8 +142,8 @@ export function LeadForm() {
       <p className="text-step--1 text-ink-muted m-0">
         Prefer to talk?{' '}
         <a href={whatsappHref('Hello MordeTech — I would like to arrange a plant assessment.')}
-           target="_blank" rel="noopener noreferrer" className="text-steel underline">WhatsApp us</a>{' '}
-        or call <a href={site.phoneHref} className="text-steel underline">{site.phone}</a>.
+           target="_blank" rel="noopener noreferrer" className="text-blue-deep underline">WhatsApp us</a>{' '}
+        or call <a href={site.phoneHref} className="text-blue-deep underline">{site.phone}</a>.
       </p>
     </form>
   );

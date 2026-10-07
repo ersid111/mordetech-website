@@ -29,8 +29,8 @@ export function Button({
   const base =
     'inline-flex items-center justify-center rounded-card px-5 py-3 font-display text-[0.95rem] font-bold transition-colors';
   const styles = {
-    primary: 'bg-lime text-ground hover:bg-lime/90',
-    secondary: 'bg-steel text-white hover:bg-steel/90',
+    primary: 'bg-blue text-white hover:bg-blue/90',
+    secondary: 'bg-ground text-white hover:bg-ground-raised',
     ghost: 'btn-ghost',
   }[variant];
 

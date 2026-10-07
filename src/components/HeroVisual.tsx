@@ -28,34 +28,34 @@ export function HeroVisual() {
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="presentation" focusable="false">
         <defs>
           <linearGradient id="trace" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#3E6E8E" />
-            <stop offset="58%" stopColor="#7FB2D0" />
-            <stop offset="100%" stopColor="#B4DE28" />
+            <stop offset="0%" stopColor="#2F4F6E" />
+            <stop offset="58%" stopColor="#5B9DE8" />
+            <stop offset="100%" stopColor="#7FB4F0" />
           </linearGradient>
           <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
-            <path d="M26 0H0V26" fill="none" stroke="#243039" strokeWidth="1" />
+            <path d="M26 0H0V26" fill="none" stroke="#1D3348" strokeWidth="1" />
           </pattern>
         </defs>
 
         <rect width={W} height={H} fill="url(#grid)" />
 
         {/* Tolerance band: the window the process is meant to stay inside. */}
-        <rect x="0" y={mid - 16} width={W} height="32" fill="#B4DE28" opacity="0.07" />
-        <line x1="0" y1={mid - 16} x2={W} y2={mid - 16} stroke="#B4DE28" strokeWidth="1" strokeDasharray="4 5" opacity="0.5" />
-        <line x1="0" y1={mid + 16} x2={W} y2={mid + 16} stroke="#B4DE28" strokeWidth="1" strokeDasharray="4 5" opacity="0.5" />
+        <rect x="0" y={mid - 16} width={W} height="32" fill="#E0A271" opacity="0.08" />
+        <line x1="0" y1={mid - 16} x2={W} y2={mid - 16} stroke="#E0A271" strokeWidth="1" strokeDasharray="4 5" opacity="0.45" />
+        <line x1="0" y1={mid + 16} x2={W} y2={mid + 16} stroke="#E0A271" strokeWidth="1" strokeDasharray="4 5" opacity="0.45" />
 
         <polyline points={points.join(' ')} fill="none" stroke="url(#trace)" strokeWidth="2.25" strokeLinejoin="round" strokeLinecap="round" />
 
         {/* The moment the correction lands. */}
-        <line x1={(46 / 104) * W} y1="26" x2={(46 / 104) * W} y2={H - 26} stroke="#B4DE28" strokeWidth="1" opacity="0.45" />
-        <circle cx={(46 / 104) * W} cy={mid} r="4" fill="#B4DE28" />
-        <circle cx={W - 6} cy={mid} r="3.5" fill="#B4DE28" />
+        <line x1={(46 / 104) * W} y1="26" x2={(46 / 104) * W} y2={H - 26} stroke="#E0A271" strokeWidth="1" opacity="0.4" />
+        <circle cx={(46 / 104) * W} cy={mid} r="4" fill="#E0A271" />
+        <circle cx={W - 6} cy={mid} r="3.5" fill="#E0A271" />
       </svg>
 
       <div className="mt-4 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ink-invert/45">
-        <span><span className="text-lime">—</span> Process signal</span>
-        <span><span className="text-lime">▮</span> Tolerance band</span>
-        <span><span className="text-lime">|</span> Correction applied</span>
+        <span><span className="text-blue-light">—</span> Process signal</span>
+        <span><span className="text-blue-light">▮</span> Tolerance band</span>
+        <span><span className="text-blue-light">|</span> Correction applied</span>
       </div>
     </div>
   );

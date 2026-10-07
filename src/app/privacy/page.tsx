@@ -12,7 +12,7 @@ export default function PrivacyPage() {
   const updated = 'October 2026';
   return (
     <>
-      <Section dark className="border-b-[3px] border-lime">
+      <Section dark className="border-b-[3px] border-blue-light">
         <SectionHead as="h1" eyebrow="Legal" title="Privacy Policy" />
         <p className="mt-4 font-mono text-[0.76rem] text-ink-invert/55 m-0">Last updated: {updated}</p>
       </Section>
@@ -36,13 +36,13 @@ export default function PrivacyPage() {
           <p>Enquiry correspondence is kept for as long as it is commercially relevant, and deleted on request.</p>
 
           <h2 className="text-step-2 text-ink">6. Your rights</h2>
-          <p>You may ask what we hold about you, ask for it to be corrected or deleted, and withdraw consent at any time. Email <a href={`mailto:${site.email}`} className="text-steel underline">{site.email}</a>.</p>
+          <p>You may ask what we hold about you, ask for it to be corrected or deleted, and withdraw consent at any time. Email <a href={`mailto:${site.email}`} className="text-blue-deep underline">{site.email}</a>.</p>
 
           <h2 className="text-step-2 text-ink">7. Customer production data</h2>
           <p>This policy covers the website. Production and process data from systems we build is governed by the agreement for that project: it stays within your facility unless you specifically ask for it to be sent elsewhere, and it remains yours throughout.</p>
 
           <h2 className="text-step-2 text-ink">8. Contact</h2>
-          <p>{site.legalName}, {site.address.locality}, {site.address.city}, {site.address.region}, {site.address.countryName}. <a href={`mailto:${site.email}`} className="text-steel underline">{site.email}</a> · <a href={site.phoneHref} className="text-steel underline">{site.phone}</a></p>
+          <p>{site.legalName}, {site.address.locality}, {site.address.city}, {site.address.region}, {site.address.countryName}. <a href={`mailto:${site.email}`} className="text-blue-deep underline">{site.email}</a> · <a href={site.phoneHref} className="text-blue-deep underline">{site.phone}</a></p>
         </div>
       </Section>
     </>
