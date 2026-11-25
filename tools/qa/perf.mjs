@@ -1,7 +1,6 @@
-import { chromium } from 'playwright';
-const EXE = process.env.CHROMIUM_PATH;
-const BASE = 'http://127.0.0.1:3400';
-const b = await chromium.launch(EXE ? { executablePath: EXE, args: ['--no-sandbox','--disable-dev-shm-usage'] } : {});
+import { launch } from './browser.mjs';
+const BASE = 'http://127.0.0.1:3500';
+const b = await launch();
 
 for (const route of ['/', '/solutions/ai-vision-inspection', '/contact']) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });

@@ -43,3 +43,42 @@
   .btn-ghost { @apply border border-ink-muted text-ink-soft hover:text-ink hover:border-ink; }
   .on-dark .btn-ghost { @apply border-ink-invert/45 text-ink-invert hover:text-blue-light hover:border-blue-light; }
 }
+
+/* ---- Hero growth animation ----------------------------------------------
+   Lengths below are measured with tools/qa/pathlen.mjs and must stay >= the
+   longest path in each group, or the dash pattern repeats and the stroke
+   appears as broken segments. Strokes are drawn by animating dash offset; nodes scale in after the branch
+   that carries them. Runs once and stops: `forwards` holds the final state so
+   nothing loops in the corner of the reader's eye. */
+@layer components {
+  .growth .gt-draw {
+    stroke-dasharray: var(--len, 300);
+    stroke-dashoffset: var(--len, 300);
+    animation: gt-draw 1.1s cubic-bezier(.33, .7, .4, 1) forwards;
+  }
+  .growth .gt-floor { opacity: 0; animation: gt-fade .7s ease-out .05s forwards; }
+  .growth .gt-root   { --len: 95;  }
+  .growth .gt-trunk  { --len: 190; animation-duration: 1.5s; animation-delay: .5s; }
+  .growth .gt-branch { --len: 105; animation-duration: .85s; }
+  .growth .gt-crown  { --len: 82;  animation-duration: .8s;  animation-delay: 2.1s; }
+  .growth .gt-twig   { --len: 55;  animation-duration: .7s;  }
+
+  .growth .gt-node {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gt-pop .5s cubic-bezier(.2, .9, .3, 1.2) forwards;
+  }
+}
+
+@keyframes gt-draw { to { stroke-dashoffset: 0; } }
+@keyframes gt-fade { to { opacity: 1; } }
+@keyframes gt-pop  { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+
+/* Reduced motion: show the finished illustration, animate nothing. The global
+   rule below shortens durations, but these also need their start state undone,
+   or the drawing would simply never appear. */
+@media (prefers-reduced-motion: reduce) {
+  .growth .gt-draw { stroke-dashoffset: 0; animation: none; }
+  .growth .gt-node, .growth .gt-floor { opacity: 1; animation: none; }
+}
