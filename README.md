@@ -103,6 +103,29 @@ self-hosted at build time by `next/font`.
 Every token combination used for text is verified against WCAG AA by
 `tools/qa/contrast.mjs`. Changing a colour means re-running it.
 
+## The hero animation
+
+`src/components/GrowthTree.tsx` draws the plant's signal chain as a growing
+tree: roots are instruments on the machine, the trunk is control, branches are
+data moving, nodes are measurement points, and the copper mark at the crown is
+the result returned. The company logo is a tree with nodes on its branches, so
+this animates the mark rather than decorating around it.
+
+It is SVG and CSS with no JavaScript and no video — a few KB rather than several
+megabytes, sharp at any size, and impossible to block rendering. The sequence
+runs once over about four and a half seconds and then rests; nothing loops.
+Under `prefers-reduced-motion` the finished drawing is shown with no animation.
+
+Two things to know before editing it:
+
+- The trunk is a perfectly vertical line, so its gradient must use
+  `gradientUnits="userSpaceOnUse"`. A bounding-box gradient collapses on a
+  zero-width box and the stroke does not paint at all.
+- The `--len` values in `globals.css` must stay at or above the longest path in
+  each group, or the dash pattern repeats and the stroke draws in broken
+  segments. Measure them with `node tools/qa/pathlen.mjs` against a running
+  server after changing any path.
+
 ## Replacing the hero visual
 
 `src/components/HeroVisual.tsx` draws an inline SVG: a process signal settling

@@ -1,7 +1,6 @@
-import { chromium } from 'playwright';
+import { launch } from './browser.mjs';
 
-const BASE = "http://127.0.0.1:3400";
-const EXE = process.env.CHROMIUM_PATH;
+const BASE = "http://127.0.0.1:3500";
 
 const ROUTES = [
   '/', '/solutions', '/solutions/ai-vision-inspection', '/solutions/smart-automation',
@@ -13,9 +12,7 @@ const ROUTES = [
   '/about', '/support', '/contact', '/privacy', '/terms',
 ];
 
-const browser = await chromium.launch(
-  EXE ? { executablePath: EXE, args: ['--no-sandbox', '--disable-dev-shm-usage'] } : {},
-);
+const browser = await launch();
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 
 const problems = [];
@@ -73,21 +70,29 @@ for (const route of ROUTES) {
 }
 
 console.log('\n=== internal link audit ===');
+// fetch, not a browser page: a status and redirect check needs no DOM, and
+// opening a page per link is both slow and prone to hanging on redirects.
 let broken = 0;
 for (const href of [...internalLinks].sort()) {
   if (href.startsWith('/api')) continue;
-  const page = await ctx.newPage();
-  const resp = await page.goto(BASE + href, { waitUntil: 'commit' });
-  const landed = new URL(page.url()).pathname;
-  const status = resp?.status() ?? 0;
-  const ok = status === 200;
+  let status = 0;
+  let landed = href;
+  try {
+    const res = await fetch(BASE + href, { redirect: 'follow' });
+    status = res.status;
+    landed = new URL(res.url).pathname;
+  } catch (e) {
+    problems.push(`link ${href} -> fetch failed: ${e.message}`);
+    broken++;
+    console.log(`  BROKEN ${href} -> fetch failed`);
+    continue;
+  }
   const wentHome = landed === '/' && href !== '/';
-  if (!ok || wentHome) {
+  if (status !== 200 || wentHome) {
     broken++;
     console.log(`  BROKEN ${href} -> ${status} ${landed}`);
     problems.push(`link ${href} -> ${status} ${landed}`);
   }
-  await page.close();
 }
 console.log(`  ${internalLinks.size} unique internal links, ${broken} broken`);
 
@@ -100,24 +105,21 @@ for (const [from, to] of [
   ['/demo', '/solutions/industrial-iot-oee'],
   ['/news', '/about'],
 ]) {
-  const page = await ctx.newPage();
-  await page.goto(BASE + from, { waitUntil: 'commit' });
-  const landed = new URL(page.url()).pathname;
+  const res = await fetch(BASE + from, { redirect: 'follow' });
+  const landed = new URL(res.url).pathname;
   const ok = landed === to;
   console.log(`  ${ok ? 'ok  ' : 'FAIL'} ${from.padEnd(34)} -> ${landed}`);
   if (!ok) problems.push(`redirect ${from} landed on ${landed}, expected ${to}`);
-  await page.close();
 }
 
 console.log('\n=== 404 handling ===');
 {
-  const page = await ctx.newPage();
-  const resp = await page.goto(BASE + '/this-page-does-not-exist', { waitUntil: 'load' });
-  const body = await page.evaluate(() => document.body.innerText);
-  const ok = resp?.status() === 404 && /not here/i.test(body);
-  console.log(`  ${ok ? 'ok  ' : 'FAIL'} status=${resp?.status()} custom page=${/not here/i.test(body)}`);
+  const res = await fetch(BASE + '/this-page-does-not-exist');
+  const body = await res.text();
+  const custom = /not here/i.test(body);
+  const ok = res.status === 404 && custom;
+  console.log(`  ${ok ? 'ok  ' : 'FAIL'} status=${res.status} custom page=${custom}`);
   if (!ok) problems.push('404 page did not render correctly');
-  await page.close();
 }
 
 await browser.close();

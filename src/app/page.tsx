@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Section, SectionHead, Button, Card } from '@/components/ui';
 import { SignalChain } from '@/components/SignalChain';
-import { HeroVisual } from '@/components/HeroVisual';
+import { GrowthTree } from '@/components/GrowthTree';
 import { solutions } from '@/content/solutions';
 import { industries } from '@/content/industries';
 import { caseStudies } from '@/content/case-studies';
@@ -54,7 +54,7 @@ export default function HomePage() {
             Siemens PLC &amp; SCADA · AI vision inspection · OPC UA · MQTT · OEE · Predictive maintenance
           </p>
           </div>
-          <HeroVisual />
+          <GrowthTree />
         </div>
       </section>
 

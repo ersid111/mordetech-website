@@ -1,6 +1,5 @@
-import { chromium } from 'playwright';
-const EXE = process.env.CHROMIUM_PATH;
-const b = await chromium.launch(EXE ? { executablePath: EXE, args: ['--no-sandbox','--disable-dev-shm-usage'] } : {});
+import { launch } from './browser.mjs';
+const b = await launch();
 const ctx = await b.newContext({ viewport: { width: 1440, height: 1000 } });
 
 const ROUTES = ['/', '/solutions', '/solutions/ai-vision-inspection', '/industries', '/case-studies', '/contact', '/about', '/support'];
@@ -8,7 +7,7 @@ const fails = [];
 
 for (const route of ROUTES) {
   const page = await ctx.newPage();
-  await page.goto('http://127.0.0.1:3400' + route, { waitUntil: 'load' });
+  await page.goto('http://127.0.0.1:3500' + route, { waitUntil: 'load' });
   await page.waitForTimeout(400);
   const bad = await page.evaluate(() => {
     const lum = (rgb) => {

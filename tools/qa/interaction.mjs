@@ -1,7 +1,7 @@
-import { chromium, devices } from 'playwright';
-const BASE = "http://127.0.0.1:3400";
-const EXE = process.env.CHROMIUM_PATH;
-const browser = await chromium.launch(EXE ? { executablePath: EXE, args: ['--no-sandbox','--disable-dev-shm-usage'] } : {});
+import { launch } from './browser.mjs';
+import { devices } from 'playwright';
+const BASE = "http://127.0.0.1:3500";
+const browser = await launch();
 const fails = [];
 const check = (ok, label, detail = '') => {
   console.log(`  ${ok ? 'ok  ' : 'FAIL'} ${label}${detail ? '  — ' + detail : ''}`);
